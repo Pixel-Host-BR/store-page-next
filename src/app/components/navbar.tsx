@@ -27,7 +27,7 @@ export default function Navbar() {
     { name: 'ARK: Survival Evolved', popular: true, icon: <Gamepad2 className="h-4 w-4" /> },
     { name: 'DayZ', popular: false, icon: <Gamepad2 className="h-4 w-4" /> },
     { name: 'Palworld', popular: true, icon: <Gamepad2 className="h-4 w-4" /> },
-    { name: 'Rust', popular: false, icon: <Gamepad2 className="h-4 w-4" /> },
+    { name: 'MTA', popular: false, icon: <Gamepad2 className="h-4 w-4" /> },
   ]
 
   return (
