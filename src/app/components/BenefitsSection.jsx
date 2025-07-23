@@ -7,7 +7,7 @@ import {
   BookOpen, HelpCircle, Server, Globe, ChevronLeft, ChevronRight, Quote, PlusCircle, ChevronDown
 } from 'lucide-react'
 
-const TEST_IMAGE = 'https://www.allprodad.com/wp-content/uploads/2021/03/05-12-21-happy-people.jpg'
+const TEST_IMAGE = 'https://www.allprodad.com/wp-content/uploads/2021/03/05-12-21-happy-people.jpg' 
 
 const testimonials = [
   { name: 'ImLegend', country: 'BR', avatar: TEST_IMAGE, text: 'Suporte incrível, realizaram as divisões do servidor corretamente e em um curto espaço de tempo! Acho o suporte muito bom e eficiente no seu trabalho, agradeço muito pela ajuda.' },
@@ -110,15 +110,15 @@ export default function HeroBenefitsSection() {
 
   // Dados do restante do site (benefícios, recursos, jogos)
   const featuredGames = [
-    { name: 'Minecraft', icon: '🟩', players: '2.8M', description: 'Servidores de alta performance' },
-    { name: 'ARK: Survival', icon: '🦕', players: '890K', description: 'Evolução sem limites' },
-    { name: 'Palworld', icon: '🐾', players: '1.2M', description: 'A nova sensação' },
-    { name: 'DayZ', icon: '🧟', players: '450K', description: 'Sobrevivência intensa' },
+    { name: 'Minecraft', players: '1280', description: 'Servidores de alta performance' },
+    { name: 'ARK: Survival', players: '890', description: 'Evolução sem limites' },
+    { name: 'Palworld', players: '1200', description: 'A nova sensação' },
+    { name: 'DayZ', players: '4500', description: 'Sobrevivência intensa' },
   ]
   const benefits = [
     {
       title: 'Hardware Premium',
-      description: 'Processadores AMD de alto desempenho e armazenamento NVMe para máximo desempenho.',
+      description: 'Processadores AMD e Intel de alto desempenho e armazenamento NVMe para máximo desempenho.',
       icon: Rocket,
       accent: 'from-pink-500 to-purple-500',
     },
@@ -129,7 +129,7 @@ export default function HeroBenefitsSection() {
       accent: 'from-blue-500 to-cyan-500',
     },
     {
-      title: 'Suporte Especializado',
+      title: 'Suporte Técnico',
       description: 'Equipe técnica disponível 24/7 por chat, ticket ou Discord para auxiliar em qualquer necessidade.',
       icon: Headset,
       accent: 'from-green-500 to-emerald-500',
@@ -150,20 +150,20 @@ export default function HeroBenefitsSection() {
     },
     {
       title: 'Perguntas Frequentes',
-      description: 'Dúvidas comuns respondidas de forma clara e objetiva.',
+      description: 'Dúvidas comuns respondidas de forma clara e objetiva para facilitar seu uso.',
       icon: HelpCircle,
       color: 'bg-purple-500/20 text-purple-400'
     },
     {
       title: 'Status do Servidor',
-      description: 'Acompanhe em tempo real a disponibilidade dos nossos serviços.',
+      description: 'Acompanhe em tempo real a disponibilidade dos nossos serviços para maior transparência e confiança.',
       icon: Server,
       color: 'bg-yellow-500/20 text-yellow-400'
     },
     {
-      title: 'Criador de Subdomínio',
-      description: 'Personalize o endereço do seu servidor com facilidade.',
-      icon: Globe,
+      title: 'Atendimento humano',
+      description: 'Especialistas prontos para ajudar com qualquer dúvida ou problema que você tenha.',
+      icon: Headset,
       color: 'bg-green-500/20 text-green-400'
     },
   ]
@@ -201,11 +201,11 @@ export default function HeroBenefitsSection() {
               </div>
               <div className="flex items-center space-x-2">
                 <Users className="h-4 w-4 text-blue-400" />
-                <span className="text-sm text-gray-400">5M+ Jogadores</span>
+                <span className="text-sm text-gray-400">4k+ Jogadores</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Zap className="h-4 w-4 text-yellow-400" />
-                <span className="text-sm text-gray-400">Deploy &lt; 60s</span>
+                <span className="text-sm text-gray-400">Ativação &lt; 90s</span>
               </div>
             </div>
             <div className="flex flex-col sm:flex-row gap-4">
@@ -269,7 +269,7 @@ export default function HeroBenefitsSection() {
                   <div className="bg-gradient-to-r from-green-400 to-blue-500 h-2 rounded-full w-[98%] transition-all duration-1000"></div>
                 </div>
               </div>
-              <button className="w-full py-3 bg-gradient-to-r from-green-500 to-blue-500 hover:from-green-600 hover:to-blue-600 text-white font-semibold rounded-lg transition-all duration-300 hover:scale-105">
+              <button className="w-full py-3 bg-gradient-to-r from-indigo-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white font-semibold rounded-lg transition-all duration-300 hover:scale-105">
                 Criar Servidor
               </button>
             </div>
@@ -302,7 +302,7 @@ export default function HeroBenefitsSection() {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white">
-            Por que escolher nossos servidores?
+            Por que escolher <span className='bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent'>nossos servidores?</span>
           </h2>
           <p className="mt-4 max-w-2xl mx-auto text-gray-400 text-base sm:text-lg">
             Descubra como oferecemos estabilidade, segurança e suporte incomparáveis para o seu projeto.
@@ -328,7 +328,7 @@ export default function HeroBenefitsSection() {
         {/* RECURSOS */}
         <div className="text-center mb-12">
           <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4">
-            Recursos de Hospedagem de Servidores
+            Recursos de Hospedagem de <span className='bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent'> Servidores</span>
           </h3>
           <p className="text-gray-400 max-w-2xl mx-auto mb-10">
             Temos muitos recursos excelentes para orientar sua jornada de hospedagem de servidores de jogos.
@@ -358,7 +358,7 @@ export default function HeroBenefitsSection() {
             </p>
             <a
               href="/painel"
-              className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-lg shadow hover:from-blue-700 hover:to-purple-700 transition-all duration-200"
+              className="inline-flex items-center text px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-lg shadow hover:from-blue-700 hover:to-purple-700 transition-all duration-200"
             >
               Acessar Painel de Controle
             </a>
@@ -369,7 +369,7 @@ export default function HeroBenefitsSection() {
       {/* DEPOIMENTOS EM GRID INTERATIVO */}
       <div className="max-w-5xl mx-auto text-center py-24">
         <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-4">
-          O que estão falando de nós?
+          O que estão <span className='bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent'>falando de nós?</span> 
         </h2>
         <p className="text-gray-400 mb-12">
           Um pouco de nossos clientes por aqui

@@ -1,15 +1,26 @@
 'use client'
 
-import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { Menu, X, ChevronDown, Gamepad2, Server, Shield, Clock } from 'lucide-react'
+import { useState, useEffect } from 'react'
+import {
+  Menu,
+  X,
+  ChevronDown,
+  Gamepad2,
+  Server,
+  Shield,
+  Clock,
+  Tag,
+  Info,
+  ArrowRightToLine,
+  ArrowBigDown
+} from 'lucide-react'
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isGamesDropdownOpen, setIsGamesDropdownOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
 
-  // Detectar scroll para navbar glassmorphism
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10)
@@ -24,10 +35,10 @@ export default function Navbar() {
 
   const games = [
     { name: 'Minecraft', popular: true, icon: <Server className="h-4 w-4" /> },
-    { name: 'ARK: Survival Evolved', popular: true, icon: <Gamepad2 className="h-4 w-4" /> },
-    { name: 'DayZ', popular: false, icon: <Gamepad2 className="h-4 w-4" /> },
-    { name: 'Palworld', popular: true, icon: <Gamepad2 className="h-4 w-4" /> },
-    { name: 'MTA', popular: false, icon: <Gamepad2 className="h-4 w-4" /> },
+    { name: 'ARK: Survival Evolved', popular: true, icon: <Server className="h-4 w-4" /> },
+    { name: 'DayZ', popular: false, icon: <Server className="h-4 w-4" /> },
+    { name: 'Palworld', popular: true, icon: <Server className="h-4 w-4" /> },
+    { name: 'Mta', popular: false, icon: <Server className="h-4 w-4" /> },
   ]
 
   return (
@@ -38,16 +49,17 @@ export default function Navbar() {
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          {/* Logo */}
+          {/* Logo Responsiva */}
           <div className="flex-shrink-0 flex items-center">
             <Link href="/" className="flex items-center space-x-2">
               <div className="relative">
-                <Server className="h-8 w-8 text-blue-500" />
+                <img
+                  src="https://i.imgur.com/fW0kcfF.png"
+                  alt="Logo PixelHost"
+                  className="h-6 w-auto md:h-8"
+                />
                 <div className="absolute -top-1 -right-1 w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
               </div>
-              <span className="text-xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
-                Pixel Host
-              </span>
             </Link>
           </div>
 
@@ -133,13 +145,14 @@ export default function Navbar() {
             </div>
           </div>
 
-          {/* CTA Button & Mobile menu button */}
+          {/* CTA Button Desktop & Mobile menu button */}
           <div className="flex items-center space-x-4">
+            {/* Botão Desktop - ESTILIZAÇÃO MOBILE APLICADA */}
             <Link 
               href="/painel" 
-              className="hidden sm:inline-flex items-center space-x-2 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-4 py-2 rounded-md text-sm font-medium transition-all duration-200 shadow-lg hover:shadow-xl"
+              className="hidden sm:flex items-center justify-center space-x-2 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-4 py-3 rounded-lg text-sm font-medium text-center w-full max-w-xs transition-all duration-200 shadow-lg hover:shadow-xl"
             >
-              <Clock className="h-4 w-4" />
+              <ArrowRightToLine  className="h-4 w-4" />
               <span>Painel de Controle</span>
             </Link>
             
@@ -155,12 +168,13 @@ export default function Navbar() {
 
       {/* Mobile Navigation */}
       <div className={`md:hidden transition-all duration-300 ease-in-out ${
-        isMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-      } overflow-hidden bg-gray-900/95 backdrop-blur-md border-t border-gray-800/50`}>
-        <div className="px-2 pt-2 pb-3 space-y-1">
+        isMenuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
+      } overflow-y-auto bg-gray-900/95 backdrop-blur-md border-t border-gray-800/50`}>
+        <div className="px-2 pt-2 pb-4 space-y-1">
           <Link 
             href="/" 
             className="text-gray-300 hover:text-white hover:bg-gray-800/50 block px-3 py-2 rounded-md text-base font-medium transition-all duration-200"
+            onClick={() => setIsMenuOpen(false)}
           >
             Início
           </Link>
@@ -177,6 +191,7 @@ export default function Navbar() {
                   key={index}
                   href={`/games/${game.name.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
                   className="flex items-center space-x-2 p-2 text-sm text-gray-300 hover:text-white hover:bg-gray-800/50 rounded-md transition-all duration-200"
+                  onClick={() => setIsMenuOpen(false)}
                 >
                   <span>{game.icon}</span>
                   <span className="truncate">{game.name}</span>
@@ -187,14 +202,17 @@ export default function Navbar() {
           
           <Link 
             href="/precos" 
-            className="text-gray-300 hover:text-white hover:bg-gray-800/50 block px-3 py-2 rounded-md text-base font-medium transition-all duration-200"
+            className="text-gray-300 hover:text-white hover:bg-gray-800/50 block px-3 py-2 rounded-md text-base font-medium transition-all duration-200 flex items-center space-x-2"
+            onClick={() => setIsMenuOpen(false)}
           >
-            Preços
+            <Tag className="h-4 w-4" />
+            <span>Preços</span>
           </Link>
           
           <Link 
             href="/suporte" 
             className="text-gray-300 hover:text-white hover:bg-gray-800/50 block px-3 py-2 rounded-md text-base font-medium transition-all duration-200 flex items-center space-x-2"
+            onClick={() => setIsMenuOpen(false)}
           >
             <Shield className="h-4 w-4" />
             <span>Suporte</span>
@@ -202,18 +220,24 @@ export default function Navbar() {
           
           <Link 
             href="/sobre" 
-            className="text-gray-300 hover:text-white hover:bg-gray-800/50 block px-3 py-2 rounded-md text-base font-medium transition-all duration-200"
+            className="text-gray-300 hover:text-white hover:bg-gray-800/50 block px-3 py-2 rounded-md text-base font-medium transition-all duration-200 flex items-center space-x-2"
+            onClick={() => setIsMenuOpen(false)}
           >
-            Sobre
+            <Info className="h-4 w-4" />
+            <span>Sobre</span>
           </Link>
           
-          <Link 
-            href="/painel" 
-            className="bg-gradient-to-r from-blue-600 to-purple-600 text-white block px-3 py-2 rounded-md text-base font-medium mt-4 text-center transition-all duration-200 flex items-center justify-center space-x-2"
-          >
-            <Clock className="h-4 w-4" />
-            <span>Painel de Controle</span>
-          </Link>
+          {/* Botão Painel Mobile - MANTIDO IGUAL */}
+          <div className="pt-4 border-t border-gray-700/50 mt-4">
+            <Link 
+              href="/painel"
+              className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white block px-4 py-3 rounded-lg text-base font-medium text-center w-full flex items-center justify-center space-x-2 shadow-lg hover:shadow-xl transition-all duration-200"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              <ArrowRightToLine  className="h-4 w-4" />
+              <span>Painel de Controle</span>
+            </Link>
+          </div>
         </div>
       </div>
     </nav>
