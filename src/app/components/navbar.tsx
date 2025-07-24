@@ -54,7 +54,7 @@ export default function Navbar() {
             <Link href="/" className="flex items-center space-x-2">
               <div className="relative">
                 <img
-                  src="https://i.imgur.com/fW0kcfF.png"
+                  src="https://i.imgur.com/Hl1hshd.png"
                   alt="Logo PixelHost"
                   className="h-6 w-auto md:h-8"
                 />
@@ -62,7 +62,6 @@ export default function Navbar() {
               </div>
             </Link>
           </div>
-
           {/* Desktop Navigation */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-8">

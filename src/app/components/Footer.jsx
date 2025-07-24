@@ -39,7 +39,15 @@ export default function Footer() {
       <div className="flex flex-wrap justify-between px-[7vw] py-10 gap-10">
         {/* Branding + sociais */}
         <div className="min-w-[180px]">
-          <div className="bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent text-xl ">PixelHost</div>
+          <div className="flex-shrink-0 flex justify-start ">
+                        <div className="relative">
+                          <img
+                            src="https://i.imgur.com/Hl1hshd.png"
+                            alt="Logo PixelHost"
+                            className="h-6 w-auto md:h-8"
+                          />
+                        </div>
+                    </div>
           
           <p className="text-[14px] text-gray-400 mb-1">© 2025 PixelHost, Inc.</p>
 

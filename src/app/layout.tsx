@@ -8,18 +8,18 @@ import { ReactNode } from 'react';
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html>
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-        />
+    <>
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      />
       <body className="bg-site">
         <Navbar />
         <main className="pt-16">
           {children}
         </main>
-         <Footer />
+        <Footer />
       </body>
-    </html>
+    </>
   )
 }
