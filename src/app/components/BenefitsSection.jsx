@@ -110,10 +110,10 @@ export default function HeroBenefitsSection() {
 
   // Dados do restante do site (benefícios, recursos, jogos)
   const featuredGames = [
-    { name: 'Minecraft', players: '1280', description: 'Servidores de alta performance' },
-    { name: 'ARK: Survival', players: '890', description: 'Evolução sem limites' },
-    { name: 'Palworld', players: '1200', description: 'A nova sensação' },
-    { name: 'DayZ', players: '4500', description: 'Sobrevivência intensa' },
+    { name: 'Minecraft', description: 'Servidores de alta performance' },
+    { name: 'ARK: Survival', description: 'Evolução sem limites' },
+    { name: 'Palworld',  description: 'A nova sensação' },
+    { name: 'DayZ',  description: 'Sobrevivência intensa' },
   ]
   const benefits = [
     {
