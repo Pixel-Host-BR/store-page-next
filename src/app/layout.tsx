@@ -3,6 +3,7 @@ import './globals.css'
 import Navbar from '../app/components/navbar'
 import BenefitsSection from '../app/components/BenefitsSection'
 import Footer from '../app/components/Footer';
+import Script from 'next/script'
 
 import { ReactNode } from 'react';
 
@@ -21,6 +22,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           {children}
         </main>
         <Footer />
+        <Script 
+          src="https://embed.tawk.to/68221a806e1d72190c2992dd/1ir2jf20l" 
+          strategy="afterInteractive" 
+          crossOrigin="anonymous" 
+        />
       </body>
   </html>
     </>
