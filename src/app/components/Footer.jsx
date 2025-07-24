@@ -25,7 +25,7 @@ export default function Footer() {
       <div className="bg-[#5e34e0] py-3 text-center font-medium text-[1.07rem]">
         Participe da nossa comunidade no Discord para novidades !
         <a
-          href="SEU_LINK_DO_DISCORD"
+          href="https://discord.gg/BBAPJyKUw7"
           target="_blank"
           rel="noopener"
           className="inline-block ml-4 bg-white text-[#367cf7] px-5 py-1.5 rounded-md font-bold hover:bg-[#eaeaea] transition"
@@ -81,8 +81,8 @@ export default function Footer() {
         <div className="min-w-[160px]">
           <h4 className="font-semibold mb-2">Sobre</h4>
           <ul className="text-[15px] space-y-1">
-            <li><a href="#" className="hover:underline hover:text-[#5e34e0]">Notícias</a></li>
-            <li><a href="#" className="hover:underline hover:text-[#5e34e0]">Status</a></li>
+            <li><a href="https://pixelhostbr.com/financeiro/index.php?rp=/announcements" className="hover:underline hover:text-[#5e34e0]">Notícias</a></li>
+            <li><a href="https://pixelhostbr.com/financeiro/serverstatus.php" className="hover:underline hover:text-[#5e34e0]">Status</a></li>
           </ul>
         </div>
 
@@ -95,7 +95,6 @@ export default function Footer() {
             <li><a href="#" className="hover:underline hover:text-[#5e34e0]">Hospedagem PalWorld</a></li>
             <li><a href="#" className="hover:underline hover:text-[#5e34e0]">Hospedagem DayZ</a></li>
             <li><a href="#" className="hover:underline hover:text-[#5e34e0]">Hospedagem Mta</a></li>
-            <li><a href="#" className="hover:underline hover:text-[#5e34e0]">Servidores customizados</a></li>
           </ul>
         </div>
 
@@ -103,7 +102,7 @@ export default function Footer() {
         <div className="min-w-[160px]">
           <h4 className="font-semibold mb-2">Recursos</h4>
           <ul className="text-[15px] space-y-1">
-            <li><a href="https://tawk.to/chat/68221a806e1d72190c2992dd/1ir2jf20l" className="hover:underline hover:text-[#5e34e0]">Central de Ajuda</a></li>
+            <li><a href="https://pixelohost.tawk.help/" className="hover:underline hover:text-[#5e34e0]">Central de Ajuda</a></li>
             <li><a href="https://tawk.to/chat/68221a806e1d72190c2992dd/1ir2jf20l" className="hover:underline hover:text-[#5e34e0]">Relatar problemas</a></li>
           </ul>
         </div>

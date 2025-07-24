@@ -39,6 +39,7 @@ export default function Navbar() {
     { name: 'DayZ', popular: false, icon: <Server className="h-4 w-4" /> },
     { name: 'Palworld', popular: true, icon: <Server className="h-4 w-4" /> },
     { name: 'Mta', popular: false, icon: <Server className="h-4 w-4" /> },
+    { name: 'Project Zomboid', popular: false, icon: <Server className="h-4 w-4" /> },
   ]
 
   return (
@@ -121,15 +122,10 @@ export default function Navbar() {
                 )}
               </div>
 
-              <Link 
-                href="/precos" 
-                className="flex items-center text-gray-300 hover:text-white hover:bg-gray-800/50 px-3 py-2 rounded-md text-sm font-medium transition-all duration-200"
-              >
-                Preços
-              </Link>
+              
               
               <Link 
-                href="/suporte" 
+                href="https://pixelohost.tawk.help/" 
                 className="text-gray-300 hover:text-white hover:bg-gray-800/50 px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 flex items-center space-x-1">
                 <span>Suporte</span>
               </Link>
@@ -147,10 +143,10 @@ export default function Navbar() {
           <div className="flex items-center space-x-4">
             {/* Botão Desktop - ESTILIZAÇÃO MOBILE APLICADA */}
             <Link 
-              href="/painel" 
-              className="hidden sm:flex items-center justify-center space-x-2 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-4 py-3 rounded-lg text-sm font-medium text-center w-full max-w-xs transition-all duration-200 shadow-lg hover:shadow-xl"
+              href="https://pixelhostbr.com/login.html" 
+              className="hidden sm:flex items-center justify-center space-x-2 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-4 py-3 rounded-lg text-sm font-medium text-center w-full max-w-xs transition-all duration-200 shadow-lg hover:shadow-xl hover:scale-105 flex items-center justify-center"
             >
-              <ArrowRightToLine  className="h-4 w-4" />
+              <ArrowRightToLine  className="h-4 w-4 group-hover:translate-x-1 transition-transform"/>
               <span>Painel de Controle</span>
             </Link>
             
@@ -228,11 +224,11 @@ export default function Navbar() {
           {/* Botão Painel Mobile - MANTIDO IGUAL */}
           <div className="pt-4 border-t border-gray-700/50 mt-4">
             <Link 
-              href="/painel"
+              href="https://pixelhostbr.com/login.html"
               className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white block px-4 py-3 rounded-lg text-base font-medium text-center w-full flex items-center justify-center space-x-2 shadow-lg hover:shadow-xl transition-all duration-200"
               onClick={() => setIsMenuOpen(false)}
             >
-              <ArrowRightToLine  className="h-4 w-4" />
+              <ArrowRightToLine  className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
               <span>Painel de Controle</span>
             </Link>
           </div>

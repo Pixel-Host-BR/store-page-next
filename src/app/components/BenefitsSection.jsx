@@ -209,19 +209,29 @@ export default function HeroBenefitsSection() {
               </div>
             </div>
             <div className="flex flex-col sm:flex-row gap-4">
-              <button className="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-lg transition-all duration-300 shadow-lg hover:shadow-blue-500/25 hover:scale-105">
+             <a
+               href="https://pixelhostbr.com/financeiro/index.php?rp=/store/hospedagem-minecraft"
+               target="_blank"
+               rel="noopener noreferrer"
+               className="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-lg transition-all duration-300 shadow-lg hover:shadow-blue-500/25 hover:scale-105 flex items-center justify-center"
+             >
                 <span className="flex items-center space-x-2">
                   <Play className="h-5 w-5" />
                   <span>Começar Agora</span>
                   <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </span>
-              </button>
-              <button className="group px-8 py-4 bg-gray-800/50 hover:bg-gray-700/50 text-white font-semibold rounded-lg border border-gray-600 hover:border-gray-500 transition-all duration-300 backdrop-blur-sm">
+             </a>
+              <a
+                className="group px-8 py-4 bg-gray-800/50 hover:bg-gray-700/50 text-white font-semibold rounded-lg border border-gray-600 hover:border-gray-500 transition-all duration-300 backdrop-blur-sm flex items-center justify-center"
+                href="https://pixelhostbr.com/financeiro/index.php?rp=/store/hospedagem-minecraft"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <span className="flex items-center space-x-2">
                   <Shield className="h-5 w-5 text-green-400" />
                   <span>Ver Planos</span>
                 </span>
-              </button>
+              </a>
             </div>
             <div className="flex items-center space-x-6 pt-4">
               {[...Array(5)].map((_, i) => (
