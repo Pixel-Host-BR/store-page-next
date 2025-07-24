@@ -12,9 +12,14 @@ import {
   Clock,
   Tag,
   Info,
-  ArrowRightToLine,
-  ArrowBigDown
+  ArrowRightToLine
 } from 'lucide-react'
+
+// Função simples para slugificação
+function slugify(name: string) {
+  return name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')
+  
+}
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -29,20 +34,20 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen)
-  }
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen)
 
+  // Lista de jogos, ordem igual ao print
   const games = [
     { name: 'Minecraft', popular: true, icon: <Server className="h-4 w-4" /> },
     { name: 'ARK: Survival Evolved', popular: true, icon: <Server className="h-4 w-4" /> },
-    { name: 'DayZ', popular: false, icon: <Server className="h-4 w-4" /> },
     { name: 'Palworld', popular: true, icon: <Server className="h-4 w-4" /> },
+    { name: 'DayZ', popular: false, icon: <Server className="h-4 w-4" /> },
     { name: 'Mta', popular: false, icon: <Server className="h-4 w-4" /> },
     { name: 'Project Zomboid', popular: false, icon: <Server className="h-4 w-4" /> },
   ]
 
   return (
+    
     <nav className={`fixed w-full top-0 z-50 transition-all duration-300 ${
       isScrolled 
         ? 'bg-gray-900/95 backdrop-blur-md shadow-lg border-b border-gray-800/50' 
@@ -50,55 +55,61 @@ export default function Navbar() {
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          {/* Logo Responsiva */}
+          {/* Logo */}
           <div className="flex-shrink-0 flex items-center">
-            <Link href="/" className="flex items-center space-x-2">
-              <div className="relative">
-                <img
-                  src="https://i.imgur.com/Hl1hshd.png"
-                  alt="Logo PixelHost"
-                  className="h-6 w-auto md:h-8"
-                />
-              </div>
+            <Link href="/" aria-label="Ir para Home" className="flex items-center space-x-2">
+              <img
+                src="https://i.imgur.com/Hl1hshd.png"
+                alt="Logo PixelHost"
+                className="h-6 w-auto md:h-8"
+              />
             </Link>
           </div>
+
           {/* Desktop Navigation */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-8">
-              <Link 
-                href="/" 
+              <Link
+                href="/"
                 className="flex items-center text-gray-300 hover:text-white hover:bg-gray-800/50 px-3 py-2 rounded-md text-sm font-medium transition-all duration-200"
+                aria-label="Ir para Home"
               >
                 Início
               </Link>
-              
+
               {/* Games Dropdown */}
               <div className="relative">
                 <button
                   onClick={() => setIsGamesDropdownOpen(!isGamesDropdownOpen)}
                   className="text-gray-300 hover:text-white hover:bg-gray-800/50 px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 flex items-center space-x-1"
+                  aria-haspopup="true"
+                  aria-expanded={isGamesDropdownOpen}
+                  aria-label="Abrir menu de jogos"
                 >
                   <span>Jogos</span>
                   <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${
                     isGamesDropdownOpen ? 'rotate-180' : ''
                   }`} />
                 </button>
-                
                 {isGamesDropdownOpen && (
-                  <div className="absolute left-0 mt-2 w-72 bg-gray-800/95 backdrop-blur-md rounded-lg shadow-xl border border-gray-700/50 overflow-hidden">
+                  <div className="absolute left-0 mt-2 w-72 bg-gray-800/95 backdrop-blur-md rounded-lg shadow-xl border border-gray-700/50 overflow-hidden"
+                    aria-label="Menu de jogos"
+                  >
                     <div className="p-2">
                       <div className="text-xs text-gray-400 uppercase tracking-wide mb-2 px-3">
                         Jogos Populares
                       </div>
-                      {games.filter(game => game.popular).map((game, index) => (
+                      {games.filter(g => g.popular).map((g, i) => (
                         <Link
-                          key={index}
-                          href={`/games/${game.name.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
+                          key={g.name}
+                          href={`/games/${slugify(g.name)}`}
                           className="flex items-center space-x-3 px-3 py-2 text-sm text-gray-300 hover:text-white hover:bg-gray-700/50 rounded-md transition-all duration-200"
+                          aria-label={`Ver página de ${g.name}`}
+                          onClick={() => setIsGamesDropdownOpen(false)}
                         >
-                          <span className="text-lg">{game.icon}</span>
-                          <span>{game.name}</span>
-                          <span className="ml-auto text-xs bg-blue-500/20 text-blue-400 px-2 py-1 rounded">
+                          <span className="text-lg">{g.icon}</span>
+                          <span>{g.name}</span>
+                          <span className="ml-auto text-xs bg-blue-500/20 text-blue-400 px-2 py-1 rounded select-none">
                             Popular
                           </span>
                         </Link>
@@ -107,14 +118,16 @@ export default function Navbar() {
                       <div className="text-xs text-gray-400 uppercase tracking-wide mb-2 px-3">
                         Outros Jogos
                       </div>
-                      {games.filter(game => !game.popular).map((game, index) => (
+                      {games.filter(g => !g.popular).map((g, i) => (
                         <Link
-                          key={index}
-                          href={`/games/${game.name.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
+                          key={g.name}
+                          href={`/games/${slugify(g.name)}`}
                           className="flex items-center space-x-3 px-3 py-2 text-sm text-gray-300 hover:text-white hover:bg-gray-700/50 rounded-md transition-all duration-200"
+                          aria-label={`Ver página de ${g.name}`}
+                          onClick={() => setIsGamesDropdownOpen(false)}
                         >
-                          <span className="text-lg">{game.icon}</span>
-                          <span>{game.name}</span>
+                          <span className="text-lg">{g.icon}</span>
+                          <span>{g.name}</span>
                         </Link>
                       ))}
                     </div>
@@ -122,37 +135,42 @@ export default function Navbar() {
                 )}
               </div>
 
-              
-              
-              <Link 
-                href="https://pixelohost.tawk.help/" 
-                className="text-gray-300 hover:text-white hover:bg-gray-800/50 px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 flex items-center space-x-1">
+              <Link
+                href="https://pixelohost.tawk.help/"
+                className="text-gray-300 hover:text-white hover:bg-gray-800/50 px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 flex items-center space-x-1"
+                aria-label="Central de Suporte"
+                target="_blank" rel="noopener noreferrer"
+              >
                 <span>Suporte</span>
               </Link>
-              
-              <Link 
-                href="/sobre" 
+
+              <Link
+                href="/sobre"
                 className="flex items-center text-gray-300 hover:text-white hover:bg-gray-800/50 px-3 py-2 rounded-md text-sm font-medium transition-all duration-200"
+                aria-label="Sobre a empresa"
               >
                 Sobre
               </Link>
             </div>
           </div>
 
-          {/* CTA Button Desktop & Mobile menu button */}
+          {/* CTA Desktop & Mobile menu button */}
           <div className="flex items-center space-x-4">
-            {/* Botão Desktop - ESTILIZAÇÃO MOBILE APLICADA */}
-            <Link 
-              href="https://pixelhostbr.com/login.html" 
-              className="hidden sm:flex items-center justify-center space-x-2 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-4 py-3 rounded-lg text-sm font-medium text-center w-full max-w-xs transition-all duration-200 shadow-lg hover:shadow-xl hover:scale-105 flex items-center justify-center"
+            {/* Botão Desktop */}
+            <Link
+              href="https://pixelhostbr.com/login.html"
+              className="hidden sm:flex items-center justify-center space-x-2 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-4 py-3 rounded-lg text-sm font-medium text-center w-full max-w-xs transition-all duration-200 shadow-lg hover:shadow-xl hover:scale-105"
+              aria-label="Ir para o painel de controle"
+              target="_blank" rel="noopener noreferrer"
             >
-              <ArrowRightToLine  className="h-4 w-4 group-hover:translate-x-1 transition-transform"/>
+              <ArrowRightToLine className="h-4 w-4 group-hover:translate-x-1 transition-transform"/>
               <span>Painel de Controle</span>
             </Link>
-            
-            <button 
+
+            <button
               onClick={toggleMenu}
               className="md:hidden inline-flex items-center justify-center p-2 rounded-md text-gray-300 hover:text-white hover:bg-gray-800/50 transition-all duration-200"
+              aria-label={isMenuOpen ? "Fechar menu navegação" : "Abrir menu navegação"}
             >
               {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
@@ -165,14 +183,15 @@ export default function Navbar() {
         isMenuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
       } overflow-y-auto bg-gray-900/95 backdrop-blur-md border-t border-gray-800/50`}>
         <div className="px-2 pt-2 pb-4 space-y-1">
-          <Link 
-            href="/" 
+          <Link
+            href="/"
             className="text-gray-300 hover:text-white hover:bg-gray-800/50 block px-3 py-2 rounded-md text-base font-medium transition-all duration-200"
+            aria-label="Ir para Home"
             onClick={() => setIsMenuOpen(false)}
           >
             Início
           </Link>
-          
+
           {/* Mobile Games Section */}
           <div className="px-3 py-2">
             <div className="text-gray-400 text-sm font-medium mb-2 flex items-center space-x-2">
@@ -180,55 +199,61 @@ export default function Navbar() {
               <span>Jogos Disponíveis</span>
             </div>
             <div className="grid grid-cols-2 gap-2 ml-4">
-              {games.map((game, index) => (
+              {games.map((g) => (
                 <Link
-                  key={index}
-                  href={`/games/${game.name.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
+                  key={g.name}
+                  href={`/games/${slugify(g.name)}`}
                   className="flex items-center space-x-2 p-2 text-sm text-gray-300 hover:text-white hover:bg-gray-800/50 rounded-md transition-all duration-200"
+                  aria-label={`Ver página de ${g.name}`}
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  <span>{game.icon}</span>
-                  <span className="truncate">{game.name}</span>
+                  <span>{g.icon}</span>
+                  <span className="truncate">{g.name}</span>
                 </Link>
               ))}
             </div>
           </div>
-          
-          <Link 
-            href="/precos" 
+
+          <Link
+            href="/precos"
             className="text-gray-300 hover:text-white hover:bg-gray-800/50 block px-3 py-2 rounded-md text-base font-medium transition-all duration-200 flex items-center space-x-2"
+            aria-label="Ver preços"
             onClick={() => setIsMenuOpen(false)}
           >
             <Tag className="h-4 w-4" />
             <span>Preços</span>
           </Link>
-          
-          <Link 
-            href="/suporte" 
+
+          <Link
+            href="/suporte"
             className="text-gray-300 hover:text-white hover:bg-gray-800/50 block px-3 py-2 rounded-md text-base font-medium transition-all duration-200 flex items-center space-x-2"
+            aria-label="Central de Suporte"
             onClick={() => setIsMenuOpen(false)}
           >
             <Shield className="h-4 w-4" />
             <span>Suporte</span>
           </Link>
-          
-          <Link 
-            href="/sobre" 
+
+          <Link
+            href="/sobre"
             className="text-gray-300 hover:text-white hover:bg-gray-800/50 block px-3 py-2 rounded-md text-base font-medium transition-all duration-200 flex items-center space-x-2"
+            aria-label="Sobre a empresa"
             onClick={() => setIsMenuOpen(false)}
           >
             <Info className="h-4 w-4" />
             <span>Sobre</span>
           </Link>
-          
-          {/* Botão Painel Mobile - MANTIDO IGUAL */}
+
+          {/* Botão Painel Mobile */}
           <div className="pt-4 border-t border-gray-700/50 mt-4">
-            <Link 
+            <Link
               href="https://pixelhostbr.com/login.html"
               className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white block px-4 py-3 rounded-lg text-base font-medium text-center w-full flex items-center justify-center space-x-2 shadow-lg hover:shadow-xl transition-all duration-200"
+              aria-label="Ir para o painel de controle"
+              target="_blank" rel="noopener noreferrer"
               onClick={() => setIsMenuOpen(false)}
             >
-              <ArrowRightToLine  className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+              <ArrowRightToLine className="h-4 w-4 group-hover:translate-x-1 transition-transform"/>
               <span>Painel de Controle</span>
             </Link>
           </div>
