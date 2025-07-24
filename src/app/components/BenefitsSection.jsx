@@ -227,7 +227,7 @@ export default function HeroBenefitsSection() {
               {[...Array(5)].map((_, i) => (
                 <Star key={i} className="h-4 w-4 text-yellow-400 fill-current" />
               ))}
-              <span className="text-sm text-gray-400 ml-2">4.9/5 (3.2k reviews)</span>
+              <span className="text-sm text-gray-400 ml-2">4.9/5</span>
             </div>
           </div>
           {/* Card de destaque de jogo */}
@@ -243,7 +243,6 @@ export default function HeroBenefitsSection() {
                 </div>
                 <div className="text-right">
                   <div className="text-2xl font-bold text-green-400">{featuredGames[currentGame].players}</div>
-                  <div className="text-xs text-gray-400">jogadores online</div>
                 </div>
               </div>
               <div className="grid grid-cols-3 gap-4 mb-6">
