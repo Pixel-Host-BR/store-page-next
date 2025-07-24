@@ -1,51 +1,33 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-/* Adicione estas classes ao seu globals.css para personalizar as cores */
-:root {
   --primary-blue: #3b82f6;
   --primary-purple: #8b5cf6;
   --accent-green: #10b981;
 }
-/* Background grid pattern */
 .bg-grid-white\/\[0\.02\] {
   background-image: 
     linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
 }
-
-/* Smooth animations */
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
   50% { transform: translateY(-10px); }
 }
-
 .animate-float {
   animation: float 3s ease-in-out infinite;
 }
-
-/* Glassmorphism effect enhancement */
 .backdrop-blur-xl {
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
 }
-
-
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #000;
     --foreground: #ededed;
   }
 }
-/* globals.css */
-
-/* 1. Defina o background global no body (ou no elemento root) */
 body {
-  /* Ajuste a imagem, gradiente ou padrão conforme seu design */
   background: 
     radial-gradient(circle at top left, rgba(120,200,255,0.1), transparent 50%),
     radial-gradient(circle at bottom right, rgba(255,120,200,0.1), transparent 50%),
@@ -54,14 +36,10 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
 }
-
-/* 2. Garanta que todas as seções sejam transparents para "deixar ver" o fundo global */
 nav,
 section {
   background: transparent !important;
 }
-
-/* 3. Caso use classes utilitárias do Tailwind, crie utilitários globais */
 @layer utilities {
   .bg-site {
     background-color: transparent !important;

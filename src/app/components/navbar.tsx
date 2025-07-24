@@ -58,7 +58,6 @@ export default function Navbar() {
                   alt="Logo PixelHost"
                   className="h-6 w-auto md:h-8"
                 />
-                <div className="absolute -top-1 -right-1 w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
               </div>
             </Link>
           </div>
