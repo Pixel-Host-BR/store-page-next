@@ -39,7 +39,7 @@ export default function Navbar() {
   // Lista de jogos, ordem igual ao print
   const games = [
     { name: 'Minecraft', popular: true, icon: <Server className="h-4 w-4" /> },
-    { name: 'ARK: Survival Evolved', popular: true, icon: <Server className="h-4 w-4" /> },
+    { name: 'ARK', popular: true, icon: <Server className="h-4 w-4" /> },
     { name: 'Palworld', popular: true, icon: <Server className="h-4 w-4" /> },
     { name: 'DayZ', popular: false, icon: <Server className="h-4 w-4" /> },
     { name: 'Mta', popular: false, icon: <Server className="h-4 w-4" /> },

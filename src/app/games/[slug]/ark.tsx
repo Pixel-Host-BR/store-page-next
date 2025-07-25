@@ -82,22 +82,22 @@ export default function ArkFeatures() {
 
   const plans = [
     {
-      name: 'Inicial',
-      price: '40/mês',
-      features: ['4GB RAM', '2 CPU Cores', '20GB SSD'],
+      name: 'Básico',
+      price: '50/mês',
+      features: ['5GB RAM', '2 CPU Cores', '20GB SSD'],
       grad: 'from-gray-800 via-gray-900 to-zinc-700',
       badge: null
     },
     {
-      name: 'Pro',
-      price: '60/mês',
+      name: 'Avançado',
+      price: '80/mês',
       features: ['8GB RAM', '4 CPU Cores', '40GB SSD'],
       grad: 'from-blue-900 via-blue-800 to-blue-900',
       badge: null
     },
     {
-      name: 'Elite',
-      price: '85/mês',
+      name: 'Premium',
+      price: '105/mês',
       features: ['16GB RAM', '6 CPU Cores', '80GB SSD'],
       grad: 'from-green-700 via-emerald-700 to-green-800',
       badge: (
@@ -108,9 +108,9 @@ export default function ArkFeatures() {
       )
     },
     {
-      name: 'Supremo',
-      price: '120/mês',
-      features: ['32GB RAM', '8 CPU Cores', '150GB SSD'],
+      name: 'Ultimate',
+      price: '160/mês',
+      features: ['26GB RAM', '8 CPU Cores', '150GB SSD'],
       grad: 'from-yellow-700 via-yellow-800 to-orange-800',
       badge: null
     }
@@ -149,7 +149,7 @@ export default function ArkFeatures() {
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
             <span className="text-white">Tudo o que seu servidor</span><br/>
             <span className="bg-gradient-to-r from-red-500 via-yellow-400 to-yellow-500 bg-clip-text text-transparent">
-              ARK: Survival Evolved precisa
+              de ARK precisa
             </span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
@@ -302,7 +302,7 @@ export default function ArkFeatures() {
                 {/* Links ajustados para exemplo */}
                 {idx === 0 && (
                   <a
-                    href="https://pixelhostbr.com/financeiro/index.php?rp=/store/hospedagem-ark/inicial"
+                    href="https://pixelhostbr.com/financeiro/index.php?rp=/store/hospedagem-ark/basico"
                     className="mt-auto bg-gradient-to-r from-yellow-400 to-yellow-600 text-white py-3 rounded-xl font-bold shadow-inner shadow-yellow-900/10 hover:from-yellow-500 hover:to-yellow-700 transition-all duration-200 flex justify-center"
                   >
                     Contratar
@@ -310,7 +310,7 @@ export default function ArkFeatures() {
                 )}
                 {idx === 1 && (
                   <a
-                    href="https://pixelhostbr.com/financeiro/index.php?rp=/store/hospedagem-ark/pro"
+                    href="https://pixelhostbr.com/financeiro/index.php?rp=/store/hospedagem-ark/avancado"
                     className="mt-auto bg-gradient-to-r from-yellow-600 to-yellow-800 text-white py-3 rounded-xl font-bold shadow-inner shadow-yellow-900/10 hover:from-yellow-700 hover:to-yellow-900 transition-all duration-200 flex justify-center"
                   >
                     Contratar
@@ -318,7 +318,7 @@ export default function ArkFeatures() {
                 )}
                 {idx === 2 && (
                   <a
-                    href="https://pixelhostbr.com/financeiro/index.php?rp=/store/hospedagem-ark/elite"
+                    href="https://pixelhostbr.com/financeiro/index.php?rp=/store/hospedagem-ark/premium"
                     className="mt-auto bg-gradient-to-r from-yellow-700 to-yellow-900 text-white py-3 rounded-xl font-bold shadow-inner shadow-yellow-900/10 hover:from-yellow-800 hover:to-yellow-950 transition-all duration-200 flex justify-center"
                   >
                     Contratar
@@ -326,7 +326,7 @@ export default function ArkFeatures() {
                 )}
                 {idx === 3 && (
                   <a
-                    href="https://pixelhostbr.com/financeiro/index.php?rp=/store/hospedagem-ark/supremo"
+                    href="https://pixelhostbr.com/financeiro/index.php?rp=/store/hospedagem-ark/plano-ultimate"
                     className="mt-auto bg-gradient-to-r from-yellow-800 to-yellow-950 text-white py-3 rounded-xl font-bold shadow-inner shadow-yellow-900/10 hover:from-yellow-900 hover:to-yellow-950 transition-all duration-200 flex justify-center"
                   >
                     Contratar

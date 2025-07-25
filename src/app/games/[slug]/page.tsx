@@ -1,14 +1,19 @@
 'use client'
+
 import Link from 'next/link'
-import React from 'react';
-import MinecraftFeatures from './MinecraftFeatures';
-import PalworldFetures from './PalworldFeatures';
-import ArkFeatures from './ArkFeatures'
+import React from 'react'
+import MinecraftFeatures from './MinecraftFeatures'
+import PalworldFeatures from './PalworldFeatures'
+import ArkFeatures from './ark'
 
+export default async function GamePage({
+  params,
+}: {
+  params: Promise<{ slug: string }>
+}) {
+  const { slug } = await params
 
-
-export default function GamePage({ params }: { params: { slug: string } }) {
-  if (params.slug === 'minecraft') {
+  if (slug === 'minecraft') {
     return (
       <main>
         <MinecraftFeatures />
@@ -16,10 +21,18 @@ export default function GamePage({ params }: { params: { slug: string } }) {
     )
   }
 
-  if (params.slug === 'palworld') {
+  if (slug === 'palworld') {
     return (
       <main>
-        <PalworldFetures />
+        <PalworldFeatures />
+      </main>
+    )
+  }
+
+  if (slug === 'ark') {
+    return (
+      <main>
+        <ArkFeatures />
       </main>
     )
   }
@@ -27,7 +40,7 @@ export default function GamePage({ params }: { params: { slug: string } }) {
   return (
     <main>
       <h1>Jogo não encontrado</h1>
-      <p>Conteúdo para o jogo "{params.slug}" não disponível.</p>
+      <p>Conteúdo para o jogo "{slug}" não disponível.</p>
     </main>
   )
 }
