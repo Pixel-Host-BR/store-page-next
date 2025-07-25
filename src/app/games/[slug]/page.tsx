@@ -8,6 +8,7 @@ import ArkFeatures from './ArkFeatures'
 
 
 export default function GamePage({ params }: { params: { slug: string } }) {
+  
   if (params.slug === 'minecraft') {
     return (
       <main>
