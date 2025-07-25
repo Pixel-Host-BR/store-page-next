@@ -302,7 +302,7 @@ export default function ArkFeatures() {
                 {/* Links ajustados para exemplo */}
                 {idx === 0 && (
                   <a
-                    href="https://pixelhostbr.com/financeiro/index.php?rp=/store/hospedagem-ark/basico"
+                    href="https://pixelhostbr.com/financeiro/index.php?rp=/store/ark-survival/basico"
                     className="mt-auto bg-gradient-to-r from-yellow-400 to-yellow-600 text-white py-3 rounded-xl font-bold shadow-inner shadow-yellow-900/10 hover:from-yellow-500 hover:to-yellow-700 transition-all duration-200 flex justify-center"
                   >
                     Contratar
@@ -310,7 +310,7 @@ export default function ArkFeatures() {
                 )}
                 {idx === 1 && (
                   <a
-                    href="https://pixelhostbr.com/financeiro/index.php?rp=/store/hospedagem-ark/avancado"
+                    href="https://pixelhostbr.com/financeiro/index.php?rp=/store/ark-survival/avancado"
                     className="mt-auto bg-gradient-to-r from-yellow-600 to-yellow-800 text-white py-3 rounded-xl font-bold shadow-inner shadow-yellow-900/10 hover:from-yellow-700 hover:to-yellow-900 transition-all duration-200 flex justify-center"
                   >
                     Contratar
@@ -318,7 +318,7 @@ export default function ArkFeatures() {
                 )}
                 {idx === 2 && (
                   <a
-                    href="https://pixelhostbr.com/financeiro/index.php?rp=/store/hospedagem-ark/premium"
+                    href="https://pixelhostbr.com/financeiro/index.php?rp=/store/ark-survival/premium"
                     className="mt-auto bg-gradient-to-r from-yellow-700 to-yellow-900 text-white py-3 rounded-xl font-bold shadow-inner shadow-yellow-900/10 hover:from-yellow-800 hover:to-yellow-950 transition-all duration-200 flex justify-center"
                   >
                     Contratar
@@ -326,7 +326,7 @@ export default function ArkFeatures() {
                 )}
                 {idx === 3 && (
                   <a
-                    href="https://pixelhostbr.com/financeiro/index.php?rp=/store/hospedagem-ark/plano-ultimate"
+                    href="https://pixelhostbr.com/financeiro/index.php?rp=/store/ark-survival/plano-ultimate"
                     className="mt-auto bg-gradient-to-r from-yellow-800 to-yellow-950 text-white py-3 rounded-xl font-bold shadow-inner shadow-yellow-900/10 hover:from-yellow-900 hover:to-yellow-950 transition-all duration-200 flex justify-center"
                   >
                     Contratar
@@ -345,7 +345,7 @@ export default function ArkFeatures() {
                 <span className="font-bold text-pink-400">Crie o seu plano!</span>
               </p> <br/><br/>
               <a
-                href="https://pixelhostbr.com/financeiro/index.php?rp=/store/hospedagem-ark/plano-personalizavel"
+                href="https://pixelhostbr.com/financeiro/index.php?rp=/store/ark-survival/plano-personalizavel"
                 className="bg-gradient-to-r from-purple-600 to-pink-600 text-white py-3 px-6 rounded-xl font-bold shadow-pink-600/20 transition-all duration-200 hover:from-purple-700 hover:to-pink-700 flex justify-center"
               >
                 Customizar

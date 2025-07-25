@@ -90,11 +90,11 @@ export default function Footer() {
         <div className="min-w-[160px]">
           <h4 className="font-semibold mb-2 ">Produtos</h4>
           <ul className="text-[15px] space-y-1">
-            <li><a href="#" className="hover:underline hover:text-[#5e34e0]">Hospedagem Minecraft</a></li>
-            <li><a href="#" className="hover:underline hover:text-[#5e34e0]">Hospedagem Ark</a></li>
-            <li><a href="#" className="hover:underline hover:text-[#5e34e0]">Hospedagem PalWorld</a></li>
-            <li><a href="#" className="hover:underline hover:text-[#5e34e0]">Hospedagem DayZ</a></li>
-            <li><a href="#" className="hover:underline hover:text-[#5e34e0]">Hospedagem Mta</a></li>
+            <li><a href="/games/minecraft" className="hover:underline hover:text-[#5e34e0]">Hospedagem Minecraft</a></li>
+            <li><a href="/games/ark" className="hover:underline hover:text-[#5e34e0]">Hospedagem Ark</a></li>
+            <li><a href="/games/palworld" className="hover:underline hover:text-[#5e34e0]">Hospedagem PalWorld</a></li>
+            <li><a href="/games/dayz" className="hover:underline hover:text-[#5e34e0]">Hospedagem DayZ</a></li>
+            <li><a href="/games/mta" className="hover:underline hover:text-[#5e34e0]">Hospedagem Mta</a></li>
           </ul>
         </div>
 

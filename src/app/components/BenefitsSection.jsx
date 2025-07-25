@@ -283,11 +283,11 @@ export default function HeroBenefitsSection() {
                   currentGame === 0
                     ? "/games/minecraft"
                     : currentGame === 1
-                    ? "https://pixelhostbr.com/financeiro/index.php?rp=/store/hospedagem-ark"
+                    ? "/games/ark"
                     : currentGame === 2
-                    ? "https://pixelhostbr.com/financeiro/index.php?rp=/store/hospedagem-palworld"
+                    ? "/games/palworld"
                     : currentGame === 3
-                    ? "https://pixelhostbr.com/financeiro/index.php?rp=/store/hospedagem-dayz"
+                    ? "/games/dayz"
                     : "#"
                 }
                 // Removido target="_blank" para abrir na mesma guia

@@ -26,8 +26,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           crossOrigin="anonymous" 
         />
       </body>
-      <Footer />
   </html>
-    </>
+  <Footer />
+</>
   )
 }

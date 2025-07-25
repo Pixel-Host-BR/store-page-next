@@ -40,7 +40,7 @@ export default async function GamePage({ params }: GamePageProps) {
   const gameTitle = gameTitles[slug as keyof typeof gameTitles];
 
   return (
-    <main className="min-h-screen bg-gray-900">
+    <main >
       {/* Header da página */}
       
       
