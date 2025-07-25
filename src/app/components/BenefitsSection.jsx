@@ -240,7 +240,6 @@ export default function HeroBenefitsSection() {
               <span className="text-sm text-gray-400 ml-2">4.9/5</span>
             </div>
           </div>
-          {/* Card de destaque de jogo */}
           <div className={`relative transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             <div className="relative bg-gradient-to-br from-gray-800/80 to-gray-900/80 backdrop-blur-xl rounded-2xl border border-gray-700/50 p-8 shadow-2xl">
               <div className="flex items-center justify-between mb-6">
@@ -278,36 +277,50 @@ export default function HeroBenefitsSection() {
                   <div className="bg-gradient-to-r from-green-400 to-blue-500 h-2 rounded-full w-[98%] transition-all duration-1000"></div>
                 </div>
               </div>
-              <button className="w-full py-3 bg-gradient-to-r from-indigo-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white font-semibold rounded-lg transition-all duration-300 hover:scale-105">
+              {/* Botão dinâmico para cada jogo */}
+              <a
+                href={
+                  currentGame === 0
+                    ? "/games/minecraft"
+                    : currentGame === 1
+                    ? "https://pixelhostbr.com/financeiro/index.php?rp=/store/hospedagem-ark"
+                    : currentGame === 2
+                    ? "https://pixelhostbr.com/financeiro/index.php?rp=/store/hospedagem-palworld"
+                    : currentGame === 3
+                    ? "https://pixelhostbr.com/financeiro/index.php?rp=/store/hospedagem-dayz"
+                    : "#"
+                }
+                // Removido target="_blank" para abrir na mesma guia
+                rel="noopener noreferrer"
+                className="w-full block py-3 bg-gradient-to-r from-indigo-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white font-semibold rounded-lg transition-all duration-300 hover:scale-105 text-center"
+              >
                 Criar Servidor
-              </button>
-            </div>
-            <div className="flex justify-center space-x-2 mt-6">
-              {featuredGames.map((_, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => setCurrentGame(idx)}
-                  className={`w-3 h-3 rounded-full transition-all duration-300 ${idx === currentGame ? 'bg-blue-500 scale-125' : 'bg-gray-600 hover:bg-gray-500'}`}
-                />
-              ))}
-            </div>
-            <div className="absolute -top-6 -left-6 bg-gradient-to-r from-blue-500/20 to-purple-500/20 backdrop-blur-sm border border-blue-500/30 rounded-lg p-3">
-              <div className="flex items-center space-x-2">
-                <Shield className="h-4 w-4 text-green-400" />
-                <span className="text-xs text-white font-medium">DDoS Protection</span>
+              </a>
+              <div className="flex justify-center space-x-2 mt-6">
+                {featuredGames.map((_, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => setCurrentGame(idx)}
+                    className={`w-3 h-3 rounded-full transition-all duration-300 ${idx === currentGame ? 'bg-blue-500 scale-125' : 'bg-gray-600 hover:bg-gray-500'}`}
+                  />
+                ))}
               </div>
-            </div>
-            <div className="absolute -bottom-4 -right-4 bg-gradient-to-r from-green-500/20 to-blue-500/20 backdrop-blur-sm border border-green-500/30 rounded-lg p-3">
-              <div className="flex items-center space-x-2">
-                <Zap className="h-4 w-4 text-yellow-400" />
-                <span className="text-xs text-white font-medium">Setup Instantâneo</span>
+              <div className="absolute -top-6 -left-6 bg-gradient-to-r from-blue-500/20 to-purple-500/20 backdrop-blur-sm border border-blue-500/30 rounded-lg p-3">
+                <div className="flex items-center space-x-2">
+                  <Shield className="h-4 w-4 text-green-400" />
+                  <span className="text-xs text-white font-medium">DDoS Protection</span>
+                </div>
+              </div>
+              <div className="absolute -bottom-4 -right-4 bg-gradient-to-r from-green-500/20 to-blue-500/20 backdrop-blur-sm border border-green-500/30 rounded-lg p-3">
+                <div className="flex items-center space-x-2">
+                  <Zap className="h-4 w-4 text-yellow-400" />
+                  <span className="text-xs text-white font-medium">Setup Instantâneo</span>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-
-      {/* BENEFÍCIOS */}
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white">
