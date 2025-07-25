@@ -1,58 +1,66 @@
-'use client';
+
 
 import React from 'react';
+import { notFound } from 'next/navigation';
+import { PlanButton } from './ClientComponents';
+
+// Imports dos componentes de cada jogo
 import MinecraftFeatures from './MinecraftFeatures';
 import PalworldFeatures from './PalworldFeatures';
 import ArkFeatures from './ark';
 
-interface Plan {
-  name: string;
-  monthlyPrice: number;
-  quarterlyPrice: number;
+// Interface para tipagem das props da página
+interface GamePageProps {
+  params: Promise<{ slug: string }>;
 }
 
-type Params = { slug: string };
+// Mapeamento de slugs para componentes
+const gameComponents = {
+  'minecraft': MinecraftFeatures,
+  'ark': ArkFeatures,
+  'palworld': PalworldFeatures,
+} as const;
 
-export default async function GamePage({
-  params,
-}: {
-  params: Promise<Params>;
-}) {
+// Títulos para cada jogo
+const gameTitles = {
+  'minecraft': 'Minecraft',
+  'ark': 'ARK: Survival Evolved',
+  'palworld': 'Palworld',
+} as const;
+
+export default async function GamePage({ params }: GamePageProps) {
   const { slug } = await params;
-  const isQuarterly = true; // ou derive de props/estado
-
-  // Roteamento dinâmico por slug
-  if (slug === 'minecraft') {
-    return <main><MinecraftFeatures /></main>;
-  }
-  if (slug === 'palworld') {
-    return <main><PalworldFeatures /></main>;
-  }
-  if (slug === 'ark') {
-    return <main><ArkFeatures /></main>;
+  
+  // Verifica se o slug é válido
+  if (!(slug in gameComponents)) {
+    notFound();
   }
 
-  // Array tipado de planos
-  const plans: Plan[] = [
-    { name: 'starter', monthlyPrice: 10, quarterlyPrice: 27 },
-    { name: 'pro',     monthlyPrice: 20, quarterlyPrice: 54 },
-  ];
-
-  // Função tipada corretamente
-  const handleRedirect = (plan: Plan) => {
-    const price = isQuarterly ? plan.quarterlyPrice : plan.monthlyPrice;
-    const redirectUrl = `https://your-whmcs-url.com/cart.php?a=add&pid=${plan.name}&billingcycle=${isQuarterly ? 'quarterly' : 'monthly'}`;
-    window.location.href = redirectUrl;
-  };
+  const GameComponent = gameComponents[slug as keyof typeof gameComponents];
+  const gameTitle = gameTitles[slug as keyof typeof gameTitles];
 
   return (
-    <main>
-      <h1>Jogo: {slug}</h1>
-      {plans.map((plan) => (
-        <button key={plan.name} onClick={() => handleRedirect(plan)}>
-          Assinar por R$ {isQuarterly ? plan.quarterlyPrice : plan.monthlyPrice}
-        </button>
-      ))}
+    <main className="min-h-screen bg-gray-900">
+      {/* Header da página */}
+      
+      
+
+      {/* Componente específico do jogo */}
+      <div className="py-16">
+        <GameComponent />
+      </div>
     </main>
   );
+}
+
+// Gerar metadados dinâmicos - AGORA FUNCIONA!
+
+
+// Gerar parâmetros estáticos - AGORA FUNCIONA!
+export async function generateStaticParams() {
+  return [
+    { slug: 'minecraft' },
+    { slug: 'ark' },
+    { slug: 'palworld' },
+  ];
 }
