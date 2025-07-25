@@ -1,10 +1,8 @@
-// components/Navbar.tsx
-
 'use client';
 
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
-import { Menu, X, ChevronDown, Server, Gamepad2, Shield, Clock, Tag, Info, ArrowRightToLine } from 'lucide-react';
+import { Menu, X, ChevronDown, Server, Gamepad2, Shield, Clock, ArrowRightToLine } from 'lucide-react';
 
 interface NavItem {
   label: string;
@@ -13,10 +11,9 @@ interface NavItem {
   popular?: boolean;
 }
 
-// Definição dos itens de navegação apontando para rotas públicas
+// Definição dos itens de navegação (removido Produtos e Sobre)
 const navItems: NavItem[] = [
   { label: 'Início',           href: '/',                                     icon: undefined },
-  { label: 'Produtos',         href: '/produtos',                             icon: <Tag className="h-4 w-4" /> },
   { label: 'Minecraft',        href: '/games/minecraft',  popular: true,  icon: <Server className="h-4 w-4" /> },
   { label: 'ARK',              href: '/games/ark',        popular: true,  icon: <Server className="h-4 w-4" /> },
   { label: 'Palworld',         href: '/games/palworld',   popular: true,  icon: <Server className="h-4 w-4" /> },
@@ -24,7 +21,6 @@ const navItems: NavItem[] = [
   { label: 'MTA',              href: '/games/mta',        popular: false, icon: <Gamepad2 className="h-4 w-4" /> },
   { label: 'Project Zomboid',  href: '/games/project-zomboid', popular: false, icon: <Shield className="h-4 w-4" /> },
   { label: 'Suporte',          href: 'https://pixelohost.tawk.help/',              icon: undefined },
-  { label: 'Sobre',            href: '/sobre',                                  icon: undefined },
 ];
 
 export default function Navbar() {
@@ -41,9 +37,7 @@ export default function Navbar() {
   const toggleMenu = () => setIsMenuOpen(v => !v);
 
   const homeItem    = navItems.find(i => i.label === 'Início')!;
-  const productsItem = navItems.find(i => i.label === 'Produtos')!;
   const supportItem = navItems.find(i => i.label === 'Suporte')!;
-  const aboutItem   = navItems.find(i => i.label === 'Sobre')!;
   const gameItems   = navItems.filter(i => i.href.startsWith('/games/'));
 
   return (
@@ -63,12 +57,6 @@ export default function Navbar() {
           {/* Início */}
           <Link href={homeItem.href} className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
             {homeItem.label}
-          </Link>
-
-          {/* Produtos */}
-          <Link href={productsItem.href} className="flex items-center space-x-1 text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
-            {productsItem.icon}
-            <span>{productsItem.label}</span>
           </Link>
 
           {/* Jogos Dropdown */}
@@ -113,12 +101,9 @@ export default function Navbar() {
             )}
           </div>
 
-          {/* Suporte e Sobre */}
+          {/* Suporte */}
           <Link href={supportItem.href} target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
             {supportItem.label}
-          </Link>
-          <Link href={aboutItem.href} className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
-            {aboutItem.label}
           </Link>
         </div>
 
@@ -146,9 +131,6 @@ export default function Navbar() {
             <Link href="/" onClick={() => setIsMenuOpen(false)} className="block text-gray-300 hover:text-white px-3 py-2 rounded-md">
               Início
             </Link>
-            <Link href="/produtos" onClick={() => setIsMenuOpen(false)} className="flex items-center space-x-2 text-gray-300 hover:text-white px-3 py-2 rounded-md">
-              <Tag className="h-4 w-4" /><span>Produtos</span>
-            </Link>
             <div className="border-t border-gray-700/50 my-2"></div>
             <div className="text-gray-400 uppercase text-xs px-3 mb-1">Jogos Populares</div>
             {gameItems.filter(i => i.popular).map(i => (
@@ -164,9 +146,6 @@ export default function Navbar() {
               </Link>
             ))}
             <div className="border-t border-gray-700/50 my-2"></div>
-            <Link href="/sobre" onClick={() => setIsMenuOpen(false)} className="block text-gray-300 hover:text-white px-3 py-2 rounded-md">
-              Sobre
-            </Link>
             <Link href="https://pixelhostbr.com/login.html" onClick={() => setIsMenuOpen(false)} className="block bg-gradient-to-r from-blue-600 to-purple-600 text-white px-3 py-2 rounded-lg text-center">
               Painel de Controle
             </Link>
