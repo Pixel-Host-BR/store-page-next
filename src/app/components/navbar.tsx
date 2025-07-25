@@ -149,7 +149,7 @@ export default function Navbar() {
                 className="flex items-center text-gray-300 hover:text-white hover:bg-gray-800/50 px-3 py-2 rounded-md text-sm font-medium transition-all duration-200"
                 aria-label="Sobre a empresa"
               >
-                Sobre
+                Contato
               </Link>
             </div>
           </div>

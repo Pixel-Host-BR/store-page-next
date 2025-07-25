@@ -5,9 +5,12 @@ import { notFound } from 'next/navigation';
 import { PlanButton } from './ClientComponents';
 
 // Imports dos componentes de cada jogo
-import MinecraftFeatures from './MinecraftFeatures';
-import PalworldFeatures from './PalworldFeatures';
-import ArkFeatures from './ark';
+import MinecraftFeatures from './MinecraftFeatures'
+import PalworldFeatures  from './PalworldFeatures'
+import ArkFeatures       from './ark'
+import DayzFeatures      from './DayzFeatures'
+import MtaFeatures       from './MtaFeatures'
+import ZomboidFeatures   from './ZomboidFeatures'
 
 // Interface para tipagem das props da página
 interface GamePageProps {
@@ -19,6 +22,9 @@ const gameComponents = {
   'minecraft': MinecraftFeatures,
   'ark': ArkFeatures,
   'palworld': PalworldFeatures,
+  'dayz': DayzFeatures,
+  'mta': MtaFeatures,
+  'project-zomboid': ZomboidFeatures,
 } as const;
 
 // Títulos para cada jogo
@@ -59,8 +65,11 @@ export default async function GamePage({ params }: GamePageProps) {
 // Gerar parâmetros estáticos - AGORA FUNCIONA!
 export async function generateStaticParams() {
   return [
-    { slug: 'minecraft' },
-    { slug: 'ark' },
-    { slug: 'palworld' },
+    { slug: 'minecraft', title: 'Minecraft' },
+    { slug: 'ark', title: 'ARK: Survival Evolved' },
+    { slug: 'palworld', title: 'Palworld' },
+    { slug: 'dayz', title: 'DayZ' },
+    { slug: 'mta', title: 'MTA: San Andreas' },
+    { slug: 'zomboid', title: 'Project Zomboid' },
   ];
 }

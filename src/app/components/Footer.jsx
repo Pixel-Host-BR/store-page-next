@@ -95,6 +95,7 @@ export default function Footer() {
             <li><a href="/games/palworld" className="hover:underline hover:text-[#5e34e0]">Hospedagem PalWorld</a></li>
             <li><a href="/games/dayz" className="hover:underline hover:text-[#5e34e0]">Hospedagem DayZ</a></li>
             <li><a href="/games/mta" className="hover:underline hover:text-[#5e34e0]">Hospedagem Mta</a></li>
+            <li><a href="/games/project-zomboid" className="hover:underline hover:text-[#5e34e0]">Hospedagem Project Zomboid</a></li>
           </ul>
         </div>
 
@@ -112,7 +113,7 @@ export default function Footer() {
           <h4 className="font-semibold mb-2">Jurídico</h4>
           <ul className="text-[15px] space-y-1">
             <li><a href="https://pixelohost.tawk.help/article/termos-de-uso-%E2%80%93-pixelhost" className="hover:underline hover:text-[#5e34e0]">Termos de Uso</a></li>
-            <li><a href="https://pixelohost.tawk.help/article/termos-de-uso-%E2%80%93-pixelhost" className="hover:underline hover:text-[#5e34e0]">Políticas da PixelHost</a></li>
+            <li><a href="https://pixelohost.tawk.help/category/pol%C3%ADticas-pixelhost" className="hover:underline hover:text-[#5e34e0]">Políticas da PixelHost</a></li>
           </ul>
         </div>
       </div>
