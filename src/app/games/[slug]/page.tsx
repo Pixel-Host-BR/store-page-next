@@ -6,9 +6,9 @@ import PalworldFeatures from './PalworldFeatures';
 import ArkFeatures from './ark';
 
 interface Plan {
- name: string;
-  mêsPreço: number;
-  trimestrePreço: number;
+  name: string;
+  monthlyPrice: number;
+  quarterlyPrice: number;
 }
 
 type Params = { slug: string };
@@ -19,54 +19,38 @@ export default async function GamePage({
   params: Promise<Params>;
 }) {
   const { slug } = await params;
-  const isQuarterly = true; // ou derivar de props/estado
+  const isQuarterly = true; // ou derive de props/estado
 
-  // Se for uma rota de jogo, renderiza feature específica
+  // Roteamento dinâmico por slug
   if (slug === 'minecraft') {
-    return (
-      <main>
-        <MinecraftFeatures />
-      </main>
-    );
+    return <main><MinecraftFeatures /></main>;
   }
-
   if (slug === 'palworld') {
-    return (
-      <main>
-        <PalworldFeatures />
-      </main>
-    );
+    return <main><PalworldFeatures /></main>;
   }
-
   if (slug === 'ark') {
-    return (
-      <main>
-        <ArkFeatures />
-      </main>
-    );
+    return <main><ArkFeatures /></main>;
   }
 
-  // Array de planos para assinatura
+  // Array tipado de planos
   const plans: Plan[] = [
-    { name: 'starter', mêsPreço: 10, trimestrePreço: 27 },
-    { name: 'pro',     mêsPreço: 20, trimestrePreço: 54 },
+    { name: 'starter', monthlyPrice: 10, quarterlyPrice: 27 },
+    { name: 'pro',     monthlyPrice: 20, quarterlyPrice: 54 },
   ];
 
-  const handleRedirect = (plano: Plan) => {
-    const preço = isQuarterly ? plano.trimestrePreço : plano.mêsPreço;
-    const redirectUrl = `https://your-whmcs-url.com/cart.php?a=add&pid=${plano.name}&billingcycle=${
-      isQuarterly ? 'trimestral' : 'mensal'
-    }`;
+  // Função tipada corretamente
+  const handleRedirect = (plan: Plan) => {
+    const price = isQuarterly ? plan.quarterlyPrice : plan.monthlyPrice;
+    const redirectUrl = `https://your-whmcs-url.com/cart.php?a=add&pid=${plan.name}&billingcycle=${isQuarterly ? 'quarterly' : 'monthly'}`;
     window.location.href = redirectUrl;
   };
 
-  // Default: página de assinatura
   return (
     <main>
       <h1>Jogo: {slug}</h1>
-      {plans.map((plano) => (
-        <button key={plano.name} onClick={() => handleRedirect(plano)}>
-          Assinar por R$ {isQuarterly ? plano.trimestrePreço : plano.mêsPreço}
+      {plans.map((plan) => (
+        <button key={plan.name} onClick={() => handleRedirect(plan)}>
+          Assinar por R$ {isQuarterly ? plan.quarterlyPrice : plan.monthlyPrice}
         </button>
       ))}
     </main>
