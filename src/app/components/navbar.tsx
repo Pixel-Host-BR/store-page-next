@@ -247,7 +247,7 @@ export default function Navbar() {
               onClick={() => setIsMenuOpen(false)}
             >
               <ArrowRightToLine className="h-4 w-4 group-hover:translate-x-1 transition-transform"/>
-              <span>Painel de Controle</span>
+              <span> Área do Cliente</span>
             </Link>
           </div>
         </div>
