@@ -12,7 +12,8 @@ import {
   Clock,
   Tag,
   Info,
-  ArrowRightToLine
+  ArrowRightToLine,
+  Mail,
 } from 'lucide-react'
 
 // Função simples para slugificação
@@ -214,34 +215,26 @@ export default function Navbar() {
             </div>
           </div>
 
-          <Link
-            href="/precos"
-            className="text-gray-300 hover:text-white hover:bg-gray-800/50 block px-3 py-2 rounded-md text-base font-medium transition-all duration-200 flex items-center space-x-2"
-            aria-label="Ver preços"
-            onClick={() => setIsMenuOpen(false)}
-          >
-            <Tag className="h-4 w-4" />
-            <span>Preços</span>
-          </Link>
+          
 
           <Link
-            href="/suporte"
+            href="https://pixelohost.tawk.help/"
             className="text-gray-300 hover:text-white hover:bg-gray-800/50 block px-3 py-2 rounded-md text-base font-medium transition-all duration-200 flex items-center space-x-2"
             aria-label="Central de Suporte"
             onClick={() => setIsMenuOpen(false)}
           >
             <Shield className="h-4 w-4" />
-            <span>Suporte</span>
+            <span>Ajuda</span>
           </Link>
 
           <Link
-            href="/sobre"
+            href="/contato"
             className="text-gray-300 hover:text-white hover:bg-gray-800/50 block px-3 py-2 rounded-md text-base font-medium transition-all duration-200 flex items-center space-x-2"
-            aria-label="Sobre a empresa"
+            aria-label="Contato"
             onClick={() => setIsMenuOpen(false)}
           >
-            <Info className="h-4 w-4" />
-            <span>Sobre</span>
+            <Mail className="h-4 w-4" />
+            <span>Contato</span>
           </Link>
 
           {/* Botão Painel Mobile */}
