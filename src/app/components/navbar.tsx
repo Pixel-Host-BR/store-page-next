@@ -165,7 +165,7 @@ export default function Navbar() {
               target="_blank" rel="noopener noreferrer"
             >
               <ArrowRightToLine className="h-4 w-4 group-hover:translate-x-1 transition-transform"/>
-              <span>Painel de Controle</span>
+              <span> Área do Cliente</span>
             </Link>
 
             <button

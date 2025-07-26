@@ -13,6 +13,8 @@ import {
   Mail, Phone, Send, MapPin, Heart
 } from 'lucide-react'
 
+
+
 export default function ContactPage() {
   const [status, setStatus] = useState<'idle'|'sent'>('idle')
 

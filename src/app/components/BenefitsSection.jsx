@@ -62,6 +62,11 @@ const faqs = [
   },
 ]
 
+export const metadata = {
+  title: "Inicio - PixelHost",
+  description: "Bem-vindo à PixelHost",
+}
+
 export default function HeroBenefitsSection() {
   // Hero Banner Slider
   const [currentGame, setCurrentGame] = useState(0)
@@ -210,7 +215,7 @@ export default function HeroBenefitsSection() {
             </div>
             <div className="flex flex-col sm:flex-row gap-4">
              <a
-               href="https://pixelhostbr.com/financeiro/index.php?rp=/store/hospedagem-minecraft"
+               href="https://pixelhostbr.com/financeiro/"
                target="_blank"
                rel="noopener noreferrer"
                className="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-lg transition-all duration-300 shadow-lg hover:shadow-blue-500/25 hover:scale-105 flex items-center justify-center"
@@ -223,7 +228,7 @@ export default function HeroBenefitsSection() {
              </a>
               <a
                 className="group px-8 py-4 bg-gray-800/50 hover:bg-gray-700/50 text-white font-semibold rounded-lg border border-gray-600 hover:border-gray-500 transition-all duration-300 backdrop-blur-sm flex items-center justify-center"
-                href="https://pixelhostbr.com/financeiro/index.php?rp=/store/hospedagem-minecraft"
+                href="https://pixelhostbr.com/financeiro/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
