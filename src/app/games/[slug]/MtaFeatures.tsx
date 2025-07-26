@@ -97,21 +97,21 @@ export default function MtaFeatures() {
   const plans = [
     {
       name: 'Básico',
-      price: '9/mês',
+      price: '15/mês',
       features: ['2 GB RAM', '1 vCPU', '15 GB SSD'],
       grad: 'from-gray-800 via-gray-900 to-zinc-700',
       badge: null
     },
     {
       name: 'Avançado',
-      price: '18/mês',
+      price: '28/mês',
       features: ['6 GB RAM', '2 vCPU', '30 GB SSD'],
       grad: 'from-blue-900 via-blue-800 to-blue-900',
       badge: null
     },
     {
       name: 'Premium',
-      price: '27/mês',
+      price: '47/mês',
       features: ['12 GB RAM', '3 vCPU', '60 GB SSD'],
       grad: 'from-cyan-700 via-sky-700 to-cyan-800',
       badge: (
@@ -123,7 +123,7 @@ export default function MtaFeatures() {
     },
     {
       name: 'Ultimate',
-      price: '35/mês',
+      price: '98/mês',
       features: ['24 GB RAM', '5 vCPU', '120 GB SSD'],
       grad: 'from-green-700 via-emerald-700 to-green-800',
       badge: null
