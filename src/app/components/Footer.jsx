@@ -5,17 +5,28 @@ import { useEffect, useRef } from "react";
 
 export default function Footer() {
   const raRef = useRef(null);
+  const tpRef = useRef(null); // <-- isto aqui é crucial!
 
   useEffect(() => {
     if (raRef.current && !document.getElementById("ra-embed-reputation")) {
-      const script = document.createElement("script");
-      script.id = "ra-embed-reputation";
-      script.src = "https://s3.amazonaws.com/raichu-beta/selos/bundle.js";
-      script.setAttribute("data-id", "MTcxMzgyODpwaXhlbGhvc3Q=");
-      script.setAttribute("data-target", "reputation-ra");
-      script.setAttribute("data-model", "2");
-      script.type = "text/javascript";
-      raRef.current.appendChild(script);
+      const raScript = document.createElement("script");
+      raScript.id = "ra-embed-reputation";
+      raScript.src = "https://s3.amazonaws.com/raichu-beta/selos/bundle.js";
+      raScript.setAttribute("data-id", "MTcxMzgyODpwaXhlbGhvc3Q=");
+      raScript.setAttribute("data-target", "reputation-ra");
+      raScript.setAttribute("data-model", "2");
+      raScript.type = "text/javascript";
+      raRef.current.appendChild(raScript);
+    }
+
+    if (
+      tpRef.current &&
+      !document.querySelector('script[src*="tp.widget.bootstrap.min.js"]')
+    ) {
+      const tpScript = document.createElement("script");
+      tpScript.src = "https://widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js";
+      tpScript.async = true;
+      tpRef.current.appendChild(tpScript);
     }
   }, []);
 
@@ -75,10 +86,21 @@ export default function Footer() {
 
           {/* Selo Reclame Aqui */}
           <div className="mt-6" ref={raRef} id="reputation-ra" />
+          <div
+          className="trustpilot-widget mt-6"
+          data-locale="pt-PT"
+          data-template-id="56278e9abfbbba0bdcd568bc"
+          data-businessunit-id="68843cb907305e60a4582107"
+          data-style-height="50px"
+          data-style-width="100%"
+          style={{marginLeft: "-60px", marginTop: "2px"}}
+          ref={tpRef}
+        />
         </div>
+        
 
-        {/* Coluna: Sobre */}
-        <div className="min-w-[160px]">
+      {/* Coluna: Sobre */}
+      <div className="min-w-[160px]">
           <h4 className="font-semibold mb-2">Sobre</h4>
           <ul className="text-[15px] space-y-1">
             <li><a href="https://pixelhostbr.com/financeiro/index.php?rp=/announcements" className="hover:underline hover:text-[#5e34e0]">Notícias</a></li>
