@@ -20,6 +20,11 @@ import {
   Sparkles
 } from 'lucide-react'
 
+export const metadata = {
+  title: "Palworld - PixelHost",
+  description: "Bem-vindo à PixelHost",
+}
+
 // Componente com infos de Palworld (mesmo estilo do MinecraftFeatures)
 export default function PalworldFeatures() {
   const [activeFeature, setActiveFeature] = useState(0)

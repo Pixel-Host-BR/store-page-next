@@ -16,6 +16,10 @@ import {
   MapPinned,
   Skull
 } from 'lucide-react'
+export const metadata = {
+  title: "DayZ - PixelHost",
+  description: "Bem-vindo à PixelHost",
+}
 
 export default function DayzFeatures() {
   const [activeFeature, setActiveFeature] = useState(0)

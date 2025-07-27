@@ -7,10 +7,11 @@ import {
   BookOpen, HelpCircle, Server, Globe, ChevronLeft, ChevronRight, Quote, PlusCircle, ChevronDown
 } from 'lucide-react'
 
-const TEST_IMAGE = 'https://www.allprodad.com/wp-content/uploads/2021/03/05-12-21-happy-people.jpg' 
+const TEST_IMAGE = 'https://www.allprodad.com/wp-content/uploads/2021/03/05-12-21-happy-people.jpg'
+const TEST_IMAGE_2 = 'https://user-images.trustpilot.com/6884f6849600693717e681aa/73x73.png'
 
 const testimonials = [
-  { name: 'ImLegend', country: 'BR', avatar: TEST_IMAGE, text: 'Suporte incrível, realizaram as divisões do servidor corretamente e em um curto espaço de tempo! Acho o suporte muito bom e eficiente no seu trabalho, agradeço muito pela ajuda.' },
+  { name: 'JVS Neto', country: 'BR', avatar: TEST_IMAGE_2, text: 'Em mais de 5 anos eu não encontrei um host tão bom e barato ao mesmo tempo, com um suporte excelente!!' },
   { name: 'João Pedro', country: 'BR', avatar: TEST_IMAGE, text: 'Minha experiência com a PixelHost foi extremamente positiva. A empresa se destaca no mercado de hospedagem de jogos, bots, VPS e sites, oferecendo serviços confiáveis e de alta qualidade.' },
   { name: 'Literally', country: 'BR', avatar: TEST_IMAGE, text: 'Se eu pudesse avaliar com mais estrelas, eu avaliaria! Os meninos são super pontuais, pacientes, uns amores de pessoa! Eu como uma mera jovem com QI de idosa fui muito bem atendida, vcs são incríveis. Simplesmente apaixonada!' },
   { name: 'Carlos Silva', country: 'BR', avatar: TEST_IMAGE, text: 'O melhor atendimento que já tive em hospedagem de jogos. Recomendo demais!' },
@@ -463,7 +464,7 @@ export default function HeroBenefitsSection() {
         {/* Botão para novos clientes avaliarem */}
         <div className="flex justify-center">
           <a
-            href="/avaliar"
+            href="https://pt.trustpilot.com/evaluate/pixelhostbr.com"
             className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-lg shadow hover:from-blue-700 hover:to-purple-700 transition-all duration-200 hover:scale-105"
           >
             <PlusCircle className="w-5 h-5 mr-2" />

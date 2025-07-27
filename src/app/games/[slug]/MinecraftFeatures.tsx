@@ -19,6 +19,11 @@ import {
   Sparkles
 } from 'lucide-react'
 
+export const metadata = {
+  title: "Minecraft - PixelHost",
+  description: "Bem-vindo à PixelHost",
+}
+
 export default function MinecraftFeatures() {
   const [activeFeature, setActiveFeature] = useState(0)
   const [isVisible, setIsVisible] = useState(false)
@@ -109,7 +114,7 @@ export default function MinecraftFeatures() {
     {
       name: 'Master',
       price: '90/mês',
-      features: ['32GB RAM', '8 CPU Cores', '100GB SSD'],
+      features: ['26GB RAM', '8 CPU Cores', '100GB SSD'],
       grad: 'from-yellow-700 via-yellow-800 to-orange-800',
       badge: null
     }

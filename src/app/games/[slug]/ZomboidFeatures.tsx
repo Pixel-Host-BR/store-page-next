@@ -18,6 +18,11 @@ import {
   Wrench
 } from 'lucide-react'
 
+export const metadata = {
+  title: "Project Zomboid - PixelHost",
+  description: "Bem-vindo à PixelHost",
+}
+
 export default function ZomboidFeatures() {
   const [activeFeature, setActiveFeature] = useState(0)
   const [isVisible, setIsVisible] = useState(false)

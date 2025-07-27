@@ -7,6 +7,24 @@ import Script from 'next/script'
 
 import { ReactNode } from 'react';
 
+export const metadata = {
+  title: "PixelHost",
+  description: "Bem-vindo à PixelHost",
+  keywords: "hospedagem de servidores, Ark, planos de hospedagem, suporte técnico, PixelHost",
+  openGraph: {
+    title: "PixelHost",
+    description: "Hospedagem de servidores de jogos com suporte técnico especializado. Planos acessíveis e alta performance.",
+    url: "https://pixelhost.com.br",
+    siteName: "PixelHost",
+    images: [
+      {
+        url: "https://i.imgur.com/8u6NO4D.jpeg",
+        alt: "PixelHost",
+      },
+    ],
+  },
+};
+
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <>

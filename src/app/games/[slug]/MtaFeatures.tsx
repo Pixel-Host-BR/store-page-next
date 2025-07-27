@@ -18,6 +18,11 @@ import {
   Gamepad2
 } from 'lucide-react'
 
+export const metadata = {
+  title: "MTA - PixelHost",
+  description: "Bem-vindo à PixelHost",
+}
+
 export default function MtaFeatures() {
   const [activeFeature, setActiveFeature] = useState(0)
   const [isVisible, setIsVisible] = useState(false)
