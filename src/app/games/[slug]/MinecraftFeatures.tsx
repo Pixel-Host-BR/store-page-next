@@ -369,9 +369,11 @@ export default function MinecraftFeatures() {
                 </p>
               </div>
               <div className="flex flex-col sm:flex-row gap-4">
+              <a href="https://pixelhostbr.com/financeiro/index.php?rp=/store/hospedagem-minecraft">
                 <button className="flex-1 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-green-500/25">
                   Começar Agora
                 </button>
+             </a>
                 {/* Servidor Publico
                  <button className="flex-1 bg-gray-800 hover:bg-gray-700 text-white font-semibold py-3 px-6 rounded-lg border border-gray-600 hover:border-green-500/50 transition-all duration-300">
                   Ver Demonstração

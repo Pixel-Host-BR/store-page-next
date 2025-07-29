@@ -452,9 +452,11 @@ export default function ZomboidFeatures() {
                 </p>
               </div>
               <div className="flex flex-col sm:flex-row gap-4">
-                <button className="flex-1 bg-gradient-to-r from-indigo-600 to-violet-700 hover:from-indigo-700 hover:to-violet-800 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-indigo-500/25">
-                  Começar Agora
-                </button>
+                <a href="https://pixelhostbr.com/financeiro/index.php?rp=/store/hospedagem-peoject-zomboid">
+                  <button className="flex-1 bg-gradient-to-r from-indigo-600 to-violet-700 hover:from-indigo-700 hover:to-violet-800 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-indigo-500/25">
+                    Começar Agora
+                  </button>
+                </a>
               </div>
             </div>
           </div>

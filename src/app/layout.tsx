@@ -28,12 +28,16 @@ export const metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <>
- <html>
+ <html className="bg-[#181826] min-h-screen">
    <head>
         <link rel="icon" href="https://i.imgur.com/lLi1Qo8.png" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+        <meta name="theme-color" content="#5e34e0" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+
     </head>
-      <body className="bg-site">
+      <body className="bg-[#181826] min-h-screen">
         <Navbar />
         <main className="pt-16">
           {children}

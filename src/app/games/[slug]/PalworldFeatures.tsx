@@ -371,9 +371,11 @@ export default function PalworldFeatures() {
                 </p>
               </div>
               <div className="flex flex-col sm:flex-row gap-4">
+              <a href="https://pixelhostbr.com/financeiro/index.php?rp=/store/hospedagem-palworld">
                 <button className="flex-1 bg-gradient-to-r from-cyan-600 to-blue-700 hover:from-cyan-700 hover:to-blue-800 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-cyan-500/25">
                   Começar Agora
                 </button>
+              </a>
                 {/* Comentado para caso queira no futuro
                 <button className="flex-1 bg-gray-800 hover:bg-gray-700 text-white font-semibold py-3 px-6 rounded-lg border border-gray-600 hover:border-cyan-500/50 transition-all duration-300">
                   Ver Demonstração

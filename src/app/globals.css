@@ -59,6 +59,11 @@ html ::-webkit-scrollbar-track {
     linear-gradient(to bottom right, #1f2937, #111827 80%);
     
 }
+html, body {
+  background: #181826 !important;
+  min-height: 100vh;
+}
+
 nav,
 section {
   background: transparent !important;

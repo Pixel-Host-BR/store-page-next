@@ -452,9 +452,11 @@ export default function DayzFeatures() {
                 </p>
               </div>
               <div className="flex flex-col sm:flex-row gap-4">
-                <button className="flex-1 bg-gradient-to-r from-rose-600 to-red-700 hover:from-rose-700 hover:to-red-800 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-rose-500/25">
-                  Começar Agora
-                </button>
+                <a href="https://pixelhostbr.com/financeiro/index.php?rp=/store/hospedagem-dayz">
+                  <button className="flex-1 bg-gradient-to-r from-rose-600 to-red-700 hover:from-rose-700 hover:to-red-800 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-rose-500/25">
+                    Começar Agora
+                  </button>
+                </a>
               </div>
             </div>
           </div>
