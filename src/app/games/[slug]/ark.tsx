@@ -20,14 +20,13 @@ import {
   Sparkles
 } from 'lucide-react'
 
-export const metadata = {
-  title: "Ark - PixelHost",
-  description: "Bem-vindo à PixelHost",
-}
+
 
 export default function ArkFeatures() {
   const [activeFeature, setActiveFeature] = useState(0)
   const [isVisible, setIsVisible] = useState(false)
+
+  
 
   useEffect(() => {
     setIsVisible(true)

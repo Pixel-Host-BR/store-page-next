@@ -9,10 +9,11 @@ import {
 
 const TEST_IMAGE = 'https://www.allprodad.com/wp-content/uploads/2021/03/05-12-21-happy-people.jpg'
 const TEST_IMAGE_2 = 'https://user-images.trustpilot.com/6884f6849600693717e681aa/73x73.png'
+const TEST_IMAGE_3 = 'https://user-images.trustpilot.com/68868dec04313e75da39c164/73x73.png'
 
 const testimonials = [
   { name: 'JVS Neto', country: 'BR', avatar: TEST_IMAGE_2, text: 'Em mais de 5 anos eu não encontrei um host tão bom e barato ao mesmo tempo, com um suporte excelente!!' },
-  { name: 'João Pedro', country: 'BR', avatar: TEST_IMAGE, text: 'Minha experiência com a PixelHost foi extremamente positiva. A empresa se destaca no mercado de hospedagem de jogos, bots, VPS e sites, oferecendo serviços confiáveis e de alta qualidade.' },
+  { name: 'Pedro Neto', country: 'BR', avatar: TEST_IMAGE_3, text: 'Atendimento prestativo resolveram todos os meus problemas e ainda me auxiliaram com meu servidor inegavelmente a melhor host que eu já contratei' },
   { name: 'Literally', country: 'BR', avatar: TEST_IMAGE, text: 'Se eu pudesse avaliar com mais estrelas, eu avaliaria! Os meninos são super pontuais, pacientes, uns amores de pessoa! Eu como uma mera jovem com QI de idosa fui muito bem atendida, vcs são incríveis. Simplesmente apaixonada!' },
   { name: 'Carlos Silva', country: 'BR', avatar: TEST_IMAGE, text: 'O melhor atendimento que já tive em hospedagem de jogos. Recomendo demais!' },
   { name: 'Ana Clara', country: 'BR', avatar: TEST_IMAGE, text: 'Painel intuitivo, servidores estáveis e suporte sempre disponível.' },
