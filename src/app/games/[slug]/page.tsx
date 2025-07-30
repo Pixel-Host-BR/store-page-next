@@ -3,6 +3,8 @@
 import React from 'react';
 import { notFound } from 'next/navigation';
 import { PlanButton } from './ClientComponents';
+import { Metadata } from 'next';
+import { generateMetadata as generateGameMetadata } from '../../seo-config';
 
 // Imports dos componentes de cada jogo
 import MinecraftFeatures from './MinecraftFeatures'
@@ -17,33 +19,63 @@ interface GamePageProps {
   params: Promise<{ slug: string }>;
 }
 
-// Mapeamento de slugs para componentes
-const gameComponents = {
-  'minecraft': MinecraftFeatures,
-  'ark': ArkFeatures,
-  'palworld': PalworldFeatures,
-  'dayz': DayzFeatures,
-  'mta': MtaFeatures,
-  'project-zomboid': ZomboidFeatures,
+// Configuração completa dos jogos
+const gameConfig = {
+  'minecraft': {
+    title: 'Minecraft',
+    component: MinecraftFeatures,
+    slug: 'minecraft' as const,
+  },
+  'ark': {
+    title: 'ARK: Survival Evolved',
+    component: ArkFeatures,
+    slug: 'ark' as const,
+  },
+  'palworld': {
+    title: 'Palworld',
+    component: PalworldFeatures,
+    slug: 'palworld' as const,
+  },
+  'dayz': {
+    title: 'DayZ',
+    component: DayzFeatures,
+    slug: 'dayz' as const,
+  },
+  'mta': {
+    title: 'MTA: San Andreas',
+    component: MtaFeatures,
+    slug: 'mta' as const,
+  },
+  'project-zomboid': {
+    title: 'Project Zomboid',
+    component: ZomboidFeatures,
+    slug: 'project-zomboid' as const,
+  },
 } as const;
 
-// Títulos para cada jogo
-const gameTitles = {
-  'minecraft': 'Minecraft',
-  'ark': 'ARK: Survival Evolved',
-  'palworld': 'Palworld',
-} as const;
+// Função para gerar metadados dinâmicos
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  
+  const game = gameConfig[slug as keyof typeof gameConfig];
+  
+  if (!game) {
+    return generateGameMetadata('notFound');
+  }
+  
+  return generateGameMetadata('home', game.slug);
+}
 
 export default async function GamePage({ params }: GamePageProps) {
   const { slug } = await params;
   
   // Verifica se o slug é válido
-  if (!(slug in gameComponents)) {
+  if (!(slug in gameConfig)) {
     notFound();
   }
 
-  const GameComponent = gameComponents[slug as keyof typeof gameComponents];
-  const gameTitle = gameTitles[slug as keyof typeof gameTitles];
+  const game = gameConfig[slug as keyof typeof gameConfig];
+  const GameComponent = game.component;
 
   return (
     <main >
@@ -59,17 +91,9 @@ export default async function GamePage({ params }: GamePageProps) {
   );
 }
 
-// Gerar metadados dinâmicos - AGORA FUNCIONA!
-
-
-// Gerar parâmetros estáticos - AGORA FUNCIONA!
+// Gerar parâmetros estáticos
 export async function generateStaticParams() {
-  return [
-    { slug: 'minecraft', title: 'Minecraft' },
-    { slug: 'ark', title: 'ARK: Survival Evolved' },
-    { slug: 'palworld', title: 'Palworld' },
-    { slug: 'dayz', title: 'DayZ' },
-    { slug: 'mta', title: 'MTA: San Andreas' },
-    { slug: 'zomboid', title: 'Project Zomboid' },
-  ];
+  return Object.keys(gameConfig).map((slug) => ({
+    slug,
+  }));
 }

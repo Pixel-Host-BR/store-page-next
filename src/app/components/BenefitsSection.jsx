@@ -76,10 +76,7 @@ const faqs = [
   },
 ]
 
-export const metadata = {
-  title: "Inicio - PixelHost",
-  description: "Bem-vindo à PixelHost",
-}
+
 
 export default function HeroBenefitsSection() {
   // Hero Banner Slider
