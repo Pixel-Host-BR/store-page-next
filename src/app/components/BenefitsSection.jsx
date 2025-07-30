@@ -128,22 +128,47 @@ export default function HeroBenefitsSection() {
   const [touchStart, setTouchStart] = useState(null)
   const [touchEnd, setTouchEnd] = useState(null)
   const [isSwiping, setIsSwiping] = useState(false)
+  const [touchStartY, setTouchStartY] = useState(null)
 
   // Minimum swipe distance (in px)
   const minSwipeDistance = 50
 
   const onTouchStart = (e) => {
+    // Prevenir zoom e scroll indesejado
+    if (e.touches.length > 1) return // Ignorar multi-touch (pinch)
+    
     setTouchEnd(null)
     setTouchStart(e.targetTouches[0].clientX)
+    setTouchStartY(e.targetTouches[0].clientY)
     setIsSwiping(false)
   }
 
   const onTouchMove = (e) => {
+    // Prevenir zoom e scroll indesejado
+    if (e.touches.length > 1) return // Ignorar multi-touch (pinch)
+    
+    // Prevenir scroll vertical durante swipe horizontal
+    if (touchStart && touchStartY) {
+      const currentX = e.targetTouches[0].clientX
+      const currentY = e.targetTouches[0].clientY
+      const diffX = Math.abs(currentX - touchStart)
+      const diffY = Math.abs(currentY - touchStartY)
+      
+      // Se o movimento horizontal for maior que o vertical, prevenir scroll
+      if (diffX > diffY && diffX > 10) {
+        e.preventDefault()
+        e.stopPropagation()
+      }
+    }
+    
     setTouchEnd(e.targetTouches[0].clientX)
     setIsSwiping(true)
   }
 
-  const onTouchEnd = () => {
+  const onTouchEnd = (e) => {
+    // Prevenir zoom e scroll indesejado
+    if (e.touches.length > 1) return // Ignorar multi-touch (pinch)
+    
     if (!touchStart || !touchEnd) return
     const distance = touchStart - touchEnd
     const isLeftSwipe = distance > minSwipeDistance
@@ -456,7 +481,14 @@ export default function HeroBenefitsSection() {
           💡 Deslize para navegar entre os depoimentos
         </p>
         <div 
-          className={`grid grid-cols-3 gap-4 md:gap-8 mb-10 items-stretch transition-transform duration-200 ${isSwiping ? 'scale-95' : 'scale-100'}`}
+          className={`grid grid-cols-3 gap-4 md:gap-8 mb-10 items-stretch transition-transform duration-200 touch-manipulation ${isSwiping ? 'scale-95' : 'scale-100'}`}
+          style={{ 
+            touchAction: 'pan-y',
+            userSelect: 'none',
+            WebkitUserSelect: 'none',
+            WebkitTouchCallout: 'none',
+            WebkitTapHighlightColor: 'transparent'
+          }}
           onTouchStart={onTouchStart}
           onTouchMove={onTouchMove}
           onTouchEnd={onTouchEnd}

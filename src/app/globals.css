@@ -62,6 +62,13 @@ html ::-webkit-scrollbar-track {
 html, body {
   background: #181826 !important;
   min-height: 100vh;
+  touch-action: manipulation;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 nav,
@@ -71,5 +78,12 @@ section {
 @layer utilities {
   .bg-site {
     background-color: transparent !important;
+  }
+  
+  .touch-manipulation {
+    touch-action: manipulation;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
   }
 }
