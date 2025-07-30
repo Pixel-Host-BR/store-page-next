@@ -124,6 +124,43 @@ export default function HeroBenefitsSection() {
     card.style.transform = 'perspective(600px) rotateY(0deg) rotateX(0deg) scale(1)'
   }
 
+  // Swipe functionality
+  const [touchStart, setTouchStart] = useState(null)
+  const [touchEnd, setTouchEnd] = useState(null)
+  const [isSwiping, setIsSwiping] = useState(false)
+
+  // Minimum swipe distance (in px)
+  const minSwipeDistance = 50
+
+  const onTouchStart = (e) => {
+    setTouchEnd(null)
+    setTouchStart(e.targetTouches[0].clientX)
+    setIsSwiping(false)
+  }
+
+  const onTouchMove = (e) => {
+    setTouchEnd(e.targetTouches[0].clientX)
+    setIsSwiping(true)
+  }
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return
+    const distance = touchStart - touchEnd
+    const isLeftSwipe = distance > minSwipeDistance
+    const isRightSwipe = distance < -minSwipeDistance
+
+    if (isLeftSwipe) {
+      // Swipe left - next page
+      setPage((page + 1) % totalPages)
+    }
+    if (isRightSwipe) {
+      // Swipe right - previous page
+      setPage((page - 1 + totalPages) % totalPages)
+    }
+    
+    setIsSwiping(false)
+  }
+
   // FAQ Accordion
   const [openFaq, setOpenFaq] = useState(null)
 
@@ -415,12 +452,20 @@ export default function HeroBenefitsSection() {
         <p className="text-gray-400 mb-12">
           Um pouco de nossos clientes por aqui
         </p>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10 items-stretch">
+        <p className="text-xs text-gray-500 mb-6">
+          💡 Deslize para navegar entre os depoimentos
+        </p>
+        <div 
+          className={`grid grid-cols-3 gap-4 md:gap-8 mb-10 items-stretch transition-transform duration-200 ${isSwiping ? 'scale-95' : 'scale-100'}`}
+          onTouchStart={onTouchStart}
+          onTouchMove={onTouchMove}
+          onTouchEnd={onTouchEnd}
+        >
           {currentTestimonials.map((t, idx) => (
             <div
-              key={idx}
+              key={`${page}-${idx}`}
               id={`testimonial-card-${idx}`}
-              className="bg-gray-900/90 border border-gray-800 rounded-2xl shadow-lg px-8 py-10 flex flex-col items-center h-80 min-h-[320px] max-h-[320px] transition-all duration-300 hover:-translate-y-2 hover:scale-105 hover:shadow-2xl hover:ring-2 hover:ring-blue-500/60 cursor-pointer group"
+              className="bg-gray-900/90 border border-gray-800 rounded-2xl shadow-lg px-4 md:px-8 py-6 md:py-10 flex flex-col items-center h-64 md:h-80 min-h-[256px] md:min-h-[320px] max-h-[256px] md:max-h-[320px] transition-all duration-500 hover:-translate-y-2 hover:scale-105 hover:shadow-2xl hover:ring-2 hover:ring-blue-500/60 cursor-pointer group animate-fadeIn"
               style={{ willChange: 'transform' }}
               onMouseMove={e => handleMouseMove(e, idx)}
               onMouseLeave={() => handleMouseLeave(idx)}
@@ -429,18 +474,18 @@ export default function HeroBenefitsSection() {
                 <img
                   src={t.avatar}
                   alt={t.name}
-                  className="w-14 h-14 rounded-full border-2 border-blue-500 object-cover mr-4 transition-all duration-300 group-hover:ring-2 group-hover:ring-blue-400"
+                  className="w-10 h-10 md:w-14 md:h-14 rounded-full border-2 border-blue-500 object-cover mr-2 md:mr-4 transition-all duration-300 group-hover:ring-2 group-hover:ring-blue-400"
                   draggable={false}
                 />
                 <div className="text-left">
-                  <div className="text-lg font-bold text-white">
+                  <div className="text-sm md:text-lg font-bold text-white">
                     {t.name} <span className="text-xs text-blue-400 font-normal ml-1">{t.country}</span>
                   </div>
                 </div>
               </div>
               <div className="flex flex-col items-center flex-1 justify-center">
-                <Quote className="w-8 h-8 text-blue-500 mb-2 animate-pulse" />
-                <p className="text-gray-200 text-base sm:text-lg font-medium max-w-xs mb-2 line-clamp-5">
+                <Quote className="w-6 h-6 md:w-8 md:h-8 text-blue-500 mb-2 animate-pulse" />
+                <p className="text-gray-200 text-xs md:text-base lg:text-lg font-medium max-w-xs mb-2 line-clamp-5">
                   {t.text}
                 </p>
               </div>
