@@ -7,25 +7,37 @@ import {
   BookOpen, HelpCircle, Server, Globe, ChevronLeft, ChevronRight, Quote, PlusCircle, ChevronDown
 } from 'lucide-react'
 
-const TEST_IMAGE = 'https://www.allprodad.com/wp-content/uploads/2021/03/05-12-21-happy-people.jpg'
+const TEST_IMAGE = 'https://i.imgur.com/vILSinR.jpeg'
 const TEST_IMAGE_2 = 'https://user-images.trustpilot.com/6884f6849600693717e681aa/73x73.png'
 const TEST_IMAGE_3 = 'https://user-images.trustpilot.com/68868dec04313e75da39c164/73x73.png'
+const TEST_IMAGE_4 = 'https://i.imgur.com/yAouMLZ.jpeg'
+const TEST_IMAGE_5 = 'https://i.imgur.com/QTwy0mf.jpeg'
+const TEST_IMAGE_6 = 'https://i.imgur.com/cdgoIwS.jpeg'
+const TEST_IMAGE_7 = 'https://i.imgur.com/W8lt9rq.jpeg'
+const TEST_IMAGE_8 = 'https://i.imgur.com/BdCpxOU.jpeg'
+const TEST_IMAGE_9 = 'https://i.imgur.com/jm7sPRH.jpeg'
+const TEST_IMAGE_10 = 'https://i.imgur.com/9phFl1q.jpeg'
+const TEST_IMAGE_11 = 'https://i.imgur.com/nuhFy0n.jpeg'
+const TEST_IMAGE_12 = 'https://i.imgur.com/IBIXilH.jpeg'
+const TEST_IMAGE_13 = 'https://i.imgur.com/sCL5tRI.jpeg'
+const TEST_IMAGE_14 = 'https://i.imgur.com/HyWgipM.jpeg'
+const TEST_IMAGE_15 = 'https://i.imgur.com/jx4qGRf.jpeg'
 
 const testimonials = [
   { name: 'JVS Neto', country: 'BR', avatar: TEST_IMAGE_2, text: 'Em mais de 5 anos eu não encontrei um host tão bom e barato ao mesmo tempo, com um suporte excelente!!' },
   { name: 'Pedro Neto', country: 'BR', avatar: TEST_IMAGE_3, text: 'Atendimento prestativo resolveram todos os meus problemas e ainda me auxiliaram com meu servidor inegavelmente a melhor host que eu já contratei' },
-  { name: 'Literally', country: 'BR', avatar: TEST_IMAGE, text: 'Se eu pudesse avaliar com mais estrelas, eu avaliaria! Os meninos são super pontuais, pacientes, uns amores de pessoa! Eu como uma mera jovem com QI de idosa fui muito bem atendida, vcs são incríveis. Simplesmente apaixonada!' },
-  { name: 'Carlos Silva', country: 'BR', avatar: TEST_IMAGE, text: 'O melhor atendimento que já tive em hospedagem de jogos. Recomendo demais!' },
-  { name: 'Ana Clara', country: 'BR', avatar: TEST_IMAGE, text: 'Painel intuitivo, servidores estáveis e suporte sempre disponível.' },
-  { name: 'Pedro Henrique', country: 'BR', avatar: TEST_IMAGE, text: 'Nunca fiquei na mão, uptime real e proteção DDoS eficiente.' },
-  { name: 'Lucas Gamer', country: 'BR', avatar: TEST_IMAGE, text: 'Hospedei meu servidor de Minecraft e ficou perfeito, sem lag!' },
-  { name: 'Marina Souza', country: 'BR', avatar: TEST_IMAGE, text: 'Equipe muito atenciosa, tiraram todas as minhas dúvidas rapidamente.' },
-  { name: 'Felipe Ramos', country: 'BR', avatar: TEST_IMAGE, text: 'A performance dos servidores é excelente, recomendo para todos.' },
-  { name: 'Gabriel Lima', country: 'BR', avatar: TEST_IMAGE, text: 'Fácil de configurar, preço justo e qualidade top.' },
-  { name: 'Juliana Alves', country: 'BR', avatar: TEST_IMAGE, text: 'O melhor custo-benefício do mercado de games.' },
-  { name: 'Rafael Torres', country: 'BR', avatar: TEST_IMAGE, text: 'Migrei de outro host e não me arrependo, só elogios!' },
-  { name: 'Beatriz Costa', country: 'BR', avatar: TEST_IMAGE, text: 'A estabilidade e o suporte são diferenciais reais.' },
-  { name: 'Vinícius Rocha', country: 'BR', avatar: TEST_IMAGE, text: 'Recomendo para quem quer jogar sem dor de cabeça.' },
+  { name: 'Literally', country: 'BR', avatar: TEST_IMAGE_4, text: 'Se eu pudesse avaliar com mais estrelas, eu avaliaria! Os meninos são super pontuais, pacientes, uns amores de pessoa! Eu como uma mera jovem com QI de idosa fui muito bem atendida, vcs são incríveis. Simplesmente apaixonada!' },
+  { name: 'Carlos Silva', country: 'BR', avatar: TEST_IMAGE_5, text: 'O melhor atendimento que já tive em hospedagem de jogos. Recomendo demais!' },
+  { name: 'Ana Clara', country: 'BR', avatar: TEST_IMAGE_6, text: 'Painel intuitivo, servidores estáveis e suporte sempre disponível.' },
+  { name: 'Pedro Henrique', country: 'BR', avatar: TEST_IMAGE_7, text: 'Nunca fiquei na mão, uptime real e proteção DDoS eficiente.' },
+  { name: 'Lucas Gamer', country: 'BR', avatar: TEST_IMAGE_8, text: 'Hospedei meu servidor de Minecraft e ficou perfeito, sem lag!' },
+  { name: 'Marina Souza', country: 'BR', avatar: TEST_IMAGE_9, text: 'Equipe muito atenciosa, tiraram todas as minhas dúvidas rapidamente.' },
+  { name: 'Felipe Ramos', country: 'BR', avatar: TEST_IMAGE_10, text: 'A performance dos servidores é excelente, recomendo para todos.' },
+  { name: 'Gabriel Lima', country: 'BR', avatar: TEST_IMAGE_11, text: 'Fácil de configurar, preço justo e qualidade top.' },
+  { name: 'Juliana Alves', country: 'BR', avatar: TEST_IMAGE_12, text: 'O melhor custo-benefício do mercado de games.' },
+  { name: 'Rafael Torres', country: 'BR', avatar: TEST_IMAGE_13, text: 'Migrei de outro host e não me arrependo, só elogios!' },
+  { name: 'Beatriz Costa', country: 'BR', avatar: TEST_IMAGE_14, text: 'A estabilidade e o suporte são diferenciais reais.' },
+  { name: 'Vinícius Rocha', country: 'BR', avatar: TEST_IMAGE_15, text: 'Recomendo para quem quer jogar sem dor de cabeça.' },
   { name: 'Larissa Melo', country: 'BR', avatar: TEST_IMAGE, text: 'Atendimento rápido, servidores potentes e muita transparência.' },
 ]
 
