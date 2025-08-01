@@ -101,21 +101,21 @@ export default function DayzFeatures() {
     {
       name: 'Básico',
       price: '60/mês',
-      features: ['10 GB RAM', '2 vCPU', '20 GB SSD'],
+      features: ['10 GB RAM', '2 CPU Cores', '20 GB SSD', 'Processamento Básico'],
       grad: 'from-gray-800 via-gray-900 to-zinc-700',
       badge: null
     },
     {
       name: 'Avançado',
       price: '75/mês',
-      features: ['12 GB RAM', '4 vCPU', '40 GB SSD'],
+      features: ['12 GB RAM', '3 CPU Cores', '40 GB SSD', 'Processamento Avançado'],
       grad: 'from-blue-900 via-blue-800 to-blue-900',
       badge: null
     },
     {
       name: 'Premium',
       price: '120/mês',
-      features: ['20 GB RAM', '6 vCPU', '80 GB SSD'],
+      features: ['20 GB RAM', '3 CPU Cores', '80 GB SSD', 'Processamento Premium'],
       grad: 'from-green-700 via-emerald-700 to-green-800',
       badge: (
         <span className="absolute top-4 right-4 px-2 py-1 bg-gradient-to-r from-green-400 to-green-600 text-xs font-semibold text-white rounded-full flex items-center gap-1 shadow-md">
@@ -127,7 +127,7 @@ export default function DayzFeatures() {
     {
       name: 'Ultimate',
       price: '190/mês',
-      features: ['26 GB RAM', '8 vCPU', '160 GB SSD'],
+      features: ['26 GB RAM', '5 CPU Cores', '160 GB SSD', 'Processamento Ultimate'],
       grad: 'from-rose-700 via-rose-800 to-rose-900',
       badge: null
     }
@@ -414,19 +414,20 @@ export default function DayzFeatures() {
             ))}
 
             {/* cartão personalizado */}
-            <div className="relative flex flex-col items-center text-center rounded-3xl border bg-gradient-to-br from-purple-700/30 to-pink-700/30 shadow-lg border-purple-600 p-7 hover:scale-[1.04] transition-all duration-300 hover:ring-2 hover:ring-pink-400/30">
+            <div className="relative overflow-visible flex flex-col rounded-3xl p-7 border bg-gradient-to-br from-purple-700/30 to-pink-700/30 shadow-lg border-purple-600 hover:scale-[1.04] transition-all duration-300 hover:ring-2 hover:ring-pink-400/30">
               <span className="absolute -top-5 left-1/2 -translate-x-1/2 rounded-full bg-gradient-to-r from-purple-400 to-pink-500 text-white px-4 py-1 text-xs font-bold shadow-lg select-none">
                 Plano personalizado
               </span>
-              <h4 className="text-xl font-bold text-white my-4">Personalize</h4>
-              <p className="text-base text-gray-200 mb-4">
+              <h4 className="text-2xl font-bold text-white mb-2">Personalize</h4>
+              <div className="text-4xl font-extrabold text-pink-400 mb-2">Sob consulta</div>
+              <p className="text-base text-gray-200 mb-6 mt-2">
                 Nenhum dos planos atende sua necessidade?
                 <br />
                 <span className="font-bold text-pink-400">Crie o seu plano!</span>
-              </p><br /><br />
+              </p>
               <a
                 href="https://pixelhostbr.com/financeiro/index.php?rp=/store/hospedagem-dayz/plano-personalizavel"
-                className="bg-gradient-to-r from-purple-600 to-pink-600 text-white py-3 px-6 rounded-xl font-bold shadow-pink-600/20 transition-all duration-200 hover:from-purple-700 hover:to-pink-700 flex justify-center"
+                className="mt-auto bg-gradient-to-r from-purple-600 to-pink-600 text-white py-3 rounded-xl font-bold shadow-inner shadow-pink-900/10 hover:from-purple-700 hover:to-pink-700 transition-all duration-200 flex justify-center"
               >
                 Customizar
               </a>

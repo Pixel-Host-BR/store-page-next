@@ -19,6 +19,15 @@ import {
   Sparkles
 } from 'lucide-react'
 
+interface Recommendation {
+  players: string
+  world: string
+  ram: string
+  color: 'purple' | 'blue' | 'green'
+  width: string
+  description: string
+}
+
 export const metadata = {
   title: "Minecraft - PixelHost",
   description: "Bem-vindo à PixelHost",
@@ -27,6 +36,7 @@ export const metadata = {
 export default function MinecraftFeatures() {
   const [activeFeature, setActiveFeature] = useState(0)
   const [isVisible, setIsVisible] = useState(false)
+  const [activeConfig, setActiveConfig] = useState<'mods' | 'plugins' | 'vanilla'>('mods')
 
   useEffect(() => {
     setIsVisible(true)
@@ -88,21 +98,21 @@ export default function MinecraftFeatures() {
     {
       name: 'Básico',
       price: '25/mês',
-      features: ['4GB RAM', '1 CPU Core', '10GB SSD'],
+      features: ['4GB RAM', '2 CPU Cores', '10GB SSD', 'Processamento Básico'],
       grad: 'from-gray-800 via-gray-900 to-zinc-700',
       badge: null
     },
     {
       name: 'Avançado',
       price: '35/mês',
-      features: ['8GB RAM', '2 CPU Cores', '25GB SSD'],
+      features: ['8GB RAM', '3 CPU Cores', '25GB SSD', 'Processamento Avançado'],
       grad: 'from-blue-900 via-blue-800 to-blue-900',
       badge: null
     },
     {
       name: 'Premium',
       price: '50/mês',
-      features: ['16GB RAM', '4 CPU Cores', '50GB SSD'],
+      features: ['16GB RAM', '3 CPU Cores', '50GB SSD', 'Processamento Premium'],
       grad: 'from-green-700 via-emerald-700 to-green-800',
       badge: (
         <span className="absolute top-4 right-4 px-2 py-1 bg-gradient-to-r from-green-400 to-green-600 text-xs font-semibold text-white rounded-full flex items-center gap-1 shadow-md">
@@ -114,11 +124,92 @@ export default function MinecraftFeatures() {
     {
       name: 'Master',
       price: '90/mês',
-      features: ['26GB RAM', '8 CPU Cores', '100GB SSD'],
+      features: ['26GB RAM', '5 CPU Cores', '100GB SSD', 'Processamento Master'],
       grad: 'from-yellow-700 via-yellow-800 to-orange-800',
       badge: null
     }
   ]
+
+  const configRecommendations: Record<'mods' | 'plugins' | 'vanilla', Recommendation[]> = {
+    mods: [
+      {
+        players: 'Até 5 jogadores',
+        world: 'Mundo pequeno a médio',
+        ram: '6GB RAM',
+        color: 'purple',
+        width: '40%',
+        description: 'Ideal para modpacks pequenos'
+      },
+      {
+        players: '5-10 jogadores',
+        world: 'Mundo médio',
+        ram: '16GB RAM',
+        color: 'blue',
+        width: '70%',
+        description: 'Perfeito para modpacks populares'
+      },
+      {
+        players: '10-20 jogadores',
+        world: 'Mundo grande',
+        ram: '20GB RAM',
+        color: 'green',
+        width: '90%',
+        description: 'Para modpacks pesados e muitos jogadores'
+      }
+    ],
+    plugins: [
+      {
+        players: 'Até 8 jogadores',
+        world: 'Mundo pequeno a médio',
+        ram: '4GB RAM',
+        color: 'purple',
+        width: '35%',
+        description: 'Ideal para servidores com plugins básicos'
+      },
+      {
+        players: '8-15 jogadores',
+        world: 'Mundo médio',
+        ram: '8GB RAM',
+        color: 'blue',
+        width: '60%',
+        description: 'Perfeito para servidores com muitos plugins'
+      },
+      {
+        players: '25-40 jogadores',
+        world: 'Mundo grande',
+        ram: '16GB RAM',
+        color: 'green',
+        width: '85%',
+        description: 'Para servidores complexos com muitos plugins'
+      }
+    ],
+    vanilla: [
+      {
+        players: 'Até 8 jogadores',
+        world: 'Mundo pequeno a médio',
+        ram: '4GB RAM',
+        color: 'purple',
+        width: '30%',
+        description: 'Ideal para servidores vanilla simples'
+      },
+      {
+        players: '8-15 jogadores',
+        world: 'Mundo médio',
+        ram: '8GB RAM',
+        color: 'blue',
+        width: '55%',
+        description: 'Perfeito para servidores vanilla médios'
+      },
+      {
+        players: '15-20 jogadores',
+        world: 'Mundo grande',
+        ram: '16GB RAM',
+        color: 'green',
+        width: '80%',
+        description: 'Para servidores vanilla grandes'
+      }
+    ]
+  }
 
   return (
     <section className="relative bg-gradient-to-b from-gray-900 to-gray-800 py-20 overflow-hidden">
@@ -338,25 +429,121 @@ export default function MinecraftFeatures() {
                 )}
               </div>
             )}
-            {/* Card Customizado */}
-            <div className="relative flex flex-col items-center text-center rounded-3xl border bg-gradient-to-br from-purple-700/30 to-pink-700/30 shadow-lg border-purple-600 p-7 hover:scale-[1.04] transition-all duration-300 hover:ring-2 hover:ring-pink-400/30">
-              <span className="absolute -top-5 left-1/2 -translate-x-1/2 rounded-full bg-gradient-to-r from-purple-400 to-pink-500 text-white px-4 py-1 text-xs font-bold shadow-lg select-none">
-                Plano personalizado
-              </span>
-              <h4 className="text-xl font-bold text-white my-4">Personalize</h4>
-              <p className="text-base text-gray-200 mb-4">
-                Nenhum dos planos atende sua necessidade?<br />
-                <span className="font-bold text-pink-400">Crie o seu plano!</span>
-              </p> <br/><br/>
-                <a
-                href="https://pixelhostbr.com/financeiro/index.php?rp=/store/hospedagem-minecraft/plano-personalizavel"
-                className="bg-gradient-to-r from-purple-600 to-pink-600 text-white py-3 px-6 rounded-xl font-bold shadow-pink-600/20 transition-all duration-200 hover:from-purple-700 hover:to-pink-700 flex justify-center"
-                >
-                Customizar
-                </a>
+                         {/* Card Customizado */}
+             <div className="relative overflow-visible flex flex-col rounded-3xl p-7 border bg-gradient-to-br from-purple-700/30 to-pink-700/30 shadow-lg border-purple-600 hover:scale-[1.04] transition-all duration-300 hover:ring-2 hover:ring-pink-400/30">
+               <span className="absolute -top-5 left-1/2 -translate-x-1/2 rounded-full bg-gradient-to-r from-purple-400 to-pink-500 text-white px-4 py-1 text-xs font-bold shadow-lg select-none">
+                 Plano personalizado
+               </span>
+               <h4 className="text-2xl font-bold text-white mb-2">Personalize</h4>
+               <div className="text-4xl font-extrabold text-pink-400 mb-2">Sob consulta</div>
+               <p className="text-base text-gray-200 mb-6 mt-2">
+                 Nenhum dos planos atende sua necessidade?<br />
+                 <span className="font-bold text-pink-400">Crie o seu plano!</span>
+               </p>
+               <a
+                 href="https://pixelhostbr.com/financeiro/index.php?rp=/store/hospedagem-minecraft/plano-personalizavel"
+                 className="mt-auto bg-gradient-to-r from-purple-600 to-pink-600 text-white py-3 rounded-xl font-bold shadow-inner shadow-pink-900/10 hover:from-purple-700 hover:to-pink-700 transition-all duration-200 flex justify-center"
+               >
+                 Customizar
+               </a>
+             </div>
+                     </div>
+         </div>
+
+                   {/* ----------- COMPATIBILIDADE JAVA/BEDROCK ----------- */}
+          <div className="text-center mb-12">
+            <div className="bg-gradient-to-r from-green-600/10 to-blue-600/10 backdrop-blur-sm border border-green-500/20 rounded-2xl p-6 max-w-2xl mx-auto">
+              <div className="flex items-center justify-center space-x-3 mb-3">
+                <div className="w-8 h-8 bg-gradient-to-br from-green-500 to-emerald-600 rounded-lg flex items-center justify-center">
+                  <CheckCircle2 className="h-5 w-5 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-white">Compatibilidade Total</h3>
+              </div>
+              <p className="text-gray-300 text-lg">
+                Todos os nossos planos são <span className="font-semibold text-green-400">100% compatíveis</span> com as versões 
+                <span className="font-semibold text-blue-400"> Java</span> e <span className="font-semibold text-green-400">Bedrock</span> do Minecraft
+              </p>
             </div>
           </div>
-        </div>
+
+          {/* ----------- RECOMENDAÇÕES DE PLANOS ----------- */}
+        <section className="max-w-3xl mx-auto p-6 my-12 bg-gradient-to-b from-gray-900 to-gray-800 rounded-3xl border border-gray-700/40 shadow-lg">
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-white text-center mb-1">Qual plano é ideal para você?</h2>
+          <p className="text-gray-400 text-center mb-8">
+            O tamanho ideal do servidor depende do tipo de uso. Confira nossas recomendações:
+          </p>
+
+          {/* Botões de alternância */}
+          <div className="flex justify-center mb-8">
+            <div className="bg-gray-800/50 rounded-xl p-1 border border-gray-700/50">
+              <button
+                onClick={() => setActiveConfig('mods')}
+                className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-300 ${
+                  activeConfig === 'mods'
+                    ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg'
+                    : 'text-gray-400 hover:text-white hover:bg-gray-700/50'
+                }`}
+              >
+                Com Mods
+              </button>
+              <button
+                onClick={() => setActiveConfig('plugins')}
+                className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-300 ${
+                  activeConfig === 'plugins'
+                    ? 'bg-gradient-to-r from-blue-600 to-cyan-600 text-white shadow-lg'
+                    : 'text-gray-400 hover:text-white hover:bg-gray-700/50'
+                }`}
+              >
+                Com Plugins
+              </button>
+              <button
+                onClick={() => setActiveConfig('vanilla')}
+                className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-300 ${
+                  activeConfig === 'vanilla'
+                    ? 'bg-gradient-to-r from-green-600 to-emerald-600 text-white shadow-lg'
+                    : 'text-gray-400 hover:text-white hover:bg-gray-700/50'
+                }`}
+              >
+                Vanilla
+              </button>
+            </div>
+          </div>
+
+          <div className="grid gap-6">
+            {configRecommendations[activeConfig].map((recommendation, idx) => (
+              <div key={idx} className="bg-gray-800/80 p-5 rounded-2xl border border-gray-700/50 flex flex-col md:flex-row items-center gap-6">
+                <div className="flex-1">
+                  <h3 className="text-lg font-semibold text-white mb-1">{recommendation.players}</h3>
+                  <p className="text-sm text-gray-400 mb-2">{recommendation.description}</p>
+                  <span className={`text-xs rounded px-2 py-0.5 font-bold ${
+                    recommendation.color === 'purple' ? 'bg-indigo-700/50 text-indigo-100' :
+                    recommendation.color === 'blue' ? 'bg-blue-700/40 text-blue-100' :
+                    'bg-green-700/40 text-green-100'
+                  }`}>
+                    {recommendation.world}
+                  </span>
+                  <div className="mt-2 h-2 bg-gray-700 rounded-full relative overflow-hidden">
+                    <div 
+                      className={`absolute top-0 left-0 h-full rounded-full ${
+                        recommendation.color === 'purple' ? 'bg-purple-500' :
+                        recommendation.color === 'blue' ? 'bg-blue-400' :
+                        'bg-green-400'
+                      }`} 
+                      style={{width: recommendation.width}}
+                    ></div>
+                  </div>
+                </div>
+                <span className={`bg-gray-900 px-4 py-1.5 rounded-lg font-bold mt-4 md:mt-0 ${
+                  recommendation.color === 'purple' ? 'text-purple-300' :
+                  recommendation.color === 'blue' ? 'text-blue-300' :
+                  'text-green-300'
+                }`}>
+                  {recommendation.ram}
+                </span>
+              </div>
+            ))}
+          </div>
+        </section>
 
         {/* ----------- CHAMADA FINAL ----------- */}
         <div className={`text-center mt-16 transition-all duration-1000 delay-900 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
