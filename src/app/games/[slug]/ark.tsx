@@ -146,10 +146,10 @@ export default function ArkFeatures() {
       {/* ----------- HEADER ----------- */}
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-red-500/20 to-yellow-400/20 backdrop-blur-sm border border-red-500/30 rounded-full px-4 py-2 mb-6">
-            <Heart className="h-4 w-4 text-red-400" />
-            <span className="text-sm font-medium text-red-200">Recursos Premium Inclusos</span>
-          </div>
+                     <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-red-500/20 to-yellow-400/20 backdrop-blur-sm border border-red-500/30 rounded-full px-4 py-2 mb-6">
+             <Heart className="h-4 w-4 text-red-400" />
+             <span className="text-sm font-medium text-red-200">Recursos Premium Incluídos</span>
+           </div>
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
             <span className="text-white">Tudo o que seu servidor</span><br/>
             <span className="bg-gradient-to-r from-red-500 via-yellow-400 to-yellow-500 bg-clip-text text-transparent">

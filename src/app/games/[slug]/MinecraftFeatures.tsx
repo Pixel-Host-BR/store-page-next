@@ -243,7 +243,7 @@ export default function MinecraftFeatures() {
             <span className="text-sm font-medium text-green-200">Recursos Premium Incluídos</span>
           </div>
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
-            <span className="text-white">Tudo que seu servidor</span><br/>
+            <span className="text-white">Tudo o que seu servidor</span><br/>
             <span className="bg-gradient-to-r from-green-400 via-emerald-500 to-blue-500 bg-clip-text text-transparent">
               Minecraft precisa
             </span>

@@ -170,12 +170,12 @@ export default function ZomboidFeatures() {
           <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-indigo-500/20 to-violet-600/20 backdrop-blur-sm border border-indigo-500/30 rounded-full px-4 py-2 mb-6">
             <Heart className="h-4 w-4 text-indigo-400" />
             <span className="text-sm font-medium text-indigo-200">
-              Recursos Premium Inclusos
+              Recursos Premium Incluídos
             </span>
           </div>
 
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
-            <span className="text-white">Tudo que seu servidor</span>
+            <span className="text-white">Tudo o que seu servidor</span>
             <br />
             <span className="bg-gradient-to-r from-indigo-400 via-violet-500 to-purple-600 bg-clip-text text-transparent">
               Project Zomboid precisa

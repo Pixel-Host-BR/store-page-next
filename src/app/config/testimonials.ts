@@ -26,7 +26,7 @@ export const testimonials: Testimonial[] = [
     name: 'Pedro Neto',
     country: 'BR',
     avatar: 'https://user-images.trustpilot.com/68868dec04313e75da39c164/73x73.png',
-    text: 'Atendimento prestativo resolveram todos os meus problemas e ainda me auxiliaram com meu servidor inegavelmente a melhor host que eu já contratei',
+    text: 'Atendimento prestativo, resolveram todos os meus problemas e ainda me auxiliaram com meu servidor. Inegavelmente a melhor host que eu já contratei.',
     rating: 5,
     game: 'ARK',
     date: '2024-01-10'

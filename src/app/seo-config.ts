@@ -28,7 +28,7 @@ export const seoConfig = {
   // Configurações por página
   pages: {
     home: {
-      title: 'Inicio - PixelHost',
+      title: 'Início - PixelHost',
       description: 'Bem-vindo à PixelHost - Hospedagem de servidores de jogos de elite com alta performance, DDoS protection e suporte 24/7.',
       keywords: 'hospedagem de servidores, servidor de jogos, minecraft, ark, palworld, dayz, mta, project zomboid',
       ogImage: 'https://i.imgur.com/8u6NO4D.jpeg',

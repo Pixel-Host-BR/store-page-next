@@ -25,7 +25,7 @@ const TEST_IMAGE_15 = 'https://i.imgur.com/jx4qGRf.jpeg'
 
 const testimonials = [
   { name: 'JVS Neto', country: 'BR', avatar: TEST_IMAGE_2, text: 'Em mais de 5 anos eu não encontrei um host tão bom e barato ao mesmo tempo, com um suporte excelente!!' },
-  { name: 'Pedro Neto', country: 'BR', avatar: TEST_IMAGE_3, text: 'Atendimento prestativo resolveram todos os meus problemas e ainda me auxiliaram com meu servidor inegavelmente a melhor host que eu já contratei' },
+  { name: 'Pedro Neto', country: 'BR', avatar: TEST_IMAGE_3, text: 'Atendimento prestativo, resolveram todos os meus problemas e ainda me auxiliaram com meu servidor. Inegavelmente a melhor host que eu já contratei.' },
   { name: 'Literally', country: 'BR', avatar: TEST_IMAGE_4, text: 'Se eu pudesse avaliar com mais estrelas, eu avaliaria! Os meninos são super pontuais, pacientes, uns amores de pessoa! Eu como uma mera jovem com QI de idosa fui muito bem atendida, vcs são incríveis. Simplesmente apaixonada!' },
   { name: 'Carlos Silva', country: 'BR', avatar: TEST_IMAGE_5, text: 'O melhor atendimento que já tive em hospedagem de jogos. Recomendo demais!' },
   { name: 'Ana Clara', country: 'BR', avatar: TEST_IMAGE_6, text: 'Painel intuitivo, servidores estáveis e suporte sempre disponível.' },
@@ -239,7 +239,7 @@ export default function HeroBenefitsSection() {
       color: 'bg-yellow-500/20 text-yellow-400'
     },
     {
-      title: 'Atendimento humano',
+      title: 'Atendimento Humano',
       description: 'Especialistas prontos para ajudar com qualquer dúvida ou problema que você tenha.',
       icon: Headset,
       color: 'bg-green-500/20 text-green-400'

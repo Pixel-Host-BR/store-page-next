@@ -34,7 +34,7 @@ export default function Footer() {
     <footer className="bg-[#161723] text-white pt-0">
       {/* Faixa do Discord */}
       <div className="bg-[#5e34e0] py-3 text-center font-medium text-[1.07rem]">
-        Participe da nossa comunidade no Discord para novidades !
+        Participe da nossa comunidade no Discord para novidades!
         <a
           href="https://discord.gg/BBAPJyKUw7"
           target="_blank"
