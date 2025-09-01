@@ -60,7 +60,7 @@ export default function Navbar() {
           <div className="flex-shrink-0 flex items-center">
             <Link href="/" aria-label="Ir para Home" className="flex items-center space-x-2">
               <img
-                src="https://i.imgur.com/Hl1hshd.png"
+                src="https://i.imgur.com/JbKkw2N.png"
                 alt="Logo PixelHost"
                 className="h-6 w-auto md:h-8"
               />

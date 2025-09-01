@@ -53,7 +53,7 @@ export default function Footer() {
           <div className="flex-shrink-0 flex justify-start ">
                         <div className="relative">
                           <img
-                            src="https://i.imgur.com/Hl1hshd.png"
+                            src="https://i.imgur.com/JbKkw2N.png"
                             alt="Logo PixelHost"
                             className="h-6 w-auto md:h-8"
                           />
