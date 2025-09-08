@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import BenefitsSection from './components/BenefitsSection';
 import BackToTopButton from './components/BackToTopButton'
 import FacebookPixel from './components/FacebookPixel'
@@ -11,7 +11,9 @@ export default function Home() {
     <>
       <BenefitsSection/>
       <BackToTopButton/>
-      <FacebookPixel/>
+      <Suspense fallback={null}>
+        <FacebookPixel/>
+      </Suspense>
     </>
   );
 }
