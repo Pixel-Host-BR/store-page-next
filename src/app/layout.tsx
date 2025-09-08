@@ -1,6 +1,7 @@
 import './globals.css'
 import Navbar from '../app/components/navbar'
 import Footer from '../app/components/Footer';
+import FacebookPixel from './components/FacebookPixel';
 import Script from 'next/script'
 import { ReactNode } from 'react';
 import { seoConfig, generateMetadata } from './seo-config'
@@ -25,10 +26,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           {children}
         </main>
         <Footer />
-        <Script 
-          src="https://embed.tawk.to/68221a806e1d72190c2992dd/1ir2jf20l" 
-          strategy="afterInteractive" 
-          crossOrigin="anonymous" 
+        <FacebookPixel />
+        <Script
+          src="https://embed.tawk.to/68221a806e1d72190c2992dd/1ir2jf20l"
+          strategy="afterInteractive"
+          crossOrigin="anonymous"
         />
       </body>
     </html>
