@@ -1,5 +1,5 @@
 'use client';
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 import Script from "next/script";
 
@@ -14,10 +14,11 @@ const PIXEL_ID = '1241371224409965';
 export default function FacebookPixel() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
+  const isInitialized = useRef(false);
 
   useEffect(() => {
-    // Dispara PageView a cada navegação interna
-    if (typeof window !== 'undefined' && typeof window.fbq === "function") {
+    // Dispara PageView a cada navegação interna (apenas se não for a primeira carga)
+    if (typeof window !== 'undefined' && typeof window.fbq === "function" && isInitialized.current) {
       window.fbq('track', 'PageView');
     }
   }, [pathname, searchParams]);
@@ -27,6 +28,13 @@ export default function FacebookPixel() {
       <Script
         id="facebook-pixel"
         strategy="afterInteractive"
+        onLoad={() => {
+          // Marca como inicializado e dispara o primeiro PageView
+          isInitialized.current = true;
+          if (typeof window !== 'undefined' && typeof window.fbq === "function") {
+            window.fbq('track', 'PageView');
+          }
+        }}
         dangerouslySetInnerHTML={{
           __html: `
             !function(f,b,e,v,n,t,s)
@@ -38,7 +46,6 @@ export default function FacebookPixel() {
             s.parentNode.insertBefore(t,s)}(window, document,'script',
             'https://connect.facebook.net/en_US/fbevents.js');
             fbq('init', '${PIXEL_ID}');
-            fbq('track', 'PageView');
           `
         }}
       />
