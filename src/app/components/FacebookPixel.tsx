@@ -6,6 +6,7 @@ import Script from "next/script";
 declare global {
   interface Window {
     fbq?: (...args: any[]) => void;
+    _fbq?: any;
   }
 }
 
@@ -19,22 +20,32 @@ export default function FacebookPixel() {
   useEffect(() => {
     // Dispara PageView a cada navegação interna (apenas se não for a primeira carga)
     if (typeof window !== 'undefined' && typeof window.fbq === "function" && isInitialized.current) {
+      console.log('Facebook Pixel: Tracking PageView for navigation');
       window.fbq('track', 'PageView');
     }
   }, [pathname, searchParams]);
+
+  const handleScriptLoad = () => {
+    console.log('Facebook Pixel: Script loaded successfully');
+    isInitialized.current = true;
+    
+    // Aguarda um pouco para garantir que o fbq está disponível
+    setTimeout(() => {
+      if (typeof window !== 'undefined' && typeof window.fbq === "function") {
+        console.log('Facebook Pixel: Initializing and tracking PageView');
+        window.fbq('track', 'PageView');
+      } else {
+        console.error('Facebook Pixel: fbq function not available');
+      }
+    }, 100);
+  };
 
   return (
     <>
       <Script
         id="facebook-pixel"
-        strategy="afterInteractive"
-        onLoad={() => {
-          // Marca como inicializado e dispara o primeiro PageView
-          isInitialized.current = true;
-          if (typeof window !== 'undefined' && typeof window.fbq === "function") {
-            window.fbq('track', 'PageView');
-          }
-        }}
+        strategy="beforeInteractive"
+        onLoad={handleScriptLoad}
         dangerouslySetInnerHTML={{
           __html: `
             !function(f,b,e,v,n,t,s)
@@ -45,7 +56,10 @@ export default function FacebookPixel() {
             t.src=v;s=b.getElementsByTagName(e)[0];
             s.parentNode.insertBefore(t,s)}(window, document,'script',
             'https://connect.facebook.net/en_US/fbevents.js');
+            
+            console.log('Facebook Pixel: Initializing with ID ${PIXEL_ID}');
             fbq('init', '${PIXEL_ID}');
+            console.log('Facebook Pixel: Initialized successfully');
           `
         }}
       />

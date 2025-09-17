@@ -2,6 +2,7 @@ import './globals.css'
 import Navbar from '../app/components/navbar'
 import Footer from '../app/components/Footer';
 import FacebookPixel from './components/FacebookPixel';
+import FacebookPixelHead from './components/FacebookPixelHead';
 import Script from 'next/script'
 import { ReactNode, Suspense } from 'react';
 import { seoConfig, generateMetadata } from './seo-config'
@@ -19,6 +20,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <FacebookPixelHead />
       </head>
       <body className="bg-[#181826] min-h-screen">
         <Navbar />
@@ -26,9 +28,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           {children}
         </main>
         <Footer />
-        <Suspense fallback={null}>
-          <FacebookPixel />
-        </Suspense>
+        <FacebookPixel />
         <Script
           src="https://embed.tawk.to/68221a806e1d72190c2992dd/1ir2jf20l"
           strategy="afterInteractive"
