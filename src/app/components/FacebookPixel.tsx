@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, Suspense } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 import Script from "next/script";
 
@@ -12,7 +12,7 @@ declare global {
 
 const PIXEL_ID = '1241371224409965';
 
-export default function FacebookPixel() {
+function FacebookPixelContent() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const isInitialized = useRef(false);
@@ -73,5 +73,13 @@ export default function FacebookPixel() {
         />
       </noscript>
     </>
+  );
+}
+
+export default function FacebookPixel() {
+  return (
+    <Suspense fallback={null}>
+      <FacebookPixelContent />
+    </Suspense>
   );
 }
