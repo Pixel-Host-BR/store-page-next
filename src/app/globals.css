@@ -82,3 +82,47 @@ section {
     user-select: none;
   }
 }
+
+/* Component-level styles */
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 font-medium transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 active:scale-[0.985];
+  }
+
+  .btn-md { @apply px-5 py-2.5 text-sm; }
+  .btn-lg { @apply px-6 py-3 text-base; }
+
+  .hover-lift { @apply hover:-translate-y-[1px] hover:shadow-lg; }
+
+  .btn-glass {
+    @apply text-white bg-white/15 hover:bg-white/25 border border-white/25 ring-1 ring-white/10 shadow-md backdrop-blur-md;
+  }
+
+  .btn-purple {
+    @apply text-white bg-purple-500/25 hover:bg-purple-500/35 border border-purple-400/30 ring-1 ring-purple-300/20 shadow-md backdrop-blur-md;
+  }
+
+  .btn-outline {
+    @apply text-white border border-white/40 hover:border-white/60 bg-transparent/10 hover:bg-white/10;
+  }
+
+  .btn-ghost {
+    @apply text-gray-200 hover:text-white bg-transparent hover:bg-white/10;
+  }
+
+  /* subtle shine on hover */
+  .shine {
+    position: relative;
+    overflow: hidden;
+  }
+  .shine::after {
+    content: "";
+    position: absolute;
+    inset: -150% -50% auto auto;
+    width: 50%;
+    transform: rotate(25deg);
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.35), transparent);
+    transition: transform 0.6s ease;
+  }
+  .shine:hover::after { transform: translateX(-120%) rotate(25deg); }
+}

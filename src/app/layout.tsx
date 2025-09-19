@@ -13,7 +13,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html className="bg-[#181826] min-h-screen">
       <head>
-        <link rel="icon" href="https://i.imgur.com/lLi1Qo8.png" />
+        <link rel="icon" href="https://i.imgur.com/2pr5v85.png" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
         <meta name="theme-color" content="#181826" />
         <meta name="msapplication-navbutton-color" content="#181826" />

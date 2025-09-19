@@ -90,7 +90,7 @@ export default function ContactForm() {
             <label className="text-gray-300 block mb-2">Mensagem</label>
             <textarea required rows={4} className="w-full px-4 py-3 rounded-xl bg-gray-800 border-none focus:ring-2 ring-indigo-400 text-white placeholder-gray-500"/>
           </div>
-          <button type="submit" className="w-full flex justify-center items-center gap-2 py-3 px-8 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-indigo-600 hover:to-purple-600 text-white font-bold text-lg shadow-lg shadow-purple-700/20 transition-all duration-300 hover:scale-105 focus:ring-2 ring-purple-400">
+          <button type="submit" className="btn btn-lg btn-purple hover-lift shine w-full font-semibold">
             <Send className="h-5 w-5"/> {status==='sent' ? "Mensagem enviada!" : "Enviar"}
           </button>
           {status==='sent' && (

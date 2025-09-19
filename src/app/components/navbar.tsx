@@ -48,14 +48,15 @@ export default function Navbar() {
   ]
 
   return (
-    
-    <nav className={`fixed w-full top-0 z-50 transition-all duration-300 ${
-      isScrolled 
-        ? 'bg-gray-900/95 backdrop-blur-md shadow-lg border-b border-gray-800/50' 
-        : 'bg-transparent'
-    }`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+    <nav className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 pointer-events-none`}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-4">
+        <div
+          className={`pointer-events-auto flex justify-between items-center h-14 px-4 rounded-full border shadow-2xl ring-1 ${
+            isScrolled
+              ? 'bg-white/15 backdrop-blur-md border-white/25 ring-white/10'
+              : 'bg-white/10 backdrop-blur-md border-white/20 ring-white/10'
+          }`}
+        >
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center">
             <Link href="/" aria-label="Ir para Home" className="flex items-center space-x-2">
@@ -93,7 +94,7 @@ export default function Navbar() {
                   }`} />
                 </button>
                 {isGamesDropdownOpen && (
-                  <div className="absolute left-0 mt-2 w-72 bg-gray-800/95 backdrop-blur-md rounded-lg shadow-xl border border-gray-700/50 overflow-hidden"
+                  <div className="absolute left-0 mt-2 w-72 bg-gray-800/95 backdrop-blur-md rounded-xl shadow-xl border border-gray-700/50 overflow-hidden"
                     aria-label="Menu de jogos"
                   >
                     <div className="p-2">
@@ -156,11 +157,11 @@ export default function Navbar() {
           </div>
 
           {/* CTA Desktop & Mobile menu button */}
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-4 -mr-1 sm:-mr-2 lg:-mr-3">
             {/* Botão Desktop */}
             <Link
               href="https://pixelhostbr.com/login.html"
-              className="hidden sm:flex items-center justify-center space-x-2 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-4 py-3 rounded-lg text-sm font-medium text-center w-full max-w-xs transition-all duration-200 shadow-lg hover:shadow-xl hover:scale-105"
+              className="hidden sm:inline-flex btn btn-md btn-purple hover-lift shine w-auto"
               aria-label="Ir para o painel de controle"
               target="_blank" rel="noopener noreferrer"
             >
@@ -180,10 +181,11 @@ export default function Navbar() {
       </div>
 
       {/* Mobile Navigation */}
-      <div className={`md:hidden transition-all duration-300 ease-in-out ${
-        isMenuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
-      } overflow-y-auto bg-gray-900/95 backdrop-blur-md border-t border-gray-800/50`}>
-        <div className="px-2 pt-2 pb-4 space-y-1">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className={`md:hidden transition-all duration-300 ease-in-out pointer-events-auto ${
+          isMenuOpen ? 'mt-2 opacity-100' : 'max-h-0 opacity-0'
+        } overflow-hidden`}> 
+          <div className="pointer-events-auto rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 shadow-xl ring-1 ring-white/10 px-2 pt-2 pb-4 space-y-1">
           <Link
             href="/"
             className="text-gray-300 hover:text-white hover:bg-gray-800/50 block px-3 py-2 rounded-md text-base font-medium transition-all duration-200"
@@ -241,7 +243,7 @@ export default function Navbar() {
           <div className="pt-4 border-t border-gray-700/50 mt-4">
             <Link
               href="https://pixelhostbr.com/login.html"
-              className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white block px-4 py-3 rounded-lg text-base font-medium text-center w-full flex items-center justify-center space-x-2 shadow-lg hover:shadow-xl transition-all duration-200"
+              className="btn btn-lg btn-purple hover-lift shine w-full"
               aria-label="Ir para o painel de controle"
               target="_blank" rel="noopener noreferrer"
               onClick={() => setIsMenuOpen(false)}
@@ -249,6 +251,7 @@ export default function Navbar() {
               <ArrowRightToLine className="h-4 w-4 group-hover:translate-x-1 transition-transform"/>
               <span> Área do Cliente</span>
             </Link>
+          </div>
           </div>
         </div>
       </div>
