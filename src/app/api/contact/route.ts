@@ -1,5 +1,8 @@
 import nodemailer from 'nodemailer'
 
+// Ensure Node.js runtime (Nodemailer is not supported on Edge)
+export const runtime = 'nodejs'
+
 type ContactPayload = {
   name: string
   email: string
@@ -30,7 +33,10 @@ export async function POST(request: Request) {
     const to = process.env.CONTACT_TO || user
 
     if (!user || !pass) {
-      return new Response(JSON.stringify({ error: 'Email not configured' }), { status: 500 })
+      return new Response(
+        JSON.stringify({ error: 'Email not configured. Set ZOHO_USER and ZOHO_PASS.' }),
+        { status: 500 }
+      )
     }
 
     const transporter = nodemailer.createTransport({
@@ -62,7 +68,11 @@ export async function POST(request: Request) {
     return new Response(JSON.stringify({ ok: true }), { status: 200 })
   } catch (error) {
     console.error('CONTACT_API_ERROR', error)
-    return new Response(JSON.stringify({ error: 'Failed to send message' }), { status: 500 })
+    const message =
+      (typeof error === 'object' && error && (error as any).code) ? `Failed to send message: ${(error as any).code}` :
+      (error instanceof Error && error.message) ? `Failed to send message: ${error.message}` :
+      'Failed to send message'
+    return new Response(JSON.stringify({ error: message }), { status: 500 })
   }
 }
 
