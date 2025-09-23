@@ -6,12 +6,33 @@ import {
 } from 'lucide-react'
 
 export default function ContactForm() {
-  const [status, setStatus] = useState<'idle'|'sent'>('idle')
+  const [status, setStatus] = useState<'idle'|'loading'|'sent'|'error'>('idle')
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
-    setStatus('sent')
-    setTimeout(()=>setStatus('idle'), 4000)
+    setStatus('loading')
+    const form = e.currentTarget
+    const data = new FormData(form)
+    const payload = {
+      name: String(data.get('name') || ''),
+      email: String(data.get('email') || ''),
+      subject: String(data.get('subject') || ''),
+      message: String(data.get('message') || ''),
+    }
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      })
+      if (!res.ok) throw new Error('failed')
+      setStatus('sent')
+      form.reset()
+      setTimeout(()=>setStatus('idle'), 5000)
+    } catch {
+      setStatus('error')
+      setTimeout(()=>setStatus('idle'), 5000)
+    }
   }
 
   return (
@@ -76,25 +97,28 @@ export default function ContactForm() {
           </h3>
           <div className="mb-5">
             <label className="text-gray-300 block mb-2">Nome</label>
-            <input required autoComplete="name" type="text" className="w-full px-4 py-3 rounded-xl bg-gray-800 border-none focus:ring-2 ring-purple-400 text-white placeholder-gray-500"/>
+            <input name="name" required autoComplete="name" type="text" className="w-full px-4 py-3 rounded-xl bg-gray-800 border-none focus:ring-2 ring-purple-400 text-white placeholder-gray-500"/>
           </div>
           <div className="mb-5">
             <label className="text-gray-300 block mb-2">Email</label>
-            <input required autoComplete="email" type="email" className="w-full px-4 py-3 rounded-xl bg-gray-800 border-none focus:ring-2 ring-cyan-400 text-white placeholder-gray-500"/>
+            <input name="email" required autoComplete="email" type="email" className="w-full px-4 py-3 rounded-xl bg-gray-800 border-none focus:ring-2 ring-cyan-400 text-white placeholder-gray-500"/>
           </div>
           <div className="mb-5">
             <label className="text-gray-300 block mb-2">Assunto</label>
-            <input required type="text" className="w-full px-4 py-3 rounded-xl bg-gray-800 border-none focus:ring-2 ring-rose-400 text-white placeholder-gray-500"/>
+            <input name="subject" required type="text" className="w-full px-4 py-3 rounded-xl bg-gray-800 border-none focus:ring-2 ring-rose-400 text-white placeholder-gray-500"/>
           </div>
           <div className="mb-7">
             <label className="text-gray-300 block mb-2">Mensagem</label>
-            <textarea required rows={4} className="w-full px-4 py-3 rounded-xl bg-gray-800 border-none focus:ring-2 ring-indigo-400 text-white placeholder-gray-500"/>
+            <textarea name="message" required rows={4} className="w-full px-4 py-3 rounded-xl bg-gray-800 border-none focus:ring-2 ring-indigo-400 text-white placeholder-gray-500"/>
           </div>
-          <button type="submit" className="btn btn-lg btn-purple hover-lift shine w-full font-semibold">
-            <Send className="h-5 w-5"/> {status==='sent' ? "Mensagem enviada!" : "Enviar"}
+          <button type="submit" disabled={status==='loading'} className="btn btn-lg btn-purple hover-lift shine w-full font-semibold disabled:opacity-70 disabled:cursor-not-allowed">
+            <Send className="h-5 w-5"/> {status==='loading' ? "Enviando..." : status==='sent' ? "Mensagem enviada!" : status==='error' ? "Erro ao enviar" : "Enviar"}
           </button>
           {status==='sent' && (
             <p className="text-green-400 mt-4 text-center animate-fadeIn">Enviado com sucesso! Responderemos em breve.</p>
+          )}
+          {status==='error' && (
+            <p className="text-rose-400 mt-4 text-center animate-fadeIn">Não foi possível enviar. Tente novamente.</p>
           )}
         </form>
       </div>
