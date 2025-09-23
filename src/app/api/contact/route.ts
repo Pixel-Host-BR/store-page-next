@@ -46,6 +46,17 @@ export async function POST(request: Request) {
       auth: { user, pass },
     })
 
+    try {
+      await transporter.verify()
+    } catch (verifyError) {
+      console.error('SMTP_VERIFY_ERROR', verifyError)
+      const msg = verifyError instanceof Error ? verifyError.message : 'SMTP verify failed'
+      return new Response(
+        JSON.stringify({ error: `SMTP connection failed: ${msg}`, hint: `Check ZOHO_* envs, host=${host}, port=${port}, secure=${secure}` }),
+        { status: 500 }
+      )
+    }
+
     const html = `
       <div style="font-family:system-ui,Segoe UI,Roboto,Arial,sans-serif;font-size:16px;color:#111">
         <h2 style="margin:0 0 12px">Nova mensagem de contato</h2>
