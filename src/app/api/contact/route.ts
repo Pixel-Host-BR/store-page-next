@@ -26,8 +26,8 @@ export async function POST(request: Request) {
     }
 
     const host = process.env.ZOHO_SMTP_HOST || 'smtp.zoho.com'
-    const port = Number(process.env.ZOHO_SMTP_PORT || 465)
-    const secure = port === 465
+    const configuredPort = Number(process.env.ZOHO_SMTP_PORT || 465)
+    const configuredSecure = configuredPort === 465
     const user = process.env.ZOHO_USER
     const pass = process.env.ZOHO_PASS
     const to = process.env.CONTACT_TO || user
@@ -39,22 +39,30 @@ export async function POST(request: Request) {
       )
     }
 
-    const transporter = nodemailer.createTransport({
-      host,
-      port,
-      secure,
-      auth: { user, pass },
-    })
-
+    // attempt 1: configured
+    const attemptResults: Array<{ stage: string; ok: boolean; error?: string; host: string; port: number; secure: boolean }> = []
+    let transporter = nodemailer.createTransport({ host, port: configuredPort, secure: configuredSecure, auth: { user, pass } })
     try {
       await transporter.verify()
+      attemptResults.push({ stage: 'attempt_1_configured', ok: true, host, port: configuredPort, secure: configuredSecure })
     } catch (verifyError) {
-      console.error('SMTP_VERIFY_ERROR', verifyError)
       const msg = verifyError instanceof Error ? verifyError.message : 'SMTP verify failed'
-      return new Response(
-        JSON.stringify({ error: `SMTP connection failed: ${msg}`, hint: `Check ZOHO_* envs, host=${host}, port=${port}, secure=${secure}` }),
-        { status: 500 }
-      )
+      attemptResults.push({ stage: 'attempt_1_configured', ok: false, error: msg, host, port: configuredPort, secure: configuredSecure })
+      // attempt 2: fallback 587 STARTTLS
+      const fallbackPort = 587
+      const fallbackSecure = false
+      transporter = nodemailer.createTransport({ host, port: fallbackPort, secure: fallbackSecure, auth: { user, pass } })
+      try {
+        await transporter.verify()
+        attemptResults.push({ stage: 'attempt_2_fallback_587', ok: true, host, port: fallbackPort, secure: fallbackSecure })
+      } catch (verifyError2) {
+        const msg2 = verifyError2 instanceof Error ? verifyError2.message : 'SMTP verify failed'
+        attemptResults.push({ stage: 'attempt_2_fallback_587', ok: false, error: msg2, host, port: fallbackPort, secure: fallbackSecure })
+        return new Response(
+          JSON.stringify({ error: 'SMTP connection failed', attempts: attemptResults, hint: `Check ZOHO_* envs and allow SMTP on provider` }),
+          { status: 500 }
+        )
+      }
     }
 
     const html = `
