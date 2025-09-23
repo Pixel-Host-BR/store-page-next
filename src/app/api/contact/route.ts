@@ -33,9 +33,19 @@ export async function POST(request: Request) {
     const to = process.env.CONTACT_TO || user
 
     if (!user || !pass) {
+      const missing = {
+        ZOHO_USER: Boolean(user),
+        ZOHO_PASS: Boolean(pass),
+        ZOHO_SMTP_HOST: Boolean(host),
+        ZOHO_SMTP_PORT: Boolean(configuredPort),
+        CONTACT_TO: Boolean(process.env.CONTACT_TO || user),
+      }
       return new Response(
-        JSON.stringify({ error: 'Email not configured. Set ZOHO_USER and ZOHO_PASS.' }),
-        { status: 500 }
+        JSON.stringify({ error: 'Email not configured. Set ZOHO_USER and ZOHO_PASS.', missing }),
+        {
+          status: 500,
+          headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' },
+        }
       )
     }
 
@@ -60,7 +70,7 @@ export async function POST(request: Request) {
         attemptResults.push({ stage: 'attempt_2_fallback_587', ok: false, error: msg2, host, port: fallbackPort, secure: fallbackSecure })
         return new Response(
           JSON.stringify({ error: 'SMTP connection failed', attempts: attemptResults, hint: `Check ZOHO_* envs and allow SMTP on provider` }),
-          { status: 500 }
+          { status: 500, headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' } }
         )
       }
     }
@@ -84,14 +94,14 @@ export async function POST(request: Request) {
       html,
     })
 
-    return new Response(JSON.stringify({ ok: true }), { status: 200 })
+    return new Response(JSON.stringify({ ok: true }), { status: 200, headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' } })
   } catch (error) {
     console.error('CONTACT_API_ERROR', error)
     const message =
       (typeof error === 'object' && error && (error as any).code) ? `Failed to send message: ${(error as any).code}` :
       (error instanceof Error && error.message) ? `Failed to send message: ${error.message}` :
       'Failed to send message'
-    return new Response(JSON.stringify({ error: message }), { status: 500 })
+    return new Response(JSON.stringify({ error: message }), { status: 500, headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' } })
   }
 }
 
