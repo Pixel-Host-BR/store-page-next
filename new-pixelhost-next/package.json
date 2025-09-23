@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "next": "latest",
+    "nodemailer": "^6.9.14",
     "react": "latest",
     "react-dom": "latest",
     "lucide-react": "^0.1.0"
