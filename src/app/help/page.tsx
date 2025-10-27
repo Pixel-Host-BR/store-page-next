@@ -20,6 +20,22 @@ import {
 import Link from 'next/link'
 
 const ITEMS_PER_PAGE = 6
+const MAX_PAGE_BUTTONS = 5 // máximo de páginas visíveis
+
+function getPageNumbers(current: number, total: number) {
+  let buttons = []
+  if (total <= MAX_PAGE_BUTTONS) {
+    for (let i = 0; i < total; i++) buttons.push(i)
+    return buttons
+  }
+  if (current <= 2) {
+    return [0,1,2,3,-1,total-1]
+  }
+  if (current >= total-3) {
+    return [0,-1,total-4,total-3,total-2,total-1]
+  }
+  return [0,-1,current-1,current,current+1,-1,total-1]
+}
 
 export default function HelpPage() {
   if (typeof window !== 'undefined') {
@@ -61,31 +77,39 @@ export default function HelpPage() {
     currentPageArticles * ITEMS_PER_PAGE,
     (currentPageArticles + 1) * ITEMS_PER_PAGE)
 
+  // NOVA PAGINAÇÃO RESPONSIVA COM ELIPSES E SCROLL HORIZONTAL:
   const renderPaginationControls = (pageCount: number, currentPage: number, setPage: (page:number)=>void) => (
-    <div className="flex justify-center mt-6 space-x-2">
-      <button
-        disabled={currentPage === 0}
-        onClick={() => setPage(currentPage - 1)}
-        className="px-3 py-1 bg-gray-700 text-white rounded disabled:opacity-50"
-      >
-        Anterior
-      </button>
-      {[...Array(pageCount)].map((_, i) => (
+    <div className="flex justify-center mt-6 space-x-2 overflow-x-auto px-2 max-w-full">
+      {currentPage !== 0 && (
         <button
-          key={i}
-          onClick={() => setPage(i)}
-          className={`px-3 py-1 rounded ${i === currentPage ? 'bg-blue-600 text-white' : 'bg-gray-700 text-gray-300'}`}
+          className="px-3 py-1 bg-gray-700 text-white rounded whitespace-nowrap"
+          onClick={() => setPage(currentPage - 1)}
         >
-          {i + 1}
+          Anterior
         </button>
+      )}
+      {getPageNumbers(currentPage, pageCount).map((i, j) => (
+        i === -1 ?
+          <div key={`ellipsis-${j}`} className="px-2 py-1 text-gray-400 text-lg font-bold select-none">…</div>
+        : (
+          <button
+            key={i}
+            onClick={() => setPage(i)}
+            className={`px-3 py-1 rounded min-w-[40px] transition ${i === currentPage ? 'bg-blue-600 text-white' : 'bg-gray-700 text-gray-300 hover:bg-blue-800 hover:text-white'}`}
+            style={{ touchAction: 'manipulation' }}
+          >
+            {i+1}
+          </button>
+        )
       ))}
-      <button
-        disabled={currentPage === pageCount - 1 || pageCount === 0}
-        onClick={() => setPage(currentPage + 1)}
-        className="px-3 py-1 bg-gray-700 text-white rounded disabled:opacity-50"
-      >
-        Próximo
-      </button>
+      {currentPage !== pageCount - 1 && pageCount > 1 && (
+        <button
+          className="px-3 py-1 bg-gray-700 text-white rounded whitespace-nowrap"
+          onClick={() => setPage(currentPage + 1)}
+        >
+          Próximo
+        </button>
+      )}
     </div>
   )
 
@@ -265,7 +289,6 @@ export default function HelpPage() {
               ))}
             </div>
           )}
-
           {renderPaginationControls(articlesPageCount, currentPageArticles, setCurrentPageArticles)}
         </div>
 
