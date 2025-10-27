@@ -138,10 +138,9 @@ export default function Navbar() {
               </div>
 
               <Link
-                href="https://pixelohost.tawk.help/"
+                href="/help"
                 className="text-gray-300 hover:text-white hover:bg-gray-800/50 px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 flex items-center space-x-1"
                 aria-label="Central de Suporte"
-                target="_blank" rel="noopener noreferrer"
               >
                 <span>Ajuda</span>
               </Link>
@@ -220,7 +219,7 @@ export default function Navbar() {
           
 
           <Link
-            href="https://pixelohost.tawk.help/"
+            href="/help"
             className="text-gray-300 hover:text-white hover:bg-gray-800/50 block px-3 py-2 rounded-md text-base font-medium transition-all duration-200 flex items-center space-x-2"
             aria-label="Central de Suporte"
             onClick={() => setIsMenuOpen(false)}

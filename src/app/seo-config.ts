@@ -41,6 +41,13 @@ export const seoConfig = {
       ogImage: 'https://i.imgur.com/8u6NO4D.jpeg',
       ogType: 'website'
     },
+    help: {
+      title: 'Base de Conhecimento - PixelHost',
+      description: 'Encontre respostas rápidas para suas dúvidas. Guias completos, tutoriais e suporte técnico para hospedagem de servidores de jogos.',
+      keywords: 'ajuda pixelhost, base de conhecimento, tutoriais servidores, suporte técnico, guias servidores de jogos',
+      ogImage: 'https://i.imgur.com/8u6NO4D.jpeg',
+      ogType: 'website'
+    },
     notFound: {
       title: 'Página não encontrada - PixelHost',
       description: 'A página que você está procurando não foi encontrada.',
