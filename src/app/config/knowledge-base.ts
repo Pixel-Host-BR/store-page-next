@@ -4735,3 +4735,151 @@ export function getAllTags(): string[] {
 export function getArticlesByTag(tag: string): KnowledgeArticle[] {
   return knowledgeArticles.filter(article => article.tags.includes(tag));
 }
+
+// Artigos de Project Zomboid
+knowledgeArticles.push(
+  {
+    id: 'como-alterar-nome-servidor-project-zomboid',
+    title: 'Como alterar o nome do Servidor de Project Zomboid',
+    description: 'Aprenda a alterar o nome do seu servidor de Project Zomboid',
+    category: 'project-zomboid',
+    tags: ['project zomboid', 'configuração', 'nome do servidor'],
+    popular: true,
+    content: `
+# Como alterar o nome do Servidor de Project Zomboid
+
+## Passo a Passo
+
+1. **Acesse seu painel** em: \`https://painel.pixelhostbr.com/\`  
+
+2. **Desligue o servidor!** 
+
+3. **Na aba "FTP Web"**, siga pelo diretório: 
+   \`/.cache/Server/PixelHost.ini\`
+
+4. **Acesse o arquivo**, ele deve começar dessa forma: 
+
+5. **Aperte Ctrl+F** e digite "PublicName" 
+
+6. **Coloque o nome que preferir** após o "=" e salve o arquivo! 
+
+Pronto, seu servidor já estará com o nome alterado dentro do jogo!
+`
+  },
+  {
+    id: 'como-adicionar-mods-project-zomboid',
+    title: 'Como adicionar mods ao servidor de Project Zomboid',
+    description: 'Guia completo para adicionar mods ao seu servidor de Project Zomboid',
+    category: 'project-zomboid',
+    tags: ['project zomboid', 'mods', 'workshop', 'steam'],
+    popular: true,
+    content: `
+# Como adicionar mods ao servidor de Project Zomboid
+
+## Passo a Passo
+
+1. **Acesse a oficina de mods de PZ no Steam**
+
+2. **Ao escolher um mod**, inscreva-se para instalá-lo em seu jogo steam e anote o MOD ID e o Workshop ID:
+   Usando como exemplo o mod 93 Chevrolet Suburban 
+
+   Descendo a página até próximo aos comentários você encontrará as seguintes informações:
+
+3. **Acesse a aba "FTP Web"** em seu painel em: \`https://painel.pixelhostbr.com/\` e siga o seguinte diretório:
+   \`/.cache/Server/PixelHost.ini\`
+   Abra o arquivo .ini!
+
+4. **Aperte Ctrl+F e digite "Mods"** para encontrar a linha onde você irá colocar o MOD_ID, a linha de comando deve ficar da seguinte forma:
+   \`Mods=93chevySuburban;\`
+
+5. **No mesmo arquivo**, aperte CTRL+F encontre também a linha "WorkshopItems" e cole o Workshop_ID do seu mod:
+   \`WokshopItems=3152529790;\`
+
+6. **Feito isso**, seu mod já estará funcionando em seu servidor!
+`
+  },
+  {
+    id: 'como-colocar-senha-servidor-project-zomboid',
+    title: 'Como colocar senha em seu servidor de Project Zomboid',
+    description: 'Aprenda a proteger seu servidor de Project Zomboid com senha',
+    category: 'project-zomboid',
+    tags: ['project zomboid', 'senha', 'segurança', 'configuração'],
+    popular: true,
+    content: `
+# Como colocar senha em seu servidor de Project Zomboid
+
+## Passo a Passo
+
+1. **Acesse seu painel de usuário** em: \`https://painel.pixelhostbr.com/\`
+
+2. **Desligue o servidor!**
+
+3. **Vá na aba "FTP Web"** e siga para o seguinte diretório:
+   \`/.cache/Server/PicelHost.ini\`
+   Acesse o arquivo!
+
+4. **Aperte CTRL+F** dentro do arquivo e digite "Password".
+
+5. **Após o símbolo "="** digite a senha que deseja colocar e salve o arquivo!
+   Como exemplo usamos a senha "12345678"
+
+Inicie o servidor novamente e ele já estará requisitando a senha na hora de entrar!
+`
+  },
+  {
+    id: 'como-ter-admin-project-zomboid',
+    title: 'Como ter poder de administrador em seu servidor de Project Zomboid',
+    description: 'Guia para obter permissões de administrador no seu servidor de Project Zomboid',
+    category: 'project-zomboid',
+    tags: ['project zomboid', 'admin', 'permissões', 'comandos'],
+    popular: true,
+    content: `
+# Como ter poder de administrador em seu servidor de Project Zomboid
+
+## Passo a Passo
+
+1. **Acesse seu painel de usuário** em:
+   \`https://painel.pixelhostbr.com/\`
+
+2. **Vá até o console do seu servidor**
+
+3. **Digite o seguinte comando** (usando como exemplo o nick "PixelHost"):
+   \`setaccesslevel PixelHost admin\`
+
+4. **Pressione enter** e pronto, apenas entrando no servidor já mostrará que está com o poder de administrador no servidor!
+
+> **ATENÇÃO**: Caso você não tenha acesso a esta aba, contate-nos via suporte que lhe auxiliaremos!
+`
+  },
+  {
+    id: 'como-configurar-servidor-project-zomboid',
+    title: 'Como configurar seu servidor de Project Zomboid',
+    description: 'Guia completo para configurar seu servidor de Project Zomboid',
+    category: 'project-zomboid',
+    tags: ['project zomboid', 'configuração', 'sandbox', 'servidor'],
+    popular: true,
+    content: `
+# Como configurar seu servidor de Project Zomboid
+
+Antes de tudo, é valido dizer que praticamente todas as configurações de mundo do jogo são feitas no arquivo "SandBoxVars.lua"!
+
+> **AVISO**: Faça o processo com o servidor DESLIGADO
+
+## Passo a Passo
+
+1. **Acesse seu painel de usuário** em:
+   \`https://painel.pixelhostbr.com/\`
+
+   Também acesse seu FTP pelo Filezilla seguindo este tutorial: \`http://pixelhostbr.com/help/minecraft-sftp-upload\`
+
+2. **Acesse a aba "FTP Web"** e siga para o seguinte diretório:
+   \`/.cache/Server/PixelHost_SandboxVars.lua\`
+
+3. **Abra o arquivo** e começe a realizar as alterações necessárias
+
+4. **Após alterar as configurações** que gostaria, salve o arquivo e ligue seu servidor
+
+Pronto, feito isto seu servidor já terá sido configurado do jeito que gostaria e pronto para ser jogado!
+`
+  }
+);

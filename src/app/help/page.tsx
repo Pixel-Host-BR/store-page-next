@@ -77,41 +77,70 @@ export default function HelpPage() {
     currentPageArticles * ITEMS_PER_PAGE,
     (currentPageArticles + 1) * ITEMS_PER_PAGE)
 
-  // NOVA PAGINAÇÃO RESPONSIVA COM ELIPSES E SCROLL HORIZONTAL:
-  const renderPaginationControls = (pageCount: number, currentPage: number, setPage: (page:number)=>void) => (
-    <div className="flex justify-center mt-6 space-x-2 overflow-x-auto px-2 max-w-full">
-      {currentPage !== 0 && (
-        <button
-          className="px-3 py-1 bg-gray-700 text-white rounded whitespace-nowrap"
-          onClick={() => setPage(currentPage - 1)}
-        >
-          Anterior
-        </button>
-      )}
-      {getPageNumbers(currentPage, pageCount).map((i, j) => (
-        i === -1 ?
-          <div key={`ellipsis-${j}`} className="px-2 py-1 text-gray-400 text-lg font-bold select-none">…</div>
-        : (
+  // PAGINAÇÃO RESPONSIVA MELHORADA PARA MOBILE E DESKTOP:
+  const renderPaginationControls = (pageCount: number, currentPage: number, setPage: (page:number)=>void) => {
+    // Se tiver apenas uma página, não mostra controles
+    if (pageCount <= 1) return null;
+    
+    // Para mobile (simplificado)
+    const isMobile = typeof window !== 'undefined' && window.innerWidth < 640;
+    
+    return (
+      <div className="flex flex-wrap justify-center items-center mt-6 gap-2 px-2">
+        {/* Botão Anterior - Maior em mobile */}
+        {currentPage !== 0 && (
           <button
-            key={i}
-            onClick={() => setPage(i)}
-            className={`px-3 py-1 rounded min-w-[40px] transition ${i === currentPage ? 'bg-blue-600 text-white' : 'bg-gray-700 text-gray-300 hover:bg-blue-800 hover:text-white'}`}
-            style={{ touchAction: 'manipulation' }}
+            className="px-3 py-2 sm:py-1 bg-gray-700 text-white rounded-md whitespace-nowrap flex items-center justify-center min-w-[80px] sm:min-w-[auto] hover:bg-gray-600 transition-colors"
+            onClick={() => setPage(currentPage - 1)}
+            aria-label="Página anterior"
           >
-            {i+1}
+            Anterior
           </button>
-        )
-      ))}
-      {currentPage !== pageCount - 1 && pageCount > 1 && (
-        <button
-          className="px-3 py-1 bg-gray-700 text-white rounded whitespace-nowrap"
-          onClick={() => setPage(currentPage + 1)}
-        >
-          Próximo
-        </button>
-      )}
-    </div>
-  )
+        )}
+        
+        {/* Em mobile, mostra apenas página atual/total */}
+        {isMobile ? (
+          <div className="px-4 py-2 bg-blue-600/20 text-white rounded-md font-medium">
+            {currentPage + 1} / {pageCount}
+          </div>
+        ) : (
+          /* Em desktop, mostra números de página com elipses */
+          <div className="flex items-center gap-1">
+            {getPageNumbers(currentPage, pageCount).map((i, j) => (
+              i === -1 ?
+                <div key={`ellipsis-${j}`} className="px-2 py-1 text-gray-400 text-lg font-bold select-none">…</div>
+              : (
+                <button
+                  key={i}
+                  onClick={() => setPage(i)}
+                  className={`px-3 py-2 rounded-md min-w-[40px] transition-all ${
+                    i === currentPage 
+                      ? 'bg-blue-600 text-white font-medium' 
+                      : 'bg-gray-700 text-gray-300 hover:bg-blue-800 hover:text-white'
+                  }`}
+                  aria-label={`Ir para página ${i+1}`}
+                  aria-current={i === currentPage ? 'page' : undefined}
+                >
+                  {i+1}
+                </button>
+              )
+            ))}
+          </div>
+        )}
+        
+        {/* Botão Próximo - Maior em mobile */}
+        {currentPage !== pageCount - 1 && (
+          <button
+            className="px-3 py-2 sm:py-1 bg-gray-700 text-white rounded-md whitespace-nowrap flex items-center justify-center min-w-[80px] sm:min-w-[auto] hover:bg-gray-600 transition-colors"
+            onClick={() => setPage(currentPage + 1)}
+            aria-label="Próxima página"
+          >
+            Próximo
+          </button>
+        )}
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-[#181826] py-20 px-4 sm:px-6 lg:px-8">
