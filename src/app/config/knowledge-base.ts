@@ -4793,7 +4793,7 @@ Pronto, seu servidor já estará com o nome alterado dentro do jogo!
    \`Mods=93chevySuburban;\`
 
 5. **No mesmo arquivo**, aperte CTRL+F encontre também a linha "WorkshopItems" e cole o Workshop_ID do seu mod:
-   \`WokshopItems=3152529790;\`
+   \`WorkshopItems=3152529790;\`
 
 6. **Feito isso**, seu mod já estará funcionando em seu servidor!
 `
@@ -4815,7 +4815,7 @@ Pronto, seu servidor já estará com o nome alterado dentro do jogo!
 2. **Desligue o servidor!**
 
 3. **Vá na aba "FTP Web"** e siga para o seguinte diretório:
-   \`/.cache/Server/PicelHost.ini\`
+   \`/.cache/Server/PixelHost.ini\`
    Acesse o arquivo!
 
 4. **Aperte CTRL+F** dentro do arquivo e digite "Password".
@@ -4861,7 +4861,7 @@ Inicie o servidor novamente e ele já estará requisitando a senha na hora de en
     content: `
 # Como configurar seu servidor de Project Zomboid
 
-Antes de tudo, é valido dizer que praticamente todas as configurações de mundo do jogo são feitas no arquivo "SandBoxVars.lua"!
+Antes de tudo, é válido dizer que praticamente todas as configurações de mundo do jogo são feitas no arquivo "SandBoxVars.lua"!
 
 > **AVISO**: Faça o processo com o servidor DESLIGADO
 
@@ -4875,11 +4875,1193 @@ Antes de tudo, é valido dizer que praticamente todas as configurações de mund
 2. **Acesse a aba "FTP Web"** e siga para o seguinte diretório:
    \`/.cache/Server/PixelHost_SandboxVars.lua\`
 
-3. **Abra o arquivo** e começe a realizar as alterações necessárias
+3. **Abra o arquivo** e comece a realizar as alterações necessárias
 
 4. **Após alterar as configurações** que gostaria, salve o arquivo e ligue seu servidor
 
 Pronto, feito isto seu servidor já terá sido configurado do jeito que gostaria e pronto para ser jogado!
 `
-  }
+  },
+  // 1. Como alterar o mapa do seu servidor ARK
+{
+  id: "ark-change-map",
+  title: "Como alterar o mapa do seu servidor ARK",
+  description: "Aprenda a trocar o mapa do seu servidor ARK para explorar diferentes ambientes, incluindo DLCs e mapas personalizados.",
+  category: "ark",
+  tags: ["ark", "mapa", "dlc", "expansão", "servidor", "configuração"], 
+  content:
+"🗺️  Alterando o mapa do servidor\n\
+ARK: Survival Evolved oferece diversas ARKs jogáveis com ambientes, recursos e criaturas únicos. Todos os mapas são suportados na PixelHost, incluindo Pacotes de Expansão, DLCs e Mapas Personalizados.\n\
+\n\
+📋 Passo a passo\n\
+1. Acesse o painel de controle e pare seu servidor.\n\
+2. Navegue até Config.\n\
+3. Clique em ARK Server Settings.\n\
+4. Insira o ID do mapa desejado conforme tabela (ex: Aberration_P).\n\
+5. Salve e inicie seu servidor.\n\
+\n\
+📊 Tabela de IDs dos Mapas\n\
+- A Ilha: TheIsland\n\
+- O Centro (DLC): TheCenter\n\
+- Terra Arrasada: ScorchedEarth_P\n\
+- Ragnarok (DLC): Ragnarok\n\
+- Aberração: Aberration_P\n\
+- Extinção: Extinction\n\
+- Valguero (DLC): Valguero_P\n\
+- Gênesis Parte 1: Genesis\n\
+- Ilhas de Cristal: CrystalIsles\n\
+- Gênesis Parte 2: Gen2\n\
+- Ilha Perdida: LostIsland\n\
+- Fjordur (DLC): Fjordur\n\
+\n\
+⚠️ Importante\n\
+Sempre faça backup antes de trocar de mapa para evitar perda de dados.\n"
+},
+
+// 2. Como adicionar administradores ao seu servidor ARK
+{
+  id: "ark-add-admins",
+  title: "Como adicionar administradores ao seu servidor ARK",
+  description: "Permita que jogadores tenham privilégios de admin para moderar, usar comandos e gerenciar o servidor ARK.",
+  category: "ark",
+  tags: ["ark", "administrador", "admin", "steamid", "comandos", "permissões"],
+  content:
+"👑 Adicionando administradores\n\
+Administradores têm acesso a comandos como expulsar, banir, voar e usar cheats no ARK.\n\
+\n\
+📝 O que você precisa\n\
+- SteamID64 do jogador (obtenha em https://steamid.io)\n\
+\n\
+🛠️ Passo a passo\n\
+1. Acesse o Painel de Controle e pare o servidor.\n\
+2. Navegue até Arquivos.\n\
+3. Vá para /ShooterGame/Saved.\n\
+4. Clique em Novo arquivo.\n\
+5. Nomeie como: AllowedCheaterSteamIDs.txt\n\
+6. Insira o SteamID64 do admin em cada linha.\n\
+7. Salve e inicie seu servidor.\n\
+\n\
+✅ Pronto!\n\
+O jogador agora tem privilégios administrativos. Consulte a ARK Wiki para comandos disponíveis.\n"
+},
+
+// 3. Habilitando Primitive+ no seu servidor ARK
+{
+  id: "ark-primitive-plus",
+  title: "Habilitando o Mod de Conversão Total Primitive+ no seu servidor ARK",
+  description: "Ative o DLC oficial gratuito Primitive+ para aprimorar a jogabilidade com itens e mecânicas primitivas.",
+  category: "ark",
+  tags: ["ark", "primitive", "mod", "dlc", "conversão", "servidor"],
+  content:
+"🛡️ O que é Primitive+?\n\
+Primitive+ é um DLC oficial gratuito de conversão total que aprimora a jogabilidade com mecânicas e itens primitivos personalizados.\n\
+\n\
+⚠️ Atenção\n\
+Faça um backup do seu servidor antes de ativar.\n\
+\n\
+🔧 Ativando Primitive+\n\
+1. Certifique-se de que o servidor esteja parado.\n\
+2. Edite o arquivo GameUserSettings.ini e defina Active Mods para 111111111.\n\
+3. Clique em salvar.\n\
+4. Acesse o FTP do servidor (Arquivos > Acesso a Arquivos FTP).\n\
+5. Edite o arquivo ark.properties.\n\
+6. Na última linha, adicione:\n\
+   customStartupParameters=-TotalConversionMod=111111111\n\
+7. Clique em Salvar.\n\
+8. Inicie seu servidor.\n\
+\n\
+✅ Servidor configurado\n\
+Agora seu servidor rodará o mod Primitive+ com todas as funcionalidades!\n"
+},
+
+// 4. Como adicionar mods ao seu servidor ARK
+{
+  id: "ark-add-mods",
+  title: "Como adicionar mods ao seu servidor ARK",
+  description: "Instale mods da Oficina Steam para adicionar criaturas, estruturas e recursos personalizados.",
+  category: "ark",
+  tags: ["ark", "mods", "steam workshop", "servidor", "instalação"],
+  content:
+  "🧩 Encontrando Mods da Oficina Steam\n\
+1. Acesse https://steamcommunity.com/app/346110/workshop/\n\
+2. Encontre o mod desejado.\n\
+3. Copie os números ao final da URL (ID do Mod).\n\
+   Exemplo: ...?id=1785800853 → ID: 1785800853\n\
+\n\
+📦 Adicionando mods ao servidor\n\
+1. Acesse o painel e pare o servidor.\n\
+2. Navegue até Config.\n\
+3. Clique em ARK Game Settings.\n\
+4. Insira o ID no campo Mods Ativos.\n\
+5. Para múltiplos mods, separe com vírgula (sem espaço).\n\
+   Exemplo: 1785800853,123456\n\
+6. Salve e inicie o servidor.\n\
+\n\
+  ⚠️ Importante\n\
+- Sem espaços entre IDs e vírgulas.\n\
+- Sempre faça backup antes de adicionar mods.\n\
+- O servidor demorará para iniciar enquanto baixa os mods.\n"
+},
+
+// 5. O arquivo GameUserSettings.ini é redefinido ao reiniciar o servidor
+{
+  id: "ark-gameusersettings-reset",
+  title: "O arquivo GameUserSettings.ini é redefinido ao reiniciar o servidor",
+  description: "Solucione problemas onde o arquivo de configuração volta aos padrões após reiniciar.",
+  category: "ark",
+  tags: ["ark", "gameusersettings", "configuração", "erro", "problema"],
+  content:
+"⚙️ Por que o arquivo é redefinido?\n\
+Quando GameUserSettings.ini é redefinido ao reiniciar, geralmente há um erro de sintaxe ou faltam configurações necessárias.\n\
+\n\
+⚠️ Importante\n\
+Faça backup do arquivo antes de alterá-lo.\n\
+\n\
+🔍 Verificando a formatação\n\
+Certifique-se que o arquivo contém:\n\
+[ServerSettings]\n\
+[/Script/ShooterGame.ShooterGameUserSettings]\n\
+[ScalabilityGroups]\n\
+[SessionSettings]\n\
+[/Script/Engine.GameSession]\n\
+\n\
+📋 Dicas de formatação\n\
+- Cada configuração em nova linha.\n\
+- Formato: Key=Value (sem espaço antes/depois do =).\n\
+- Valores corretos (consulte ARK Wiki).\n\
+\n\
+🛠️ Se continuar resetando\n\
+1. Reinicie o servidor (gera arquivo padrão).\n\
+2. Pare o servidor.\n\
+3. Altere uma configuração por vez.\n\
+4. Verifique se a chave existe (mude valor se houver).\n\
+5. Se não existir, crie nova linha na seção correta.\n\
+6. Faça backup após configurar.\n\
+7. Inicie e teste.\n"
+},
+
+// 6. Como entrar no seu servidor ARK
+{
+  id: "ark-connect-server",
+  title: "Como entrar no seu servidor ARK",
+  description: "Aprenda os diferentes métodos para se conectar ao seu servidor ARK via Steam ou Epic Games.",
+  category: "ark",
+  tags: ["ark", "conectar", "servidor", "steam", "epic", "multiplicador"],
+  content:
+"🎮 Obtendo as informações do servidor\n\
+1. Acesse o painel de controle.\n\
+2. Anote o endereço IP do seu servidor.\n\
+3. Para Epic Games, também anote a porta Query (Portas > Query Port).\n\
+\n\
+🔗 Conectando via Steam\n\
+1. No Steam, vá em Exibir > Servidores de Jogos.\n\
+2. Clique na aba Favoritos.\n\
+3. Clique em + e insira o endereço IP do servidor.\n\
+4. Abra ARK e clique em \"Entrar no ARK\".\n\
+5. Altere o Filtro de Sessão para Favoritos.\n\
+6. Pressione atualizar.\n\
+7. Veja seu servidor e entre.\n\
+\n\
+🎮 Conectando via Epic Games\n\
+⚠️ Se houver senha, você não conseguirá entrar via Epic.\n\
+\n\
+1. Abra ARK e selecione HOST / LOCAL.\n\
+2. Clique em Jogar um jogador.\n\
+3. Após carregar, pressione TAB (console).\n\
+4. Digite: open <server-ip>\n\
+5. Pressione Enter para conectar.\n\
+\n\
+💡 Dica\n\
+Você também pode clicar em \"Entrar\" diretamente no painel sem salvar nos Favoritos.\n"
+},
+
+// 7. Como pular a atualização Aquatica no ARK
+{
+  id: "ark-skip-aquatica",
+  title: "Como pular a atualização Aquatica no ARK",
+  description: "Reverta para versão beta anterior se tiver problemas de compatibilidade com a atualização Aquatica.",
+  category: "ark",
+  tags: ["ark", "atualização", "beta", "aquatica", "compatibilidade", "steam", "preaquatica"],
+  content:
+"📥 Habilitando versão beta do Steam no cliente\n\
+1. Abra o Steam e vá em Biblioteca.\n\
+2. Clique com botão direito em ARK e selecione Propriedades.\n\
+3. Vá para a aba Betas.\n\
+4. Selecione preaquatica.\n\
+5. Aguarde a instalação e inicie o jogo.\n\
+\n\
+🖥️ Selecionando tipo de servidor\n\
+1. Acesse o painel e pare o servidor.\n\
+2. Edite o tipo do servidor.\n\
+3. Selecione a versão beta preaquatica.\n\
+4. Inicie e aguarde o download.\n\
+\n\
+  ⚠️ Para retornar à versão atual\n\
+- Defina Steam Beta como \"Nenhum\".\n\
+- Defina tipo de servidor como \"estável\".\n"
+},
+
+// 8. Como definir uma senha para um servidor ARK
+{
+  id: "ark-set-password",
+  title: "Como definir uma senha para um servidor ARK",
+  description: "Proteja seu servidor ARK com uma senha que os jogadores precisam digitar para entrar.",
+  category: "ark",
+  tags: ["ark", "senha", "servidor", "proteção", "acesso"],
+  content:
+"🔐 Definindo a senha\n\
+1. Acesse o painel e pare o servidor.\n\
+2. Navegue até Config.\n\
+3. Abra GameUserSettings.ini.\n\
+4. Localize ServerPassword= e defina a senha desejada.\n\
+5. Salve o arquivo.\n\
+6. Inicie o servidor.\n\
+\n\
+✅ Pronto!\n\
+Após reiniciar, todos os jogadores precisarão inserir a senha para entrar.\n\
+\n\
+⚠️ Atenção\n\
+Usuários da Epic Games NÃO podem entrar em servidores com senha.\n"
+},
+
+// 9. Como desativar o sistema anti-cheat BattlEye no seu servidor ARK
+{
+  id: "ark-disable-battleye",
+  title: "Como desativar o sistema anti-cheat BattlEye no seu servidor ARK",
+  description: "Desative o BattlEye para configurações específicas de servidor ARK.",
+  category: "ark",
+  tags: ["ark", "battleye", "anti-cheat", "configuração", "servidor"],
+  content:
+"🛡️ Desativando BattlEye\n\
+1. Pare o servidor.\n\
+2. Acesse a seção Configuração.\n\
+3. Clique em Configurações do Servidor ARK.\n\
+4. Defina BattlEye conforme desejado (Ativado/Desativado).\n\
+5. Salve e reinicie o servidor.\n\
+\n\
+✅ Pronto!\n\
+O sistema anti-cheat agora está ativado/desativado conforme configurado.\n"
+},
+
+// 10. Como configurar as definições do seu servidor ARK
+{
+  id: "ark-server-settings",
+  title: "Como configurar as definições do seu servidor ARK",
+  description: "Personalize seu servidor ARK alterando mapa, multiplicadores, nome e muito mais via painel.",
+  category: "ark",
+  tags: ["ark", "configuração", "servidor", "mapa", "multiplicador", "nome"],
+  content:
+"⚡ Notas importantes antes de começar\n\
+- SEMPRE pare o servidor antes de fazer alterações.\n\
+- Se não tiver certeza sobre uma opção, pesquise no ARK Wiki.\n\
+- Pequenos erros podem causar problemas no servidor.\n\
+- Se GameUserSettings.ini resetar: adicione `[/script/shootergame.shootergamemode]` no Game.ini.\n\
+\n\
+📂 Locais dos arquivos de configuração\n\
+- GameUserSettings.ini: /ShooterGame/Saved/Config/LinuxServer/\n\
+- Game.ini: /ShooterGame/Saved/Config/LinuxServer/\n\
+- ARK.properties: Seção Config do painel\n\
+\n\
+⚙️ Arquivo ARK.properties\n\
+Configurações essenciais:\n\
+- Nome do Servidor: nome exibido na lista\n\
+- Mapa do Servidor: mapa ativo\n\
+- Atualizações Automáticas: controla atualizações automáticas\n\
+- BattlEye: ativa/desativa anti-cheat\n\
+- Evento Ativo: seleciona evento (Páscoa, etc)\n\
+- Senha de Admin: senha de administrador\n\
+- Senha do Servidor: proteção de acesso\n\
+- CrossPlay: Steam <> Epic Games\n\
+\n\
+📋 Arquivo GameUserSettings.ini\n\
+Configurações gerais do servidor:\n\
+- Terceira Pessoa, Construção em Cavernas, etc\n\
+- Formato: OptionName=Value\n\
+- Use o Gerador do ARK Forum: https://www.arlogs.com/gameusersettingsgenerator/\n\
+\n\
+🎮 Arquivo Game.ini\n\
+Configurações avançadas:\n\
+- Melhorias de atributos por nível\n\
+- Desativação de conteúdo\n\
+- Comece com `[/script/shootergame.shootergamemode]`\n\
+- Formato: OptionName=Value\n\
+\n\
+💡 Dica importante sobre multiplicadores\n\
+XPMultiplier=2.0 = 2x ganho XP (aumenta-se aumentar).\n\
+MatingIntervalMultiplier=2.0 = intervalo MAIS LONGO (diminui com valor menor).\n"
+},  
+
+// 11. Como reiniciar seu servidor ARK
+{
+  id: "ark-reset-map",
+  title: "Como reiniciar seu servidor ARK",
+  description: "Resete o mapa do ARK para começar uma nova aventura do zero.",
+  category: "ark",
+  tags: ["ark", "resetar", "reiniciar", "mapa", "limpar", "dados"],
+  content:
+  "🔄 Resetando o mapa\n\
+1. Pare seu servidor ARK.\n\
+2. Navegue até Arquivos.\n\
+3. Acesse /ShooterGame/Saved/SavedArks/.\n\
+4. Selecione os arquivos a limpar:\n\
+   - Todos os arquivos para limpar completamente\n\
+   - Apenas específicos do mapa atual\n\
+5. Pressione Delete.\n\
+6. Inicie seu servidor ARK.\n\
+\n\
+✅ Pronto!\n\
+O servidor iniciará com um mapa completamente novo!\n"
+},
+
+// 12. Como aumentar os pontos de engrama por nível no seu servidor ARK
+{
+  id: "ark-engram-points",
+  title: "Como aumentar os pontos de engrama por nível no seu servidor ARK",
+  description: "Aumente os pontos de engrama para permitir que jogadores desbloqueiem mais receitas.",
+  category: "ark",
+  tags: ["ark", "engrama", "pontos", "nível", "desbloqueio", "receitas"],
+  content:
+"📚 O que são Pontos de Engrama?\n\
+São usados para desbloquear permanentemente receitas de criação. No modo multijogador (155 níveis), não há pontos suficientes para desbloquear tudo, então aumentá-los é vantajoso.\n\
+\n\
+🛠️ Aumentando Pontos de Engrama\n\
+1. Acesse o painel e pare o servidor.\n\
+2. Navegue até Arquivos.\n\
+3. Abra Game.ini em /ShooterGame/Saved/Config/LinuxServer/.\n\
+4. Se vazio, adicione no início: `[/script/shootergame.shootergamemode]`\n\
+5. Para cada nível, adicione:\n\
+   OverridePlayerLevelEngramPoints=<points>\n\
+6. Exemplo:\n\
+   Nível 1: 10 pontos\n\
+   Nível 2: 100 pontos\n\
+   Nível 3: 2 pontos\n\
+7. Salve e inicie o servidor.\n\
+\n\
+✅ Pronto!\n\
+Jogadores agora receberão mais pontos de engrama por nível!\n"
+},
+
+// 13. Como encontrar sua tribo ou ID de jogador
+{
+  id: "ark-find-tribe-player-id",
+  title: "Como encontrar sua tribo ou ID de jogador",
+  description: "Obtenha o ID único da tribo e dos jogadores necessários para comandos de administrador.",
+  category: "ark",
+  tags: ["ark", "id", "tribo", "jogador", "comando", "administrador"],
+  content:
+"🔍 Preparação\n\
+- Defina uma senha de administrador do servidor.\n\
+- Ative os cheats no seu personagem.\n\
+\n\
+👥 Encontrando o ID da Tribo\n\
+1. Abra o console (Tab) e digite:\n\
+   setcheatplayer 1 ou setcheatplayer true\n\
+2. Um HUD especial aparecerá com informações detalhadas.\n\
+3. Examine qualquer estrutura da tribo.\n\
+4. O Número de Equipe na parte inferior é o ID da tribo.\n\
+5. Anote para referência futura.\n\
+\n\
+🎮 Encontrando o ID do Jogador (Método 1)\n\
+1. Digite: cheat GetTribeIDPlayerList <TribeID>\n\
+2. Aparecerão informações da tribo e IDs de todos os jogadores.\n\
+3. Copie o ID do jogador desejado.\n\
+\n\
+🎮 Encontrando o ID do Jogador (Método 2)\n\
+1. Digite: showmyadminmanager\n\
+2. Clique no jogador desejado na lista central.\n\
+3. Selecione um comando na lista à direita.\n\
+4. Clique em Executar.\n\
+5. Selecione \"Copiar ID do Jogador\".\n\
+6. Copie os números que aparecerem.\n\
+\n\
+✅ Pronto!\n\
+Agora pode usar o ID para comandos de administrador!\n"
+},
+
+// 14. Como ativar o Gamma no seu servidor ARK
+{
+  id: "ark-enable-gamma",
+  title: "Como ativar o Gamma no seu servidor ARK",
+  description: "Permita que jogadores alterem o brilho do jogo para melhor visibilidade em períodos escuros.",
+  category: "ark",
+  tags: ["ark", "gamma", "brilho", "visibilidade", "servidor", "configuração"],
+  content:
+"💡 O que é Gamma?\n\
+Configuração visual que altera o brilho do jogo. Por padrão está desativada, mas pode ser habilitada pelo admin.\n\
+\n\
+🔧 Habilitando Gamma\n\
+1. Acesse o painel e pare o servidor.\n\
+2. Navegue até Config.\n\
+3. Clique em Configurações do Jogo ARK.\n\
+4. Abra o arquivo no editor.\n\
+5. Em [ServerSettings], insira:\n\
+   EnablePvPGamma=true\n\
+   DisablePvEGamma=false\n\
+6. Salve e inicie o servidor.\n\
+\n\
+  ✅ Pronto!\n\
+Jogadores agora podem ajustar o gamma para melhor visibilidade!\n"
+},
+
+// 15. Como configurar as estatísticas por nível e por nível base no seu servidor ARK
+{
+  id: "ark-stats-multipliers",
+  title: "Como configurar as estatísticas por nível e por nível base no seu servidor ARK",
+  description: "Customize atributos de jogadores e dinossauros em seus valores base e por nível.",
+  category: "ark",
+  tags: ["ark", "estatísticas", "atributos", "nível", "multiplicador", "saúde"],
+  content:
+"📊 Configurações de Estatísticas\n\
+Cada estatística tem um ID de atributo e valor padrão essenciais.\n\
+\n\
+👤 Estatísticas do Jogador (IDs)\n\
+0 = Saúde (padrão: 1.0)\n\
+1 = Resistência (1.0)\n\
+2 = Entorpecimento (1.0)\n\
+3 = Oxigênio (1.0)\n\
+4 = Comida (1.0)\n\
+5 = Água (1.0)\n\
+7 = Peso (1.0)\n\
+8 = Dano corpo-a-corpo (não aumenta)\n\
+9 = Velocidade (não aumenta)\n\
+10 = Resistência temperatura (não aumenta)\n\
+11 = Velocidade fabricação (não aumenta)\n\
+\n\
+🦖 Estatísticas Padrão de Dinossauros\n\
+0 = Saúde\n\
+1 = Resistência\n\
+2 = Entorpecimento\n\
+3 = Oxigênio\n\
+4 = Comida\n\
+7 = Peso\n\
+8 = Dano\n\
+9 = Velocidade\n\
+\n\
+🛠️ Configurando Estatísticas Base\n\
+⚠️ Não pode ser alterado se personagem já foi criado.\n\
+\n\
+1. Acesse painel e pare servidor.\n\
+2. Navegue até Arquivos.\n\
+3. Edite Game.ini em /ShooterGame/Saved/Config/LinuxServer/.\n\
+4. Se vazio, adicione: `[/script/shootergame.shootergamemode]`\n\
+5. Use: PlayerBaseStatMultipliers[<ID>]=<multiplier>\n\
+   Exemplo: PlayerBaseStatMultipliers[0]=2.0 (2x saúde base)\n\
+6. Salve e inicie servidor.\n\
+\n\
+⬆️ Configurando Estatísticas por Nível\n\
+1. Abra Game.ini no mesmo local.\n\
+2. Use as opções:\n\
+   - PerLevelStatsMultiplier_Player[<ID>]=<multiplier>\n\
+   - PerLevelStatsMultiplier_DinoTamed[<ID>]=<multiplier>\n\
+   - PerLevelStatsMultiplier_DinoTamed_Add[<ID>]=<multiplier>\n\
+   - PerLevelStatsMultiplier_DinoTamed_Affinity[<ID>]=<multiplier>\n\
+   - PerLevelStatsMultiplier_DinoWild[<ID>]=<multiplier>\n\
+3. Exemplo: PerLevelStatsMultiplier_DinoTamed_Add[0]=2.0 (2x saúde dinos domados)\n\
+4. Salve e inicie.\n\
+\n\
+✅ Pronto!\n\
+Estatísticas personalizadas ativadas!\n"
+},
+
+// 16. Como configurar os multiplicadores de reprodução, domesticação e incubação
+{
+  id: "ark-breeding-taming-multipliers",
+  title: "Como configurar os multiplicadores de reprodução, domesticação e incubação",
+  description: "Customize velocidade de acasalamento, domesticação e eclosão de ovos no seu servidor.",
+  category: "ark",
+  tags: ["ark", "reprodução", "domesticação", "incubação", "ovo", "multiplicador"],
+  content:
+"🐣 Opções de Reprodução e Domesticação\n\
+MatingIntervalMultiplier (padrão: 1.0) - Valor maior = intervalo MAIS LONGO\n\
+MatingSpeedMultiplier (padrão: 1.0) - Valor maior = acasalamento mais rápido\n\
+EggHatchSpeedMultiplier (padrão: 1.0) - Valor maior = eclosão mais rápida\n\
+BabyMatureSpeedMultiplier (padrão: 1.0) - Valor maior = crescimento mais rápido\n\
+BabyFoodConsumptionSpeedMultiplier (padrão: 1.0) - Valor menor = filhotes comem menos\n\
+TamingSpeedMultiplier (padrão: 1.0) - Valor maior = domesticação mais rápida\n\
+\n\
+⚠️ Importante\n\
+Essas opções NÃO aparecem por padrão; você deve adicioná-las manualmente.\n\
+\n\
+🛠️ Configurando as opções\n\
+1. Acesse painel e pare servidor.\n\
+2. Navegue até Arquivos.\n\
+3. Para Game.ini: /ShooterGame/Saved/Config/LinuxServer/Game.ini\n\
+4. Para GameUserSettings.ini: /ShooterGame/Saved/Config/LinuxServer/GameUserSettings.ini\n\
+5. Adicione as linhas desejadas:\n\
+   MatingIntervalMultiplier=0.5\n\
+   EggHatchSpeedMultiplier=2.0\n\
+   TamingSpeedMultiplier=2.0\n\
+6. Salve e inicie.\n\
+\n\
+✅ Pronto!\n\
+Multiplicadores de reprodução e domesticação configurados!\n"
+},  
+
+// 17. Como alterar o nível de dificuldade no seu servidor ARK
+{
+  id: "ark-difficulty-level",
+  title: "Como alterar o nível de dificuldade no seu servidor ARK",
+  description: "Aumente a dificuldade para enfrentar dinossauros de nível mais alto e recompensas melhores.",
+  category: "ark",
+  tags: ["ark", "dificuldade", "nível", "dinossauro", "recompensa", "configuração"],
+  content:
+  "📊 Como funciona a dificuldade\n\
+Por padrão, dinossauros têm nível máximo 30. Aumentar a dificuldade permite níveis mais altos e melhores itens.\n\
+\n\
+📐 Fórmula\n\
+DifficultyOffset * (Official Difficulty - 0.5) + 0.5\n\
+\n\
+🔧 Alterando a dificuldade\n\
+1. Acesse painel e navegue até Config.\n\
+2. Acesse ARK Game Settings.\n\
+3. Clique no ícone de pasta ao lado da barra de pesquisa.\n\
+4. Adicione/modifique em [ServerSettings]:\n\
+   DifficultyOffset=1.0\n\
+   OverrideOfficialDifficulty=5.0\n\
+5. Salve e reinicie.\n\
+\n\
+⬆️ Calculando OverrideOfficialDifficulty\n\
+Use: Nível Máximo Desejado / 30\n\
+\n\
+- Nível 30: 1.0\n\
+- Nível 150: 5.0\n\
+- Nível 300: 10.0\n\
+\n\
+🦖 Removendo dinossauros antigos\n\
+Após atualizar dificuldade, remova dinos selvagens:\n\
+1. Defina senha de admin.\n\
+2. Pressione Tab para console.\n\
+3. Digite: enablecheats <password>\n\
+4. Digite: admincheat DestroyWildDinos\n\
+5. Dinossauros reaparecerão no novo nível.\n\
+\n\
+⚠️ Importante\n\
+Pode haver lentidão durante o processo. Aguarde alguns minutos.\n"
+},
+
+// 18. Não é possível consultar informações do servidor para erro de convite
+{
+  id: "ark-cannot-query-server",
+  title: "Não é possível consultar informações do servidor para erro de convite",
+  description: "Corrija o erro 'Não foi possível consultar as informações do servidor' ao entrar no ARK.",
+  category: "ark",
+  tags: ["ark", "erro", "servidor", "convite", "query", "conexão"],
+  content:
+"❌ Cause do Erro\n\
+Geralmente significa que você está tentando entrar pela lista de servidores do Steam diretamente.\n\
+\n\
+✅ Solução\n\
+1. Abra Steam e navegue até Exibir > Servidores.\n\
+2. Clique na aba Favoritos.\n\
+3. Clique em Adicionar um servidor.\n\
+4. Insira o endereço IP do servidor.\n\
+5. Clique em Adicionar este endereço aos favoritos.\n\
+6. Abra ARK e clique em \"Entrar no ARK\".\n\
+7. No canto inferior esquerdo, mude Filtro de Sessão para Favoritos.\n\
+8. Pressione atualizar.\n\
+9. Agora você verá seu servidor e poderá entrar.\n"
+},
+
+// 19. Como configurar seu servidor ARK de PVP para PVE
+{
+  id: "ark-pvp-to-pve",
+  title: "Como configurar seu servidor ARK de PVP para PVE",
+  description: "Desative o modo PVP para permitir cooperação pacífica sem dano entre jogadores.",
+  category: "ark",
+  tags: ["ark", "pvp", "pve", "cooperativo", "multiplayer", "configuração"],
+  content:
+"🕊️ O que é PVE?\n\
+Modo Jogador contra Ambiente. Jogadores NÃO podem:\n\
+- Causar dano a outros jogadores\n\
+- Destruir estruturas de outras tribos\n\
+- Matar dinossauros de outros jogadores\n\
+\n\
+⚔️ Alterando para PVE\n\
+1. Acesse painel e navegue até Config.\n\
+2. Abra GameUserSettings.ini.\n\
+3. Localize ServerPVE= em [ServerSettings].\n\
+4. Defina como: ServerPVE=true\n\
+5. Salve.\n\
+\n\
+🎮 Configuração adicional\n\
+1. Abra Game.ini.\n\
+2. Adicione: bAutoPvETimer=false\n\
+3. Salve.\n\
+4. Reinicie o servidor.\n\
+\n\
+⏰ Agendando PVE em horários específicos\n\
+Exemplo: PVE das 6h às 18h (UTC+0)\n\
+\n\
+1. No Game.ini, adicione:\n\
+   bAutoPvETimer=true\n\
+   bAutoPvEUseSystemTime=true\n\
+   AutoPvEStartTimeSeconds=21600 (6h em segundos)\n\
+   AutoPvEStopTimeSeconds=64800 (18h em segundos)\n\
+\n\
+🌍 Para outros fusos horários\n\
+Adicione/subtraia horas ao cálculo.\n\
+Paris (UTC+2): 6h = 8 x 3600 = 28800\n\
+Use Conversor de Fuso Horário UTC online.\n\
+\n\
+✅ Pronto!\n\
+Servidor agora em modo PVE com cooperação pacífica!\n"
+},
+
+// 20. Como enviar seu jogo ARK salvo para um jogador para seu servidor
+{
+  id: "ark-upload-savegame",
+  title: "Como enviar seu jogo ARK salvo para um jogador para seu servidor",
+  description: "Continue seu progresso single-player em um servidor dedicado compartilhado.",
+  category: "ark",
+  tags: ["ark", "savegame", "upload", "single-player", "servidor", "backup"],
+  content:
+"📂 Localizando seu arquivo de salvamento\n\
+\n\
+🎮 Para Epic Games\n\
+1. Clique em (...) ao lado de ARK na Biblioteca.\n\
+2. Selecione Gerenciar.\n\
+3. Clique em Abrir local de instalação.\n\
+4. Navegue até \\ShooterGame\\Saved\\SavedArksLocal\n\
+\n\
+🔵 Para Steam\n\
+1. Acesse sua Biblioteca de Jogos.\n\
+2. Clique direito em ARK > Propriedades.\n\
+3. Vá para Arquivos Locais > Procurar.\n\
+4. Navegue até \\steamapps\\common\\ARK\\ShooterGame\\Saved\\SavedArksLocal\n\
+\n\
+📋 Arquivos encontrados\n\
+.ark = seu mapa salvo\n\
+.arkprofile = seus dados de jogador\n\
+.arktribe = informações da tribo\n\
+\n\
+⬆️ Carregando seu arquivo\n\
+1. Acesse painel e pare servidor.\n\
+2. Use FTP (recomendamos FileZilla).\n\
+3. Navegue até /ShooterGame/Saved/SavedArks/.\n\
+4. Faça backup dos arquivos existentes.\n\
+5. Delete os antigos.\n\
+6. Upload dos seus arquivos.\n\
+7. Renomeie localplayer.arkprofile para:\n\
+   <SteamID64>.arkprofile\n\
+8. Navegue até Config.\n\
+9. Clique em ARK Server Settings.\n\
+10. Insira o ID do mapa correto (consulte tabela em outro artigo).\n\
+11. Salve e inicie.\n\
+\n\
+⚙️ Carregando configuração do mundo\n\
+1. Localize Game.ini e GameUserSettings.ini do single-player.\n\
+2. Pelo FTP, vá para /ShooterGame/Saved/Config/LinuxNoEditor/.\n\
+3. Substitua os arquivos pelos seus.\n\
+4. Inicie o servidor.\n\
+\n\
+✅ Pronto!\n\
+Seu mundo single-player agora é um servidor multiplayer!\n"
+},
+
+// 21. Como atualizar mods no seu servidor ARK
+{
+  id: "ark-update-mods",
+  title: "Como atualizar mods no seu servidor ARK",
+  description: "Atualize mods para suas versões mais recentes quando novas versões forem lançadas.",
+  category: "ark",
+  tags: ["ark", "mods", "atualização", "steam workshop", "servidor"],
+  content:
+"📥 Atualizando Mods\n\
+Quando novos mods são lançados, atualize para a versão mais recente.\n\
+\n\
+⚠️ Antes de começar\n\
+Recomendamos fazer um backup do servidor.\n\
+\n\
+🗑️ Removendo mods antigos\n\
+1. Pare o servidor.\n\
+2. Navegue até Arquivos.\n\
+3. Vá para /ShooterGame/Content/Mods/.\n\
+4. Selecione as pastas dos mods a atualizar (com IDs numéricos).\n\
+5. Delete TODOS EXCETO:\n\
+   - 111111111 (Primitive+)\n\
+   - CrystalIsles, Ragnarok, TheCenter, Valguero, LostIsland (mapas padrão)\n\
+6. Clique Delete e confirme.\n\
+\n\
+🔄 O que acontece depois?\n\
+Servidor demorará mais na inicialização enquanto baixa novos arquivos mod. Isso é normal — tenha paciência!\n\
+\n\
+✅ Verificando progresso\n\
+Use o console ou verifique status no Visualizador de Servidores Steam.\n"
+},    
+
+// 22. Como configurar RCON no seu servidor ARK
+{
+  id: "ark-rcon-setup",
+  title: "Como configurar o RCON no seu servidor ARK",
+  description: "Use a ferramenta ARKON para conectar remotamente e gerenciar seu servidor.",
+  category: "ark",
+  tags: ["ark", "rcon", "arkon", "administração", "remoto", "console"],
+  content:
+"🎮 O que é RCON?\n\
+Permite conectar remotamente ao seu servidor para executar comandos via ferramenta ARKON.\n\
+\n\
+🔐 Configuração inicial\n\
+1. Defina uma senha de admin no servidor (veja outro artigo).\n\
+2. Clique em Portas no painel.\n\
+3. Anote a porta RCON do seu servidor.\n\
+\n\
+📥 Baixando e configurando ARKON\n\
+1. Baixe ARKON (pesquise \"ARKON ARK\")\n\
+2. Extraia o arquivo ZIP.\n\
+3. Execute ARKon.exe\n\
+\n\
+⚙️ Configurando as propriedades\n\
+1. Vá para a aba Configurações.\n\
+2. Defina:\n\
+   - Nome da Configuração: seu servidor\n\
+   - IP do Servidor: seu-ip-aqui (SEM porta)\n\
+   - Porta RCON: sua-porta-rcon\n\
+   - Senha: sua-senha-admin\n\
+   - Nome do Chat: seu-nome\n\
+3. Clique Conectar no canto inferior direito.\n\
+\n\
+✅ Verificando conexão\n\
+O quadrado no canto inferior esquerdo ficará verde se conectado com sucesso.\n\
+\n\
+⚠️ Importante\n\
+Não inclua a porta do servidor no campo IP, apenas o endereço.\n"
+},
+
+// 23. Como definir uma senha de administrador de servidor no seu servidor ARK
+{
+  id: "ark-admin-password",
+  title: "Como definir uma senha de administrador de servidor no seu servidor ARK",
+  description: "Configure uma senha para obter acesso a comandos de administrador no seu servidor ARK.",
+  category: "ark",
+  tags: ["ark", "admin", "senha", "administrador", "cheats", "comandos"],
+  content:
+"🔐 Definindo a senha de admin\n\
+1. Acesse painel e pare servidor.\n\
+2. Navegue até Config.\n\
+3. Abra GameUserSettings.ini.\n\
+4. Localize ServerAdminPassword=\n\
+5. Defina a senha desejada.\n\
+6. Salve o arquivo.\n\
+7. Inicie o servidor.\n\
+\n\
+🎮 Usando comandos de admin\n\
+Após reiniciar, no jogo (pressione Tab):\n\
+enablecheats <sua-senha>\n\
+\n\
+✅ Pronto!\n\
+Você agora é administrador e pode usar todos os comandos. Consulte ARK Wiki para lista completa!\n"
+},
+
+// 24. Como salvar seu mundo ARK na sua área de trabalho
+{
+  id: "ark-save-world-desktop",
+  title: "Como salvar seu mundo ARK na sua área de trabalho",
+  description: "Faça backup de todos os dados do mundo, tribos e personagens do seu servidor.",
+  category: "ark",
+  tags: ["ark", "backup", "salvar", "mundo", "dados", "ftp", "filezilla" ],
+  content:
+"💾 Salvando dados do mundo\n\
+1. Acesse painel e pare servidor.\n\
+2. Use FTP (recomendamos FileZilla).\n\
+3. Navegue até /ShooterGame/Saved/SavedArks/.\n\
+4. Selecione e arraste para seu computador:\n\
+   .ark = dados mundiais\n\
+   .arkprofile = dados do personagem\n\
+   .arktribe = informações da tribo\n\
+\n\
+✅ Backup realizado!\n\
+Você agora tem cópia segura de todo progresso do servidor!\n\
+\n\
+💡 Dica\n\
+Para migrar ou reiniciar, você pode enviar esses arquivos de volta seguindo o artigo \"Como enviar seu jogo ARK salvo\".\n"
+},
+// 1. Como instalar mods da Oficina no seu cliente DayZ
+{
+  id: "dayz-install-client-mods",
+  title: "Como instalar mods da Oficina no seu cliente DayZ",
+  description: "Guia completo para instalar e gerenciar mods da Steam Workshop no seu cliente DayZ estável e experimental.",
+  category: "dayz",
+  tags: ["dayz", "mods", "steam workshop", "cliente", "experimental", "stable"],
+  content:
+"🎮 Instalando Mods no DayZ Stable\n\
+1. Acesse a Oficina Steam do DayZ.\n\
+2. Encontre os mods desejados e clique em Inscrever-se.\n\
+3. Inicie o DayZ e acesse a aba MODS.\n\
+4. Seus mods instalados aparecerão na lista.\n\
+\n\
+🧪 Instalando Mods no DayZ Experimental\n\
+Para usar mods no DayZ Experimental, são necessários passos adicionais:\n\
+\n\
+1. Acesse a Oficina Steam do DayZ.\n\
+2. Inscreva-se nos mods desejados.\n\
+3. Inicie o DayZ e vá para a aba MODS.\n\
+4. Clique na seta suspensa de um mod, depois nos três pontos e em \"Abrir pasta no Explorador\".\n\
+5. Copie os mods para uma nova pasta na Área de Trabalho.\n\
+6. Feche o DayZ e inicie o DayZ Experimental.\n\
+7. Na aba MODS, clique em Mod local e navegue até sua pasta criada.\n\
+8. Selecione os mods e clique em Selecionar pasta.\n\
+\n\
+⚠️ Importante\n\
+Se não conseguir visualizar as pastas, inicie o jogo uma vez para gerar os arquivos necessários.\n"
+},
+
+// 2. Como se tornar administrador no seu servidor DayZ
+{
+  id: "dayz-become-admin",
+  title: "Como se tornar administrador no seu servidor DayZ",
+  description: "Configure senha de administrador e use comandos de console para controlar totalmente seu servidor DayZ.",
+  category: "dayz",
+  tags: ["dayz", "administrador", "admin", "comandos", "console", "servidor"],
+  content:
+"👑 Adicionando você como administrador\n\
+1. Acesse o painel de controle e pare o servidor.\n\
+2. Vá para a aba Arquivos.\n\
+3. Localize e abra o arquivo serverDZ.cfg.\n\
+4. Encontre passwordAdmin = \" \"; e insira sua senha entre as aspas.\n\
+5. Clique em Salvar e reinicie o servidor.\n\
+6. Entre no servidor, abra o chat (Enter) e digite: #login suasenha\n\
+\n\
+⚙️ Principais comandos de administração\n\
+- #login password - Fazer login como admin\n\
+- #logout - Sair da sessão admin\n\
+- #restart - Reiniciar a missão\n\
+- #shutdown - Desligar o servidor\n\
+- #restartserver - Reiniciar o servidor\n\
+- #exec ban Nome/ID/#Player - Banir jogador\n\
+- #kick Nome/ID/#Player - Expulsar jogador\n\
+- #monitor (segundos) - Monitorar performance\n\
+- #debug off - Desativar depuração\n\
+\n\
+💡 Dica\n\
+Use #monitor 10 para ver informações de performance a cada 10 segundos.\n"
+},
+
+// 3. Como ajustar as configurações do servidor DayZ
+{
+  id: "dayz-server-settings",
+  title: "Como ajustar as configurações do servidor DayZ",
+  description: "Configure nome, senha, lista de permissões e outras opções administrativas do seu servidor DayZ.",
+  category: "dayz",
+  tags: ["dayz", "configurações", "servidor", "hostname", "senha", "whitelist"],
+  content:
+"⚙️ Ajustando as configurações\n\
+1. Acesse o painel de controle e pare o servidor.\n\
+2. Vá para a aba Arquivos.\n\
+3. Localize e abra o arquivo serverDZ.cfg.\n\
+4. Ajuste as configurações conforme necessário.\n\
+5. Clique em Salvar e reinicie o servidor.\n\
+\n\
+📋 Principais configurações\n\
+- hostname: Nome público do servidor\n\
+- password: Senha do servidor\n\
+- passwordAdmin: Senha de administrador\n\
+- enableWhitelist: Ativar lista de permissões (0=Desativado, 1=Ativado)\n\
+- disableVoN: Desativar Voz sobre Rede (0=Ativado, 1=Desativado)\n\
+- vonCodecQuality: Qualidade do codec de voz (padrão: 20)\n\
+- serverTimeAcceleration: Velocidade do tempo (padrão: 12)\n\
+- serverNightTimeAcceleration: Velocidade da noite (padrão: 1)\n\
+\n\
+✅ Pronto!\n\
+Configurações aplicadas com sucesso! Considere também adicionar mods ao seu servidor.\n"
+},
+
+// 4. Como mudar para DayZ Experimental
+{
+  id: "dayz-experimental-version",
+  title: "Como mudar a versão do seu cliente DayZ para a versão experimental",
+  description: "Acesse recursos em teste e correções antes do lançamento oficial usando DayZ Experimental.",
+  category: "dayz",
+  tags: ["dayz", "experimental", "beta", "teste", "steam", "cliente"],
+  content:
+  "🧪 O que é DayZ Experimental?\n\
+Versão estendida usada para testar novos recursos e correções antes do lançamento na versão independente.\n\
+\n\
+📥 Instalando DayZ Experimental\n\
+1. Abra o Steam e clique em Biblioteca.\n\
+2. Role para baixo até encontrar DayZ Experimental.\n\
+3. Clique em Instalar.\n\
+4. Aguarde o download e instalação.\n\
+\n\
+📰 Acompanhando atualizações\n\
+Notas de atualização do DayZ Experimental: https://dayz.com/dev-hub\n\
+\n\
+⚠️ Importante\n\
+Para jogar em servidores experimentais, seu cliente deve estar na versão experimental.\n"
+},
+
+// 5. Como alterar locais de surgimento de itens
+{
+  id: "dayz-item-spawn-locations",
+  title: "Como alterar os locais de surgimento de itens no seu servidor DayZ",
+  description: "Customize onde e como itens aparecem no mapa editando tabelas de spawn e probabilidades.",
+  category: "dayz",
+  tags: ["dayz", "itens", "spawn", "surgimento", "types.xml", "loot"],
+  content:
+"📊 Parâmetros dos itens\n\
+- Vida: Duração do item após ser gerado (segundos)\n\
+- Reabastecer: Tempo para o item poder surgir novamente\n\
+- Custo: Probabilidade de surgimento\n\
+- Categoria: Tipo do item (armas, contêineres, roupas, etc.)\n\
+- Uso: Local de surgimento (Cidade, Base Militar, Fazenda)\n\
+- Valor: Grupo de valor (Nível 1, 2, 3, etc.)\n\
+- Nominal: Quantidade máxima no mapa simultaneamente\n\
+- Min: Quantidade mínima no mapa\n\
+- QuantMin/QuantMax: Quantidade de consumível (0% vazio - 100% cheio)\n\
+\n\
+🛠️ Editando manualmente types.xml\n\
+1. Pare o servidor.\n\
+2. Vá para Arquivos.\n\
+3. Navegue até profiles/users/Server/VPPDebugMissions/Debug.chernarusplus/db/\n\
+   (Para Livonia: Debug.enoch/db/)\n\
+4. Abra types.xml.\n\
+5. Localize o item e modifique os valores.\n\
+6. Salve e reinicie.\n\
+\n\
+🌐 Usando DZSA.tools (Recomendado)\n\
+1. Baixe types.xml do servidor.\n\
+2. Acesse https://dzsa.tools/\n\
+3. Arraste o arquivo para a página.\n\
+4. Faça as alterações desejadas.\n\
+5. Salve e baixe o arquivo atualizado.\n\
+6. Substitua o arquivo no servidor.\n\
+7. Reinicie o servidor.\n\
+\n\
+🔄 Para reverter alterações\n\
+Delete o arquivo types.xml e reinicie para gerar um novo padrão.\n"
+},
+
+// 6. Como mudar o nome do servidor DayZ
+{
+  id: "dayz-change-server-name",
+  title: "Como mudar o nome do seu servidor DayZ",
+  description: "Personalize o nome do servidor para destacá-lo na lista e torná-lo facilmente identificável.",
+  category: "dayz",
+  tags: ["dayz", "nome", "servidor", "hostname", "lista"],
+  content:
+"📝 Alterando o nome do servidor\n\
+1. Acesse o Painel de Controle e pare o servidor.\n\
+2. Vá para a aba Arquivos.\n\
+3. Localize e abra o arquivo serverDZ.cfg.\n\
+4. Altere hostname para o nome desejado.\n\
+   Exemplo: hostname = \"Meu Servidor DayZ\";\n\
+5. Clique em Salvar e reinicie o servidor.\n\
+\n\
+✅ Pronto!\n\
+Seu servidor agora aparecerá com o novo nome na lista de servidores!\n"
+},
+
+// 7. Como alterar o mapa no servidor DayZ
+{
+  id: "dayz-change-map",
+  title: "Como alterar o mapa no seu servidor DayZ",
+  description: "Troque entre Chernarus e Livonia para variar a experiência de sobrevivência.",
+  category: "dayz",
+  tags: ["dayz", "mapa", "chernarus", "livonia", "servidor", "template"],
+  content:
+"🗺️ Sobre o mapa Livonia\n\
+Livonia apresenta florestas densas, terreno acidentado, inúmeros lagos e o rio Biela. Rica em vida selvagem como veados, lobos e ursos.\n\
+\n\
+🔄 Mudando para Livonia\n\
+1. Acesse o Painel de Controle e pare o servidor.\n\
+2. Vá para a aba Arquivos.\n\
+3. Localize e abra o arquivo serverDZ.cfg.\n\
+4. Substitua template=\"dayzOffline.chernarusplus\" por template=\"dayzOffline.enoch\".\n\
+5. Clique em Salvar e reinicie o servidor.\n\
+\n\
+↩️\n\
+Voltando para Chernarus\n\
+Reverta o passo 4, substituindo template=\"dayzOffline.enoch\" por template=\"dayzOffline.chernarusplus\".\n\
+\n\
+✅ Pronto!\n\
+Seu servidor agora rodará no mapa escolhido!\n"
+},
+
+// 8. Como encontrar logs do servidor DayZ
+{
+  id: "dayz-server-logs",
+  title: "Como encontrar os registros do servidor DayZ",
+  description: "Acesse logs para monitorar atividade dos jogadores e diagnosticar problemas do servidor.",
+  category: "dayz",
+  tags: ["dayz", "logs", "registros", "monitoramento", "administração"],
+  content:
+"📋 Encontrando logs do servidor\n\
+1. Acesse seu painel de controle.\n\
+2. Vá para a aba Arquivos.\n\
+3. Navegue até /profiles/.\n\
+4. Esta pasta contém vários arquivos:\n\
+   - Arquivos de log\n\
+   - Arquivos de erro\n\
+   - Informações do player\n\
+\n\
+📚 Para entender os logs\n\
+Se não souber interpretar os registros e eventos, consulte a DayZ Wiki para explicações detalhadas.\n\
+\n\
+💡 Dica\n\
+Monitore regularmente os logs para identificar problemas e atividades suspeitas.\n"
+},
+
+// 9. Como alterar velocidade de aceleração do tempo
+{
+  id: "dayz-time-acceleration",  
+  title: "Como alterar a velocidade de aceleração do tempo no seu servidor DayZ",
+  description: "Configure duração do dia e noite para criar experiências de jogo personalizadas.",
+  category: "dayz",
+  tags: ["dayz", "tempo", "aceleração", "dia", "noite", "configuração"],
+  content:
+"⏰ Configurando aceleração do tempo\n\
+1. Acesse o Painel de Controle e pare o servidor.\n\
+2. Vá para a aba Arquivos.\n\
+3. Localize e abra o arquivo serverDZ.cfg.\n\
+4. Para duração total: edite Time Acceleration (valores: 0 a 24).\n\
+5. Para período noturno: edite Night Time Acceleration (valores: 0.1 a 64).\n\
+6. Clique em Salvar e reinicie o servidor.\n\
+\n\
+📐 Como funciona\n\
+O valor é um multiplicador do tempo padrão:\n\
+- Time Acceleration: multiplica velocidade geral do tempo\n\
+- Night Time Acceleration: multiplica velocidade da noite (combinado com Time Acceleration)\n\
+\n\
+💡 Exemplos práticos\n\
+- Time Acceleration = 12: dia completo em 2 horas (em vez de 24h)\n\
+- Time Acceleration = 2 + Night Time Acceleration = 3: noite passa 6x mais rápida (2 × 3), durando 4 horas em vez de 24h\n\
+\n\
+✅ Pronto!\n\
+Configurações de tempo aplicadas com sucesso!\n"
+},
+
+// 10. Como instalar mods da Oficina no servidor DayZ
+{
+  id: "dayz-install-server-mods",
+  title: "Como instalar mods da Oficina no seu servidor DayZ",
+  description: "Adicione mods da Steam Workshop para expandir funcionalidades e conteúdo do servidor.",
+  category: "dayz",
+  tags: ["dayz", "mods", "servidor", "steam workshop", "instalação"],
+  content:
+"🔍 Encontrando mods na Steam Workshop\n\
+1. Acesse https://steamcommunity.com/app/221100/workshop/\n\
+2. Encontre o mod desejado.\n\
+3. Copie o ID da Oficina no final da URL.\n\
+   Exemplo: ...?id=1559212036 → ID: 1559212036\n\
+\n\
+📦 Instalando mods no servidor\n\
+1. Acesse o painel e pare o servidor.\n\
+2. Vá para Configuração > Configurações do DayZ Mod.\n\
+3. No campo \"IDs de Mods da Oficina Steam\", insira os IDs separados por vírgulas.\n\
+   Exemplo: 1559212036,1234567890\n\
+4. Clique em Salvar e inicie o servidor.\n\
+5. Os mods serão baixados automaticamente.\n\
+\n\
+⚙️ Ativando os mods\n\
+1. Volte para Configuração.\n\
+2. Nos campos de mods, insira os nomes das pastas (@ModName):\n\
+   - Mods: Requerem instalação no cliente E servidor\n\
+   - Mods do Servidor: Apenas no servidor (ferramentas admin)\n\
+3. Separe múltiplos mods com ponto e vírgula (;).\n\
+4. Salve e reinicie.\n\
+\n\
+  ⚠️ Importante\n\
+Evite espaços entre IDs e vírgulas para prevenir problemas.\n\
+\n\
+✅ Pronto!\n\
+Mods instalados e ativos! Aproveite o novo conteúdo e funcionalidades.\n"
+},
+
+// 11. Como instalar VPPAdminTools
+{
+  id: "dayz-vpp-admin-tools",
+  title: "Como instalar o VPPAdminTools no seu servidor DayZ",
+  description: "Instale ferramentas administrativas avançadas com interface gráfica para melhor gerenciamento do servidor.",
+  category: "dayz",
+  tags: ["dayz", "vpp", "admin tools", "administração", "interface", "comandos"],
+  content: 
+"🛠️ O que é VPPAdminTools?\n\
+Mod da Steam Workshop que adiciona ferramentas administrativas com interface gráfica, incluindo: teletransporte, cura, reabastecimento, alteração de clima/hora, câmera livre e muito mais.\n\
+\n\
+📥 Instalação\n\
+1. Inscreva-se no VPPAdminTools e Community Framework na Steam Workshop.\n\
+2. Inicie o DayZ.\n\
+3. Vá para Mods > Mod local.\n\
+4. Navegue até \\Steam\\steamapps\\common\\DayZ\\!Workshop.\n\
+5. Selecione as pastas @CF e @VPPAdminTools.\n\
+6. Pare seu servidor.\n\
+7. Faça upload das pastas @CF e @VPPAdminTools para o diretório raiz.\n\
+8. Mova os arquivos .bikey das pastas \"keys\" para /keys do servidor:\n\
+   - @CF: Jacob_Mango_V3.bikey\n\
+   - @VPPAdminTools: VPP.bikey\n\
+9. Edite dayz.properties e insira @CF;@VPPAdminTools no campo Mods.\n\
+10. Salve e inicie o servidor.\n\
+\n\
+👑 Configurando Super Administradores\n\
+1. Navegue até /profiles/VPPAdminTools/Permissions/SuperAdmins.\n\
+2. Abra SuperAdmins.txt.\n\
+3. Remova o texto e insira o Steam64ID de cada admin (um por linha).\n\
+4. Salve o arquivo.\n\
+5. Vá para /profiles/VPPAdminTools/Permissions.\n\
+6. Abra credentials.txt.\n\
+7. Remova a primeira linha e insira uma senha de admin.\n\
+8. Salve e reinicie o servidor.\n\
+\n\
+🎮 Usando o VPPAdminTools\n\
+1. Conecte-se ao servidor.\n\
+2. Pressione ESC > Configurações > Teclas de atalho.\n\
+3. Configure os atalhos do VPP (padrão: End para login, Home para menu).\n\
+4. Pressione End e digite sua senha de admin.\n\
+5. Pressione Home para abrir a Ferramenta de Administração.\n\
+\n\
+✅ Pronto!\n\
+Agora você tem acesso completo às ferramentas administrativas avançadas!\n"
+},
+
+// 12. Como tornar servidor DayZ privado com senha
+{
+  id: "dayz-private-server-password",
+  title: "Como tornar seu servidor DayZ privado com uma senha",
+  description: "Proteja seu servidor DayZ definindo uma senha para controlar o acesso de jogadores.",
+  category: "dayz",
+  tags: ["dayz", "senha", "privado", "proteção", "acesso", "servidor"],
+  content:
+"🔐 Adicionando senha ao servidor\n\
+1. Acesse o Painel de Controle e pare o servidor.\n\
+2. Vá para a aba Arquivos.\n\
+3. Localize e abra o arquivo serverDZ.cfg.\n\
+4. Encontre password = \"\"; e defina sua senha entre as aspas.\n\
+   Exemplo: password = \"minhasenha123\";\n\
+5. Clique em Salvar e reinicie o servidor.\n\
+\n\
+✅ Pronto!\n\
+Seu servidor agora está protegido por senha. Apenas jogadores com a senha correta poderão entrar.\n\
+\n\
+💡 Dica\n\
+Compartilhe a senha apenas com jogadores autorizados para manter o controle do acesso.\n"
+},
+
+// 13. Como entrar no servidor DayZ
+{
+  id: "dayz-connect-server",
+  title: "Como entrar no seu servidor DayZ",
+  description: "Conecte-se ao seu servidor DayZ usando conexão direta com IP, porta e senha.",
+  category: "dayz",
+  tags: ["dayz", "conectar", "servidor", "ip", "porta", "conexão direta"],
+  content:
+"📋 Antes de começar\n\
+Você precisará conhecer o endereço IP do seu servidor.\n\
+\n\
+🎮 Escolhendo a versão correta\n\
+- Se o servidor usar DayZ Experimental: inicie DayZ Experimental\n\
+- Se o servidor usar DayZ Stable: inicie DayZ normal\n\
+\n\
+  🔗 Conectando via Conexão Direta\n\
+1. Inicie a versão correta do DayZ.\n\
+2. Vá para a aba SERVIDORES.\n\
+3. Clique em Conexão Direta.\n\
+4. Insira:\n\
+   - Endereço IP do servidor\n\
+   - Porta\n\
+   - Senha (se configurada)\n\
+5. Clique em Conectar.\n\
+\n\
+✅ Pronto!\n\
+Você está conectado ao seu servidor DayZ e pronto para sobreviver!\n"
+},
+
 );
