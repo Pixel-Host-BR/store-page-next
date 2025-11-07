@@ -5,13 +5,20 @@ import FacebookPixel from './components/FacebookPixel';
 import FacebookPixelHead from './components/FacebookPixelHead';
 import Script from 'next/script'
 import { ReactNode, Suspense } from 'react';
+import { Roboto_Condensed } from 'next/font/google'
 import { seoConfig, generateMetadata } from './seo-config'
+
+const robotoCondensed = Roboto_Condensed({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '700'],
+  display: 'swap'
+})
 
 export const metadata = generateMetadata('home');
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html className="bg-[#181826] min-h-screen">
+    <html lang="pt-BR" className="bg-[#181826] min-h-screen">
       <head>
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-BVTZVVEJRL"
@@ -35,7 +42,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         <FacebookPixelHead />
       </head>
-      <body className="bg-[#181826] min-h-screen">
+      <body className={`${robotoCondensed.className} bg-[#181826] min-h-screen`}>
         <Navbar />
         <main className="pt-16">
           {children}

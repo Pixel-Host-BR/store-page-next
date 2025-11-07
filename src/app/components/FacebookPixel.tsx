@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useRef, Suspense } from "react";
+import { useEffect, useRef, Suspense, useCallback } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 import Script from "next/script";
 
@@ -25,12 +25,12 @@ function FacebookPixelContent() {
     }
   }, [pathname, searchParams]);
 
-  const handleScriptLoad = () => {
+  const handleScriptLoad = useCallback(() => {
     console.log('Facebook Pixel: Script loaded successfully');
     isInitialized.current = true;
     
     // Aguarda um pouco para garantir que o fbq está disponível
-    setTimeout(() => {
+    const timeoutId = setTimeout(() => {
       if (typeof window !== 'undefined' && typeof window.fbq === "function") {
         console.log('Facebook Pixel: Initializing and tracking PageView');
         window.fbq('track', 'PageView');
@@ -38,7 +38,9 @@ function FacebookPixelContent() {
         console.error('Facebook Pixel: fbq function not available');
       }
     }, 100);
-  };
+    
+    return () => clearTimeout(timeoutId);
+  }, []);
 
   return (
     <>

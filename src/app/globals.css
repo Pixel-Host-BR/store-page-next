@@ -17,6 +17,75 @@
 .animate-float {
   animation: float 3s ease-in-out infinite;
 }
+
+/* Motion Design Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Smooth transitions for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Ensure Tawk.to chat widget doesn't overlap BackToTopButton */
+#tawkchat-container,
+#tawkchat-container *,
+iframe[title*="chat"],
+iframe[title*="Tawk"],
+.tawk-min-container,
+.tawk-max-container {
+  z-index: 9999 !important;
+}
+
+/* BackToTopButton should always be above chat */
+button[aria-label="Voltar para o topo"] {
+  z-index: 99999 !important;
+}
 .backdrop-blur-xl {
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);

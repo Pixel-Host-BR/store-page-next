@@ -79,67 +79,87 @@ export default function HelpPage() {
 
   // PAGINAÇÃO RESPONSIVA MELHORADA PARA MOBILE E DESKTOP:
   const renderPaginationControls = (pageCount: number, currentPage: number, setPage: (page:number)=>void) => {
-    // Se tiver apenas uma página, não mostra controles
-    if (pageCount <= 1) return null;
-    
-    // Para mobile (simplificado)
-    const isMobile = typeof window !== 'undefined' && window.innerWidth < 640;
-    
+    if (pageCount <= 1) return null
+
+    const pageNumbers = getPageNumbers(currentPage, pageCount)
+    const goToPrevious = () => {
+      if (currentPage > 0) {
+        setPage(currentPage - 1)
+      }
+    }
+    const goToNext = () => {
+      if (currentPage < pageCount - 1) {
+        setPage(currentPage + 1)
+      }
+    }
+
+    const sharedButtonClasses =
+      'flex items-center justify-center rounded-lg border border-gray-700 bg-gray-800/80 px-4 py-2 text-sm font-medium text-gray-200 transition-colors hover:border-blue-500/60 hover:text-white disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50'
+
     return (
-      <div className="flex flex-wrap justify-center items-center mt-6 gap-2 px-2">
-        {/* Botão Anterior - Maior em mobile */}
-        {currentPage !== 0 && (
-          <button
-            className="px-3 py-2 sm:py-1 bg-gray-700 text-white rounded-md whitespace-nowrap flex items-center justify-center min-w-[80px] sm:min-w-[auto] hover:bg-gray-600 transition-colors"
-            onClick={() => setPage(currentPage - 1)}
-            aria-label="Página anterior"
-          >
-            Anterior
-          </button>
-        )}
-        
-        {/* Em mobile, mostra apenas página atual/total */}
-        {isMobile ? (
-          <div className="px-4 py-2 bg-blue-600/20 text-white rounded-md font-medium">
-            {currentPage + 1} / {pageCount}
-          </div>
-        ) : (
-          /* Em desktop, mostra números de página com elipses */
-          <div className="flex items-center gap-1">
-            {getPageNumbers(currentPage, pageCount).map((i, j) => (
-              i === -1 ?
-                <div key={`ellipsis-${j}`} className="px-2 py-1 text-gray-400 text-lg font-bold select-none">…</div>
-              : (
-                <button
-                  key={i}
-                  onClick={() => setPage(i)}
-                  className={`px-3 py-2 rounded-md min-w-[40px] transition-all ${
-                    i === currentPage 
-                      ? 'bg-blue-600 text-white font-medium' 
-                      : 'bg-gray-700 text-gray-300 hover:bg-blue-800 hover:text-white'
-                  }`}
-                  aria-label={`Ir para página ${i+1}`}
-                  aria-current={i === currentPage ? 'page' : undefined}
+      <nav
+        className="mt-8 flex flex-wrap items-center justify-center gap-2 sm:gap-3"
+        aria-label="Paginação"
+      >
+        <button
+          type="button"
+          onClick={goToPrevious}
+          disabled={currentPage === 0}
+          className={`${sharedButtonClasses} w-full max-w-[160px] sm:w-auto`}
+          aria-label="Página anterior"
+        >
+          Anterior
+        </button>
+
+        <div className="sm:hidden w-full max-w-[200px] rounded-lg bg-blue-600/25 px-4 py-2 text-center text-sm font-semibold text-blue-100">
+          Página {currentPage + 1} de {pageCount}
+        </div>
+
+        <div className="hidden sm:flex items-center gap-1">
+          {pageNumbers.map((pageIndex, index) => {
+            if (pageIndex === -1) {
+              return (
+                <span
+                  key={`ellipsis-${index}`}
+                  className="px-2 text-lg font-semibold text-gray-500"
+                  aria-hidden="true"
                 >
-                  {i+1}
-                </button>
+                  …
+                </span>
               )
-            ))}
-          </div>
-        )}
-        
-        {/* Botão Próximo - Maior em mobile */}
-        {currentPage !== pageCount - 1 && (
-          <button
-            className="px-3 py-2 sm:py-1 bg-gray-700 text-white rounded-md whitespace-nowrap flex items-center justify-center min-w-[80px] sm:min-w-[auto] hover:bg-gray-600 transition-colors"
-            onClick={() => setPage(currentPage + 1)}
-            aria-label="Próxima página"
-          >
-            Próximo
-          </button>
-        )}
-      </div>
-    );
+            }
+
+            const isActive = pageIndex === currentPage
+            return (
+              <button
+                key={pageIndex}
+                type="button"
+                onClick={() => setPage(pageIndex)}
+                className={`min-w-[44px] rounded-lg px-3 py-2 text-sm font-medium transition-all ${
+                  isActive
+                    ? 'bg-blue-600 text-white shadow-lg ring-1 ring-blue-400/60'
+                    : 'bg-gray-800/80 text-gray-300 hover:bg-blue-700/80 hover:text-white'
+                }`}
+                aria-label={`Ir para página ${pageIndex + 1}`}
+                aria-current={isActive ? 'page' : undefined}
+              >
+                {pageIndex + 1}
+              </button>
+            )
+          })}
+        </div>
+
+        <button
+          type="button"
+          onClick={goToNext}
+          disabled={currentPage === pageCount - 1}
+          className={`${sharedButtonClasses} w-full max-w-[160px] sm:w-auto`}
+          aria-label="Próxima página"
+        >
+          Próximo
+        </button>
+      </nav>
+    )
   }
 
   return (
