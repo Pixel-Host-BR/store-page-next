@@ -201,6 +201,18 @@ export default function Navbar() {
                 <span className="relative z-10">Contato</span>
                 <span className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </Link>
+
+              {/* Uptime externo */}
+              <Link
+                href="https://stats.uptimerobot.com/ZZPstf9xQM"
+                className="relative flex items-center text-gray-200 hover:text-white px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 hover:bg-white/10 group"
+                aria-label="Status de Uptime"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span className="relative z-10">Uptime</span>
+                <span className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </Link>
             </div>
           </div>
 
@@ -293,6 +305,19 @@ export default function Navbar() {
             >
               <Mail className="h-4 w-4" />
               <span>Contato</span>
+            </Link>
+
+            {/* Uptime Mobile */}
+            <Link
+              href="https://stats.uptimerobot.com/ZZPstf9xQM"
+              className="flex items-center space-x-2 text-gray-200 hover:text-white px-4 py-3 rounded-lg text-base font-medium transition-all duration-300 hover:bg-gradient-to-r hover:from-blue-500/20 hover:to-purple-500/20 border border-transparent hover:border-blue-500/30"
+              aria-label="Status de Uptime"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              <Clock className="h-4 w-4" />
+              <span>Uptime</span>
             </Link>
 
             {/* Botão Painel Mobile */}
