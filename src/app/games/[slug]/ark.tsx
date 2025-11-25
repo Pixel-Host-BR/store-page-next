@@ -26,7 +26,7 @@ export default function ArkFeatures() {
   const [activeFeature, setActiveFeature] = useState(0)
   const [isVisible, setIsVisible] = useState(false)
 
-  
+
 
   useEffect(() => {
     setIsVisible(true)
@@ -87,21 +87,24 @@ export default function ArkFeatures() {
   const plans = [
     {
       name: 'Básico',
-      price: '50/mês',
+      originalPrice: '50',
+      price: '40/mês',
       features: ['5GB RAM', '2 CPU Cores', '20GB SSD', 'Processamento Básico'],
       grad: 'from-gray-800 via-gray-900 to-zinc-700',
       badge: null
     },
     {
       name: 'Avançado',
-      price: '80/mês',
+      originalPrice: '80',
+      price: '64/mês',
       features: ['8GB RAM', '3 CPU Cores', '40GB SSD', 'Processamento Avançado'],
       grad: 'from-blue-900 via-blue-800 to-blue-900',
       badge: null
     },
     {
       name: 'Premium',
-      price: '105/mês',
+      originalPrice: '105',
+      price: '84/mês',
       features: ['16GB RAM', '3 CPU Cores', '80GB SSD', 'Processamento Premium'],
       grad: 'from-green-700 via-emerald-700 to-green-800',
       badge: (
@@ -113,7 +116,8 @@ export default function ArkFeatures() {
     },
     {
       name: 'Ultimate',
-      price: '160/mês',
+      originalPrice: '160',
+      price: '128/mês',
       features: ['26GB RAM', '5 CPU Cores', '150GB SSD', 'Processamento Ultimate'],
       grad: 'from-yellow-700 via-yellow-800 to-orange-800',
       badge: null
@@ -146,12 +150,12 @@ export default function ArkFeatures() {
       {/* ----------- HEADER ----------- */}
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-                     <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-red-500/20 to-yellow-400/20 backdrop-blur-sm border border-red-500/30 rounded-full px-4 py-2 mb-6">
-             <Heart className="h-4 w-4 text-red-400" />
-             <span className="text-sm font-medium text-red-200">Recursos Premium Incluídos</span>
-           </div>
+          <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-red-500/20 to-yellow-400/20 backdrop-blur-sm border border-red-500/30 rounded-full px-4 py-2 mb-6">
+            <Heart className="h-4 w-4 text-red-400" />
+            <span className="text-sm font-medium text-red-200">Recursos Premium Incluídos</span>
+          </div>
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
-            <span className="text-white">Tudo o que seu servidor</span><br/>
+            <span className="text-white">Tudo o que seu servidor</span><br />
             <span className="bg-gradient-to-r from-red-500 via-yellow-400 to-yellow-500 bg-clip-text text-transparent">
               de ARK precisa
             </span>
@@ -199,11 +203,10 @@ export default function ArkFeatures() {
                   <button
                     key={idx}
                     onClick={() => setActiveFeature(idx)}
-                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                      idx === activeFeature
-                        ? 'bg-yellow-400 scale-125 shadow-lg shadow-yellow-400/50'
-                        : 'bg-gray-600 hover:bg-gray-500'
-                    }`}
+                    className={`w-3 h-3 rounded-full transition-all duration-300 ${idx === activeFeature
+                      ? 'bg-yellow-400 scale-125 shadow-lg shadow-yellow-400/50'
+                      : 'bg-gray-600 hover:bg-gray-500'
+                      }`}
                   />
                 ))}
               </div>
@@ -215,18 +218,16 @@ export default function ArkFeatures() {
                 <button
                   key={feature.id}
                   onClick={() => setActiveFeature(idx)}
-                  className={`w-full text-left p-6 rounded-2xl border transition-all duration-300 ${
-                    idx === activeFeature
-                      ? 'bg-gradient-to-r from-yellow-400/10 to-yellow-400/10 border-yellow-400/30 shadow-lg shadow-yellow-400/10'
-                      : 'bg-gray-800/30 border-gray-700/50 hover:border-gray-600/50 hover:bg-gray-800/50'
-                  }`}
+                  className={`w-full text-left p-6 rounded-2xl border transition-all duration-300 ${idx === activeFeature
+                    ? 'bg-gradient-to-r from-yellow-400/10 to-yellow-400/10 border-yellow-400/30 shadow-lg shadow-yellow-400/10'
+                    : 'bg-gray-800/30 border-gray-700/50 hover:border-gray-600/50 hover:bg-gray-800/50'
+                    }`}
                 >
                   <div className="flex items-center space-x-4">
-                    <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${
-                      idx === activeFeature
-                        ? `bg-gradient-to-br ${feature.gradient} text-white`
-                        : 'bg-gray-700 text-gray-400'
-                    }`}>
+                    <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${idx === activeFeature
+                      ? `bg-gradient-to-br ${feature.gradient} text-white`
+                      : 'bg-gray-700 text-gray-400'
+                      }`}>
                       {feature.icon}
                     </div>
                     <div className="flex-1">
@@ -292,9 +293,20 @@ export default function ArkFeatures() {
                 className={`relative overflow-visible flex flex-col rounded-3xl p-7 border bg-gradient-to-br shadow-lg transition-all duration-300
                   ${plan.grad} border-gray-700 hover:scale-[1.04] hover:ring-2 hover:ring-yellow-400/30`}
               >
+                {/* Badge de desconto */}
+                <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-gradient-to-r from-red-500 to-orange-500 text-white text-xs font-bold rounded-full shadow-lg">
+                  20% OFF
+                </span>
                 {plan.badge}
                 <h4 className="text-2xl font-bold text-white mb-2">{plan.name}</h4>
-                <div className="text-4xl font-extrabold text-yellow-400 mb-2">{plan.price}</div>
+
+                {/* Preço original riscado */}
+                <div className="text-lg text-gray-400 line-through mb-1">
+                  R$ {plan.originalPrice}/mês
+                </div>
+
+                {/* Preço com desconto */}
+                <div className="text-4xl font-extrabold text-yellow-400 mb-2">R$ {plan.price}</div>
                 <ul className="flex-1 space-y-2 mb-6 mt-2">
                   {plan.features.map((f, i) => (
                     <li key={i} className="flex items-center space-x-2">
@@ -370,11 +382,11 @@ export default function ArkFeatures() {
                 </p>
               </div>
               <div className="flex flex-col sm:flex-row gap-4">
-              <a href="https://pixelhostbr.com/financeiro/index.php?rp=/store/ark-survival">
-                <button className="flex-1 bg-gradient-to-r from-yellow-600 to-yellow-800 hover:from-yellow-700 hover:to-yellow-900 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-yellow-400/25">
-                  Começar Agora
-                </button>
-              </a>
+                <a href="https://pixelhostbr.com/financeiro/index.php?rp=/store/ark-survival">
+                  <button className="flex-1 bg-gradient-to-r from-yellow-600 to-yellow-800 hover:from-yellow-700 hover:to-yellow-900 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-yellow-400/25">
+                    Começar Agora
+                  </button>
+                </a>
                 {/* Exemplo comentado para futuro
                 <button className="flex-1 bg-gray-800 hover:bg-gray-700 text-white font-semibold py-3 px-6 rounded-lg border border-gray-600 hover:border-yellow-400/50 transition-all duration-300">
                   Ver Demonstração

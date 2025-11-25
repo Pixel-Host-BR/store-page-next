@@ -97,21 +97,24 @@ export default function MinecraftFeatures() {
   const plans = [
     {
       name: 'Básico',
-      price: '25/mês',
+      originalPrice: '25',
+      price: '20/mês',
       features: ['4GB RAM', '2 CPU Cores', '10GB SSD', 'Processamento Básico'],
       grad: 'from-gray-800 via-gray-900 to-zinc-700',
       badge: null
     },
     {
       name: 'Avançado',
-      price: '35/mês',
+      originalPrice: '35',
+      price: '28/mês',
       features: ['8GB RAM', '3 CPU Cores', '25GB SSD', 'Processamento Avançado'],
       grad: 'from-blue-900 via-blue-800 to-blue-900',
       badge: null
     },
     {
       name: 'Premium',
-      price: '50/mês',
+      originalPrice: '50',
+      price: '40/mês',
       features: ['16GB RAM', '3 CPU Cores', '50GB SSD', 'Processamento Premium'],
       grad: 'from-green-700 via-emerald-700 to-green-800',
       badge: (
@@ -122,8 +125,9 @@ export default function MinecraftFeatures() {
       )
     },
     {
-      name: 'Master',
-      price: '90/mês',
+      name: 'Ultimate',
+      originalPrice: '90',
+      price: '72/mês',
       features: ['26GB RAM', '5 CPU Cores', '100GB SSD', 'Processamento Master'],
       grad: 'from-yellow-700 via-yellow-800 to-orange-800',
       badge: null
@@ -213,7 +217,7 @@ export default function MinecraftFeatures() {
 
   return (
     <section className="relative bg-gradient-to-b from-gray-900 to-gray-800 py-20 overflow-hidden">
-      
+
       {/* Background Effects */}
       <div className="absolute inset-0 opacity-20 pointer-events-none">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(34,197,94,0.1),transparent_50%)]" />
@@ -243,7 +247,7 @@ export default function MinecraftFeatures() {
             <span className="text-sm font-medium text-green-200">Recursos Premium Incluídos</span>
           </div>
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
-            <span className="text-white">Tudo o que seu servidor</span><br/>
+            <span className="text-white">Tudo o que seu servidor</span><br />
             <span className="bg-gradient-to-r from-green-400 via-emerald-500 to-blue-500 bg-clip-text text-transparent">
               Minecraft precisa
             </span>
@@ -291,11 +295,10 @@ export default function MinecraftFeatures() {
                   <button
                     key={idx}
                     onClick={() => setActiveFeature(idx)}
-                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                      idx === activeFeature
-                        ? 'bg-green-500 scale-125 shadow-lg shadow-green-500/50'
-                        : 'bg-gray-600 hover:bg-gray-500'
-                    }`}
+                    className={`w-3 h-3 rounded-full transition-all duration-300 ${idx === activeFeature
+                      ? 'bg-green-500 scale-125 shadow-lg shadow-green-500/50'
+                      : 'bg-gray-600 hover:bg-gray-500'
+                      }`}
                   />
                 ))}
               </div>
@@ -307,18 +310,16 @@ export default function MinecraftFeatures() {
                 <button
                   key={feature.id}
                   onClick={() => setActiveFeature(idx)}
-                  className={`w-full text-left p-6 rounded-2xl border transition-all duration-300 ${
-                    idx === activeFeature
-                      ? 'bg-gradient-to-r from-green-500/10 to-blue-500/10 border-green-500/30 shadow-lg shadow-green-500/10'
-                      : 'bg-gray-800/30 border-gray-700/50 hover:border-gray-600/50 hover:bg-gray-800/50'
-                  }`}
+                  className={`w-full text-left p-6 rounded-2xl border transition-all duration-300 ${idx === activeFeature
+                    ? 'bg-gradient-to-r from-green-500/10 to-blue-500/10 border-green-500/30 shadow-lg shadow-green-500/10'
+                    : 'bg-gray-800/30 border-gray-700/50 hover:border-gray-600/50 hover:bg-gray-800/50'
+                    }`}
                 >
                   <div className="flex items-center space-x-4">
-                    <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${
-                      idx === activeFeature
-                        ? `bg-gradient-to-br ${feature.gradient} text-white`
-                        : 'bg-gray-700 text-gray-400'
-                    }`}>
+                    <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${idx === activeFeature
+                      ? `bg-gradient-to-br ${feature.gradient} text-white`
+                      : 'bg-gray-700 text-gray-400'
+                      }`}>
                       {feature.icon}
                     </div>
                     <div className="flex-1">
@@ -384,9 +385,21 @@ export default function MinecraftFeatures() {
                 className={`relative overflow-visible flex flex-col rounded-3xl p-7 border bg-gradient-to-br shadow-lg transition-all duration-300
                   ${plan.grad} border-gray-700 hover:scale-[1.04] hover:ring-2 hover:ring-green-500/30`}
               >
+                {/* Badge de desconto */}
+                <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-gradient-to-r from-red-500 to-orange-500 text-white text-xs font-bold rounded-full shadow-lg">
+                  20% OFF
+                </span>
                 {plan.badge}
                 <h4 className="text-2xl font-bold text-white mb-2">{plan.name}</h4>
-                <div className="text-4xl font-extrabold text-green-400 mb-2">{plan.price}</div>
+
+                {/* Preço original riscado */}
+                <div className="text-lg text-gray-400 line-through mb-1">
+                  R$ {plan.originalPrice}/mês
+                </div>
+
+                {/* Preço com desconto */}
+                <div className="text-4xl font-extrabold text-green-400 mb-2">R$ {plan.price}</div>
+
                 <ul className="flex-1 space-y-2 mb-6 mt-2">
                   {plan.features.map((f, i) => (
                     <li key={i} className="flex items-center space-x-2">
@@ -429,44 +442,44 @@ export default function MinecraftFeatures() {
                 )}
               </div>
             )}
-                         {/* Card Customizado */}
-             <div className="relative overflow-visible flex flex-col rounded-3xl p-7 border bg-gradient-to-br from-purple-700/30 to-pink-700/30 shadow-lg border-purple-600 hover:scale-[1.04] transition-all duration-300 hover:ring-2 hover:ring-pink-400/30">
-               <span className="absolute -top-5 left-1/2 -translate-x-1/2 rounded-full bg-gradient-to-r from-purple-400 to-pink-500 text-white px-4 py-1 text-xs font-bold shadow-lg select-none">
-                 Plano personalizado
-               </span>
-               <h4 className="text-2xl font-bold text-white mb-2">Personalize</h4>
-               <div className="text-4xl font-extrabold text-pink-400 mb-2">Sob consulta</div>
-               <p className="text-base text-gray-200 mb-6 mt-2">
-                 Nenhum dos planos atende sua necessidade?<br />
-                 <span className="font-bold text-pink-400">Crie o seu plano!</span>
-               </p>
-               <a
-                 href="https://pixelhostbr.com/financeiro/index.php?rp=/store/hospedagem-minecraft/plano-personalizavel"
-                 className="mt-auto bg-gradient-to-r from-purple-600 to-pink-600 text-white py-3 rounded-xl font-bold shadow-inner shadow-pink-900/10 hover:from-purple-700 hover:to-pink-700 transition-all duration-200 flex justify-center"
-               >
-                 Customizar
-               </a>
-             </div>
-                     </div>
-         </div>
-
-                   {/* ----------- COMPATIBILIDADE JAVA/BEDROCK ----------- */}
-          <div className="text-center mb-12">
-            <div className="bg-gradient-to-r from-green-600/10 to-blue-600/10 backdrop-blur-sm border border-green-500/20 rounded-2xl p-6 max-w-2xl mx-auto">
-              <div className="flex items-center justify-center space-x-3 mb-3">
-                <div className="w-8 h-8 bg-gradient-to-br from-green-500 to-emerald-600 rounded-lg flex items-center justify-center">
-                  <CheckCircle2 className="h-5 w-5 text-white" />
-                </div>
-                <h3 className="text-xl font-bold text-white">Compatibilidade Total</h3>
-              </div>
-              <p className="text-gray-300 text-lg">
-                Todos os nossos planos são <span className="font-semibold text-green-400">100% compatíveis</span> com as versões 
-                <span className="font-semibold text-blue-400"> Java</span> e <span className="font-semibold text-green-400">Bedrock</span> do Minecraft
+            {/* Card Customizado */}
+            <div className="relative overflow-visible flex flex-col rounded-3xl p-7 border bg-gradient-to-br from-purple-700/30 to-pink-700/30 shadow-lg border-purple-600 hover:scale-[1.04] transition-all duration-300 hover:ring-2 hover:ring-pink-400/30">
+              <span className="absolute -top-5 left-1/2 -translate-x-1/2 rounded-full bg-gradient-to-r from-purple-400 to-pink-500 text-white px-4 py-1 text-xs font-bold shadow-lg select-none">
+                Plano personalizado
+              </span>
+              <h4 className="text-2xl font-bold text-white mb-2">Personalize</h4>
+              <div className="text-4xl font-extrabold text-pink-400 mb-2">Sob consulta</div>
+              <p className="text-base text-gray-200 mb-6 mt-2">
+                Nenhum dos planos atende sua necessidade?<br />
+                <span className="font-bold text-pink-400">Crie o seu plano!</span>
               </p>
+              <a
+                href="https://pixelhostbr.com/financeiro/index.php?rp=/store/hospedagem-minecraft/plano-personalizavel"
+                className="mt-auto bg-gradient-to-r from-purple-600 to-pink-600 text-white py-3 rounded-xl font-bold shadow-inner shadow-pink-900/10 hover:from-purple-700 hover:to-pink-700 transition-all duration-200 flex justify-center"
+              >
+                Customizar
+              </a>
             </div>
           </div>
+        </div>
 
-          {/* ----------- RECOMENDAÇÕES DE PLANOS ----------- */}
+        {/* ----------- COMPATIBILIDADE JAVA/BEDROCK ----------- */}
+        <div className="text-center mb-12">
+          <div className="bg-gradient-to-r from-green-600/10 to-blue-600/10 backdrop-blur-sm border border-green-500/20 rounded-2xl p-6 max-w-2xl mx-auto">
+            <div className="flex items-center justify-center space-x-3 mb-3">
+              <div className="w-8 h-8 bg-gradient-to-br from-green-500 to-emerald-600 rounded-lg flex items-center justify-center">
+                <CheckCircle2 className="h-5 w-5 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-white">Compatibilidade Total</h3>
+            </div>
+            <p className="text-gray-300 text-lg">
+              Todos os nossos planos são <span className="font-semibold text-green-400">100% compatíveis</span> com as versões
+              <span className="font-semibold text-blue-400"> Java</span> e <span className="font-semibold text-green-400">Bedrock</span> do Minecraft
+            </p>
+          </div>
+        </div>
+
+        {/* ----------- RECOMENDAÇÕES DE PLANOS ----------- */}
         <section className="max-w-3xl mx-auto p-6 my-12 bg-gradient-to-b from-gray-900 to-gray-800 rounded-3xl border border-gray-700/40 shadow-lg">
           <h2 className="text-2xl sm:text-3xl font-extrabold text-white text-center mb-1">Qual plano é ideal para você?</h2>
           <p className="text-gray-400 text-center mb-8">
@@ -478,31 +491,28 @@ export default function MinecraftFeatures() {
             <div className="bg-gray-800/50 rounded-xl p-1 border border-gray-700/50">
               <button
                 onClick={() => setActiveConfig('mods')}
-                className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-300 ${
-                  activeConfig === 'mods'
-                    ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg'
-                    : 'text-gray-400 hover:text-white hover:bg-gray-700/50'
-                }`}
+                className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-300 ${activeConfig === 'mods'
+                  ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg'
+                  : 'text-gray-400 hover:text-white hover:bg-gray-700/50'
+                  }`}
               >
                 Com Mods
               </button>
               <button
                 onClick={() => setActiveConfig('plugins')}
-                className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-300 ${
-                  activeConfig === 'plugins'
-                    ? 'bg-gradient-to-r from-blue-600 to-cyan-600 text-white shadow-lg'
-                    : 'text-gray-400 hover:text-white hover:bg-gray-700/50'
-                }`}
+                className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-300 ${activeConfig === 'plugins'
+                  ? 'bg-gradient-to-r from-blue-600 to-cyan-600 text-white shadow-lg'
+                  : 'text-gray-400 hover:text-white hover:bg-gray-700/50'
+                  }`}
               >
                 Com Plugins
               </button>
               <button
                 onClick={() => setActiveConfig('vanilla')}
-                className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-300 ${
-                  activeConfig === 'vanilla'
-                    ? 'bg-gradient-to-r from-green-600 to-emerald-600 text-white shadow-lg'
-                    : 'text-gray-400 hover:text-white hover:bg-gray-700/50'
-                }`}
+                className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-300 ${activeConfig === 'vanilla'
+                  ? 'bg-gradient-to-r from-green-600 to-emerald-600 text-white shadow-lg'
+                  : 'text-gray-400 hover:text-white hover:bg-gray-700/50'
+                  }`}
               >
                 Vanilla
               </button>
@@ -515,29 +525,26 @@ export default function MinecraftFeatures() {
                 <div className="flex-1">
                   <h3 className="text-lg font-semibold text-white mb-1">{recommendation.players}</h3>
                   <p className="text-sm text-gray-400 mb-2">{recommendation.description}</p>
-                  <span className={`text-xs rounded px-2 py-0.5 font-bold ${
-                    recommendation.color === 'purple' ? 'bg-indigo-700/50 text-indigo-100' :
+                  <span className={`text-xs rounded px-2 py-0.5 font-bold ${recommendation.color === 'purple' ? 'bg-indigo-700/50 text-indigo-100' :
                     recommendation.color === 'blue' ? 'bg-blue-700/40 text-blue-100' :
-                    'bg-green-700/40 text-green-100'
-                  }`}>
+                      'bg-green-700/40 text-green-100'
+                    }`}>
                     {recommendation.world}
                   </span>
                   <div className="mt-2 h-2 bg-gray-700 rounded-full relative overflow-hidden">
-                    <div 
-                      className={`absolute top-0 left-0 h-full rounded-full ${
-                        recommendation.color === 'purple' ? 'bg-purple-500' :
+                    <div
+                      className={`absolute top-0 left-0 h-full rounded-full ${recommendation.color === 'purple' ? 'bg-purple-500' :
                         recommendation.color === 'blue' ? 'bg-blue-400' :
-                        'bg-green-400'
-                      }`} 
-                      style={{width: recommendation.width}}
+                          'bg-green-400'
+                        }`}
+                      style={{ width: recommendation.width }}
                     ></div>
                   </div>
                 </div>
-                <span className={`bg-gray-900 px-4 py-1.5 rounded-lg font-bold mt-4 md:mt-0 ${
-                  recommendation.color === 'purple' ? 'text-purple-300' :
+                <span className={`bg-gray-900 px-4 py-1.5 rounded-lg font-bold mt-4 md:mt-0 ${recommendation.color === 'purple' ? 'text-purple-300' :
                   recommendation.color === 'blue' ? 'text-blue-300' :
-                  'text-green-300'
-                }`}>
+                    'text-green-300'
+                  }`}>
                   {recommendation.ram}
                 </span>
               </div>
@@ -556,11 +563,11 @@ export default function MinecraftFeatures() {
                 </p>
               </div>
               <div className="flex flex-col sm:flex-row gap-4">
-              <a href="https://pixelhostbr.com/financeiro/index.php?rp=/store/hospedagem-minecraft">
-                <button className="flex-1 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-green-500/25">
-                  Começar Agora
-                </button>
-             </a>
+                <a href="https://pixelhostbr.com/financeiro/index.php?rp=/store/hospedagem-minecraft">
+                  <button className="flex-1 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-green-500/25">
+                    Começar Agora
+                  </button>
+                </a>
                 {/* Servidor Publico
                  <button className="flex-1 bg-gray-800 hover:bg-gray-700 text-white font-semibold py-3 px-6 rounded-lg border border-gray-600 hover:border-green-500/50 transition-all duration-300">
                   Ver Demonstração
@@ -570,7 +577,7 @@ export default function MinecraftFeatures() {
           </div>
         </div>
       </div>
-    <style jsx>{`
+      <style jsx>{`
       @keyframes fadeIn {
         from { opacity: 0; transform: translateY(10px); }
         to { opacity: 1; transform: translateY(0); }

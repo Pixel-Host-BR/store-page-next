@@ -102,21 +102,24 @@ export default function MtaFeatures() {
   const plans = [
     {
       name: 'Básico',
-      price: '15/mês',
+      originalPrice: '15',
+      price: '12/mês',
       features: ['2 GB RAM', '2 CPU Cores', '15 GB SSD', 'Processamento Básico'],
       grad: 'from-gray-800 via-gray-900 to-zinc-700',
       badge: null
     },
     {
       name: 'Avançado',
-      price: '28/mês',
+      originalPrice: '28',
+      price: '22.40/mês',
       features: ['6 GB RAM', '3 CPU Cores', '30 GB SSD', 'Processamento Avançado'],
       grad: 'from-blue-900 via-blue-800 to-blue-900',
       badge: null
     },
     {
       name: 'Premium',
-      price: '47/mês',
+      originalPrice: '47',
+      price: '37.60/mês',
       features: ['12 GB RAM', '3 CPU Cores', '60 GB SSD', 'Processamento Premium'],
       grad: 'from-cyan-700 via-sky-700 to-cyan-800',
       badge: (
@@ -128,7 +131,8 @@ export default function MtaFeatures() {
     },
     {
       name: 'Ultimate',
-      price: '98/mês',
+      originalPrice: '98',
+      price: '78.40/mês',
       features: ['24 GB RAM', '5 CPU Cores', '120 GB SSD', 'Processamento Ultimate'],
       grad: 'from-green-700 via-emerald-700 to-green-800',
       badge: null
@@ -163,9 +167,8 @@ export default function MtaFeatures() {
       {/* -------- header -------- */}
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div
-          className={`text-center mb-16 transition-all duration-1000 ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`}
+          className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}
         >
           <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-cyan-500/20 to-blue-600/20 backdrop-blur-sm border border-cyan-500/30 rounded-full px-4 py-2 mb-6">
             <Heart className="h-4 w-4 text-cyan-400" />
@@ -191,19 +194,17 @@ export default function MtaFeatures() {
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
           {/* card grande */}
           <div
-            className={`transition-all duration-1000 delay-300 ${
-              isVisible
-                ? 'opacity-100 translate-x-0'
-                : 'opacity-0 -translate-x-8'
-            }`}
+            className={`transition-all duration-1000 delay-300 ${isVisible
+              ? 'opacity-100 translate-x-0'
+              : 'opacity-0 -translate-x-8'
+              }`}
           >
             <div className="relative bg-gradient-to-br from-gray-800/90 to-gray-900/90 backdrop-blur-xl rounded-3xl border border-gray-700/50 p-8 shadow-2xl">
               <div key={activeFeature} className="animate-fadeIn">
                 <div className="flex items-center space-x-4 mb-6">
                   <div
-                    className={`w-16 h-16 bg-gradient-to-br ${
-                      mainFeatures[activeFeature].gradient
-                    } rounded-2xl flex items-center justify-center text-white shadow-lg`}
+                    className={`w-16 h-16 bg-gradient-to-br ${mainFeatures[activeFeature].gradient
+                      } rounded-2xl flex items-center justify-center text-white shadow-lg`}
                   >
                     {mainFeatures[activeFeature].icon}
                   </div>
@@ -250,11 +251,10 @@ export default function MtaFeatures() {
                   <button
                     key={idx}
                     onClick={() => setActiveFeature(idx)}
-                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                      idx === activeFeature
-                        ? 'bg-cyan-500 scale-125 shadow-lg shadow-cyan-500/50'
-                        : 'bg-gray-600 hover:bg-gray-500'
-                    }`}
+                    className={`w-3 h-3 rounded-full transition-all duration-300 ${idx === activeFeature
+                      ? 'bg-cyan-500 scale-125 shadow-lg shadow-cyan-500/50'
+                      : 'bg-gray-600 hover:bg-gray-500'
+                      }`}
                   />
                 ))}
               </div>
@@ -263,40 +263,36 @@ export default function MtaFeatures() {
 
           {/* lista lateral */}
           <div
-            className={`transition-all duration-1000 delay-500 ${
-              isVisible
-                ? 'opacity-100 translate-x-0'
-                : 'opacity-0 translate-x-8'
-            }`}
+            className={`transition-all duration-1000 delay-500 ${isVisible
+              ? 'opacity-100 translate-x-0'
+              : 'opacity-0 translate-x-8'
+              }`}
           >
             <div className="space-y-4">
               {mainFeatures.map((f, idx) => (
                 <button
                   key={f.id}
                   onClick={() => setActiveFeature(idx)}
-                  className={`w-full text-left p-6 rounded-2xl border transition-all duration-300 ${
-                    idx === activeFeature
-                      ? 'bg-gradient-to-r from-cyan-500/10 to-blue-600/10 border-cyan-500/30 shadow-lg shadow-cyan-500/10'
-                      : 'bg-gray-800/30 border-gray-700/50 hover:border-gray-600/50 hover:bg-gray-800/50'
-                  }`}
+                  className={`w-full text-left p-6 rounded-2xl border transition-all duration-300 ${idx === activeFeature
+                    ? 'bg-gradient-to-r from-cyan-500/10 to-blue-600/10 border-cyan-500/30 shadow-lg shadow-cyan-500/10'
+                    : 'bg-gray-800/30 border-gray-700/50 hover:border-gray-600/50 hover:bg-gray-800/50'
+                    }`}
                 >
                   <div className="flex items-center space-x-4">
                     <div
-                      className={`w-12 h-12 rounded-xl flex items-center justify-center ${
-                        idx === activeFeature
-                          ? `bg-gradient-to-br ${f.gradient} text-white`
-                          : 'bg-gray-700 text-gray-400'
-                      }`}
+                      className={`w-12 h-12 rounded-xl flex items-center justify-center ${idx === activeFeature
+                        ? `bg-gradient-to-br ${f.gradient} text-white`
+                        : 'bg-gray-700 text-gray-400'
+                        }`}
                     >
                       {f.icon}
                     </div>
                     <div className="flex-1">
                       <h4
-                        className={`font-semibold ${
-                          idx === activeFeature
-                            ? 'text-white'
-                            : 'text-gray-300'
-                        }`}
+                        className={`font-semibold ${idx === activeFeature
+                          ? 'text-white'
+                          : 'text-gray-300'
+                          }`}
                       >
                         {f.title}
                       </h4>
@@ -314,9 +310,8 @@ export default function MtaFeatures() {
 
         {/* -------- recursos adicionais -------- */}
         <div
-          className={`transition-all duration-1000 delay-700 ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`}
+          className={`transition-all duration-1000 delay-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}
         >
           <div className="text-center mb-12">
             <h3 className="text-3xl font-bold text-white mb-4">
@@ -364,10 +359,21 @@ export default function MtaFeatures() {
                 key={p.name}
                 className={`relative flex flex-col rounded-3xl p-7 border bg-gradient-to-br shadow-lg transition-all duration-300 ${p.grad} border-gray-700 hover:scale-[1.04] hover:ring-2 hover:ring-cyan-500/30`}
               >
+                {/* Badge de desconto */}
+                <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-gradient-to-r from-red-500 to-orange-500 text-white text-xs font-bold rounded-full shadow-lg">
+                  20% OFF
+                </span>
                 {p.badge}
                 <h4 className="text-2xl font-bold text-white mb-2">{p.name}</h4>
+
+                {/* Preço original riscado */}
+                <div className="text-lg text-gray-400 line-through mb-1">
+                  R$ {p.originalPrice}/mês
+                </div>
+
+                {/* Preço com desconto */}
                 <div className="text-4xl font-extrabold text-cyan-400 mb-2">
-                  {p.price}
+                  R$ {p.price}
                 </div>
                 <ul className="flex-1 space-y-2 mb-6 mt-2">
                   {p.features.map((f, i) => (
@@ -438,9 +444,8 @@ export default function MtaFeatures() {
 
         {/* -------- call to action final -------- */}
         <div
-          className={`text-center mt-16 transition-all duration-1000 delay-900 ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`}
+          className={`text-center mt-16 transition-all duration-1000 delay-900 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}
         >
           <div className="bg-gradient-to-r from-cyan-600/10 to-blue-700/10 backdrop-blur-sm border border-cyan-400/20 rounded-2xl p-8 max-w-4xl mx-auto">
             <div className="grid md:grid-cols-2 gap-8 items-center">
