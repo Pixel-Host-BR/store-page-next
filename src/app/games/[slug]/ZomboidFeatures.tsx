@@ -102,24 +102,21 @@ export default function ZomboidFeatures() {
   const plans = [
     {
       name: 'Básico',
-      originalPrice: '13',
-      price: '10.40/mês',
+      price: '13/mês',
       features: ['3 GB RAM', '2 CPU Cores', '15 GB SSD', 'Processamento Básico'],
       grad: 'from-gray-800 via-gray-900 to-zinc-700',
       badge: null
     },
     {
       name: 'Avançado',
-      originalPrice: '35',
-      price: '28/mês',
+      price: '35/mês',
       features: ['8 GB RAM', '3 CPU Cores', '35 GB SSD', 'Processamento Avançado'],
       grad: 'from-blue-900 via-blue-800 to-blue-900',
       badge: null
     },
     {
       name: 'Premium',
-      originalPrice: '103',
-      price: '82.40/mês',
+      price: '103/mês',
       features: ['12 GB RAM', '3 CPU Cores', '60 GB SSD', 'Processamento Premium'],
       grad: 'from-indigo-700 via-indigo-700 to-violet-800',
       badge: (
@@ -131,8 +128,7 @@ export default function ZomboidFeatures() {
     },
     {
       name: 'Ultimate',
-      originalPrice: '115',
-      price: '92/mês',
+      price: '115/mês',
       features: ['24 GB RAM', '5 CPU Cores', '120 GB SSD', 'Processamento Ultimate'],
       grad: 'from-rose-700 via-rose-800 to-rose-900',
       badge: null
@@ -359,19 +355,8 @@ export default function ZomboidFeatures() {
                 key={p.name}
                 className={`relative flex flex-col rounded-3xl p-7 border bg-gradient-to-br shadow-lg transition-all duration-300 ${p.grad} border-gray-700 hover:scale-[1.04] hover:ring-2 hover:ring-indigo-500/30`}
               >
-                {/* Badge de desconto */}
-                <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-gradient-to-r from-red-500 to-orange-500 text-white text-xs font-bold rounded-full shadow-lg">
-                  20% OFF
-                </span>
                 {p.badge}
                 <h4 className="text-2xl font-bold text-white mb-2">{p.name}</h4>
-
-                {/* Preço original riscado */}
-                <div className="text-lg text-gray-400 line-through mb-1">
-                  R$ {p.originalPrice}/mês
-                </div>
-
-                {/* Preço com desconto */}
                 <div className="text-4xl font-extrabold text-indigo-400 mb-2">
                   R$ {p.price}
                 </div>

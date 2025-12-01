@@ -89,24 +89,21 @@ export default function PalworldFeatures() {
   const plans = [
     {
       name: 'Básico',
-      originalPrice: '55',
-      price: '44/mês',
+      price: '55/mês',
       features: ['8GB RAM', '2 CPU Cores', '15GB SSD', 'Processamento Básico'],
       grad: 'from-gray-800 via-gray-900 to-zinc-700',
       badge: null
     },
     {
       name: 'Avançado',
-      originalPrice: '70',
-      price: '56/mês',
+      price: '70/mês',
       features: ['12GB RAM', '3 CPU Cores', '30GB SSD', 'Processamento Avançado'],
       grad: 'from-blue-900 via-blue-800 to-blue-900',
       badge: null
     },
     {
       name: 'Premium',
-      originalPrice: '107',
-      price: '85.60/mês',
+      price: '107/mês',
       features: ['16GB RAM', '3 CPU Cores', '60GB SSD', 'Processamento Premium'],
       grad: 'from-green-700 via-emerald-700 to-green-800',
       badge: (
@@ -118,8 +115,7 @@ export default function PalworldFeatures() {
     },
     {
       name: 'Ultimate',
-      originalPrice: '170',
-      price: '136/mês',
+      price: '170/mês',
       features: ['26GB RAM', '5 CPU Cores', '120GB SSD', 'Processamento Ultimate'],
       grad: 'from-yellow-700 via-yellow-800 to-orange-800',
       badge: null
@@ -295,19 +291,8 @@ export default function PalworldFeatures() {
                 className={`relative overflow-visible flex flex-col rounded-3xl p-7 border bg-gradient-to-br shadow-lg transition-all duration-300
                   ${plan.grad} border-gray-700 hover:scale-[1.04] hover:ring-2 hover:ring-cyan-500/30`}
               >
-                {/* Badge de desconto */}
-                <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-gradient-to-r from-red-500 to-orange-500 text-white text-xs font-bold rounded-full shadow-lg">
-                  20% OFF
-                </span>
                 {plan.badge}
                 <h4 className="text-2xl font-bold text-white mb-2">{plan.name}</h4>
-
-                {/* Preço original riscado */}
-                <div className="text-lg text-gray-400 line-through mb-1">
-                  R$ {plan.originalPrice}/mês
-                </div>
-
-                {/* Preço com desconto */}
                 <div className="text-4xl font-extrabold text-cyan-400 mb-2">R$ {plan.price}</div>
                 <ul className="flex-1 space-y-2 mb-6 mt-2">
                   {plan.features.map((f, i) => (

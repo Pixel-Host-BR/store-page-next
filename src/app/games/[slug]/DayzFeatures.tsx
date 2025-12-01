@@ -100,24 +100,21 @@ export default function DayzFeatures() {
   const plans = [
     {
       name: 'Básico',
-      originalPrice: '60',
-      price: '48/mês',
+      price: '60/mês',
       features: ['10 GB RAM', '2 CPU Cores', '20 GB SSD', 'Processamento Básico'],
       grad: 'from-gray-800 via-gray-900 to-zinc-700',
       badge: null
     },
     {
       name: 'Avançado',
-      originalPrice: '75',
-      price: '60/mês',
+      price: '75/mês',
       features: ['12 GB RAM', '3 CPU Cores', '40 GB SSD', 'Processamento Avançado'],
       grad: 'from-blue-900 via-blue-800 to-blue-900',
       badge: null
     },
     {
       name: 'Premium',
-      originalPrice: '120',
-      price: '96/mês',
+      price: '120/mês',
       features: ['20 GB RAM', '3 CPU Cores', '80 GB SSD', 'Processamento Premium'],
       grad: 'from-green-700 via-emerald-700 to-green-800',
       badge: (
@@ -129,8 +126,7 @@ export default function DayzFeatures() {
     },
     {
       name: 'Ultimate',
-      originalPrice: '190',
-      price: '152/mês',
+      price: '190/mês',
       features: ['26 GB RAM', '5 CPU Cores', '160 GB SSD', 'Processamento Ultimate'],
       grad: 'from-rose-700 via-rose-800 to-rose-900',
       badge: null
@@ -358,19 +354,8 @@ export default function DayzFeatures() {
                 key={p.name}
                 className={`relative flex flex-col rounded-3xl p-7 border bg-gradient-to-br shadow-lg transition-all duration-300 ${p.grad} border-gray-700 hover:scale-[1.04] hover:ring-2 hover:ring-rose-500/30`}
               >
-                {/* Badge de desconto */}
-                <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-gradient-to-r from-red-500 to-orange-500 text-white text-xs font-bold rounded-full shadow-lg">
-                  20% OFF
-                </span>
                 {p.badge}
                 <h4 className="text-2xl font-bold text-white mb-2">{p.name}</h4>
-
-                {/* Preço original riscado */}
-                <div className="text-lg text-gray-400 line-through mb-1">
-                  R$ {p.originalPrice}/mês
-                </div>
-
-                {/* Preço com desconto */}
                 <div className="text-4xl font-extrabold text-rose-400 mb-2">
                   R$ {p.price}
                 </div>
