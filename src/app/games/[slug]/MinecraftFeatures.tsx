@@ -382,8 +382,18 @@ export default function MinecraftFeatures() {
                   ${plan.grad} border-gray-700 hover:scale-[1.04] hover:ring-2 hover:ring-green-500/30`}
               >
                 {plan.badge}
+                <div className="absolute -top-4 right-4 bg-gradient-to-r from-green-500 to-emerald-600 text-white px-3 py-1 rounded-full text-sm font-bold shadow-lg">
+                  20% OFF
+                </div>
                 <h4 className="text-2xl font-bold text-white mb-2">{plan.name}</h4>
-                <div className="text-4xl font-extrabold text-green-400 mb-2">R$ {plan.price}</div>
+                <div className="mb-2">
+                  <div className="text-lg text-gray-500 line-through">
+                    R$ {plan.price}
+                  </div>
+                  <div className="text-4xl font-extrabold text-green-400">
+                    R$ {(parseFloat(plan.price.split('/')[0]) * 0.8).toFixed(0)}/mês
+                  </div>
+                </div>
 
                 <ul className="flex-1 space-y-2 mb-6 mt-2">
                   {plan.features.map((f, i) => (
