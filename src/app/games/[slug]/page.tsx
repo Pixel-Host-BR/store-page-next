@@ -4,7 +4,7 @@ import React from 'react';
 import { notFound } from 'next/navigation';
 import { PlanButton } from './ClientComponents';
 import { Metadata } from 'next';
-import { generateMetadata as generateGameMetadata } from '../../seo-config';
+import { generateMetadata as generateGameMetadata, seoConfig } from '../../seo-config';
 
 // Imports dos componentes de cada jogo
 import MinecraftFeatures from './MinecraftFeatures'
@@ -13,6 +13,7 @@ import ArkFeatures       from './ark'
 import DayzFeatures      from './DayzFeatures'
 import MtaFeatures       from './MtaFeatures'
 import ZomboidFeatures   from './ZomboidFeatures'
+import HytaleFeatures    from './HytaleFeatures'
 
 // Interface para tipagem das props da página
 interface GamePageProps {
@@ -51,6 +52,11 @@ const gameConfig = {
     component: ZomboidFeatures,
     slug: 'project-zomboid' as const,
   },
+  'hytale': {
+    title: 'Hytale',
+    component: HytaleFeatures,
+    slug: 'hytale' as const,
+  },
 } as const;
 
 // Função para gerar metadados dinâmicos
@@ -63,7 +69,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     return generateGameMetadata('notFound');
   }
   
-  return generateGameMetadata('home', game.slug);
+  return generateGameMetadata('home', game.slug as keyof typeof seoConfig.games);
 }
 
 export default async function GamePage({ params }: GamePageProps) {

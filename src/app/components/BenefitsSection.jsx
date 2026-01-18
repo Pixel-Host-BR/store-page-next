@@ -96,6 +96,12 @@ const featuredGames = [
     color: 'from-blue-500 to-cyan-600'
   },
   { 
+    name: 'Hytale',  
+    description: 'Aventura épica e construção criativa',
+    link: '/games/hytale',
+    color: 'from-cyan-700 to-purple-600'
+  },
+  { 
     name: 'DayZ',  
     description: 'Sobrevivência intensa',
     link: '/games/dayz',
@@ -207,6 +213,26 @@ export default function HeroBenefitsSection() {
       }
     }
   }, [isVisible])
+
+  // Helper function to handle manual navigation and reset interval
+  const handleGameChange = useCallback((newIndex) => {
+    setCurrentGame(newIndex)
+    // Reset interval when manually changed
+    if (gameIntervalRef.current) {
+      clearInterval(gameIntervalRef.current)
+      gameIntervalRef.current = null
+    }
+    // Restart interval after manual change
+    if (isVisible) {
+      setTimeout(() => {
+        if (gameIntervalRef.current === null) {
+          gameIntervalRef.current = setInterval(() => {
+            setCurrentGame(prev => (prev + 1) % featuredGames.length)
+          }, 5000)
+        }
+      }, 3000) // Wait 3 seconds before resuming auto-play
+    }
+  }, [isVisible, featuredGames.length])
 
   // Testimonials slider states
   const [page, setPage] = useState(0)
@@ -444,20 +470,41 @@ export default function HeroBenefitsSection() {
                   </span>
                 </a>
 
-                {/* Dots Navigation */}
-                <div className="flex justify-center space-x-2 mt-6">
-                  {featuredGames.map((_, idx) => (
-                    <button
-                      key={idx}
-                      onClick={() => setCurrentGame(idx)}
-                      className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                        idx === currentGame 
-                          ? 'bg-blue-500 w-8 scale-110' 
-                          : 'bg-gray-600 hover:bg-gray-500'
-                      }`}
-                      aria-label={`Ver ${featuredGames[idx].name}`}
-                    />
-                  ))}
+                {/* Navigation Controls */}
+                <div className="flex items-center justify-center space-x-4 mt-6">
+                  {/* Previous Button */}
+                  <button
+                    onClick={() => handleGameChange((currentGame - 1 + featuredGames.length) % featuredGames.length)}
+                    className="p-2 rounded-full bg-gray-700/50 hover:bg-blue-600 text-white transition-all duration-300 shadow-lg hover:scale-110 border border-gray-600/50 hover:border-blue-500/50"
+                    aria-label="Jogo anterior"
+                  >
+                    <ChevronLeft className="w-5 h-5" />
+                  </button>
+
+                  {/* Dots Navigation */}
+                  <div className="flex gap-2">
+                    {featuredGames.map((_, idx) => (
+                      <button
+                        key={idx}
+                        onClick={() => handleGameChange(idx)}
+                        className={`h-2 rounded-full transition-all duration-300 ${
+                          idx === currentGame 
+                            ? 'bg-blue-500 w-8 scale-110 shadow-lg shadow-blue-500/50' 
+                            : 'bg-gray-600 hover:bg-blue-400 w-2'
+                        }`}
+                        aria-label={`Ver ${featuredGames[idx].name}`}
+                      />
+                    ))}
+                  </div>
+
+                  {/* Next Button */}
+                  <button
+                    onClick={() => handleGameChange((currentGame + 1) % featuredGames.length)}
+                    className="p-2 rounded-full bg-gray-700/50 hover:bg-blue-600 text-white transition-all duration-300 shadow-lg hover:scale-110 border border-gray-600/50 hover:border-blue-500/50"
+                    aria-label="Próximo jogo"
+                  >
+                    <ChevronRight className="w-5 h-5" />
+                  </button>
                 </div>
               </div>
 

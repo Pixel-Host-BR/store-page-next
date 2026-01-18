@@ -175,6 +175,32 @@ export const gamesConfig: Record<string, GameConfig> = {
     },
     image: 'https://i.imgur.com/zomboid-banner.jpg',
     icon: '🧟‍♂️'
+  },
+  hytale: {
+    title: 'Hytale',
+    slug: 'hytale',
+    description: 'Hospedagem Hytale com aventura épica, construção criativa e multiplayer imersivo.',
+    features: [
+      'Aventura Épica',
+      'Construção Criativa',
+      'Multiplayer Imersivo',
+      'Mods e Scripts',
+      'Backup Automático',
+      'Suporte Especializado'
+    ],
+    specs: {
+      ram: '6GB - 26GB',
+      storage: 'SSD NVMe',
+      cpu: 'AMD EPYC / Intel Xeon',
+      network: '10Gbps'
+    },
+    pricing: {
+      basic: 45.00,
+      premium: 85.00,
+      enterprise: 125.00
+    },
+    image: 'https://i.imgur.com/hytale-banner.jpg',
+    icon: '🎮'
   }
 };
 

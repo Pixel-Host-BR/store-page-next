@@ -264,6 +264,14 @@ export default function Footer() {
                   Hospedagem Project Zomboid
                 </a>
               </li>
+              <li>
+                <a 
+                  href="/games/hytale" 
+                  className="text-gray-400 hover:text-blue-400 transition-colors duration-300 hover:translate-x-1 inline-block"
+                >
+                  Hospedagem Hytale
+                </a>
+              </li>
             </ul>
           </div>
 

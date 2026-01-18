@@ -107,6 +107,13 @@ export const seoConfig = {
       keywords: 'servidor project zomboid, hospedagem project zomboid, zumbis, sobrevivência',
       ogImage: 'https://i.imgur.com/8u6NO4D.jpeg',
       ogType: 'website'
+    },
+    hytale: {
+      title: 'Hytale - PixelHost',
+      description: 'Hospedagem Hytale com aventura épica, construção criativa e multiplayer imersivo. Servidor otimizado para a nova experiência de jogo.',
+      keywords: 'servidor hytale, hospedagem hytale, aventura épica, construção criativa, multiplayer hytale',
+      ogImage: 'https://i.imgur.com/8u6NO4D.jpeg',
+      ogType: 'website'
     }
   },
 

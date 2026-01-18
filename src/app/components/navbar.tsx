@@ -68,6 +68,7 @@ export default function Navbar() {
     { name: 'Minecraft', popular: true, icon: <Server className="h-4 w-4" /> },
     { name: 'ARK', popular: true, icon: <Server className="h-4 w-4" /> },
     { name: 'Palworld', popular: true, icon: <Server className="h-4 w-4" /> },
+    { name: 'Hytale', popular: true, icon: <Server className="h-4 w-4" /> },
     { name: 'DayZ', popular: false, icon: <Server className="h-4 w-4" /> },
     { name: 'Mta', popular: false, icon: <Server className="h-4 w-4" /> },
     { name: 'Project Zomboid', popular: false, icon: <Server className="h-4 w-4" /> },
