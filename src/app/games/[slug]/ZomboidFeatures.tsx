@@ -356,16 +356,10 @@ export default function ZomboidFeatures() {
                 className={`relative flex flex-col rounded-3xl p-7 border bg-gradient-to-br shadow-lg transition-all duration-300 ${p.grad} border-gray-700 hover:scale-[1.04] hover:ring-2 hover:ring-indigo-500/30`}
               >
                 {p.badge}
-                <div className="absolute -top-4 right-4 bg-gradient-to-r from-green-500 to-emerald-600 text-white px-3 py-1 rounded-full text-sm font-bold shadow-lg">
-                  20% OFF
-                </div>
                 <h4 className="text-2xl font-bold text-white mb-2">{p.name}</h4>
                 <div className="mb-2">
-                  <div className="text-lg text-gray-500 line-through">
-                    R$ {p.price}
-                  </div>
                   <div className="text-4xl font-extrabold text-indigo-400">
-                    R$ {(parseFloat(p.price.split('/')[0]) * 0.8).toFixed(0)}/mês
+                    R$ {p.price}
                   </div>
                 </div>
                 <ul className="flex-1 space-y-2 mb-6 mt-2">

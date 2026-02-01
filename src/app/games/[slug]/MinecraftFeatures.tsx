@@ -219,7 +219,7 @@ export default function MinecraftFeatures() {
     const baseUrl = 'https://pixelhostbr.com/financeiro/index.php?rp=/store'
     const planNames = ['basico', 'avancado', 'premium', 'master']
     const bedrockPlanNames = ['basico', 'avancado', 'premiuum', 'master']
-    
+
     if (version === 'bedrock') {
       return `${baseUrl}/hospedagem-minecraft-bedrock/plano-${bedrockPlanNames[planIndex]}`
     } else {
@@ -229,7 +229,7 @@ export default function MinecraftFeatures() {
 
   const getCustomPlanLink = () => {
     const baseUrl = 'https://pixelhostbr.com/financeiro/index.php?rp=/store'
-    
+
     if (version === 'bedrock') {
       return `${baseUrl}/hospedagem-minecraft-bedrock/plano-personalizavel`
     } else {
@@ -239,7 +239,7 @@ export default function MinecraftFeatures() {
 
   const getStoreLink = () => {
     const baseUrl = 'https://pixelhostbr.com/financeiro/index.php?rp=/store'
-    
+
     if (version === 'bedrock') {
       return `${baseUrl}/hospedagem-minecraft-bedrock`
     } else {
@@ -409,7 +409,7 @@ export default function MinecraftFeatures() {
           <div className="text-center mt-16 mb-12">
             <h3 className="text-3xl font-bold text-white mb-4">Escolha seu Plano</h3>
             <p className="text-gray-400 mb-8">Encontre o equilíbrio perfeito entre custo e poder!</p>
-            
+
             {/* Switch para alternar entre Java e Bedrock */}
             <div className="flex items-center justify-center gap-4 mb-8">
               <span className={`text-sm font-semibold transition-colors ${version === 'java' ? 'text-blue-400' : 'text-gray-400'}`}>
@@ -417,14 +417,12 @@ export default function MinecraftFeatures() {
               </span>
               <button
                 onClick={() => setVersion(version === 'java' ? 'bedrock' : 'java')}
-                className={`relative inline-flex h-8 w-16 items-center rounded-full transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-offset-gray-900 ${
-                  version === 'bedrock' ? 'bg-green-600' : 'bg-blue-600'
-                }`}
+                className={`relative inline-flex h-8 w-16 items-center rounded-full transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-offset-gray-900 ${version === 'bedrock' ? 'bg-green-600' : 'bg-blue-600'
+                  }`}
               >
                 <span
-                  className={`inline-block h-6 w-6 transform rounded-full bg-white transition-transform duration-300 ${
-                    version === 'bedrock' ? 'translate-x-9' : 'translate-x-1'
-                  }`}
+                  className={`inline-block h-6 w-6 transform rounded-full bg-white transition-transform duration-300 ${version === 'bedrock' ? 'translate-x-9' : 'translate-x-1'
+                    }`}
                 />
               </button>
               <span className={`text-sm font-semibold transition-colors ${version === 'bedrock' ? 'text-green-400' : 'text-gray-400'}`}>
@@ -435,21 +433,17 @@ export default function MinecraftFeatures() {
           <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 xl:grid-cols-5 max-w-9x1 mx-auto mb-16">
             {/* Quatro planos */}
             {plans.map((plan, idx) =>
-              <div 
+              <div
                 key={plan.name}
                 className={`relative overflow-visible flex flex-col rounded-3xl p-7 border bg-gradient-to-br shadow-lg transition-all duration-500 transform
                   ${plan.grad} ${version === 'bedrock' ? 'border-green-500/50 hover:ring-2 hover:ring-green-500/50' : 'border-blue-500/50 hover:ring-2 hover:ring-blue-500/50'} hover:scale-[1.04]`}
               >
                 {plan.badge}
-                <div className="absolute -top-4 right-4 bg-gradient-to-r from-green-500 to-emerald-600 text-white px-3 py-1 rounded-full text-sm font-bold shadow-lg">
-                  20% OFF
-                </div>
                 {/* Badge de versão */}
-                <div className={`absolute -top-4 left-4 flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold shadow-lg transition-all duration-300 ${
-                  version === 'bedrock' 
-                    ? 'bg-gradient-to-r from-green-500 to-emerald-600 text-white' 
+                <div className={`absolute -top-4 left-4 flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold shadow-lg transition-all duration-300 ${version === 'bedrock'
+                    ? 'bg-gradient-to-r from-green-500 to-emerald-600 text-white'
                     : 'bg-gradient-to-r from-blue-500 to-blue-600 text-white'
-                }`}>
+                  }`}>
                   {version === 'bedrock' ? (
                     <>
                       <Blocks className="w-3 h-3" />
@@ -464,22 +458,17 @@ export default function MinecraftFeatures() {
                 </div>
                 <h4 className="text-2xl font-bold text-white mb-2">{plan.name}</h4>
                 <div className="mb-2">
-                  <div className="text-lg text-gray-500 line-through">
+                  <div className={`text-4xl font-extrabold transition-colors duration-300 ${version === 'bedrock' ? 'text-green-400' : 'text-blue-400'
+                    }`}>
                     R$ {plan.price}
-                  </div>
-                  <div className={`text-4xl font-extrabold transition-colors duration-300 ${
-                    version === 'bedrock' ? 'text-green-400' : 'text-blue-400'
-                  }`}>
-                    R$ {(parseFloat(plan.price.split('/')[0]) * 0.8).toFixed(0)}/mês
                   </div>
                 </div>
 
                 <ul className="flex-1 space-y-2 mb-6 mt-2">
                   {plan.features.map((f, i) => (
                     <li key={i} className="flex items-center space-x-2">
-                      <CheckCircle2 className={`h-5 w-5 flex-shrink-0 transition-colors duration-300 ${
-                        version === 'bedrock' ? 'text-green-400' : 'text-blue-400'
-                      }`} />
+                      <CheckCircle2 className={`h-5 w-5 flex-shrink-0 transition-colors duration-300 ${version === 'bedrock' ? 'text-green-400' : 'text-blue-400'
+                        }`} />
                       <span className="text-base text-gray-200">{f}</span>
                     </li>
                   ))}
@@ -487,11 +476,10 @@ export default function MinecraftFeatures() {
                 {idx === 0 && (
                   <a
                     href={getPlanLink(0)}
-                    className={`mt-auto text-white py-3 rounded-xl font-bold shadow-inner transition-all duration-300 flex justify-center ${
-                      version === 'bedrock'
+                    className={`mt-auto text-white py-3 rounded-xl font-bold shadow-inner transition-all duration-300 flex justify-center ${version === 'bedrock'
                         ? 'bg-gradient-to-r from-green-500 to-emerald-600 shadow-green-900/10 hover:from-green-600 hover:to-emerald-700'
                         : 'bg-gradient-to-r from-blue-500 to-blue-600 shadow-blue-900/10 hover:from-blue-600 hover:to-blue-700'
-                    }`}
+                      }`}
                   >
                     Contratar
                   </a>
@@ -499,11 +487,10 @@ export default function MinecraftFeatures() {
                 {idx === 1 && (
                   <a
                     href={getPlanLink(1)}
-                    className={`mt-auto text-white py-3 rounded-xl font-bold shadow-inner transition-all duration-300 flex justify-center ${
-                      version === 'bedrock'
+                    className={`mt-auto text-white py-3 rounded-xl font-bold shadow-inner transition-all duration-300 flex justify-center ${version === 'bedrock'
                         ? 'bg-gradient-to-r from-green-500 to-emerald-600 shadow-green-900/10 hover:from-green-600 hover:to-emerald-700'
                         : 'bg-gradient-to-r from-blue-600 to-blue-800 shadow-blue-900/10 hover:from-blue-700 hover:to-blue-900'
-                    }`}
+                      }`}
                   >
                     Contratar
                   </a>
@@ -511,11 +498,10 @@ export default function MinecraftFeatures() {
                 {idx === 2 && (
                   <a
                     href={getPlanLink(2)}
-                    className={`mt-auto text-white py-3 rounded-xl font-bold shadow-inner transition-all duration-300 flex justify-center ${
-                      version === 'bedrock'
+                    className={`mt-auto text-white py-3 rounded-xl font-bold shadow-inner transition-all duration-300 flex justify-center ${version === 'bedrock'
                         ? 'bg-gradient-to-r from-green-500 to-emerald-600 shadow-green-900/10 hover:from-green-600 hover:to-emerald-700'
                         : 'bg-gradient-to-r from-green-400 to-green-700 shadow-green-900/10 hover:from-green-500 hover:to-green-800'
-                    }`}
+                      }`}
                   >
                     Contratar
                   </a>
@@ -523,11 +509,10 @@ export default function MinecraftFeatures() {
                 {idx === 3 && (
                   <a
                     href={getPlanLink(3)}
-                    className={`mt-auto text-white py-3 rounded-xl font-bold shadow-inner transition-all duration-300 flex justify-center ${
-                      version === 'bedrock'
+                    className={`mt-auto text-white py-3 rounded-xl font-bold shadow-inner transition-all duration-300 flex justify-center ${version === 'bedrock'
                         ? 'bg-gradient-to-r from-green-500 to-emerald-600 shadow-green-900/10 hover:from-green-600 hover:to-emerald-700'
                         : 'bg-gradient-to-r from-yellow-500 to-orange-600 shadow-yellow-900/10 hover:from-yellow-600 hover:to-orange-700'
-                    }`}
+                      }`}
                   >
                     Contratar
                   </a>
@@ -535,35 +520,31 @@ export default function MinecraftFeatures() {
               </div>
             )}
             {/* Card Customizado */}
-            <div className={`relative overflow-visible flex flex-col rounded-3xl p-7 border bg-gradient-to-br from-purple-700/30 to-pink-700/30 shadow-lg transition-all duration-500 ${
-              version === 'bedrock' 
-                ? 'border-green-500/50 hover:ring-2 hover:ring-green-500/50' 
+            <div className={`relative overflow-visible flex flex-col rounded-3xl p-7 border bg-gradient-to-br from-purple-700/30 to-pink-700/30 shadow-lg transition-all duration-500 ${version === 'bedrock'
+                ? 'border-green-500/50 hover:ring-2 hover:ring-green-500/50'
                 : 'border-blue-500/50 hover:ring-2 hover:ring-blue-500/50'
-            } hover:scale-[1.04]`}>
+              } hover:scale-[1.04]`}>
               <span className="absolute -top-5 left-1/2 -translate-x-1/2 rounded-full bg-gradient-to-r from-purple-400 to-pink-500 text-white px-4 py-1 text-xs font-bold shadow-lg select-none">
                 Plano personalizado
               </span>
               <h4 className="text-2xl font-bold text-white mb-2">Personalize</h4>
-              <div className={`text-4xl font-extrabold mb-2 transition-colors duration-300 ${
-                version === 'bedrock' ? 'text-green-400' : 'text-blue-400'
-              }`}>
+              <div className={`text-4xl font-extrabold mb-2 transition-colors duration-300 ${version === 'bedrock' ? 'text-green-400' : 'text-blue-400'
+                }`}>
                 Sob consulta
               </div>
               <p className="text-base text-gray-200 mb-6 mt-2">
                 Nenhum dos planos atende sua necessidade?<br />
-                <span className={`font-bold transition-colors duration-300 ${
-                  version === 'bedrock' ? 'text-green-400' : 'text-blue-400'
-                }`}>
+                <span className={`font-bold transition-colors duration-300 ${version === 'bedrock' ? 'text-green-400' : 'text-blue-400'
+                  }`}>
                   Crie o seu plano!
                 </span>
               </p>
               <a
                 href={getCustomPlanLink()}
-                className={`mt-auto text-white py-3 rounded-xl font-bold shadow-inner transition-all duration-300 flex justify-center ${
-                  version === 'bedrock'
+                className={`mt-auto text-white py-3 rounded-xl font-bold shadow-inner transition-all duration-300 flex justify-center ${version === 'bedrock'
                     ? 'bg-gradient-to-r from-green-500 to-emerald-600 shadow-green-900/10 hover:from-green-600 hover:to-emerald-700'
                     : 'bg-gradient-to-r from-purple-600 to-pink-600 shadow-pink-900/10 hover:from-purple-700 hover:to-pink-700'
-                }`}
+                  }`}
               >
                 Customizar
               </a>

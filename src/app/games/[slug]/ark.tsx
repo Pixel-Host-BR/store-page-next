@@ -293,20 +293,11 @@ export default function ArkFeatures() {
                 className={`relative overflow-visible flex flex-col rounded-3xl p-7 border bg-gradient-to-br shadow-lg transition-all duration-300
                   ${plan.grad} border-gray-700 hover:scale-[1.04] hover:ring-2 hover:ring-yellow-400/30`}
               >
-                {/* Badge de desconto */}
-                <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-gradient-to-r from-red-500 to-orange-500 text-white text-xs font-bold rounded-full shadow-lg">
-                  20% OFF
-                </span>
                 {plan.badge}
                 <h4 className="text-2xl font-bold text-white mb-2">{plan.name}</h4>
 
-                {/* Preço original riscado */}
-                <div className="text-lg text-gray-400 line-through mb-1">
-                  R$ {plan.originalPrice}/mês
-                </div>
-
                 {/* Preço com desconto */}
-                <div className="text-4xl font-extrabold text-yellow-400 mb-2">R$ {plan.price}</div>
+                <div className="text-4xl font-extrabold text-yellow-400 mb-2">R$ {plan.originalPrice}/mês</div>
                 <ul className="flex-1 space-y-2 mb-6 mt-2">
                   {plan.features.map((f, i) => (
                     <li key={i} className="flex items-center space-x-2">
