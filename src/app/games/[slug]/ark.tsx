@@ -286,7 +286,7 @@ export default function ArkFeatures() {
             <h3 className="text-3xl font-bold text-white mb-4">Escolha seu Plano</h3>
             <p className="text-gray-400 mb-8">Planos flexíveis para todos os tipos de jogadores</p>
           </div>
-          <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 xl:grid-cols-5 max-w-9x1 mx-auto mb-16">
+          <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 xl:grid-cols-5 max-w-7xl mx-auto mb-16">
             {/* Quatro planos */}
             {plans.map((plan, idx) =>
               <div key={plan.name}
@@ -297,7 +297,7 @@ export default function ArkFeatures() {
                 <h4 className="text-2xl font-bold text-white mb-2">{plan.name}</h4>
 
                 {/* Preço com desconto */}
-                <div className="text-4xl font-extrabold text-yellow-400 mb-2">R$ {plan.originalPrice}/mês</div>
+                <div className="text-3xl font-extrabold text-yellow-400 mb-2 whitespace-nowrap">R$ {plan.originalPrice}/mês</div>
                 <ul className="flex-1 space-y-2 mb-6 mt-2">
                   {plan.features.map((f, i) => (
                     <li key={i} className="flex items-center space-x-2">
@@ -364,7 +364,7 @@ export default function ArkFeatures() {
 
         {/* ----------- CHAMADA FINAL ----------- */}
         <div className={`text-center mt-16 transition-all duration-1000 delay-900 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <div className="bg-gradient-to-r from-yellow-600/10 to-yellow-800/10 backdrop-blur-sm border border-yellow-400/20 rounded-2xl p-8 max-w-4xl mx-auto">
+          <div className="bg-gray-800/40 backdrop-blur-sm border border-gray-600/50 rounded-xl p-8 max-w-4xl mx-auto">
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div className="text-left">
                 <h3 className="text-2xl font-bold text-white mb-2">Pronto para conquistar o ARK?</h3>
@@ -373,10 +373,8 @@ export default function ArkFeatures() {
                 </p>
               </div>
               <div className="flex flex-col sm:flex-row gap-4">
-                <a href="https://pixelhostbr.com/financeiro/index.php?rp=/store/ark-survival">
-                  <button className="flex-1 bg-gradient-to-r from-yellow-600 to-yellow-800 hover:from-yellow-700 hover:to-yellow-900 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-yellow-400/25">
-                    Começar Agora
-                  </button>
+                <a href="https://pixelhostbr.com/financeiro/index.php?rp=/store/ark-survival" className="btn-primary btn-lg flex-1 flex justify-center">
+                  Começar Agora
                 </a>
                 {/* Exemplo comentado para futuro
                 <button className="flex-1 bg-gray-800 hover:bg-gray-700 text-white font-semibold py-3 px-6 rounded-lg border border-gray-600 hover:border-yellow-400/50 transition-all duration-300">

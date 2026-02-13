@@ -2,8 +2,15 @@
 
 :root {
   --primary-blue: #3b82f6;
-  --primary-purple: #8b5cf6;
+  --primary-purple: #7c3aed;
+  --primary-purple-hover: #6d28d9;
   --accent-green: #10b981;
+  --btn-dark: #262626;
+  --btn-dark-hover: #333333;
+  --btn-outline-border: rgba(255,255,255,0.25);
+  --btn-teal: #1e3a3a;
+  --btn-teal-border: #2d5a5a;
+  --btn-teal-text: #4ade80;
 }
 .bg-grid-white\/\[0\.02\] {
   background-image: 
@@ -139,59 +146,113 @@ nav,
 section {
   background: transparent !important;
 }
-@layer utilities {
-  .bg-site {
-    background-color: transparent !important;
-  }
-  
-  .touch-manipulation {
-    touch-action: manipulation;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    user-select: none;
-  }
+.bg-site {
+  background-color: transparent !important;
 }
 
-/* Component-level styles */
-@layer components {
-  .btn {
-    @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 font-medium transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 active:scale-[0.985];
-  }
+.touch-manipulation {
+  touch-action: manipulation;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
 
-  .btn-md { @apply px-5 py-2.5 text-sm; }
-  .btn-lg { @apply px-6 py-3 text-base; }
+/* Component-level styles - Design Profissional (CSS puro para compatibilidade Tailwind v4) */
+.btn,
+.btn-primary,
+.btn-secondary,
+.btn-outline,
+.btn-tertiary,
+.btn-glass,
+.btn-purple,
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1.25rem;
+  font-weight: 500;
+  transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+  outline: none;
+  text-decoration: none;
+  cursor: pointer;
+}
+.btn:focus-visible,
+.btn-primary:focus-visible,
+.btn-secondary:focus-visible,
+.btn-outline:focus-visible,
+.btn-tertiary:focus-visible {
+  box-shadow: 0 0 0 2px #181826, 0 0 0 4px var(--primary-purple);
+}
 
-  .hover-lift { @apply hover:-translate-y-[1px] hover:shadow-lg; }
+.btn-md { padding: 0.5rem 1.25rem; font-size: 0.875rem; }
+.btn-lg { padding: 0.75rem 1.5rem; font-size: 1rem; }
 
-  .btn-glass {
-    @apply text-white bg-white/15 hover:bg-white/25 border border-white/25 ring-1 ring-white/10 shadow-md backdrop-blur-md;
-  }
+.btn-primary {
+  color: white !important;
+  background-color: var(--primary-purple);
+  font-weight: 600;
+  border: none;
+}
+.btn-primary:hover {
+  background-color: var(--primary-purple-hover);
+}
 
-  .btn-purple {
-    @apply text-white bg-purple-500/25 hover:bg-purple-500/35 border border-purple-400/30 ring-1 ring-purple-300/20 shadow-md backdrop-blur-md;
-  }
+.btn-secondary {
+  color: white !important;
+  background-color: var(--btn-dark);
+  border: none;
+}
+.btn-secondary:hover {
+  background-color: var(--btn-dark-hover);
+}
 
-  .btn-outline {
-    @apply text-white border border-white/40 hover:border-white/60 bg-transparent/10 hover:bg-white/10;
-  }
+.btn-outline {
+  color: white !important;
+  background-color: transparent;
+  border: 1px solid rgb(107 114 128);
+}
+.btn-outline:hover {
+  border-color: rgb(156 163 175);
+  background-color: rgba(255, 255, 255, 0.05);
+}
 
-  .btn-ghost {
-    @apply text-gray-200 hover:text-white bg-transparent hover:bg-white/10;
-  }
+.btn-tertiary {
+  color: rgb(52 211 153) !important;
+  background-color: var(--btn-teal);
+  border: 1px solid var(--btn-teal-border);
+}
+.btn-tertiary:hover {
+  background-color: rgba(6 78 59, 0.5);
+  border-color: rgb(5 150 105);
+}
 
-  /* subtle shine on hover */
-  .shine {
-    position: relative;
-    overflow: hidden;
-  }
-  .shine::after {
-    content: "";
-    position: absolute;
-    inset: -150% -50% auto auto;
-    width: 50%;
-    transform: rotate(25deg);
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.35), transparent);
-    transition: transform 0.6s ease;
-  }
-  .shine:hover::after { transform: translateX(-120%) rotate(25deg); }
+.btn-glass {
+  color: white !important;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.btn-glass:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.btn-purple {
+  color: white !important;
+  background-color: var(--primary-purple);
+  font-weight: 600;
+  border: none;
+}
+.btn-purple:hover {
+  background-color: var(--primary-purple-hover);
+}
+
+.btn-ghost {
+  color: rgb(209 213 219) !important;
+  background-color: transparent;
+  border: none;
+}
+.btn-ghost:hover {
+  color: white !important;
+  background-color: rgba(255, 255, 255, 0.05);
 }

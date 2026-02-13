@@ -373,25 +373,20 @@ export default function HeroBenefitsSection() {
                 href="https://pixelhostbr.com/financeiro/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-xl transition-all duration-300 shadow-lg hover:shadow-blue-500/50 hover:scale-105 flex items-center justify-center overflow-hidden"
+                className="btn-primary btn-lg flex items-center justify-center gap-2"
               >
-                <span className="relative z-10 flex items-center space-x-2">
-                  <Play className="h-5 w-5" />
-                  <span>Começar Agora</span>
-                  <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                </span>
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-400 opacity-0 group-hover:opacity-20 transition-opacity" />
+                <Play className="h-5 w-5" />
+                <span>Começar Agora</span>
+                <ArrowRight className="h-4 w-4" />
               </a>
               <a
-                className="group px-8 py-4 bg-gray-800/50 hover:bg-gray-700/70 text-white font-semibold rounded-xl border border-gray-600 hover:border-gray-500 transition-all duration-300 backdrop-blur-sm flex items-center justify-center hover:scale-105"
+                className="btn-outline btn-lg flex items-center justify-center gap-2"
                 href="https://pixelhostbr.com/financeiro/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <span className="flex items-center space-x-2">
-                  <Shield className="h-5 w-5 text-green-400" />
-                  <span>Ver Planos</span>
-                </span>
+                <Shield className="h-5 w-5 text-green-400" />
+                <span>Ver Planos</span>
               </a>
             </div>
 
@@ -462,12 +457,10 @@ export default function HeroBenefitsSection() {
                 {/* CTA Button */}
                 <a
                   href={featuredGames[currentGame].link}
-                  className="block w-full py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-xl transition-all duration-300 hover:scale-105 text-center shadow-lg hover:shadow-blue-500/50 group/btn"
+                  className="btn-primary btn-lg w-full flex items-center justify-center gap-2"
                 >
-                  <span className="flex items-center justify-center space-x-2">
-                    <span>Criar Servidor</span>
-                    <ArrowRight className="h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
-                  </span>
+                  <span>Criar Servidor</span>
+                  <ArrowRight className="h-4 w-4" />
                 </a>
 
                 {/* Navigation Controls */}
@@ -475,7 +468,7 @@ export default function HeroBenefitsSection() {
                   {/* Previous Button */}
                   <button
                     onClick={() => handleGameChange((currentGame - 1 + featuredGames.length) % featuredGames.length)}
-                    className="p-2 rounded-full bg-gray-700/50 hover:bg-blue-600 text-white transition-all duration-300 shadow-lg hover:scale-110 border border-gray-600/50 hover:border-blue-500/50"
+                    className="p-2 rounded-lg bg-[#262626] hover:bg-[#333] text-white transition-colors duration-200 border border-gray-600"
                     aria-label="Jogo anterior"
                   >
                     <ChevronLeft className="w-5 h-5" />
@@ -500,7 +493,7 @@ export default function HeroBenefitsSection() {
                   {/* Next Button */}
                   <button
                     onClick={() => handleGameChange((currentGame + 1) % featuredGames.length)}
-                    className="p-2 rounded-full bg-gray-700/50 hover:bg-blue-600 text-white transition-all duration-300 shadow-lg hover:scale-110 border border-gray-600/50 hover:border-blue-500/50"
+                    className="p-2 rounded-lg bg-[#262626] hover:bg-[#333] text-white transition-colors duration-200 border border-gray-600"
                     aria-label="Próximo jogo"
                   >
                     <ChevronRight className="w-5 h-5" />
@@ -593,21 +586,21 @@ export default function HeroBenefitsSection() {
         <div 
           className={`flex justify-center mb-24 transition-all duration-1000 delay-500 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
         >
-          <div className="max-w-2xl w-full bg-gradient-to-r from-blue-700/80 to-purple-700/80 rounded-2xl p-8 sm:p-10 shadow-2xl border border-blue-600/30 backdrop-blur-sm hover:shadow-blue-500/20 transition-shadow duration-300">
+          <div className="max-w-2xl w-full bg-gray-800/60 rounded-xl p-8 sm:p-10 border border-gray-600/50 backdrop-blur-sm transition-colors duration-200">
             <h4 className="text-2xl font-bold text-white mb-3">
               O Painel de Controle PixelHost – A Última Tendência em Jogos Multijogador
             </h4>
-            <p className="text-gray-100 mb-6 leading-relaxed">
+            <p className="text-gray-300 mb-6 leading-relaxed">
               Hospedar seu servidor multijogador não deve prejudicar a experiência do jogo. Tomamos medidas para reformular completamente tudo o que você espera de um painel de controle gamer moderno.
             </p>
             <a
               href="https://painel.pixelhostbr.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center px-6 py-3 bg-white text-blue-700 font-semibold rounded-xl shadow-lg hover:bg-gray-100 hover:scale-105 transition-all duration-300"
+              className="btn-primary btn-lg inline-flex items-center gap-2"
             >
               Acessar o Painel
-              <ArrowRight className="h-4 w-4 ml-2" />
+              <ArrowRight className="h-4 w-4" />
             </a>
           </div>
         </div>
@@ -673,7 +666,7 @@ export default function HeroBenefitsSection() {
         {/* Navigation */}
         <div className="flex items-center justify-center gap-4 mb-8">
           <button
-            className="p-3 rounded-full bg-gray-800/80 hover:bg-blue-600 text-white transition-all duration-300 shadow-lg hover:scale-110 border border-gray-700/50"
+            className="p-3 rounded-lg bg-[#262626] hover:bg-[#333] text-white transition-colors duration-200 border border-gray-600"
             onClick={() => setPage((page - 1 + totalPages) % totalPages)}
             aria-label="Anterior"
           >
@@ -694,7 +687,7 @@ export default function HeroBenefitsSection() {
             ))}
           </div>
           <button
-            className="p-3 rounded-full bg-gray-800/80 hover:bg-blue-600 text-white transition-all duration-300 shadow-lg hover:scale-110 border border-gray-700/50"
+            className="p-3 rounded-lg bg-[#262626] hover:bg-[#333] text-white transition-colors duration-200 border border-gray-600"
             onClick={() => setPage((page + 1) % totalPages)}
             aria-label="Próximo"
           >
@@ -707,7 +700,7 @@ export default function HeroBenefitsSection() {
             href="https://pt.trustpilot.com/evaluate/pixelhostbr.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-xl shadow-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300 hover:scale-105"
+            className="btn-primary btn-lg inline-flex items-center gap-2"
           >
             <PlusCircle className="w-5 h-5 mr-2" />
             Avaliar como cliente
@@ -767,7 +760,7 @@ export default function HeroBenefitsSection() {
             href="https://pixelohost.tawk.help/"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-xl shadow-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300 hover:scale-105"
+            className="btn-primary btn-lg inline-flex items-center gap-2"
           >
             Ver Base Completa de Conhecimento
             <ArrowRight className="h-4 w-4 ml-2" />

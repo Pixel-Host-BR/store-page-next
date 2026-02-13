@@ -5,12 +5,11 @@ import FacebookPixel from './components/FacebookPixel';
 import FacebookPixelHead from './components/FacebookPixelHead';
 import Script from 'next/script'
 import { ReactNode, Suspense } from 'react';
-import { Roboto_Condensed } from 'next/font/google'
+import { Geist } from 'next/font/google'
 import { seoConfig, generateMetadata } from './seo-config'
 
-const robotoCondensed = Roboto_Condensed({
+const geist = Geist({
   subsets: ['latin'],
-  weight: ['300', '400', '500', '700'],
   display: 'swap'
 })
 
@@ -42,7 +41,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         <FacebookPixelHead />
       </head>
-      <body className={`${robotoCondensed.className} bg-[#181826] min-h-screen`}>
+      <body className={`${geist.className} bg-[#181826] min-h-screen`}>
         <Navbar />
         <main className="pt-16">
           {children}

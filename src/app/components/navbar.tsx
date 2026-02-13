@@ -222,7 +222,7 @@ export default function Navbar() {
             {/* Botão Desktop */}
             <Link
               href="https://pixelhostbr.com/login.html"
-              className="hidden sm:inline-flex items-center space-x-2 px-5 py-2.5 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white font-semibold rounded-xl transition-all duration-300 shadow-lg hover:shadow-purple-500/50 hover:scale-105 border border-purple-500/30 group"
+              className="hidden sm:inline-flex items-center space-x-2 px-5 py-2.5 bg-[#7c3aed] hover:bg-[#6d28d9] text-white font-semibold rounded-lg transition-colors duration-200 group"
               aria-label="Ir para o painel de controle"
               target="_blank" 
               rel="noopener noreferrer"
@@ -325,7 +325,7 @@ export default function Navbar() {
             <div className="pt-4 border-t border-gray-700/50 mt-4">
               <Link
                 href="https://pixelhostbr.com/login.html"
-                className="flex items-center justify-center space-x-2 w-full px-5 py-3 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white font-semibold rounded-xl transition-all duration-300 shadow-lg hover:shadow-purple-500/50 hover:scale-105 border border-purple-500/30 group"
+                className="flex items-center justify-center space-x-2 w-full px-5 py-3 bg-[#7c3aed] hover:bg-[#6d28d9] text-white font-semibold rounded-lg transition-colors duration-200 group"
                 aria-label="Ir para o painel de controle"
                 target="_blank" 
                 rel="noopener noreferrer"

@@ -284,7 +284,7 @@ export default function PalworldFeatures() {
             <h3 className="text-3xl font-bold text-white mb-4">Escolha seu Plano</h3>
             <p className="text-gray-400 mb-8">Encontre o equilíbrio perfeito entre custo e poder!</p>
           </div>
-          <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 xl:grid-cols-5 max-w-9x1 mx-auto mb-16">
+          <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 xl:grid-cols-5 max-w-7xl mx-auto mb-16">
             {/* Quatro planos */}
             {plans.map((plan, idx) =>
               <div key={plan.name}
@@ -294,7 +294,7 @@ export default function PalworldFeatures() {
                 {plan.badge}
                 <h4 className="text-2xl font-bold text-white mb-2">{plan.name}</h4>
                 <div className="mb-2">
-                  <div className="text-4xl font-extrabold text-cyan-400">
+                  <div className="text-3xl font-extrabold text-cyan-400 whitespace-nowrap">
                     R$ {plan.price}
                   </div>
                 </div>
@@ -364,7 +364,7 @@ export default function PalworldFeatures() {
 
         {/* ----------- CHAMADA FINAL ----------- */}
         <div className={`text-center mt-16 transition-all duration-1000 delay-900 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <div className="bg-gradient-to-r from-cyan-600/10 to-blue-600/10 backdrop-blur-sm border border-cyan-500/20 rounded-2xl p-8 max-w-4xl mx-auto">
+          <div className="bg-gray-800/40 backdrop-blur-sm border border-gray-600/50 rounded-xl p-8 max-w-4xl mx-auto">
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div className="text-left">
                 <h3 className="text-2xl font-bold text-white mb-2">Pronto para embarcar nessa aventura?</h3>
@@ -373,10 +373,8 @@ export default function PalworldFeatures() {
                 </p>
               </div>
               <div className="flex flex-col sm:flex-row gap-4">
-                <a href="https://pixelhostbr.com/financeiro/index.php?rp=/store/hospedagem-palworld">
-                  <button className="flex-1 bg-gradient-to-r from-cyan-600 to-blue-700 hover:from-cyan-700 hover:to-blue-800 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-cyan-500/25">
-                    Começar Agora
-                  </button>
+                <a href="https://pixelhostbr.com/financeiro/index.php?rp=/store/hospedagem-palworld" className="btn-primary btn-lg flex-1 flex justify-center">
+                  Começar Agora
                 </a>
                 {/* Comentado para caso queira no futuro
                 <button className="flex-1 bg-gray-800 hover:bg-gray-700 text-white font-semibold py-3 px-6 rounded-lg border border-gray-600 hover:border-cyan-500/50 transition-all duration-300">

@@ -430,7 +430,7 @@ export default function MinecraftFeatures() {
               </span>
             </div>
           </div>
-          <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 xl:grid-cols-5 max-w-9x1 mx-auto mb-16">
+          <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 xl:grid-cols-5 max-w-7xl mx-auto mb-16">
             {/* Quatro planos */}
             {plans.map((plan, idx) =>
               <div
@@ -441,8 +441,8 @@ export default function MinecraftFeatures() {
                 {plan.badge}
                 {/* Badge de versão */}
                 <div className={`absolute -top-4 left-4 flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold shadow-lg transition-all duration-300 ${version === 'bedrock'
-                    ? 'bg-gradient-to-r from-green-500 to-emerald-600 text-white'
-                    : 'bg-gradient-to-r from-blue-500 to-blue-600 text-white'
+                  ? 'bg-gradient-to-r from-green-500 to-emerald-600 text-white'
+                  : 'bg-gradient-to-r from-blue-500 to-blue-600 text-white'
                   }`}>
                   {version === 'bedrock' ? (
                     <>
@@ -458,7 +458,7 @@ export default function MinecraftFeatures() {
                 </div>
                 <h4 className="text-2xl font-bold text-white mb-2">{plan.name}</h4>
                 <div className="mb-2">
-                  <div className={`text-4xl font-extrabold transition-colors duration-300 ${version === 'bedrock' ? 'text-green-400' : 'text-blue-400'
+                  <div className={`text-3xl font-extrabold transition-colors duration-300 whitespace-nowrap ${version === 'bedrock' ? 'text-green-400' : 'text-blue-400'
                     }`}>
                     R$ {plan.price}
                   </div>
@@ -477,8 +477,8 @@ export default function MinecraftFeatures() {
                   <a
                     href={getPlanLink(0)}
                     className={`mt-auto text-white py-3 rounded-xl font-bold shadow-inner transition-all duration-300 flex justify-center ${version === 'bedrock'
-                        ? 'bg-gradient-to-r from-green-500 to-emerald-600 shadow-green-900/10 hover:from-green-600 hover:to-emerald-700'
-                        : 'bg-gradient-to-r from-blue-500 to-blue-600 shadow-blue-900/10 hover:from-blue-600 hover:to-blue-700'
+                      ? 'bg-gradient-to-r from-green-500 to-emerald-600 shadow-green-900/10 hover:from-green-600 hover:to-emerald-700'
+                      : 'bg-gradient-to-r from-blue-500 to-blue-600 shadow-blue-900/10 hover:from-blue-600 hover:to-blue-700'
                       }`}
                   >
                     Contratar
@@ -488,8 +488,8 @@ export default function MinecraftFeatures() {
                   <a
                     href={getPlanLink(1)}
                     className={`mt-auto text-white py-3 rounded-xl font-bold shadow-inner transition-all duration-300 flex justify-center ${version === 'bedrock'
-                        ? 'bg-gradient-to-r from-green-500 to-emerald-600 shadow-green-900/10 hover:from-green-600 hover:to-emerald-700'
-                        : 'bg-gradient-to-r from-blue-600 to-blue-800 shadow-blue-900/10 hover:from-blue-700 hover:to-blue-900'
+                      ? 'bg-gradient-to-r from-green-500 to-emerald-600 shadow-green-900/10 hover:from-green-600 hover:to-emerald-700'
+                      : 'bg-gradient-to-r from-blue-600 to-blue-800 shadow-blue-900/10 hover:from-blue-700 hover:to-blue-900'
                       }`}
                   >
                     Contratar
@@ -499,8 +499,8 @@ export default function MinecraftFeatures() {
                   <a
                     href={getPlanLink(2)}
                     className={`mt-auto text-white py-3 rounded-xl font-bold shadow-inner transition-all duration-300 flex justify-center ${version === 'bedrock'
-                        ? 'bg-gradient-to-r from-green-500 to-emerald-600 shadow-green-900/10 hover:from-green-600 hover:to-emerald-700'
-                        : 'bg-gradient-to-r from-green-400 to-green-700 shadow-green-900/10 hover:from-green-500 hover:to-green-800'
+                      ? 'bg-gradient-to-r from-green-500 to-emerald-600 shadow-green-900/10 hover:from-green-600 hover:to-emerald-700'
+                      : 'bg-gradient-to-r from-green-400 to-green-700 shadow-green-900/10 hover:from-green-500 hover:to-green-800'
                       }`}
                   >
                     Contratar
@@ -510,8 +510,8 @@ export default function MinecraftFeatures() {
                   <a
                     href={getPlanLink(3)}
                     className={`mt-auto text-white py-3 rounded-xl font-bold shadow-inner transition-all duration-300 flex justify-center ${version === 'bedrock'
-                        ? 'bg-gradient-to-r from-green-500 to-emerald-600 shadow-green-900/10 hover:from-green-600 hover:to-emerald-700'
-                        : 'bg-gradient-to-r from-yellow-500 to-orange-600 shadow-yellow-900/10 hover:from-yellow-600 hover:to-orange-700'
+                      ? 'bg-gradient-to-r from-green-500 to-emerald-600 shadow-green-900/10 hover:from-green-600 hover:to-emerald-700'
+                      : 'bg-gradient-to-r from-yellow-500 to-orange-600 shadow-yellow-900/10 hover:from-yellow-600 hover:to-orange-700'
                       }`}
                   >
                     Contratar
@@ -521,8 +521,8 @@ export default function MinecraftFeatures() {
             )}
             {/* Card Customizado */}
             <div className={`relative overflow-visible flex flex-col rounded-3xl p-7 border bg-gradient-to-br from-purple-700/30 to-pink-700/30 shadow-lg transition-all duration-500 ${version === 'bedrock'
-                ? 'border-green-500/50 hover:ring-2 hover:ring-green-500/50'
-                : 'border-blue-500/50 hover:ring-2 hover:ring-blue-500/50'
+              ? 'border-green-500/50 hover:ring-2 hover:ring-green-500/50'
+              : 'border-blue-500/50 hover:ring-2 hover:ring-blue-500/50'
               } hover:scale-[1.04]`}>
               <span className="absolute -top-5 left-1/2 -translate-x-1/2 rounded-full bg-gradient-to-r from-purple-400 to-pink-500 text-white px-4 py-1 text-xs font-bold shadow-lg select-none">
                 Plano personalizado
@@ -542,8 +542,8 @@ export default function MinecraftFeatures() {
               <a
                 href={getCustomPlanLink()}
                 className={`mt-auto text-white py-3 rounded-xl font-bold shadow-inner transition-all duration-300 flex justify-center ${version === 'bedrock'
-                    ? 'bg-gradient-to-r from-green-500 to-emerald-600 shadow-green-900/10 hover:from-green-600 hover:to-emerald-700'
-                    : 'bg-gradient-to-r from-purple-600 to-pink-600 shadow-pink-900/10 hover:from-purple-700 hover:to-pink-700'
+                  ? 'bg-gradient-to-r from-green-500 to-emerald-600 shadow-green-900/10 hover:from-green-600 hover:to-emerald-700'
+                  : 'bg-gradient-to-r from-purple-600 to-pink-600 shadow-pink-900/10 hover:from-purple-700 hover:to-pink-700'
                   }`}
               >
                 Customizar
@@ -627,7 +627,7 @@ export default function MinecraftFeatures() {
 
         {/* ----------- CHAMADA FINAL ----------- */}
         <div className={`text-center mt-16 transition-all duration-1000 delay-900 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <div className="bg-gradient-to-r from-green-600/10 to-blue-600/10 backdrop-blur-sm border border-green-500/20 rounded-2xl p-8 max-w-4xl mx-auto">
+          <div className="bg-gray-800/40 backdrop-blur-sm border border-gray-600/50 rounded-xl p-8 max-w-4xl mx-auto">
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div className="text-left">
                 <h3 className="text-2xl font-bold text-white mb-2">Pronto para começar sua jornada?</h3>
@@ -636,10 +636,8 @@ export default function MinecraftFeatures() {
                 </p>
               </div>
               <div className="flex flex-col sm:flex-row gap-4">
-                <a href={getStoreLink()}>
-                  <button className="flex-1 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-green-500/25">
-                    Começar Agora
-                  </button>
+                <a href={getStoreLink()} className="btn-primary btn-lg flex-1 flex justify-center">
+                  Começar Agora
                 </a>
                 {/* Servidor Publico
                  <button className="flex-1 bg-gray-800 hover:bg-gray-700 text-white font-semibold py-3 px-6 rounded-lg border border-gray-600 hover:border-green-500/50 transition-all duration-300">

@@ -348,7 +348,7 @@ export default function DayzFeatures() {
             </p>
           </div>
 
-          <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 xl:grid-cols-5 max-w-9x1 mx-auto mb-16">
+          <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 xl:grid-cols-5 max-w-7xl mx-auto mb-16">
             {plans.map((p, idx) => (
               <div
                 key={p.name}
@@ -357,7 +357,7 @@ export default function DayzFeatures() {
                 {p.badge}
                 <h4 className="text-2xl font-bold text-white mb-2">{p.name}</h4>
                 <div className="mb-2">
-                  <div className="text-4xl font-extrabold text-rose-400">
+                  <div className="text-3xl font-extrabold text-rose-400 whitespace-nowrap">
                     R$ {p.price}
                   </div>
                 </div>
@@ -433,7 +433,7 @@ export default function DayzFeatures() {
           className={`text-center mt-16 transition-all duration-1000 delay-900 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}
         >
-          <div className="bg-gradient-to-r from-rose-600/10 to-red-700/10 backdrop-blur-sm border border-rose-400/20 rounded-2xl p-8 max-w-4xl mx-auto">
+          <div className="bg-gray-800/40 backdrop-blur-sm border border-gray-600/50 rounded-xl p-8 max-w-4xl mx-auto">
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div className="text-left">
                 <h3 className="text-2xl font-bold text-white mb-2">
@@ -445,10 +445,8 @@ export default function DayzFeatures() {
                 </p>
               </div>
               <div className="flex flex-col sm:flex-row gap-4">
-                <a href="https://pixelhostbr.com/financeiro/index.php?rp=/store/hospedagem-dayz">
-                  <button className="flex-1 bg-gradient-to-r from-rose-600 to-red-700 hover:from-rose-700 hover:to-red-800 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-rose-500/25">
-                    Começar Agora
-                  </button>
+                <a href="https://pixelhostbr.com/financeiro/index.php?rp=/store/hospedagem-dayz" className="btn-primary btn-lg flex-1 flex justify-center">
+                  Começar Agora
                 </a>
               </div>
             </div>

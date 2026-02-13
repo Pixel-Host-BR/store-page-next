@@ -344,7 +344,7 @@ export default function HytaleFeatures() {
             </p>
           </div>
 
-          <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 xl:grid-cols-5 max-w-9x1 mx-auto mb-16">
+          <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 xl:grid-cols-5 max-w-7xl mx-auto mb-16">
             {plans.map((p, idx) => (
               <div
                 key={p.name}
@@ -354,7 +354,7 @@ export default function HytaleFeatures() {
 
                 <h4 className="text-2xl font-bold text-white mb-2">{p.name}</h4>
                 <div className="mb-2">
-                  <div className="text-4xl font-extrabold text-cyan-400">
+                  <div className="text-3xl font-extrabold text-cyan-400 whitespace-nowrap">
                     R$ {p.price}
                   </div>
                 </div>
@@ -371,7 +371,7 @@ export default function HytaleFeatures() {
                 {idx === 0 && (
                   <a
                     href="https://pixelhostbr.com/financeiro/index.php?rp=/store/hospedagem-hytale/plano-basico"
-                    className="mt-auto bg-gradient-to-r from-cyan-500 to-blue-700 text-white py-3 rounded-xl font-bold shadow-inner shadow-cyan-900/10 hover:from-cyan-600 hover:to-blue-800 transition-all duration-200 flex justify-center"
+                    className="mt-auto btn-primary btn-lg w-full flex justify-center"
                   >
                     Contratar
                   </a>
@@ -379,7 +379,7 @@ export default function HytaleFeatures() {
                 {idx === 1 && (
                   <a
                     href="https://pixelhostbr.com/financeiro/index.php?rp=/store/hospedagem-hytale/plano-avancado"
-                    className="mt-auto bg-gradient-to-r from-cyan-600 to-blue-700 text-white py-3 rounded-xl font-bold shadow-inner shadow-cyan-900/10 hover:from-cyan-700 hover:to-blue-800 transition-all duration-200 flex justify-center"
+                    className="mt-auto btn-primary btn-lg w-full flex justify-center"
                   >
                     Contratar
                   </a>
@@ -387,7 +387,7 @@ export default function HytaleFeatures() {
                 {idx === 2 && (
                   <a
                     href="https://pixelhostbr.com/financeiro/index.php?rp=/store/hospedagem-hytale/plano-premium"
-                    className="mt-auto bg-gradient-to-r from-cyan-500 to-blue-700 text-white py-3 rounded-xl font-bold shadow-inner shadow-cyan-900/10 hover:from-cyan-600 hover:to-blue-800 transition-all duration-200 flex justify-center"
+                    className="mt-auto btn-primary btn-lg w-full flex justify-center"
                   >
                     Contratar
                   </a>
@@ -395,7 +395,7 @@ export default function HytaleFeatures() {
                 {idx === 3 && (
                   <a
                     href="https://pixelhostbr.com/financeiro/index.php?rp=/store/hospedagem-hytale/plano-master"
-                    className="mt-auto bg-gradient-to-r from-cyan-500 to-blue-700 text-white py-3 rounded-xl font-bold shadow-inner shadow-cyan-900/10 hover:from-cyan-600 hover:to-blue-800 transition-all duration-200 flex justify-center"
+                    className="mt-auto btn-primary btn-lg w-full flex justify-center"
                   >
                     Contratar
                   </a>
@@ -404,20 +404,20 @@ export default function HytaleFeatures() {
             ))}
 
             {/* cartão personalizado */}
-            <div className="relative overflow-visible flex flex-col rounded-3xl p-7 border bg-gradient-to-br from-purple-700/30 to-pink-700/30 shadow-lg border-purple-600 hover:scale-[1.04] transition-all duration-300 hover:ring-2 hover:ring-pink-400/30">
-              <span className="absolute -top-5 left-1/2 -translate-x-1/2 rounded-full bg-gradient-to-r from-purple-400 to-pink-500 text-white px-4 py-1 text-xs font-bold shadow-lg select-none">
+            <div className="relative overflow-visible flex flex-col rounded-3xl p-7 border bg-gray-800/60 border-gray-600/50 hover:border-gray-500/50 transition-colors duration-200">
+              <span className="absolute -top-5 left-1/2 -translate-x-1/2 rounded-lg bg-[#1e3a3a] border border-[#2d5a5a] text-emerald-400 px-4 py-1 text-xs font-semibold select-none">
                 Plano personalizado
               </span>
               <h4 className="text-2xl font-bold text-white mb-2">Personalize</h4>
-              <div className="text-4xl font-extrabold text-pink-400 mb-2">Sob consulta</div>
+              <div className="text-4xl font-extrabold text-emerald-400 mb-2">Sob consulta</div>
               <p className="text-base text-gray-200 mb-6 mt-2">
                 Nenhum dos planos atende sua necessidade?
                 <br />
-                <span className="font-bold text-pink-400">Crie o seu plano!</span>
+                <span className="font-bold text-emerald-400">Crie o seu plano!</span>
               </p>
               <a
                 href="https://pixelhostbr.com/financeiro/index.php?rp=/store/hospedagem-hytale/plano-personalizavel"
-                className="mt-auto bg-gradient-to-r from-purple-600 to-pink-600 text-white py-3 rounded-xl font-bold shadow-inner shadow-pink-900/10 hover:from-purple-700 hover:to-pink-700 transition-all duration-200 flex justify-center"
+                className="mt-auto btn-tertiary btn-lg w-full flex justify-center"
               >
                 Customizar
               </a>
@@ -430,7 +430,7 @@ export default function HytaleFeatures() {
           className={`text-center mt-16 transition-all duration-1000 delay-900 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}
         >
-          <div className="bg-gradient-to-r from-cyan-600/10 to-purple-700/10 backdrop-blur-sm border border-cyan-400/20 rounded-2xl p-8 max-w-4xl mx-auto">
+          <div className="bg-gray-800/40 backdrop-blur-sm border border-gray-600/50 rounded-xl p-8 max-w-4xl mx-auto">
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div className="text-left">
                 <h3 className="text-2xl font-bold text-white mb-2">
@@ -442,10 +442,8 @@ export default function HytaleFeatures() {
                 </p>
               </div>
               <div className="flex flex-col sm:flex-row gap-4">
-                <a href="https://pixelhostbr.com/financeiro/index.php?rp=/store/hospedagem-hytale">
-                  <button className="flex-1 bg-gradient-to-r from-cyan-600 to-purple-700 hover:from-cyan-700 hover:to-purple-800 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-cyan-500/25">
-                    Começar Agora
-                  </button>
+                <a href="https://pixelhostbr.com/financeiro/index.php?rp=/store/hospedagem-hytale" className="btn-primary btn-lg flex-1 flex justify-center">
+                  Começar Agora
                 </a>
               </div>
             </div>

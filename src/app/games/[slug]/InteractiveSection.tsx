@@ -47,7 +47,7 @@ export default function InteractiveSection({ gameTitle }: InteractiveSectionProp
               <h3 className="text-xl font-bold text-white mb-4 capitalize">
                 {plan.name}
               </h3>
-              <div className="text-3xl font-bold text-blue-400 mb-6">
+              <div className="text-3xl font-bold text-blue-400 mb-6 whitespace-nowrap">
                 R$ {isQuarterly ? plan.quarterlyPrice : plan.monthlyPrice}
                 <span className="text-sm text-gray-400">
                   /{isQuarterly ? 'trimestre' : 'mês'}
