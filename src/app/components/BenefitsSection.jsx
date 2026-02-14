@@ -77,32 +77,32 @@ const faqs = [
 ]
 
 const featuredGames = [
-  { 
-    name: 'Minecraft', 
+  {
+    name: 'Minecraft',
     description: 'Servidores de alta performance',
     link: '/games/minecraft',
     color: 'from-green-500 to-emerald-600'
   },
-  { 
-    name: 'ARK: Survival', 
+  {
+    name: 'ARK: Survival',
     description: 'Evolução sem limites',
     link: '/games/ark',
     color: 'from-orange-500 to-red-600'
   },
-  { 
-    name: 'Palworld',  
+  {
+    name: 'Palworld',
     description: 'A nova sensação',
     link: '/games/palworld',
     color: 'from-blue-500 to-cyan-600'
   },
-  { 
-    name: 'Hytale',  
+  {
+    name: 'Hytale',
     description: 'Aventura épica e construção criativa',
     link: '/games/hytale',
     color: 'from-cyan-700 to-purple-600'
   },
-  { 
-    name: 'DayZ',  
+  {
+    name: 'DayZ',
     description: 'Sobrevivência intensa',
     link: '/games/dayz',
     color: 'from-gray-600 to-gray-800'
@@ -194,7 +194,7 @@ export default function HeroBenefitsSection() {
   // Game carousel interval - pause when not visible
   useEffect(() => {
     setMounted(true)
-    
+
     const startInterval = () => {
       if (gameIntervalRef.current) clearInterval(gameIntervalRef.current)
       gameIntervalRef.current = setInterval(() => {
@@ -236,7 +236,7 @@ export default function HeroBenefitsSection() {
 
   // Testimonials slider states
   const [page, setPage] = useState(0)
-  
+
   useEffect(() => {
     const startInterval = () => {
       if (testimonialIntervalRef.current) clearInterval(testimonialIntervalRef.current)
@@ -257,7 +257,7 @@ export default function HeroBenefitsSection() {
     }
   }, [totalPages, isVisible])
 
-  const currentTestimonials = useMemo(() => 
+  const currentTestimonials = useMemo(() =>
     testimonials.slice(
       page * testimonialsPerPage,
       page * testimonialsPerPage + testimonialsPerPage
@@ -315,11 +315,11 @@ export default function HeroBenefitsSection() {
   const [openFaq, setOpenFaq] = useState(null)
 
   return (
-    <section ref={sectionRef} className="relative bg-gradient-to-br from-gray-900 via-blue-900/20 to-purple-900/30 overflow-hidden">
+    <section ref={sectionRef} className="relative bg-[var(--bg-deep)] overflow-hidden">
       {/* Animated Background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.15),transparent_50%)] animate-pulse" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(168,85,247,0.15),transparent_50%)] animate-pulse" style={{ animationDelay: '1s' }} />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(118,73,254,0.15),transparent_50%)] animate-pulse" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(140,221,4,0.10),transparent_50%)] animate-pulse" style={{ animationDelay: '1s' }} />
         <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:60px_60px]" />
       </div>
 
@@ -329,44 +329,44 @@ export default function HeroBenefitsSection() {
           {/* Left Content - Texto Principal */}
           <div className={`space-y-8 transition-all duration-1000 ease-out ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             {/* Badge */}
-            <div 
-              className={`inline-flex items-center space-x-2 bg-gradient-to-r from-blue-500/20 to-purple-500/20 backdrop-blur-sm border border-blue-500/30 rounded-full px-4 py-2 transition-all duration-1000 delay-100 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'}`}
+            <div
+              className={`inline-flex items-center space-x-2 bg-[rgba(118,73,254,0.1)] backdrop-blur-sm border border-[rgba(118,73,254,0.3)] rounded-full px-4 py-2 transition-all duration-1000 delay-100 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'}`}
             >
-              <TrendingUp className="h-4 w-4 text-blue-400" />
-              <span className="text-sm font-medium text-blue-200">#1 em Hospedagem de Jogos</span>
+              <TrendingUp className="h-4 w-4 text-[var(--primary-purple-light)]" />
+              <span className="text-sm font-medium text-gray-200">#1 em Hospedagem de Jogos</span>
             </div>
 
             {/* Título Principal */}
             <div className={`space-y-4 transition-all duration-1000 delay-200 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
               <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-tight">
                 <span className="text-white block">Hospedagem</span>
-                <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent block">Gamer de Elite</span>
+                <span className="bg-gradient-to-r from-[var(--primary-purple-light)] via-[var(--primary-purple)] to-[var(--accent-green)] bg-clip-text text-transparent block">Gamer de Elite</span>
               </h1>
-              <p className="text-xl sm:text-2xl text-gray-300 leading-relaxed max-w-xl">
-                Servidores de <span className="text-blue-400 font-semibold">alta performance</span> para os melhores jogos. Deploy instantâneo, DDoS protection e suporte 24/7.
+              <p className="text-xl sm:text-2xl text-[var(--text-secondary)] leading-relaxed max-w-xl">
+                Servidores de <span className="text-[var(--primary-purple-light)] font-semibold">alta performance</span> para os melhores jogos. Deploy instantâneo, DDoS protection e suporte 24/7.
               </p>
             </div>
 
             {/* Stats */}
-            <div 
+            <div
               className={`flex flex-wrap gap-6 transition-all duration-1000 delay-300 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
             >
               <div className="flex items-center space-x-2 group">
-                <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-                <span className="text-sm text-gray-300 group-hover:text-white transition-colors">99.9% Uptime</span>
+                <div className="w-2 h-2 bg-[var(--accent-green)] rounded-full animate-pulse" />
+                <span className="text-sm text-[var(--text-secondary)] group-hover:text-white transition-colors">99.9% Uptime</span>
               </div>
               <div className="flex items-center space-x-2 group">
-                <Users className="h-4 w-4 text-blue-400 group-hover:scale-110 transition-transform" />
-                <span className="text-sm text-gray-300 group-hover:text-white transition-colors">4k+ Jogadores</span>
+                <Users className="h-4 w-4 text-[var(--primary-purple-light)] group-hover:scale-110 transition-transform" />
+                <span className="text-sm text-[var(--text-secondary)] group-hover:text-white transition-colors">4k+ Jogadores</span>
               </div>
               <div className="flex items-center space-x-2 group">
                 <Zap className="h-4 w-4 text-yellow-400 group-hover:scale-110 transition-transform" />
-                <span className="text-sm text-gray-300 group-hover:text-white transition-colors">Ativação &lt; 90s</span>
+                <span className="text-sm text-[var(--text-secondary)] group-hover:text-white transition-colors">Ativação &lt; 90s</span>
               </div>
             </div>
 
             {/* CTA Buttons */}
-            <div 
+            <div
               className={`flex flex-col sm:flex-row gap-4 transition-all duration-1000 delay-400 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
             >
               <a
@@ -385,13 +385,13 @@ export default function HeroBenefitsSection() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Shield className="h-5 w-5 text-green-400" />
+                <Shield className="h-5 w-5 text-[var(--accent-green)]" />
                 <span>Ver Planos</span>
               </a>
             </div>
 
             {/* Rating */}
-            <div 
+            <div
               className={`flex items-center space-x-3 transition-all duration-1000 delay-500 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
             >
               <div className="flex items-center space-x-1">
@@ -399,55 +399,55 @@ export default function HeroBenefitsSection() {
                   <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
                 ))}
               </div>
-              <span className="text-sm text-gray-400">4.9/5 em mais de 500 avaliações</span>
+              <span className="text-sm text-[var(--text-secondary)]">4.9/5 em mais de 500 avaliações</span>
             </div>
           </div>
 
           {/* Right Content - Game Card Simplificado */}
-          <div 
+          <div
             className={`relative transition-all duration-1000 delay-300 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
           >
-            <div 
+            <div
               key={currentGame}
-              className="relative bg-gradient-to-br from-gray-800/90 to-gray-900/90 backdrop-blur-xl rounded-2xl border border-gray-700/50 p-8 shadow-2xl overflow-hidden group"
+              className="relative bg-gradient-to-br from-gray-800/90 to-gray-900/90 backdrop-blur-xl rounded-2xl border border-[rgba(255,255,255,0.1)]/50 p-8 shadow-2xl overflow-hidden group"
             >
               {/* Animated Background Gradient */}
               <div className={`absolute inset-0 bg-gradient-to-br ${featuredGames[currentGame].color} opacity-10 group-hover:opacity-20 transition-opacity duration-500`} />
-              
+
               <div className="relative z-10">
                 {/* Game Info */}
                 <div className="mb-8">
                   <div className="inline-block px-4 py-2 bg-gray-700/50 rounded-lg mb-4">
-                    <span className="text-xs font-medium text-gray-300 uppercase tracking-wider">Jogo em Destaque</span>
+                    <span className="text-xs font-medium text-[var(--text-secondary)] uppercase tracking-wider">Jogo em Destaque</span>
                   </div>
                   <h3 className="text-3xl font-bold text-white mb-2">{featuredGames[currentGame].name}</h3>
-                  <p className="text-gray-400">{featuredGames[currentGame].description}</p>
+                  <p className="text-[var(--text-secondary)]">{featuredGames[currentGame].description}</p>
                 </div>
 
                 {/* Stats Grid Simplificado */}
                 <div className="grid grid-cols-3 gap-4 mb-8">
                   <div className="text-center p-4 bg-gray-700/30 rounded-xl border border-gray-600/30 hover:border-blue-500/50 transition-colors">
-                    <div className="text-2xl font-bold text-blue-400 mb-1">24ms</div>
-                    <div className="text-xs text-gray-400">Latência</div>
+                    <div className="text-2xl font-bold text-[var(--primary-purple-light)] mb-1">24ms</div>
+                    <div className="text-xs text-[var(--text-secondary)]">Latência</div>
                   </div>
                   <div className="text-center p-4 bg-gray-700/30 rounded-xl border border-gray-600/30 hover:border-green-500/50 transition-colors">
                     <div className="text-2xl font-bold text-green-400 mb-1">16GB</div>
-                    <div className="text-xs text-gray-400">RAM</div>
+                    <div className="text-xs text-[var(--text-secondary)]">RAM</div>
                   </div>
                   <div className="text-center p-4 bg-gray-700/30 rounded-xl border border-gray-600/30 hover:border-purple-500/50 transition-colors">
                     <div className="text-2xl font-bold text-purple-400 mb-1">SSD</div>
-                    <div className="text-xs text-gray-400">Storage</div>
+                    <div className="text-xs text-[var(--text-secondary)]">Storage</div>
                   </div>
                 </div>
 
                 {/* Performance Bar */}
                 <div className="mb-8">
                   <div className="flex justify-between text-sm mb-2">
-                    <span className="text-gray-400">Performance</span>
+                    <span className="text-[var(--text-secondary)]">Performance</span>
                     <span className="text-green-400 font-semibold">98%</span>
                   </div>
                   <div className="w-full bg-gray-700/50 rounded-full h-2 overflow-hidden">
-                    <div 
+                    <div
                       className="bg-gradient-to-r from-green-400 to-blue-500 h-2 rounded-full transition-all duration-1000 ease-out"
                       style={{ width: '98%' }}
                     />
@@ -480,11 +480,10 @@ export default function HeroBenefitsSection() {
                       <button
                         key={idx}
                         onClick={() => handleGameChange(idx)}
-                        className={`h-2 rounded-full transition-all duration-300 ${
-                          idx === currentGame 
-                            ? 'bg-blue-500 w-8 scale-110 shadow-lg shadow-blue-500/50' 
-                            : 'bg-gray-600 hover:bg-blue-400 w-2'
-                        }`}
+                        className={`h-2 rounded-full transition-all duration-300 ${idx === currentGame
+                          ? 'bg-blue-500 w-8 scale-110 shadow-lg shadow-blue-500/50'
+                          : 'bg-gray-600 hover:bg-blue-400 w-2'
+                          }`}
                         aria-label={`Ver ${featuredGames[idx].name}`}
                       />
                     ))}
@@ -516,16 +515,16 @@ export default function HeroBenefitsSection() {
       {/* BENEFITS SECTION */}
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
         <div className="text-center mb-16">
-          <h2 
+          <h2
             className={`text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-4 transition-all duration-1000 delay-100 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
           >
             Por que escolher{' '}
-            <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[var(--primary-purple-light)] via-[var(--primary-purple)] to-[var(--accent-green)] bg-clip-text text-transparent">
               nossos servidores?
             </span>
           </h2>
-          <p 
-            className={`mt-4 max-w-2xl mx-auto text-gray-400 text-lg transition-all duration-1000 delay-200 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
+          <p
+            className={`mt-4 max-w-2xl mx-auto text-[var(--text-secondary)] text-lg transition-all duration-1000 delay-200 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
           >
             Descubra como oferecemos estabilidade, segurança e suporte incomparáveis para o seu projeto.
           </p>
@@ -535,15 +534,15 @@ export default function HeroBenefitsSection() {
           {benefits.map(({ title, description, icon: Icon, accent }, idx) => (
             <div
               key={idx}
-              className={`group flex items-start space-x-4 p-8 bg-gray-800/40 border border-gray-700/50 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-500 hover:-translate-y-2 hover:border-blue-500/50 backdrop-blur-sm ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+              className={`group flex items-start space-x-4 p-8 bg-[var(--bg-surface)]/40 border border-[rgba(255,255,255,0.1)]/50 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-500 hover:-translate-y-2 hover:border-blue-500/50 backdrop-blur-sm ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
               style={{ transitionDelay: `${300 + idx * 100}ms` }}
             >
               <div className={`flex-shrink-0 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br ${accent} shadow-lg group-hover:scale-110 transition-transform duration-300`}>
                 <Icon className="h-7 w-7 text-white" />
               </div>
               <div className="flex-1">
-                <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-blue-400 transition-colors">{title}</h3>
-                <p className="text-gray-300 leading-relaxed">{description}</p>
+                <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-[var(--primary-purple-light)] transition-colors">{title}</h3>
+                <p className="text-[var(--text-secondary)] leading-relaxed">{description}</p>
               </div>
             </div>
           ))}
@@ -551,7 +550,7 @@ export default function HeroBenefitsSection() {
 
         {/* RECURSOS */}
         <div className="text-center mb-12">
-          <h3 
+          <h3
             className={`text-3xl sm:text-4xl font-bold text-white mb-4 transition-all duration-1000 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
           >
             Recursos de Hospedagem de{' '}
@@ -559,8 +558,8 @@ export default function HeroBenefitsSection() {
               Servidores
             </span>
           </h3>
-          <p 
-            className={`text-gray-400 max-w-2xl mx-auto mb-12 transition-all duration-1000 delay-100 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
+          <p
+            className={`text-[var(--text-secondary)] max-w-2xl mx-auto mb-12 transition-all duration-1000 delay-100 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
           >
             Temos muitos recursos excelentes para orientar sua jornada de hospedagem de servidores de jogos.
           </p>
@@ -570,27 +569,27 @@ export default function HeroBenefitsSection() {
           {recursos.map(({ title, description, icon: Icon, color }, idx) => (
             <div
               key={idx}
-              className={`group flex flex-col items-center p-8 bg-gray-800/40 border border-gray-700/50 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-500 hover:-translate-y-2 hover:border-blue-500/50 backdrop-blur-sm text-center ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+              className={`group flex flex-col items-center p-8 bg-[var(--bg-surface)]/40 border border-[rgba(255,255,255,0.1)]/50 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-500 hover:-translate-y-2 hover:border-blue-500/50 backdrop-blur-sm text-center ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
               style={{ transitionDelay: `${400 + idx * 100}ms` }}
             >
               <div className={`flex items-center justify-center w-16 h-16 mb-4 rounded-xl ${color} group-hover:scale-110 transition-transform duration-300`}>
                 <Icon className="h-8 w-8" />
               </div>
-              <h4 className="text-lg font-semibold text-white mb-2 group-hover:text-blue-400 transition-colors">{title}</h4>
-              <p className="text-sm text-gray-300 leading-relaxed">{description}</p>
+              <h4 className="text-lg font-semibold text-white mb-2 group-hover:text-[var(--primary-purple-light)] transition-colors">{title}</h4>
+              <p className="text-sm text-[var(--text-secondary)] leading-relaxed">{description}</p>
             </div>
           ))}
         </div>
 
         {/* Painel CTA */}
-        <div 
+        <div
           className={`flex justify-center mb-24 transition-all duration-1000 delay-500 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
         >
-          <div className="max-w-2xl w-full bg-gray-800/60 rounded-xl p-8 sm:p-10 border border-gray-600/50 backdrop-blur-sm transition-colors duration-200">
+          <div className="max-w-2xl w-full bg-[var(--bg-surface)]/60 rounded-xl p-8 sm:p-10 border border-gray-600/50 backdrop-blur-sm transition-colors duration-200">
             <h4 className="text-2xl font-bold text-white mb-3">
               O Painel de Controle PixelHost – A Última Tendência em Jogos Multijogador
             </h4>
-            <p className="text-gray-300 mb-6 leading-relaxed">
+            <p className="text-[var(--text-secondary)] mb-6 leading-relaxed">
               Hospedar seu servidor multijogador não deve prejudicar a experiência do jogo. Tomamos medidas para reformular completamente tudo o que você espera de um painel de controle gamer moderno.
             </p>
             <a
@@ -608,23 +607,23 @@ export default function HeroBenefitsSection() {
 
       {/* DEPOIMENTOS */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-24">
-        <h2 
+        <h2
           className={`text-4xl sm:text-5xl font-extrabold text-white mb-4 transition-all duration-1000 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
         >
           O que estão{' '}
-          <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-[var(--primary-purple-light)] via-[var(--primary-purple)] to-[var(--accent-green)] bg-clip-text text-transparent">
             falando de nós?
           </span>
         </h2>
-        <p 
-          className={`text-gray-400 mb-12 text-lg transition-all duration-1000 delay-100 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
+        <p
+          className={`text-[var(--text-secondary)] mb-12 text-lg transition-all duration-1000 delay-100 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
         >
           Um pouco de nossos clientes por aqui
         </p>
 
-        <div 
+        <div
           className={`grid grid-cols-1 md:grid-cols-3 gap-6 mb-10 transition-transform duration-500 ${isSwiping ? 'scale-95' : 'scale-100'}`}
-          style={{ 
+          style={{
             touchAction: 'pan-y',
             userSelect: 'none',
           }}
@@ -635,7 +634,7 @@ export default function HeroBenefitsSection() {
           {currentTestimonials.map((t, idx) => (
             <div
               key={`${page}-${idx}`}
-              className={`bg-gray-800/60 border border-gray-700/50 rounded-2xl shadow-lg px-6 py-8 flex flex-col items-center h-full min-h-[280px] transition-all duration-500 hover:-translate-y-2 hover:shadow-xl hover:border-blue-500/50 backdrop-blur-sm ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+              className={`bg-gray-800/60 border border-[rgba(255,255,255,0.1)]/50 rounded-2xl shadow-lg px-6 py-8 flex flex-col items-center h-full min-h-[280px] transition-all duration-500 hover:-translate-y-2 hover:shadow-xl hover:border-blue-500/50 backdrop-blur-sm ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
               style={{ transitionDelay: `${200 + idx * 100}ms` }}
             >
               <div className="flex items-center mb-4">
@@ -649,7 +648,7 @@ export default function HeroBenefitsSection() {
                 />
                 <div className="text-left">
                   <div className="text-base font-bold text-white">
-                    {t.name} <span className="text-sm text-blue-400 font-normal ml-1">{t.country}</span>
+                    {t.name} <span className="text-sm text-[var(--primary-purple-light)] font-normal ml-1">{t.country}</span>
                   </div>
                 </div>
               </div>
@@ -676,11 +675,10 @@ export default function HeroBenefitsSection() {
             {Array.from({ length: totalPages }).map((_, idx) => (
               <button
                 key={idx}
-                className={`h-2 rounded-full transition-all duration-300 ${
-                  page === idx 
-                    ? 'bg-blue-500 w-8 scale-110' 
-                    : 'bg-gray-600 hover:bg-blue-400 w-2'
-                }`}
+                className={`h-2 rounded-full transition-all duration-300 ${page === idx
+                  ? 'bg-blue-500 w-8 scale-110'
+                  : 'bg-gray-600 hover:bg-blue-400 w-2'
+                  }`}
                 onClick={() => setPage(idx)}
                 aria-label={`Ver página ${idx + 1}`}
               />
@@ -710,33 +708,33 @@ export default function HeroBenefitsSection() {
 
       {/* FAQ */}
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-16 pb-24">
-        <h2 
+        <h2
           className={`text-4xl sm:text-5xl font-extrabold text-white mb-4 transition-all duration-1000 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
         >
           Perguntas Frequentes
         </h2>
-        <p 
-          className={`text-gray-400 mb-10 text-lg transition-all duration-1000 delay-100 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
+        <p
+          className={`text-[var(--text-secondary)] mb-10 text-lg transition-all duration-1000 delay-100 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
         >
           Dúvidas rápidas? Veja abaixo ou acesse nossa{' '}
-          <a 
-            href="https://pixelohost.tawk.help/" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="text-blue-400 underline hover:text-blue-300 transition-colors"
+          <a
+            href="https://pixelohost.tawk.help/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[var(--primary-purple-light)] underline hover:text-blue-300 transition-colors"
           >
             Central de Ajuda
           </a>.
         </p>
         <div className="space-y-3 text-left">
           {faqs.map((faq, idx) => (
-            <div 
-              key={idx} 
-              className={`bg-gray-800/60 border border-gray-700/50 rounded-xl shadow-lg overflow-hidden transition-all duration-500 hover:border-blue-500/50 backdrop-blur-sm ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
+            <div
+              key={idx}
+              className={`bg-gray-800/60 border border-[rgba(255,255,255,0.1)]/50 rounded-xl shadow-lg overflow-hidden transition-all duration-500 hover:border-blue-500/50 backdrop-blur-sm ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
               style={{ transitionDelay: `${200 + idx * 50}ms` }}
             >
               <button
-                className="w-full flex items-center justify-between text-left px-6 py-4 text-base font-semibold text-white hover:text-blue-400 focus:outline-none transition-colors"
+                className="w-full flex items-center justify-between text-left px-6 py-4 text-base font-semibold text-white hover:text-[var(--primary-purple-light)] focus:outline-none transition-colors"
                 onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
                 aria-expanded={openFaq === idx}
               >
@@ -744,12 +742,11 @@ export default function HeroBenefitsSection() {
                 <ChevronDown className={`h-5 w-5 ml-4 transition-transform duration-300 flex-shrink-0 ${openFaq === idx ? 'rotate-180' : ''}`} />
               </button>
               <div
-                className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                  openFaq === idx ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-                }`}
+                className={`overflow-hidden transition-all duration-300 ease-in-out ${openFaq === idx ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+                  }`}
               >
                 <div className="px-6 pb-4">
-                  <p className="text-gray-300 leading-relaxed">{faq.answer}</p>
+                  <p className="text-[var(--text-secondary)] leading-relaxed">{faq.answer}</p>
                 </div>
               </div>
             </div>

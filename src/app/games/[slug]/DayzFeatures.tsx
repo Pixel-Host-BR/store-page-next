@@ -135,7 +135,7 @@ export default function DayzFeatures() {
 
   /* -------- markup -------- */
   return (
-    <section className="relative bg-gradient-to-b from-gray-900 to-gray-800 py-20 overflow-hidden">
+    <section className="relative bg-[var(--bg-deep)] py-20 overflow-hidden">
       {/* efeito de background */}
       <div className="absolute inset-0 opacity-20 pointer-events-none">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(239,68,68,0.1),transparent_50%)]" />
@@ -179,7 +179,7 @@ export default function DayzFeatures() {
             </span>
           </h2>
 
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-[var(--text-secondary)] max-w-3xl mx-auto leading-relaxed">
             Performance, segurança e suporte para a experiência de sobrevivência
             mais imersiva.
           </p>
@@ -194,7 +194,7 @@ export default function DayzFeatures() {
               : 'opacity-0 -translate-x-8'
               }`}
           >
-            <div className="relative bg-gradient-to-br from-gray-800/90 to-gray-900/90 backdrop-blur-xl rounded-3xl border border-gray-700/50 p-8 shadow-2xl">
+            <div className="relative bg-gradient-to-br from-gray-800/90 to-gray-900/90 backdrop-blur-xl rounded-3xl border border-[rgba(255,255,255,0.1)]/50 p-8 shadow-2xl">
               <div key={activeFeature} className="animate-fadeIn">
                 <div className="flex items-center space-x-4 mb-6">
                   <div
@@ -211,14 +211,14 @@ export default function DayzFeatures() {
                       <span className="text-2xl font-bold text-rose-400">
                         {mainFeatures[activeFeature].stats.value}
                       </span>
-                      <span className="text-sm text-gray-400">
+                      <span className="text-sm text-[var(--text-secondary)]">
                         {mainFeatures[activeFeature].stats.label}
                       </span>
                     </div>
                   </div>
                 </div>
 
-                <p className="text-gray-300 text-lg leading-relaxed mb-6">
+                <p className="text-[var(--text-secondary)] text-lg leading-relaxed mb-6">
                   {mainFeatures[activeFeature].description}
                 </p>
 
@@ -226,7 +226,7 @@ export default function DayzFeatures() {
                   {mainFeatures[activeFeature].details.map((d, idx) => (
                     <div
                       key={idx}
-                      className="flex items-center space-x-2 text-sm text-gray-300"
+                      className="flex items-center space-x-2 text-sm text-[var(--text-secondary)]"
                     >
                       <CheckCircle2 className="h-4 w-4 text-rose-400 flex-shrink-0" />
                       <span>{d}</span>
@@ -248,7 +248,7 @@ export default function DayzFeatures() {
                     onClick={() => setActiveFeature(idx)}
                     className={`w-3 h-3 rounded-full transition-all duration-300 ${idx === activeFeature
                       ? 'bg-rose-500 scale-125 shadow-lg shadow-rose-500/50'
-                      : 'bg-gray-600 hover:bg-gray-500'
+                      : 'bg-[var(--bg-surface)] hover:bg-gray-500'
                       }`}
                   />
                 ))}
@@ -270,14 +270,14 @@ export default function DayzFeatures() {
                   onClick={() => setActiveFeature(idx)}
                   className={`w-full text-left p-6 rounded-2xl border transition-all duration-300 ${idx === activeFeature
                     ? 'bg-gradient-to-r from-rose-500/10 to-red-600/10 border-rose-500/30 shadow-lg shadow-rose-500/10'
-                    : 'bg-gray-800/30 border-gray-700/50 hover:border-gray-600/50 hover:bg-gray-800/50'
+                    : 'bg-[var(--bg-surface)]/30 border-[rgba(255,255,255,0.1)]/50 hover:border-gray-600/50 hover:bg-[var(--bg-surface)]/50'
                     }`}
                 >
                   <div className="flex items-center space-x-4">
                     <div
                       className={`w-12 h-12 rounded-xl flex items-center justify-center ${idx === activeFeature
                         ? `bg-gradient-to-br ${f.gradient} text-white`
-                        : 'bg-gray-700 text-gray-400'
+                        : 'bg-gray-700 text-[var(--text-secondary)]'
                         }`}
                     >
                       {f.icon}
@@ -286,12 +286,12 @@ export default function DayzFeatures() {
                       <h4
                         className={`font-semibold ${idx === activeFeature
                           ? 'text-white'
-                          : 'text-gray-300'
+                          : 'text-[var(--text-secondary)]'
                           }`}
                       >
                         {f.title}
                       </h4>
-                      <p className="text-sm text-gray-400 mt-1">{f.description}</p>
+                      <p className="text-sm text-[var(--text-secondary)] mt-1">{f.description}</p>
                     </div>
                     {idx === activeFeature && (
                       <Play className="h-5 w-5 text-rose-400 animate-pulse" />
@@ -312,7 +312,7 @@ export default function DayzFeatures() {
             <h3 className="text-3xl font-bold text-white mb-4">
               E muito mais incluído em todos os planos
             </h3>
-            <p className="text-gray-400 max-w-2xl mx-auto">
+            <p className="text-[var(--text-secondary)] max-w-2xl mx-auto">
               Extras que fazem a diferença na sua jornada de sobrevivência
             </p>
           </div>
@@ -321,7 +321,7 @@ export default function DayzFeatures() {
             {additionalFeatures.map((a, idx) => (
               <div
                 key={idx}
-                className="group bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-6 hover:border-rose-500/30 hover:shadow-lg hover:shadow-rose-500/10 transition-all duration-300 hover:-translate-y-1"
+                className="group bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm border border-[rgba(255,255,255,0.1)]/50 rounded-2xl p-6 hover:border-rose-500/30 hover:shadow-lg hover:shadow-rose-500/10 transition-all duration-300 hover:-translate-y-1"
               >
                 <div className="flex items-start space-x-4">
                   <div className="w-10 h-10 bg-gradient-to-br from-rose-500/20 to-red-600/20 rounded-xl flex items-center justify-center text-rose-400 group-hover:from-rose-500/30 group-hover:to-red-600/30 transition-all duration-300">
@@ -331,7 +331,7 @@ export default function DayzFeatures() {
                     <h4 className="font-semibold text-white group-hover:text-rose-400 transition-colors">
                       {a.title}
                     </h4>
-                    <p className="text-sm text-gray-400 mt-1">{a.desc}</p>
+                    <p className="text-sm text-[var(--text-secondary)] mt-1">{a.desc}</p>
                   </div>
                 </div>
               </div>
@@ -343,7 +343,7 @@ export default function DayzFeatures() {
             <h3 className="text-3xl font-bold text-white mb-4">
               Escolha seu Plano
             </h3>
-            <p className="text-gray-400 mb-8">
+            <p className="text-[var(--text-secondary)] mb-8">
               Encontre o equilíbrio perfeito entre custo e poder!
             </p>
           </div>
@@ -352,7 +352,7 @@ export default function DayzFeatures() {
             {plans.map((p, idx) => (
               <div
                 key={p.name}
-                className={`relative flex flex-col rounded-3xl p-7 border bg-gradient-to-br shadow-lg transition-all duration-300 ${p.grad} border-gray-700 hover:scale-[1.04] hover:ring-2 hover:ring-rose-500/30`}
+                className={`relative flex flex-col rounded-3xl p-7 border bg-gradient-to-br shadow-lg transition-all duration-300 ${p.grad} border-[rgba(255,255,255,0.1)] hover:scale-[1.04] hover:ring-2 hover:ring-rose-500/30`}
               >
                 {p.badge}
                 <h4 className="text-2xl font-bold text-white mb-2">{p.name}</h4>
@@ -433,13 +433,13 @@ export default function DayzFeatures() {
           className={`text-center mt-16 transition-all duration-1000 delay-900 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}
         >
-          <div className="bg-gray-800/40 backdrop-blur-sm border border-gray-600/50 rounded-xl p-8 max-w-4xl mx-auto">
+          <div className="bg-[var(--bg-surface)]/40 backdrop-blur-sm border border-gray-600/50 rounded-xl p-8 max-w-4xl mx-auto">
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div className="text-left">
                 <h3 className="text-2xl font-bold text-white mb-2">
                   Pronto para encarar o apocalipse?
                 </h3>
-                <p className="text-gray-300">
+                <p className="text-[var(--text-secondary)]">
                   Inicie seu servidor DayZ conosco e sobreviva com performance
                   de elite.
                 </p>

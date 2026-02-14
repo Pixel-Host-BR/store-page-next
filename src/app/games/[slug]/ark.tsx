@@ -125,7 +125,7 @@ export default function ArkFeatures() {
   ]
 
   return (
-    <section className="relative bg-gradient-to-b from-gray-900 to-gray-800 py-20 overflow-hidden">
+    <section className="relative bg-[var(--bg-deep)] py-20 overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0 opacity-20 pointer-events-none">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(239,68,68,0.1),transparent_50%)]" />
@@ -160,7 +160,7 @@ export default function ArkFeatures() {
               de ARK precisa
             </span>
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-[var(--text-secondary)] max-w-3xl mx-auto leading-relaxed">
             Performance, segurança e suporte para elevar sua experiência no ARK.
           </p>
         </div>
@@ -168,7 +168,7 @@ export default function ArkFeatures() {
         {/* ----------- MAIN FEATURES ----------- */}
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
           <div className={`transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}>
-            <div className="relative bg-gradient-to-br from-gray-800/90 to-gray-900/90 backdrop-blur-xl rounded-3xl border border-gray-700/50 p-8 shadow-2xl">
+            <div className="relative bg-gradient-to-br from-gray-800/90 to-gray-900/90 backdrop-blur-xl rounded-3xl border border-[rgba(255,255,255,0.1)]/50 p-8 shadow-2xl">
               <div key={activeFeature} className="animate-fadeIn">
                 <div className="flex items-center space-x-4 mb-6">
                   <div className={`w-16 h-16 bg-gradient-to-br ${mainFeatures[activeFeature].gradient} rounded-2xl flex items-center justify-center text-white shadow-lg`}>
@@ -178,18 +178,18 @@ export default function ArkFeatures() {
                     <h3 className="text-2xl font-bold text-white">{mainFeatures[activeFeature].title}</h3>
                     <div className="flex items-center space-x-2 mt-1">
                       <span className="text-2xl font-bold text-yellow-400">{mainFeatures[activeFeature].stats.value}</span>
-                      <span className="text-sm text-gray-400">{mainFeatures[activeFeature].stats.label}</span>
+                      <span className="text-sm text-[var(--text-secondary)]">{mainFeatures[activeFeature].stats.label}</span>
                     </div>
                   </div>
                 </div>
-                <p className="text-gray-300 text-lg leading-relaxed mb-6">
+                <p className="text-[var(--text-secondary)] text-lg leading-relaxed mb-6">
                   {mainFeatures[activeFeature].description}
                 </p>
                 <div className="grid grid-cols-2 gap-3 mb-6">
                   {mainFeatures[activeFeature].details.map((detail, idx) => (
                     <div key={idx} className="flex items-center space-x-2">
                       <CheckCircle2 className="h-4 w-4 text-yellow-400 flex-shrink-0" />
-                      <span className="text-sm text-gray-300">{detail}</span>
+                      <span className="text-sm text-[var(--text-secondary)]">{detail}</span>
                     </div>
                   ))}
                 </div>
@@ -205,7 +205,7 @@ export default function ArkFeatures() {
                     onClick={() => setActiveFeature(idx)}
                     className={`w-3 h-3 rounded-full transition-all duration-300 ${idx === activeFeature
                       ? 'bg-yellow-400 scale-125 shadow-lg shadow-yellow-400/50'
-                      : 'bg-gray-600 hover:bg-gray-500'
+                      : 'bg-[var(--bg-surface)] hover:bg-gray-500'
                       }`}
                   />
                 ))}
@@ -220,21 +220,21 @@ export default function ArkFeatures() {
                   onClick={() => setActiveFeature(idx)}
                   className={`w-full text-left p-6 rounded-2xl border transition-all duration-300 ${idx === activeFeature
                     ? 'bg-gradient-to-r from-yellow-400/10 to-yellow-400/10 border-yellow-400/30 shadow-lg shadow-yellow-400/10'
-                    : 'bg-gray-800/30 border-gray-700/50 hover:border-gray-600/50 hover:bg-gray-800/50'
+                    : 'bg-[var(--bg-surface)]/30 border-[rgba(255,255,255,0.1)]/50 hover:border-gray-600/50 hover:bg-[var(--bg-surface)]/50'
                     }`}
                 >
                   <div className="flex items-center space-x-4">
                     <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${idx === activeFeature
                       ? `bg-gradient-to-br ${feature.gradient} text-white`
-                      : 'bg-gray-700 text-gray-400'
+                      : 'bg-gray-700 text-[var(--text-secondary)]'
                       }`}>
                       {feature.icon}
                     </div>
                     <div className="flex-1">
-                      <h4 className={`font-semibold ${idx === activeFeature ? 'text-white' : 'text-gray-300'}`}>
+                      <h4 className={`font-semibold ${idx === activeFeature ? 'text-white' : 'text-[var(--text-secondary)]'}`}>
                         {feature.title}
                       </h4>
-                      <p className="text-sm text-gray-400 mt-1">
+                      <p className="text-sm text-[var(--text-secondary)] mt-1">
                         {feature.description}
                       </p>
                     </div>
@@ -254,7 +254,7 @@ export default function ArkFeatures() {
             <h3 className="text-3xl font-bold text-white mb-4">
               E muito mais incluído em todos os planos
             </h3>
-            <p className="text-gray-400 max-w-2xl mx-auto">
+            <p className="text-[var(--text-secondary)] max-w-2xl mx-auto">
               Recursos adicionais que tornam a sua experiência inesquecível
             </p>
           </div>
@@ -262,7 +262,7 @@ export default function ArkFeatures() {
             {additionalFeatures.map((feature, idx) => (
               <div
                 key={idx}
-                className="group bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-6 hover:border-yellow-400/30 hover:shadow-lg hover:shadow-yellow-400/10 transition-all duration-300 hover:-translate-y-1"
+                className="group bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm border border-[rgba(255,255,255,0.1)]/50 rounded-2xl p-6 hover:border-yellow-400/30 hover:shadow-lg hover:shadow-yellow-400/10 transition-all duration-300 hover:-translate-y-1"
               >
                 <div className="flex items-start space-x-4">
                   <div className="w-10 h-10 bg-gradient-to-br from-yellow-400/20 to-yellow-500/20 rounded-xl flex items-center justify-center text-yellow-400 group-hover:from-yellow-400/30 group-hover:to-yellow-500/30 transition-all duration-300">
@@ -272,7 +272,7 @@ export default function ArkFeatures() {
                     <h4 className="font-semibold text-white group-hover:text-yellow-400 transition-colors">
                       {feature.title}
                     </h4>
-                    <p className="text-sm text-gray-400 mt-1">
+                    <p className="text-sm text-[var(--text-secondary)] mt-1">
                       {feature.desc}
                     </p>
                   </div>
@@ -284,14 +284,14 @@ export default function ArkFeatures() {
           {/* ----------- PLANS GRID ----------- */}
           <div className="text-center mt-16 mb-12">
             <h3 className="text-3xl font-bold text-white mb-4">Escolha seu Plano</h3>
-            <p className="text-gray-400 mb-8">Planos flexíveis para todos os tipos de jogadores</p>
+            <p className="text-[var(--text-secondary)] mb-8">Planos flexíveis para todos os tipos de jogadores</p>
           </div>
           <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 xl:grid-cols-5 max-w-7xl mx-auto mb-16">
             {/* Quatro planos */}
             {plans.map((plan, idx) =>
               <div key={plan.name}
                 className={`relative overflow-visible flex flex-col rounded-3xl p-7 border bg-gradient-to-br shadow-lg transition-all duration-300
-                  ${plan.grad} border-gray-700 hover:scale-[1.04] hover:ring-2 hover:ring-yellow-400/30`}
+                  ${plan.grad} border-[rgba(255,255,255,0.1)] hover:scale-[1.04] hover:ring-2 hover:ring-yellow-400/30`}
               >
                 {plan.badge}
                 <h4 className="text-2xl font-bold text-white mb-2">{plan.name}</h4>
@@ -364,11 +364,11 @@ export default function ArkFeatures() {
 
         {/* ----------- CHAMADA FINAL ----------- */}
         <div className={`text-center mt-16 transition-all duration-1000 delay-900 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <div className="bg-gray-800/40 backdrop-blur-sm border border-gray-600/50 rounded-xl p-8 max-w-4xl mx-auto">
+          <div className="bg-[var(--bg-surface)]/40 backdrop-blur-sm border border-gray-600/50 rounded-xl p-8 max-w-4xl mx-auto">
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div className="text-left">
                 <h3 className="text-2xl font-bold text-white mb-2">Pronto para conquistar o ARK?</h3>
-                <p className="text-gray-300">
+                <p className="text-[var(--text-secondary)]">
                   Configure seu servidor ARK conosco e tenha a melhor performance para sua tribo.
                 </p>
               </div>
@@ -377,7 +377,7 @@ export default function ArkFeatures() {
                   Começar Agora
                 </a>
                 {/* Exemplo comentado para futuro
-                <button className="flex-1 bg-gray-800 hover:bg-gray-700 text-white font-semibold py-3 px-6 rounded-lg border border-gray-600 hover:border-yellow-400/50 transition-all duration-300">
+                <button className="flex-1 bg-[var(--bg-surface)] hover:bg-gray-700 text-white font-semibold py-3 px-6 rounded-lg border border-gray-600 hover:border-yellow-400/50 transition-all duration-300">
                   Ver Demonstração
                 </button> */}
               </div>

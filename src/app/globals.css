@@ -1,26 +1,54 @@
 @import "tailwindcss";
 
 :root {
+  /* New Professional Palette */
+  /* Purples */
+  --primary-purple: #7649FE;
+  --primary-purple-hover: #5504DD;
+  --primary-purple-light: #9780FE;
+  --primary-purple-dark: #32018A;
+
+  /* Greens */
+  --accent-green: #8CDD04;
+  --accent-green-hover: #70B202;
+  --accent-green-glow: #CAFFA3;
+
+  /* Neutrals */
+  --bg-deep: #111113;
+  --bg-surface: #2C2B31;
+  --text-primary: #E1E0E2;
+  --text-secondary: #B9B8BD;
+
+  /* Legacy/Base overrides */
   --primary-blue: #3b82f6;
-  --primary-purple: #7c3aed;
-  --primary-purple-hover: #6d28d9;
-  --accent-green: #10b981;
-  --btn-dark: #262626;
-  --btn-dark-hover: #333333;
-  --btn-outline-border: rgba(255,255,255,0.25);
-  --btn-teal: #1e3a3a;
-  --btn-teal-border: #2d5a5a;
-  --btn-teal-text: #4ade80;
+  /* Kept for compatibility if used */
+  --btn-dark: #2C2B31;
+  --btn-dark-hover: #4C4B53;
+  --btn-outline-border: rgba(225, 224, 226, 0.25);
+
+  --btn-teal: #243E00;
+  --btn-teal-border: #3C6301;
+  --btn-teal-text: #CAFFA3;
 }
+
 .bg-grid-white\/\[0\.02\] {
-  background-image: 
-    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
 }
+
 @keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
 }
+
 .animate-float {
   animation: float 3s ease-in-out infinite;
 }
@@ -31,6 +59,7 @@
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -41,6 +70,7 @@
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -51,6 +81,7 @@
     opacity: 0;
     transform: translateX(30px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -62,6 +93,7 @@
     opacity: 0;
     transform: scale(0.95);
   }
+
   to {
     opacity: 1;
     transform: scale(1);
@@ -70,6 +102,7 @@
 
 /* Smooth transitions for reduced motion */
 @media (prefers-reduced-motion: reduce) {
+
   *,
   *::before,
   *::after {
@@ -93,21 +126,25 @@ iframe[title*="Tawk"],
 button[aria-label="Voltar para o topo"] {
   z-index: 99999 !important;
 }
+
+
 .backdrop-blur-xl {
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
 }
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #000;
     --foreground: #ededed;
   }
 }
+
 body {
-  background: 
-    radial-gradient(circle at top left, rgba(120,200,255,0.1), transparent 50%),
-    radial-gradient(circle at bottom right, rgba(255,120,200,0.1), transparent 50%),
-    linear-gradient(to bottom right, #1f2937, #111827 80%);
+  background:
+    radial-gradient(circle at top left, rgba(118, 73, 254, 0.15), transparent 50%),
+    radial-gradient(circle at bottom right, rgba(140, 221, 4, 0.1), transparent 50%),
+    linear-gradient(to bottom right, #111113, #0E1D00 120%);
   background-attachment: fixed;
   background-size: cover;
   background-repeat: no-repeat;
@@ -115,28 +152,29 @@ body {
   max-width: 100vw;
   overflow-x: hidden;
 }
+
 ::selection {
-  color: white;
-  background-color: #5e34e0;
+  color: #111113;
+  background-color: var(--accent-green);
 }
+
 html ::-webkit-scrollbar {
   width: 10px;
 }
 
 html ::-webkit-scrollbar-thumb {
   border-radius: 50px;
-  background: #5e34e0;
+  background: var(--primary-purple);
 }
 
 html ::-webkit-scrollbar-track {
-  background: 
-    radial-gradient(circle at top left, rgba(120,200,255,0.1), transparent 50%),
-    radial-gradient(circle at bottom right, rgba(255,120,200,0.1), transparent 50%),
-    linear-gradient(to bottom right, #1f2937, #111827 80%);
-    
+  background: var(--bg-deep);
+
 }
-html, body {
-  background: #181826 !important;
+
+html,
+body {
+  background: var(--bg-deep) !important;
   min-height: 100vh;
   touch-action: manipulation;
   -webkit-touch-callout: none;
@@ -146,6 +184,7 @@ nav,
 section {
   background: transparent !important;
 }
+
 .bg-site {
   background-color: transparent !important;
 }
@@ -178,6 +217,7 @@ section {
   text-decoration: none;
   cursor: pointer;
 }
+
 .btn:focus-visible,
 .btn-primary:focus-visible,
 .btn-secondary:focus-visible,
@@ -186,8 +226,15 @@ section {
   box-shadow: 0 0 0 2px #181826, 0 0 0 4px var(--primary-purple);
 }
 
-.btn-md { padding: 0.5rem 1.25rem; font-size: 0.875rem; }
-.btn-lg { padding: 0.75rem 1.5rem; font-size: 1rem; }
+.btn-md {
+  padding: 0.5rem 1.25rem;
+  font-size: 0.875rem;
+}
+
+.btn-lg {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+}
 
 .btn-primary {
   color: white !important;
@@ -195,6 +242,7 @@ section {
   font-weight: 600;
   border: none;
 }
+
 .btn-primary:hover {
   background-color: var(--primary-purple-hover);
 }
@@ -204,6 +252,7 @@ section {
   background-color: var(--btn-dark);
   border: none;
 }
+
 .btn-secondary:hover {
   background-color: var(--btn-dark-hover);
 }
@@ -213,6 +262,7 @@ section {
   background-color: transparent;
   border: 1px solid rgb(107 114 128);
 }
+
 .btn-outline:hover {
   border-color: rgb(156 163 175);
   background-color: rgba(255, 255, 255, 0.05);
@@ -223,6 +273,7 @@ section {
   background-color: var(--btn-teal);
   border: 1px solid var(--btn-teal-border);
 }
+
 .btn-tertiary:hover {
   background-color: rgba(6 78 59, 0.5);
   border-color: rgb(5 150 105);
@@ -233,6 +284,7 @@ section {
   background-color: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
+
 .btn-glass:hover {
   background-color: rgba(255, 255, 255, 0.15);
 }
@@ -243,6 +295,7 @@ section {
   font-weight: 600;
   border: none;
 }
+
 .btn-purple:hover {
   background-color: var(--primary-purple-hover);
 }
@@ -252,6 +305,7 @@ section {
   background-color: transparent;
   border: none;
 }
+
 .btn-ghost:hover {
   color: white !important;
   background-color: rgba(255, 255, 255, 0.05);

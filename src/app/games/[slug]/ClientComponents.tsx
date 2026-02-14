@@ -7,7 +7,7 @@ export function PlanButton({ planName }: { planName: string }) {
   };
 
   return (
-    <button onClick={handleClick} className="bg-blue-600 text-white px-4 py-2 rounded">
+    <button onClick={handleClick} className="bg-[var(--primary-purple)] text-white px-4 py-2 rounded">
       Contratar {planName}
     </button>
   );

@@ -75,24 +75,22 @@ export default function Navbar() {
   ]
 
   return (
-    <nav 
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ease-out pointer-events-none ${
-        mounted ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'
-      }`}
+    <nav
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ease-out pointer-events-none ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'
+        }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-4">
         <div
-          className={`pointer-events-auto flex justify-between items-center h-16 px-4 sm:px-6 rounded-2xl border shadow-2xl ring-1 backdrop-blur-xl transition-all duration-500 ${
-            isScrolled
+          className={`pointer-events-auto flex justify-between items-center h-16 px-4 sm:px-6 rounded-2xl border shadow-2xl ring-1 backdrop-blur-xl transition-all duration-500 ${isScrolled
               ? 'bg-white/20 backdrop-blur-xl border-white/30 ring-white/20 shadow-xl'
               : 'bg-white/10 backdrop-blur-md border-white/20 ring-white/10'
-          }`}
+            }`}
         >
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center">
-            <Link 
-              href="/" 
-              aria-label="Ir para Home" 
+            <Link
+              href="/"
+              aria-label="Ir para Home"
               className="flex items-center space-x-2 group transition-transform duration-300 hover:scale-105"
             >
               <img
@@ -112,7 +110,7 @@ export default function Navbar() {
                 aria-label="Ir para Home"
               >
                 <span className="relative z-10">Início</span>
-                <span className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <span className="absolute inset-0 bg-gradient-to-r from-[var(--primary-purple-light)]/20 to-[var(--primary-purple)]/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </Link>
 
               {/* Games Dropdown */}
@@ -125,18 +123,16 @@ export default function Navbar() {
                   aria-label="Abrir menu de jogos"
                 >
                   <span className="relative z-10">Jogos</span>
-                  <ChevronDown 
-                    className={`h-4 w-4 transition-all duration-300 ${
-                      isGamesDropdownOpen ? 'rotate-180' : ''
-                    } group-hover:scale-110`} 
+                  <ChevronDown
+                    className={`h-4 w-4 transition-all duration-300 ${isGamesDropdownOpen ? 'rotate-180' : ''
+                      } group-hover:scale-110`}
                   />
-                  <span className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <span className="absolute inset-0 bg-gradient-to-r from-[var(--primary-purple-light)]/20 to-[var(--primary-purple)]/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </button>
                 {isGamesDropdownOpen && (
-                  <div 
-                    className={`absolute left-0 mt-3 w-80 bg-gray-800/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-gray-700/50 overflow-hidden transition-all duration-300 ${
-                      mounted ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2'
-                    }`}
+                  <div
+                    className={`absolute left-0 mt-3 w-80 bg-[var(--bg-surface)]/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-[rgba(255,255,255,0.1)]/50 overflow-hidden transition-all duration-300 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2'
+                      }`}
                     aria-label="Menu de jogos"
                   >
                     <div className="p-3">
@@ -161,7 +157,7 @@ export default function Navbar() {
                           </Link>
                         ))}
                       </div>
-                      <div className="border-t border-gray-700/50 my-3"></div>
+                      <div className="border-t border-[rgba(255,255,255,0.1)]/50 my-3"></div>
                       <div className="text-xs text-gray-400 uppercase tracking-wider mb-3 px-3 font-semibold">
                         Outros Jogos
                       </div>
@@ -191,7 +187,7 @@ export default function Navbar() {
                 aria-label="Central de Suporte"
               >
                 <span className="relative z-10">Ajuda</span>
-                <span className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <span className="absolute inset-0 bg-gradient-to-r from-[var(--primary-purple-light)]/20 to-[var(--primary-purple)]/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </Link>
 
               <Link
@@ -200,7 +196,7 @@ export default function Navbar() {
                 aria-label="Contato"
               >
                 <span className="relative z-10">Contato</span>
-                <span className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <span className="absolute inset-0 bg-gradient-to-r from-[var(--primary-purple-light)]/20 to-[var(--primary-purple)]/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </Link>
 
               {/* Uptime externo */}
@@ -212,7 +208,7 @@ export default function Navbar() {
                 rel="noopener noreferrer"
               >
                 <span className="relative z-10">Uptime</span>
-                <span className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <span className="absolute inset-0 bg-gradient-to-r from-[var(--primary-purple-light)]/20 to-[var(--primary-purple)]/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </Link>
             </div>
           </div>
@@ -222,12 +218,12 @@ export default function Navbar() {
             {/* Botão Desktop */}
             <Link
               href="https://pixelhostbr.com/login.html"
-              className="hidden sm:inline-flex items-center space-x-2 px-5 py-2.5 bg-[#7c3aed] hover:bg-[#6d28d9] text-white font-semibold rounded-lg transition-colors duration-200 group"
+              className="hidden sm:inline-flex items-center space-x-2 px-5 py-2.5 bg-[var(--primary-purple)] hover:bg-[var(--primary-purple-hover)] text-white font-semibold rounded-lg transition-colors duration-200 group"
               aria-label="Ir para o painel de controle"
-              target="_blank" 
+              target="_blank"
               rel="noopener noreferrer"
             >
-              <ArrowRightToLine className="h-4 w-4 group-hover:translate-x-1 transition-transform duration-300"/>
+              <ArrowRightToLine className="h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
               <span>Área do Cliente</span>
             </Link>
 
@@ -248,14 +244,13 @@ export default function Navbar() {
 
       {/* Mobile Navigation */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div 
-          className={`md:hidden transition-all duration-500 ease-out pointer-events-auto overflow-hidden ${
-            isMenuOpen 
-              ? 'mt-3 max-h-[600px] opacity-100' 
+        <div
+          className={`md:hidden transition-all duration-500 ease-out pointer-events-auto overflow-hidden ${isMenuOpen
+              ? 'mt-3 max-h-[600px] opacity-100'
               : 'max-h-0 opacity-0 mt-0'
-          }`}
-        > 
-          <div className="rounded-2xl bg-gray-800/95 backdrop-blur-xl border border-gray-700/50 shadow-2xl ring-1 ring-white/10 px-4 pt-4 pb-6 space-y-2">
+            }`}
+        >
+          <div className="rounded-2xl bg-[var(--bg-surface)]/95 backdrop-blur-xl border border-[rgba(255,255,255,0.1)]/50 shadow-2xl ring-1 ring-white/10 px-4 pt-4 pb-6 space-y-2">
             <Link
               href="/"
               className="flex items-center text-gray-200 hover:text-white px-4 py-3 rounded-lg text-base font-medium transition-all duration-300 hover:bg-gradient-to-r hover:from-blue-500/20 hover:to-purple-500/20 border border-transparent hover:border-blue-500/30"
@@ -322,16 +317,16 @@ export default function Navbar() {
             </Link>
 
             {/* Botão Painel Mobile */}
-            <div className="pt-4 border-t border-gray-700/50 mt-4">
+            <div className="pt-4 border-t border-[rgba(255,255,255,0.1)]/50 mt-4">
               <Link
                 href="https://pixelhostbr.com/login.html"
                 className="flex items-center justify-center space-x-2 w-full px-5 py-3 bg-[#7c3aed] hover:bg-[#6d28d9] text-white font-semibold rounded-lg transition-colors duration-200 group"
                 aria-label="Ir para o painel de controle"
-                target="_blank" 
+                target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setIsMenuOpen(false)}
               >
-                <ArrowRightToLine className="h-4 w-4 group-hover:translate-x-1 transition-transform duration-300"/>
+                <ArrowRightToLine className="h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
                 <span>Área do Cliente</span>
               </Link>
             </div>

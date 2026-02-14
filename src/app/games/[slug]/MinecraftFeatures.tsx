@@ -248,7 +248,7 @@ export default function MinecraftFeatures() {
   }
 
   return (
-    <section className="relative bg-gradient-to-b from-gray-900 to-gray-800 py-20 overflow-hidden">
+    <section className="relative bg-[var(--bg-deep)] py-20 overflow-hidden">
 
       {/* Background Effects */}
       <div className="absolute inset-0 opacity-20 pointer-events-none">
@@ -284,7 +284,7 @@ export default function MinecraftFeatures() {
               Minecraft precisa
             </span>
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-[var(--text-secondary)] max-w-3xl mx-auto leading-relaxed">
             Recursos profissionais que fazem a diferença na experiência dos seus jogadores.
           </p>
         </div>
@@ -292,7 +292,7 @@ export default function MinecraftFeatures() {
         {/* ----------- MAIN FEATURES ----------- */}
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
           <div className={`transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}>
-            <div className="relative bg-gradient-to-br from-gray-800/90 to-gray-900/90 backdrop-blur-xl rounded-3xl border border-gray-700/50 p-8 shadow-2xl">
+            <div className="relative bg-gradient-to-br from-gray-800/90 to-gray-900/90 backdrop-blur-xl rounded-3xl border border-[rgba(255,255,255,0.1)]/50 p-8 shadow-2xl">
               <div key={activeFeature} className="animate-fadeIn">
                 <div className="flex items-center space-x-4 mb-6">
                   <div className={`w-16 h-16 bg-gradient-to-br ${mainFeatures[activeFeature].gradient} rounded-2xl flex items-center justify-center text-white shadow-lg`}>
@@ -302,18 +302,18 @@ export default function MinecraftFeatures() {
                     <h3 className="text-2xl font-bold text-white">{mainFeatures[activeFeature].title}</h3>
                     <div className="flex items-center space-x-2 mt-1">
                       <span className="text-2xl font-bold text-green-400">{mainFeatures[activeFeature].stats.value}</span>
-                      <span className="text-sm text-gray-400">{mainFeatures[activeFeature].stats.label}</span>
+                      <span className="text-sm text-[var(--text-secondary)]">{mainFeatures[activeFeature].stats.label}</span>
                     </div>
                   </div>
                 </div>
-                <p className="text-gray-300 text-lg leading-relaxed mb-6">
+                <p className="text-[var(--text-secondary)] text-lg leading-relaxed mb-6">
                   {mainFeatures[activeFeature].description}
                 </p>
                 <div className="grid grid-cols-2 gap-3 mb-6">
                   {mainFeatures[activeFeature].details.map((detail, idx) => (
                     <div key={idx} className="flex items-center space-x-2">
                       <CheckCircle2 className="h-4 w-4 text-green-400 flex-shrink-0" />
-                      <span className="text-sm text-gray-300">{detail}</span>
+                      <span className="text-sm text-[var(--text-secondary)]">{detail}</span>
                     </div>
                   ))}
                 </div>
@@ -344,21 +344,21 @@ export default function MinecraftFeatures() {
                   onClick={() => setActiveFeature(idx)}
                   className={`w-full text-left p-6 rounded-2xl border transition-all duration-300 ${idx === activeFeature
                     ? 'bg-gradient-to-r from-green-500/10 to-blue-500/10 border-green-500/30 shadow-lg shadow-green-500/10'
-                    : 'bg-gray-800/30 border-gray-700/50 hover:border-gray-600/50 hover:bg-gray-800/50'
+                    : 'bg-[var(--bg-surface)]/30 border-[rgba(255,255,255,0.1)]/50 hover:border-gray-600/50 hover:bg-[var(--bg-surface)]/50'
                     }`}
                 >
                   <div className="flex items-center space-x-4">
                     <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${idx === activeFeature
                       ? `bg-gradient-to-br ${feature.gradient} text-white`
-                      : 'bg-gray-700 text-gray-400'
+                      : 'bg-gray-700 text-[var(--text-secondary)]'
                       }`}>
                       {feature.icon}
                     </div>
                     <div className="flex-1">
-                      <h4 className={`font-semibold ${idx === activeFeature ? 'text-white' : 'text-gray-300'}`}>
+                      <h4 className={`font-semibold ${idx === activeFeature ? 'text-white' : 'text-[var(--text-secondary)]'}`}>
                         {feature.title}
                       </h4>
-                      <p className="text-sm text-gray-400 mt-1">
+                      <p className="text-sm text-[var(--text-secondary)] mt-1">
                         {feature.description}
                       </p>
                     </div>
@@ -378,7 +378,7 @@ export default function MinecraftFeatures() {
             <h3 className="text-3xl font-bold text-white mb-4">
               E muito mais incluído em todos os planos
             </h3>
-            <p className="text-gray-400 max-w-2xl mx-auto">
+            <p className="text-[var(--text-secondary)] max-w-2xl mx-auto">
               Recursos adicionais que fazem a diferença na experiência dos seus jogadores
             </p>
           </div>
@@ -386,7 +386,7 @@ export default function MinecraftFeatures() {
             {additionalFeatures.map((feature, idx) => (
               <div
                 key={idx}
-                className="group bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-6 hover:border-green-500/30 hover:shadow-lg hover:shadow-green-500/10 transition-all duration-300 hover:-translate-y-1"
+                className="group bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm border border-[rgba(255,255,255,0.1)]/50 rounded-2xl p-6 hover:border-green-500/30 hover:shadow-lg hover:shadow-green-500/10 transition-all duration-300 hover:-translate-y-1"
               >
                 <div className="flex items-start space-x-4">
                   <div className="w-10 h-10 bg-gradient-to-br from-green-500/20 to-blue-500/20 rounded-xl flex items-center justify-center text-green-400 group-hover:from-green-500/30 group-hover:to-blue-500/30 transition-all duration-300">
@@ -396,7 +396,7 @@ export default function MinecraftFeatures() {
                     <h4 className="font-semibold text-white group-hover:text-green-400 transition-colors">
                       {feature.title}
                     </h4>
-                    <p className="text-sm text-gray-400 mt-1">
+                    <p className="text-sm text-[var(--text-secondary)] mt-1">
                       {feature.desc}
                     </p>
                   </div>
@@ -408,16 +408,16 @@ export default function MinecraftFeatures() {
           {/* ----------- PLANS GRID ----------- */}
           <div className="text-center mt-16 mb-12">
             <h3 className="text-3xl font-bold text-white mb-4">Escolha seu Plano</h3>
-            <p className="text-gray-400 mb-8">Encontre o equilíbrio perfeito entre custo e poder!</p>
+            <p className="text-[var(--text-secondary)] mb-8">Encontre o equilíbrio perfeito entre custo e poder!</p>
 
             {/* Switch para alternar entre Java e Bedrock */}
             <div className="flex items-center justify-center gap-4 mb-8">
-              <span className={`text-sm font-semibold transition-colors ${version === 'java' ? 'text-blue-400' : 'text-gray-400'}`}>
+              <span className={`text-sm font-semibold transition-colors ${version === 'java' ? 'text-[var(--primary-purple-light)]' : 'text-[var(--text-secondary)]'}`}>
                 Java
               </span>
               <button
                 onClick={() => setVersion(version === 'java' ? 'bedrock' : 'java')}
-                className={`relative inline-flex h-8 w-16 items-center rounded-full transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-offset-gray-900 ${version === 'bedrock' ? 'bg-green-600' : 'bg-blue-600'
+                className={`relative inline-flex h-8 w-16 items-center rounded-full transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-offset-gray-900 ${version === 'bedrock' ? 'bg-green-600' : 'bg-[var(--primary-purple)]'
                   }`}
               >
                 <span
@@ -425,7 +425,7 @@ export default function MinecraftFeatures() {
                     }`}
                 />
               </button>
-              <span className={`text-sm font-semibold transition-colors ${version === 'bedrock' ? 'text-green-400' : 'text-gray-400'}`}>
+              <span className={`text-sm font-semibold transition-colors ${version === 'bedrock' ? 'text-green-400' : 'text-[var(--text-secondary)]'}`}>
                 Bedrock
               </span>
             </div>
@@ -458,7 +458,7 @@ export default function MinecraftFeatures() {
                 </div>
                 <h4 className="text-2xl font-bold text-white mb-2">{plan.name}</h4>
                 <div className="mb-2">
-                  <div className={`text-3xl font-extrabold transition-colors duration-300 whitespace-nowrap ${version === 'bedrock' ? 'text-green-400' : 'text-blue-400'
+                  <div className={`text-3xl font-extrabold transition-colors duration-300 whitespace-nowrap ${version === 'bedrock' ? 'text-green-400' : 'text-[var(--primary-purple-light)]'
                     }`}>
                     R$ {plan.price}
                   </div>
@@ -467,7 +467,7 @@ export default function MinecraftFeatures() {
                 <ul className="flex-1 space-y-2 mb-6 mt-2">
                   {plan.features.map((f, i) => (
                     <li key={i} className="flex items-center space-x-2">
-                      <CheckCircle2 className={`h-5 w-5 flex-shrink-0 transition-colors duration-300 ${version === 'bedrock' ? 'text-green-400' : 'text-blue-400'
+                      <CheckCircle2 className={`h-5 w-5 flex-shrink-0 transition-colors duration-300 ${version === 'bedrock' ? 'text-green-400' : 'text-[var(--primary-purple-light)]'
                         }`} />
                       <span className="text-base text-gray-200">{f}</span>
                     </li>
@@ -528,13 +528,13 @@ export default function MinecraftFeatures() {
                 Plano personalizado
               </span>
               <h4 className="text-2xl font-bold text-white mb-2">Personalize</h4>
-              <div className={`text-4xl font-extrabold mb-2 transition-colors duration-300 ${version === 'bedrock' ? 'text-green-400' : 'text-blue-400'
+              <div className={`text-4xl font-extrabold mb-2 transition-colors duration-300 ${version === 'bedrock' ? 'text-green-400' : 'text-[var(--primary-purple-light)]'
                 }`}>
                 Sob consulta
               </div>
               <p className="text-base text-gray-200 mb-6 mt-2">
                 Nenhum dos planos atende sua necessidade?<br />
-                <span className={`font-bold transition-colors duration-300 ${version === 'bedrock' ? 'text-green-400' : 'text-blue-400'
+                <span className={`font-bold transition-colors duration-300 ${version === 'bedrock' ? 'text-green-400' : 'text-[var(--primary-purple-light)]'
                   }`}>
                   Crie o seu plano!
                 </span>
@@ -553,20 +553,20 @@ export default function MinecraftFeatures() {
         </div>
 
         {/* ----------- RECOMENDAÇÕES DE PLANOS ----------- */}
-        <section className="max-w-3xl mx-auto p-6 my-12 bg-gradient-to-b from-gray-900 to-gray-800 rounded-3xl border border-gray-700/40 shadow-lg">
+        <section className="max-w-3xl mx-auto p-6 my-12 bg-gradient-to-b from-gray-900 to-gray-800 rounded-3xl border border-[rgba(255,255,255,0.1)]/40 shadow-lg">
           <h2 className="text-2xl sm:text-3xl font-extrabold text-white text-center mb-1">Qual plano é ideal para você?</h2>
-          <p className="text-gray-400 text-center mb-8">
+          <p className="text-[var(--text-secondary)] text-center mb-8">
             O tamanho ideal do servidor depende do tipo de uso. Confira nossas recomendações:
           </p>
 
           {/* Botões de alternância */}
           <div className="flex justify-center mb-8">
-            <div className="bg-gray-800/50 rounded-xl p-1 border border-gray-700/50">
+            <div className="bg-[var(--bg-surface)]/50 rounded-xl p-1 border border-[rgba(255,255,255,0.1)]/50">
               <button
                 onClick={() => setActiveConfig('mods')}
                 className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-300 ${activeConfig === 'mods'
                   ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg'
-                  : 'text-gray-400 hover:text-white hover:bg-gray-700/50'
+                  : 'text-[var(--text-secondary)] hover:text-white hover:bg-gray-700/50'
                   }`}
               >
                 Com Mods
@@ -575,7 +575,7 @@ export default function MinecraftFeatures() {
                 onClick={() => setActiveConfig('plugins')}
                 className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-300 ${activeConfig === 'plugins'
                   ? 'bg-gradient-to-r from-blue-600 to-cyan-600 text-white shadow-lg'
-                  : 'text-gray-400 hover:text-white hover:bg-gray-700/50'
+                  : 'text-[var(--text-secondary)] hover:text-white hover:bg-gray-700/50'
                   }`}
               >
                 Com Plugins
@@ -584,7 +584,7 @@ export default function MinecraftFeatures() {
                 onClick={() => setActiveConfig('vanilla')}
                 className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-300 ${activeConfig === 'vanilla'
                   ? 'bg-gradient-to-r from-green-600 to-emerald-600 text-white shadow-lg'
-                  : 'text-gray-400 hover:text-white hover:bg-gray-700/50'
+                  : 'text-[var(--text-secondary)] hover:text-white hover:bg-gray-700/50'
                   }`}
               >
                 Vanilla
@@ -594,10 +594,10 @@ export default function MinecraftFeatures() {
 
           <div className="grid gap-6">
             {configRecommendations[activeConfig].map((recommendation, idx) => (
-              <div key={idx} className="bg-gray-800/80 p-5 rounded-2xl border border-gray-700/50 flex flex-col md:flex-row items-center gap-6">
+              <div key={idx} className="bg-[var(--bg-surface)]/80 p-5 rounded-2xl border border-[rgba(255,255,255,0.1)]/50 flex flex-col md:flex-row items-center gap-6">
                 <div className="flex-1">
                   <h3 className="text-lg font-semibold text-white mb-1">{recommendation.players}</h3>
-                  <p className="text-sm text-gray-400 mb-2">{recommendation.description}</p>
+                  <p className="text-sm text-[var(--text-secondary)] mb-2">{recommendation.description}</p>
                   <span className={`text-xs rounded px-2 py-0.5 font-bold ${recommendation.color === 'purple' ? 'bg-indigo-700/50 text-indigo-100' :
                     recommendation.color === 'blue' ? 'bg-blue-700/40 text-blue-100' :
                       'bg-green-700/40 text-green-100'
@@ -614,7 +614,7 @@ export default function MinecraftFeatures() {
                     ></div>
                   </div>
                 </div>
-                <span className={`bg-gray-900 px-4 py-1.5 rounded-lg font-bold mt-4 md:mt-0 ${recommendation.color === 'purple' ? 'text-purple-300' :
+                <span className={`bg-[var(--bg-surface)] px-4 py-1.5 rounded-lg font-bold mt-4 md:mt-0 ${recommendation.color === 'purple' ? 'text-purple-300' :
                   recommendation.color === 'blue' ? 'text-blue-300' :
                     'text-green-300'
                   }`}>
@@ -627,11 +627,11 @@ export default function MinecraftFeatures() {
 
         {/* ----------- CHAMADA FINAL ----------- */}
         <div className={`text-center mt-16 transition-all duration-1000 delay-900 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <div className="bg-gray-800/40 backdrop-blur-sm border border-gray-600/50 rounded-xl p-8 max-w-4xl mx-auto">
+          <div className="bg-[var(--bg-surface)]/40 backdrop-blur-sm border border-gray-600/50 rounded-xl p-8 max-w-4xl mx-auto">
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div className="text-left">
                 <h3 className="text-2xl font-bold text-white mb-2">Pronto para começar sua jornada?</h3>
-                <p className="text-gray-300">
+                <p className="text-[var(--text-secondary)]">
                   Crie seu servidor Minecraft agora e veja a diferença que um hosting profissional faz.
                 </p>
               </div>
@@ -640,7 +640,7 @@ export default function MinecraftFeatures() {
                   Começar Agora
                 </a>
                 {/* Servidor Publico
-                 <button className="flex-1 bg-gray-800 hover:bg-gray-700 text-white font-semibold py-3 px-6 rounded-lg border border-gray-600 hover:border-green-500/50 transition-all duration-300">
+                 <button className="flex-1 bg-[var(--bg-surface)] hover:bg-gray-700 text-white font-semibold py-3 px-6 rounded-lg border border-gray-600 hover:border-green-500/50 transition-all duration-300">
                   Ver Demonstração
                 </button> */}
               </div>
