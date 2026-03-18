@@ -322,7 +322,6 @@ export default function HeroBenefitsSection() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(140,221,4,0.10),transparent_50%)] animate-pulse" style={{ animationDelay: '1s' }} />
         <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:60px_60px]" />
       </div>
-
       {/* HERO BANNER - SIMPLIFICADO E MODERNO */}
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 sm:pt-32 pb-20">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">

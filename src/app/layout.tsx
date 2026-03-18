@@ -32,7 +32,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             gtag('config', 'G-BVTZVVEJRL');
           `}
         </Script>
-        <link rel="icon" href="https://i.imgur.com/2pr5v85.png" />
+        <link rel="icon" href="https://i.imgur.com/migQYFC.png" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
         <meta name="theme-color" content="#181826" />
         <meta name="msapplication-navbutton-color" content="#181826" />
